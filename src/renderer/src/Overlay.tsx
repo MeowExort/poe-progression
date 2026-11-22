@@ -79,7 +79,7 @@ export function Overlay() {
 
       {!log.found && <p className="warning">Client.txt не найден — укажи путь в настройках.</p>}
 
-      {plan.build ? (
+      {plan.steps.length > 0 ? (
         <PlanSteps plan={plan} session={session} />
       ) : (
         <>

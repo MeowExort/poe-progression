@@ -41,6 +41,15 @@ function Part({ part }: { part: Fragment }) {
       )
     case 'dir':
       return <span className="f-dir">{ARROWS[part.index] ?? '?'}</span>
+    case 'gem':
+      return (
+        <>
+          {part.reward === 'quest' ? `Возьми в награду у ${part.npc}: ` : `Купи у ${part.npc}: `}
+          <span className={`gem g-${part.attribute}`}>{part.name}</span>
+          {part.count > 1 && ` ×${part.count}`}
+          <span className="gem-note"> — {part.note}</span>
+        </>
+      )
   }
 }
 

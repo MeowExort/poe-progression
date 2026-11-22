@@ -1,14 +1,19 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname } from 'node:path'
 import { findBuild, rankBuilds } from '@core/builds'
-import { buildRoute } from '@core/route/build'
+import { parsePobCode, PobError } from '@core/pob/parse'
+import { buildPlanRoute } from '@core/route/build'
+import { requiredGems } from '@core/route/gems'
 import { groupEnd, previousGroupStart } from '@core/route/groups'
 import { advance } from '@core/route/tracker'
 import {
   BANDITS,
   STYLES,
   type Answers,
+  type CharacterClass,
+  type GemSource,
   type PlanView,
+  type PobBuild,
   type RouteOptions,
   type RouteStep,
   type Style
@@ -17,6 +22,10 @@ import {
 interface StoredPlan {
   answers: Answers | null
   buildId: string | null
+  /** The imported Path of Building code, kept verbatim so it can be re-read after updates. */
+  pobCode: string | null
+  /** Skill sets whose gems are collected in the campaign; null means all of them. */
+  pobSets: number[] | null
   options: RouteOptions
   position: number
 }
@@ -26,13 +35,23 @@ const DEFAULT_OPTIONS: RouteOptions = { bandit: 'kill', leagueStart: true, libra
 /** The player's plan: questionnaire answers, chosen build and progress through the campaign route. */
 export class PlanStore {
   private stored: StoredPlan
+  private pob: PobBuild | null = null
   private steps: RouteStep[] = []
+  private gemSources: Record<string, GemSource> = {}
+  private libraryOnlyGems: string[] = []
 
   constructor(
     private readonly file: string | null,
     private readonly onChange: (view: PlanView) => void = () => {}
   ) {
     this.stored = file ? load(file) : emptyPlan()
+    if (this.stored.pobCode) {
+      try {
+        this.pob = parsePobCode(this.stored.pobCode)
+      } catch {
+        this.stored.pobCode = null
+      }
+    }
     this.rebuild()
     this.stored.position = clamp(this.stored.position, this.steps.length)
   }
@@ -43,10 +62,52 @@ export class PlanStore {
       answers,
       ranked: answers ? rankBuilds(answers) : [],
       build: findBuild(buildId),
+      pob: this.pob,
+      pobSets: this.selectedSets(),
+      gemSources: this.gemSources,
+      libraryOnlyGems: this.libraryOnlyGems,
+      characterClass: this.characterClass(),
       options,
       steps: this.steps,
       position
     }
+  }
+
+  /** Imports a Path of Building code. Returns an error message for the player, or null on success. */
+  importPob(code: string): string | null {
+    let pob: PobBuild
+    try {
+      pob = parsePobCode(code)
+    } catch (error) {
+      return error instanceof PobError ? error.message : 'Не удалось прочитать код Path of Building.'
+    }
+    if (!pob.className) return 'В билде не указан класс персонажа.'
+
+    const sameCharacter = this.characterClass() === pob.className
+    this.pob = pob
+    this.stored.pobCode = code.replace(/\s+/g, '')
+    this.stored.pobSets = null
+    this.stored.options = { ...this.stored.options, bandit: pob.bandit }
+    this.relocate(() => this.rebuild(), sameCharacter)
+    this.commit()
+    return null
+  }
+
+  clearPob(): void {
+    if (!this.pob) return
+    this.pob = null
+    this.stored.pobCode = null
+    this.stored.pobSets = null
+    this.relocate(() => this.rebuild(), true)
+    this.commit()
+  }
+
+  setPobSets(indexes: number[]): void {
+    if (!this.pob) return
+    const valid = [...new Set(indexes)].filter((i) => Number.isInteger(i) && i >= 0 && i < this.pob!.skillSets.length)
+    this.stored.pobSets = valid.sort((a, b) => a - b)
+    this.relocate(() => this.rebuild(), true)
+    this.commit()
   }
 
   setAnswers(answers: Answers | null): void {
@@ -58,7 +119,11 @@ export class PlanStore {
     const build = findBuild(buildId)
     if ((build?.id ?? null) === this.stored.buildId) return
     this.stored.buildId = build?.id ?? null
-    // Another build means another character: start the campaign over.
+    // Another build means another character: start the campaign over, and the imported
+    // Path of Building data belonged to the previous build.
+    this.pob = null
+    this.stored.pobCode = null
+    this.stored.pobSets = null
     this.stored.position = 0
     this.rebuild()
     this.commit()
@@ -70,16 +135,10 @@ export class PlanStore {
       leagueStart: typeof patch.leagueStart === 'boolean' ? patch.leagueStart : this.stored.options.leagueStart,
       library: typeof patch.library === 'boolean' ? patch.library : this.stored.options.library
     }
-    const current = this.steps[this.stored.position]
-    this.stored.options = options
-    this.rebuild()
-    // The step list changed under the position: stay at the same place in the story.
-    this.stored.position = current
-      ? Math.max(
-          0,
-          this.steps.findIndex((step) => step.act === current.act && step.areaId === current.areaId)
-        )
-      : clamp(this.stored.position, this.steps.length)
+    this.relocate(() => {
+      this.stored.options = options
+      this.rebuild()
+    }, true)
     this.commit()
   }
 
@@ -106,8 +165,55 @@ export class PlanStore {
     this.commit()
   }
 
+  private characterClass(): CharacterClass | null {
+    return this.pob?.className ?? findBuild(this.stored.buildId)?.class ?? null
+  }
+
+  private selectedSets(): number[] {
+    if (!this.pob) return []
+    return this.stored.pobSets ?? this.pob.skillSets.map((_, i) => i)
+  }
+
   private rebuild(): void {
-    this.steps = this.stored.buildId ? buildRoute(this.stored.options) : []
+    const characterClass = this.characterClass()
+    this.libraryOnlyGems = []
+    if (!characterClass) {
+      this.steps = []
+      this.gemSources = {}
+      return
+    }
+    const gemPlan = this.pob ? { characterClass, required: requiredGems(this.pob, this.selectedSets()) } : null
+    const route = buildPlanRoute(this.stored.options, gemPlan)
+    this.steps = route.steps
+    this.gemSources = route.gemSources
+
+    if (gemPlan && !this.stored.options.library) {
+      // Some gems are sold to this class by Siosa alone: find them by trying the route with the detour.
+      const withLibrary = buildPlanRoute({ ...this.stored.options, library: true }, gemPlan).gemSources
+      this.libraryOnlyGems = gemPlan.required
+        .filter((gem) => !route.gemSources[gem.id] && withLibrary[gem.id])
+        .map((gem) => gem.name)
+    }
+  }
+
+  /**
+   * Runs a change that rebuilds the step list, then puts the position back at the same place
+   * in the story (or at the start when the change means a different character).
+   */
+  private relocate(change: () => void, keepPlace: boolean): void {
+    const current = this.steps[this.stored.position]
+    const finished = this.steps.length > 0 && this.stored.position >= this.steps.length
+    change()
+    if (!keepPlace) {
+      this.stored.position = 0
+    } else if (finished) {
+      this.stored.position = this.steps.length
+    } else if (current) {
+      const same = this.steps.findIndex((step) => step.act === current.act && step.areaId === current.areaId)
+      this.stored.position = Math.max(0, same)
+    } else {
+      this.stored.position = 0
+    }
   }
 
   private commit(): void {
@@ -124,7 +230,7 @@ export class PlanStore {
 }
 
 function emptyPlan(): StoredPlan {
-  return { answers: null, buildId: null, options: { ...DEFAULT_OPTIONS }, position: 0 }
+  return { answers: null, buildId: null, pobCode: null, pobSets: null, options: { ...DEFAULT_OPTIONS }, position: 0 }
 }
 
 function clamp(position: number, length: number): number {
@@ -137,6 +243,8 @@ function load(file: string): StoredPlan {
     return {
       answers: raw.answers ? sanitizeAnswers(raw.answers) : null,
       buildId: findBuild(raw.buildId ?? null)?.id ?? null,
+      pobCode: typeof raw.pobCode === 'string' ? raw.pobCode : null,
+      pobSets: Array.isArray(raw.pobSets) ? raw.pobSets.filter((i) => Number.isInteger(i)) : null,
       options: { ...DEFAULT_OPTIONS, ...raw.options },
       position: typeof raw.position === 'number' ? raw.position : 0
     }

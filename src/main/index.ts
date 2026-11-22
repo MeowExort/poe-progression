@@ -158,6 +158,11 @@ function registerIpc(): void {
   ipcMain.handle(PLAN_IPC.get, () => plan?.view())
   ipcMain.handle(PLAN_IPC.setAnswers, (_event, answers: Answers | null) => plan?.setAnswers(answers))
   ipcMain.handle(PLAN_IPC.chooseBuild, (_event, buildId: string | null) => plan?.chooseBuild(buildId))
+  ipcMain.handle(PLAN_IPC.importPob, (_event, code: string) =>
+    typeof code === 'string' ? (plan?.importPob(code) ?? null) : 'Пустой код.'
+  )
+  ipcMain.handle(PLAN_IPC.clearPob, () => plan?.clearPob())
+  ipcMain.handle(PLAN_IPC.setPobSets, (_event, indexes: number[]) => plan?.setPobSets(Array.isArray(indexes) ? indexes : []))
   ipcMain.handle(PLAN_IPC.setOptions, (_event, patch: Partial<RouteOptions>) => plan?.setOptions(patch ?? {}))
   ipcMain.handle(PLAN_IPC.setPosition, (_event, position: number) => plan?.setPosition(position))
   ipcMain.handle(PLAN_IPC.moveGroup, (_event, delta: number) => plan?.moveGroup(delta))

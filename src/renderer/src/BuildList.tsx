@@ -1,5 +1,6 @@
 import type { BuildCard, PlanView, RankedBuild } from '@shared/plan'
 import { STYLE_LABELS, TRAIT_LABELS } from './labels'
+import { PobImport } from './PobImport'
 
 function Meter({ value }: { value: number }) {
   return (
@@ -78,7 +79,7 @@ export function BuildList({
   onChosen: () => void
 }) {
   const choose = (id: string): void => {
-    if (plan.build && plan.build.id !== id && plan.position > 0) {
+    if ((plan.build || plan.pob) && plan.build?.id !== id && plan.position > 0) {
       if (!window.confirm('Другой билд — это новый персонаж: прогресс по актам начнётся заново. Продолжить?')) return
     }
     void window.poe.plan.chooseBuild(id).then(onChosen)
@@ -93,6 +94,11 @@ export function BuildList({
         </p>
         <button onClick={onEditAnswers}>Изменить ответы</button>
       </div>
+      <section className="side-block own-build">
+        <h4>У меня уже есть билд</h4>
+        <p className="hint">Импортируй его из Path of Building — карточку из списка выбирать не обязательно.</p>
+        <PobImport onImported={onChosen} />
+      </section>
       <div className="cards-grid">
         {plan.ranked.map((entry, i) => (
           <Card key={entry.build.id} entry={entry} top={i < 3 && !entry.excluded} onChoose={() => choose(entry.build.id)} />

@@ -1,5 +1,6 @@
-import type { Fragment, RouteOptions, RouteStep } from '@shared/plan'
+import type { Fragment, GemSource, RouteOptions, RouteStep } from '@shared/plan'
 import { AREAS, QUESTS, ROUTE_SOURCES, START_AREA, START_TOWN, type Area } from './data'
+import { GemCollector, type GemPlan } from './gems'
 
 /**
  * Turns the route sources into a flat list of steps.
@@ -18,6 +19,14 @@ interface WalkState {
   areaId: string
   townId: string
   portalAreaId: string | null
+  /** Quests handed in on the line being parsed, with the reward offers the line names. */
+  handIns: { questId: string; offerIds: string[] }[]
+}
+
+export interface BuiltRoute {
+  steps: RouteStep[]
+  /** Where each gem of the plan is first obtained; empty without a gem plan. */
+  gemSources: Record<string, GemSource>
 }
 
 export function routeDefinitions(options: RouteOptions): Set<string> {
@@ -29,8 +38,18 @@ export function routeDefinitions(options: RouteOptions): Set<string> {
 }
 
 export function buildRoute(options: RouteOptions, sources: string[] = ROUTE_SOURCES): RouteStep[] {
+  return buildPlanRoute(options, null, sources).steps
+}
+
+/** Like `buildRoute`, plus a step for every gem of the plan at the quest that first provides it. */
+export function buildPlanRoute(
+  options: RouteOptions,
+  gemPlan: GemPlan | null,
+  sources: string[] = ROUTE_SOURCES
+): BuiltRoute {
   const definitions = routeDefinitions(options)
-  const state: WalkState = { areaId: START_AREA, townId: START_TOWN, portalAreaId: null }
+  const state: WalkState = { areaId: START_AREA, townId: START_TOWN, portalAreaId: null, handIns: [] }
+  const collector = gemPlan ? new GemCollector(gemPlan) : null
   const steps: RouteStep[] = []
   let act = 1
 
@@ -61,12 +80,15 @@ export function buildRoute(options: RouteOptions, sources: string[] = ROUTE_SOUR
       const sub = /^#sub\s*(.*)$/.exec(line)
       if (sub) {
         // Hints never move the player, so they are parsed against a throwaway state.
-        const parts = parseFragments(sub[1], { ...state })
-        if (parts.length) steps[steps.length - 1]?.subSteps.push(parts)
+        const parts = parseFragments(sub[1], { ...state, handIns: [] })
+        // A hint belongs to the route step above it, not to gem steps added after that step.
+        const owner = steps.findLast((step) => !step.parts.some((part) => part.type === 'gem'))
+        if (parts.length) owner?.subSteps.push(parts)
         continue
       }
 
       const before = state.areaId
+      state.handIns = []
       const parts = parseFragments(line, state)
       if (!parts.length) continue
       steps.push({
@@ -78,9 +100,23 @@ export function buildRoute(options: RouteOptions, sources: string[] = ROUTE_SOUR
         subSteps: [],
         arrivesAt: state.areaId !== before ? state.areaId : null
       })
+
+      for (const handIn of state.handIns) {
+        for (const gem of collector?.collect(handIn.questId, handIn.offerIds, act, steps.length) ?? []) {
+          steps.push({
+            index: steps.length,
+            act,
+            areaId: state.areaId,
+            areaName: AREAS[state.areaId]?.name ?? state.areaId,
+            parts: [gem],
+            subSteps: [],
+            arrivesAt: null
+          })
+        }
+      }
     }
   }
-  return steps
+  return { steps, gemSources: collector?.sources ?? {} }
 }
 
 /** Splits a line into text and `{fragment}` pieces; a `#` outside braces starts a comment. */
@@ -167,6 +203,7 @@ function evaluate(raw: string[], state: WalkState): Fragment | null {
       return { type: 'kill', name: arg }
     case 'quest': {
       const quest = QUESTS[arg]
+      state.handIns.push({ questId: arg, offerIds: raw.slice(2) })
       return { type: 'quest', questId: arg, name: quest?.name ?? arg }
     }
     case 'quest_text':

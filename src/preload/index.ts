@@ -27,6 +27,9 @@ const api: PoeApi = {
     },
     setAnswers: (answers) => ipcRenderer.invoke(PLAN_IPC.setAnswers, answers),
     chooseBuild: (buildId) => ipcRenderer.invoke(PLAN_IPC.chooseBuild, buildId),
+    importPob: (code) => ipcRenderer.invoke(PLAN_IPC.importPob, code),
+    clearPob: () => ipcRenderer.invoke(PLAN_IPC.clearPob),
+    setPobSets: (indexes) => ipcRenderer.invoke(PLAN_IPC.setPobSets, indexes),
     setOptions: (patch) => ipcRenderer.invoke(PLAN_IPC.setOptions, patch),
     setPosition: (position) => ipcRenderer.invoke(PLAN_IPC.setPosition, position),
     moveGroup: (delta) => ipcRenderer.invoke(PLAN_IPC.moveGroup, delta)
