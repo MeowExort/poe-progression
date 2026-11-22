@@ -78,13 +78,19 @@ function followLog(path: string): void {
   tailer?.stop()
   tailer = null
   session.reset()
-  session.patch({ log: { path, found: false, lastLineAt: null } })
+  session.patch({ log: { path, found: false, size: null, modifiedAt: null, liveLines: 0, lastLineAt: null } })
   if (!path) return
 
   const current = new LogTailer(path)
-  current.on('found', (found) => session.patch({ log: { ...session.getState().log, found } }))
+  const patchLog = (patch: Partial<SessionState['log']>): void =>
+    session.patch({ log: { ...session.getState().log, ...patch } })
+  current.on('found', (found) => patchLog({ found }))
+  current.on('stats', (stats) => patchLog(stats))
   current.on('backfill', (lines) => session.apply(parseLines(lines), false))
-  current.on('lines', (lines) => session.apply(parseLines(lines), true))
+  current.on('lines', (lines) => {
+    patchLog({ lastLineAt: Date.now() })
+    session.apply(parseLines(lines), true)
+  })
   current.start()
   tailer = current
 }
@@ -98,16 +104,28 @@ function registerIpc(): void {
   ipcMain.handle(IPC.getState, () => session.getState())
   ipcMain.handle(IPC.getConfig, () => config)
   ipcMain.handle(IPC.setConfig, (_event, patch: Partial<AppConfig>) => {
+    const logPath = typeof patch.logPath === 'string' ? patch.logPath.trim() : config.logPath
+    const logChanged = logPath !== config.logPath
     const next: AppConfig = {
-      logPath: typeof patch.logPath === 'string' ? patch.logPath.trim() : config.logPath,
+      logPath,
+      // A path the user typed or picked stays put; only "detect" switches back to automatic.
+      logPathAuto: logChanged ? false : config.logPathAuto,
       overlayHotkey: typeof patch.overlayHotkey === 'string' ? patch.overlayHotkey.trim() : config.overlayHotkey
     }
-    const logChanged = next.logPath !== config.logPath
     const hotkeyChanged = next.overlayHotkey !== config.overlayHotkey
     config = next
     saveConfig(configFile, config)
     if (logChanged) followLog(config.logPath)
     if (hotkeyChanged) applyHotkey()
+    return config
+  })
+  ipcMain.handle(IPC.detectLog, () => {
+    const detected = detectLogPath()
+    const logPath = detected ?? config.logPath
+    const logChanged = logPath !== config.logPath
+    config = { ...config, logPath, logPathAuto: true }
+    saveConfig(configFile, config)
+    if (logChanged) followLog(config.logPath)
     return config
   })
   ipcMain.handle(IPC.pickLogFile, async () => {
@@ -139,9 +157,9 @@ if (!app.requestSingleInstanceLock()) {
     await mkdir(join(userData, 'history'), { recursive: true })
 
     config = loadConfig(configFile)
-    if (!config.logPath) {
+    if (config.logPathAuto) {
       const detected = detectLogPath()
-      if (detected) {
+      if (detected && detected !== config.logPath) {
         config = { ...config, logPath: detected }
         saveConfig(configFile, config)
       }

@@ -3,6 +3,8 @@ import type { FeedEntry } from './events'
 export interface AppConfig {
   /** Absolute path to Client.txt. Empty until detected or chosen. */
   logPath: string
+  /** True while the path is picked automatically (the most recently written Client.txt found). */
+  logPathAuto: boolean
   /** Electron accelerator, e.g. "Shift+F". */
   overlayHotkey: string
 }
@@ -25,7 +27,13 @@ export interface SessionState {
   log: {
     path: string
     found: boolean
-    /** Epoch ms of the last line read from the log, null if nothing was read yet. */
+    /** File size in bytes, null while unknown. */
+    size: number | null
+    /** When the game last wrote to the file (epoch ms), null while unknown. */
+    modifiedAt: number | null
+    /** Lines read since the app started following this file. */
+    liveLines: number
+    /** When the last new line arrived (epoch ms), null if none did yet. */
     lastLineAt: number | null
   }
   hotkey: {
@@ -56,6 +64,8 @@ export interface PoeApi {
   setConfig(patch: Partial<AppConfig>): Promise<AppConfig>
   /** Opens a file dialog; resolves to the chosen path or null if cancelled. */
   pickLogFile(): Promise<string | null>
+  /** Switches back to automatic detection of Client.txt and returns the resulting config. */
+  detectLog(): Promise<AppConfig>
   toggleOverlay(): Promise<void>
 }
 
@@ -65,5 +75,6 @@ export const IPC = {
   getConfig: 'config:get',
   setConfig: 'config:set',
   pickLogFile: 'config:pick-log',
+  detectLog: 'config:detect-log',
   toggleOverlay: 'overlay:toggle'
 } as const

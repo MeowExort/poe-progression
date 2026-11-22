@@ -25,7 +25,7 @@ export class Session {
     this.onChange = options.onChange
     this.onRecord = options.onRecord
     this.state = {
-      log: { path: '', found: false, lastLineAt: null },
+      log: { path: '', found: false, size: null, modifiedAt: null, liveLines: 0, lastLineAt: null },
       hotkey: { accelerator: '', registered: false },
       overlayVisible: false,
       startedAt: this.now(),
@@ -130,7 +130,6 @@ export class Session {
       }
     }
 
-    s.log = { ...s.log, lastLineAt: this.now() }
     this.state = s
     this.onChange?.(s)
   }

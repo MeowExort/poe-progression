@@ -30,6 +30,12 @@ export function Settings({ session }: { session: SessionState }) {
     if (picked) await save({ logPath: picked })
   }
 
+  async function detect(): Promise<void> {
+    const next = await window.poe.detectLog()
+    setSaved(next)
+    setLogPath(next.logPath)
+  }
+
   return (
     <form
       className="settings"
@@ -50,9 +56,17 @@ export function Settings({ session }: { session: SessionState }) {
           <button type="button" onClick={() => void browse()}>
             Обзор…
           </button>
+          <button type="button" onClick={() => void detect()}>
+            Найти автоматически
+          </button>
         </div>
         <small className={session.log.found ? 'ok' : 'bad'}>
           {session.log.found ? 'Файл найден, читаю.' : 'Файл не найден по этому пути.'}
+        </small>
+        <small>
+          {saved.logPathAuto
+            ? 'Путь выбирается автоматически: берётся Client.txt, в который игра писала последней.'
+            : 'Путь задан вручную.'}
         </small>
       </label>
 

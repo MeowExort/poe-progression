@@ -83,6 +83,34 @@ describe('LogTailer', () => {
     expect(seen.lines).toEqual(['new'])
   })
 
+  it('reads appended data in chunks larger than one read', async () => {
+    writeFileSync(file, '')
+    const tailer = new LogTailer(file)
+    const seen = collect(tailer)
+    await tailer.poll()
+
+    const long = Array.from({ length: 5000 }, (_, i) => `line number ${i} with some padding text`)
+    appendFileSync(file, long.join('\n') + '\n')
+    await tailer.poll()
+    expect(seen.lines).toEqual(long)
+  })
+
+  it('reports size, modification time and the number of live lines', async () => {
+    writeFileSync(file, 'old\n')
+    const tailer = new LogTailer(file)
+    const stats: { size: number; liveLines: number }[] = []
+    tailer.on('stats', (s) => stats.push({ size: s.size, liveLines: s.liveLines }))
+
+    await tailer.poll()
+    await tailer.poll()
+    appendFileSync(file, 'a\nb\n')
+    await tailer.poll()
+    expect(stats).toEqual([
+      { size: 4, liveLines: 0 },
+      { size: 8, liveLines: 2 }
+    ])
+  })
+
   it('reports a missing file and picks it up once it appears', async () => {
     const tailer = new LogTailer(file)
     const seen = collect(tailer)

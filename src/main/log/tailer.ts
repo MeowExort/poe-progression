@@ -1,5 +1,5 @@
 import { EventEmitter } from 'node:events'
-import { open, stat } from 'node:fs/promises'
+import { open, type FileHandle } from 'node:fs/promises'
 
 export interface TailerOptions {
   /** How often to check the file for growth. */
@@ -15,11 +15,24 @@ interface TailerEvents {
   lines: [lines: string[]]
   /** Emitted when the file appears or disappears. */
   found: [found: boolean]
+  /** Emitted when the file's size or modification time changes, or new lines were read. */
+  stats: [stats: TailerStats]
 }
 
+export interface TailerStats {
+  size: number
+  modifiedAt: number
+  /** Lines read since tailing started, not counting the backfill. */
+  liveLines: number
+}
+
+const READ_CHUNK = 64 * 1024
+
 /**
- * Follows a growing text file by polling its size. The game keeps Client.txt open and
- * appends to it; file-watch notifications are unreliable for it, a size poll is not.
+ * Follows a growing text file by polling. The game keeps Client.txt open and appends to it,
+ * and Windows updates neither change notifications nor the size recorded in the directory
+ * until the writer flushes or closes the file. So every poll opens the file and reads from the
+ * last position until nothing more comes back, instead of trusting the reported size.
  */
 export class LogTailer extends EventEmitter<TailerEvents> {
   private readonly pollMs: number
@@ -30,6 +43,8 @@ export class LogTailer extends EventEmitter<TailerEvents> {
   private found: boolean | null = null
   private started = false
   private busy = false
+  private liveLines = 0
+  private lastStats = ''
 
   constructor(
     readonly path: string,
@@ -63,51 +78,65 @@ export class LogTailer extends EventEmitter<TailerEvents> {
   }
 
   private async step(): Promise<void> {
-    let size: number
+    let handle: FileHandle
     try {
-      size = (await stat(this.path)).size
+      handle = await open(this.path, 'r')
     } catch {
       this.setFound(false)
       return
     }
-    this.setFound(true)
-
-    if (!this.started) {
-      this.started = true
-      const from = Math.max(0, size - this.backfillBytes)
-      const chunk = await this.read(from, size)
-      this.position = size
-      const lines = this.split(chunk)
-      // The backfill window usually starts mid-line: drop that first fragment.
-      if (from > 0) lines.shift()
-      if (lines.length) this.emit('backfill', lines)
-      return
-    }
-
-    if (size < this.position) {
-      // Truncated or replaced (the game does this when the log is cleared).
-      this.position = 0
-      this.remainder = Buffer.alloc(0)
-    }
-    if (size === this.position) return
-
-    const chunk = await this.read(this.position, size)
-    this.position += chunk.length
-    const lines = this.split(chunk)
-    if (lines.length) this.emit('lines', lines)
-  }
-
-  private async read(from: number, to: number): Promise<Buffer> {
-    const length = to - from
-    if (length <= 0) return Buffer.alloc(0)
-    const handle = await open(this.path, 'r')
     try {
-      const buffer = Buffer.alloc(length)
-      const { bytesRead } = await handle.read(buffer, 0, length, from)
-      return buffer.subarray(0, bytesRead)
+      this.setFound(true)
+      const stats = await handle.stat()
+
+      if (!this.started) {
+        this.started = true
+        const from = Math.max(0, stats.size - this.backfillBytes)
+        const chunk = await this.readToEnd(handle, from)
+        this.position = from + chunk.length
+        const lines = this.split(chunk)
+        // The backfill window usually starts mid-line: drop that first fragment.
+        if (from > 0) lines.shift()
+        if (lines.length) this.emit('backfill', lines)
+        this.reportStats(this.position, stats.mtimeMs)
+        return
+      }
+
+      let chunk = await this.readToEnd(handle, this.position)
+      if (!chunk.length && stats.size < this.position) {
+        // Truncated or replaced: start over from the beginning.
+        this.position = 0
+        this.remainder = Buffer.alloc(0)
+        chunk = await this.readToEnd(handle, 0)
+      }
+      this.position += chunk.length
+      const lines = this.split(chunk)
+      this.liveLines += lines.length
+      if (lines.length) this.emit('lines', lines)
+      this.reportStats(Math.max(stats.size, this.position), stats.mtimeMs)
     } finally {
       await handle.close()
     }
+  }
+
+  private async readToEnd(handle: FileHandle, from: number): Promise<Buffer> {
+    const chunks: Buffer[] = []
+    let position = from
+    for (;;) {
+      const buffer = Buffer.alloc(READ_CHUNK)
+      const { bytesRead } = await handle.read(buffer, 0, READ_CHUNK, position)
+      if (!bytesRead) break
+      chunks.push(buffer.subarray(0, bytesRead))
+      position += bytesRead
+    }
+    return chunks.length === 1 ? chunks[0] : Buffer.concat(chunks)
+  }
+
+  private reportStats(size: number, modifiedAt: number): void {
+    const key = `${size}:${modifiedAt}:${this.liveLines}`
+    if (key === this.lastStats) return
+    this.lastStats = key
+    this.emit('stats', { size, modifiedAt, liveLines: this.liveLines })
   }
 
   /** Splits on newlines at the byte level so a multi-byte character is never cut in half. */

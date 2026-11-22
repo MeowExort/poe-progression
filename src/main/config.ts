@@ -1,9 +1,10 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, win32 } from 'node:path'
 import type { AppConfig } from '@shared/api'
 
 export const DEFAULT_CONFIG: AppConfig = {
   logPath: '',
+  logPathAuto: true,
   overlayHotkey: 'Shift+F'
 }
 
@@ -12,6 +13,8 @@ export function loadConfig(file: string): AppConfig {
     const stored = JSON.parse(readFileSync(file, 'utf8')) as Partial<AppConfig>
     return {
       logPath: typeof stored.logPath === 'string' ? stored.logPath : DEFAULT_CONFIG.logPath,
+      // Configs saved before this flag existed only ever held an auto-detected path.
+      logPathAuto: typeof stored.logPathAuto === 'boolean' ? stored.logPathAuto : true,
       overlayHotkey:
         typeof stored.overlayHotkey === 'string' && stored.overlayHotkey
           ? stored.overlayHotkey
@@ -42,7 +45,26 @@ export function candidateLogPaths(): string[] {
   return paths
 }
 
-export function detectLogPath(exists: (path: string) => boolean = existsSync): string | null {
-  if (process.platform !== 'win32') return null
-  return candidateLogPaths().find(exists) ?? null
+function modifiedAt(path: string): number | null {
+  try {
+    return statSync(path).mtimeMs
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Picks the Client.txt the game wrote to most recently. Several can exist at once
+ * (an old standalone install next to the Steam one); only the newest is the live one.
+ */
+export function detectLogPath(
+  candidates: string[] = process.platform === 'win32' ? candidateLogPaths() : [],
+  mtimeOf: (path: string) => number | null = modifiedAt
+): string | null {
+  let best: { path: string; mtime: number } | null = null
+  for (const path of candidates) {
+    const mtime = mtimeOf(path)
+    if (mtime != null && (!best || mtime > best.mtime)) best = { path, mtime }
+  }
+  return best?.path ?? null
 }

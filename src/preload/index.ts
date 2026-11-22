@@ -13,6 +13,7 @@ const api: PoeApi = {
   getConfig: () => ipcRenderer.invoke(IPC.getConfig),
   setConfig: (patch) => ipcRenderer.invoke(IPC.setConfig, patch),
   pickLogFile: () => ipcRenderer.invoke(IPC.pickLogFile),
+  detectLog: () => ipcRenderer.invoke(IPC.detectLog),
   toggleOverlay: () => ipcRenderer.invoke(IPC.toggleOverlay)
 }
 

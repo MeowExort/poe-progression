@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Feed } from './Feed'
 import { formatDuration } from './format'
 import { useNow, useSession } from './hooks'
+import { LogStatus } from './LogStatus'
 import { Settings } from './Settings'
 
 type Tab = 'feed' | 'unknown' | 'settings'
@@ -78,6 +79,8 @@ export function Dashboard() {
           </p>
         </article>
       </section>
+
+      <LogStatus log={log} />
 
       <nav className="tabs">
         {tabs.map((t) => (
