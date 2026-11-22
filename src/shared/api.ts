@@ -1,4 +1,5 @@
 import type { FeedEntry } from './events'
+import type { PlanApi } from './plan'
 
 export interface AppConfig {
   /** Absolute path to Client.txt. Empty until detected or chosen. */
@@ -67,6 +68,7 @@ export interface PoeApi {
   /** Switches back to automatic detection of Client.txt and returns the resulting config. */
   detectLog(): Promise<AppConfig>
   toggleOverlay(): Promise<void>
+  plan: PlanApi
 }
 
 export const IPC = {

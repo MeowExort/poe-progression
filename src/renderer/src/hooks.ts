@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { SessionState } from '@shared/api'
+import type { PlanView } from '@shared/plan'
 
 /** The live session state pushed from the main process; null until the first snapshot arrives. */
 export function useSession(): SessionState | null {
@@ -26,4 +27,21 @@ export function useNow(intervalMs = 1000): number {
     return () => clearInterval(timer)
   }, [intervalMs])
   return now
+}
+
+/** The plan pushed from the main process; null until the first snapshot arrives. */
+export function usePlan(): PlanView | null {
+  const [plan, setPlan] = useState<PlanView | null>(null)
+  useEffect(() => {
+    let active = true
+    void window.poe.plan.get().then((view) => {
+      if (active) setPlan((current) => current ?? view)
+    })
+    const unsubscribe = window.poe.plan.onChange(setPlan)
+    return () => {
+      active = false
+      unsubscribe()
+    }
+  }, [])
+  return plan
 }

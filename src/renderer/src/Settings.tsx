@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { AppConfig, SessionState } from '@shared/api'
+import { LogStatus } from './LogStatus'
 
 export function Settings({ session }: { session: SessionState }) {
   const [saved, setSaved] = useState<AppConfig | null>(null)
@@ -63,6 +64,7 @@ export function Settings({ session }: { session: SessionState }) {
         <small className={session.log.found ? 'ok' : 'bad'}>
           {session.log.found ? 'Файл найден, читаю.' : 'Файл не найден по этому пути.'}
         </small>
+        <LogStatus log={session.log} />
         <small>
           {saved.logPathAuto
             ? 'Путь выбирается автоматически: берётся Client.txt, в который игра писала последней.'

@@ -2,11 +2,13 @@ import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron'
 import { IPC, type AppConfig, type SessionState } from '@shared/api'
+import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
 import { detectLogPath, loadConfig, saveConfig } from './config'
 import { parseLine } from './log/parser'
 import { LogTailer } from './log/tailer'
 import { Overlay } from './overlay'
+import { PlanStore } from './plan'
 import { Session } from './session'
 
 const preload = join(__dirname, '../preload/index.js')
@@ -17,6 +19,7 @@ let historyFile: string
 let mainWindow: BrowserWindow | null = null
 let overlay: Overlay | null = null
 let tailer: LogTailer | null = null
+let plan: PlanStore | null = null
 
 const session = new Session({
   onChange: broadcast,
@@ -25,10 +28,18 @@ const session = new Session({
   }
 })
 
-function broadcast(state: SessionState): void {
+function send(channel: string, payload: unknown): void {
   for (const contents of [mainWindow?.webContents, overlay?.webContents]) {
-    if (contents && !contents.isDestroyed()) contents.send(IPC.state, state)
+    if (contents && !contents.isDestroyed()) contents.send(channel, payload)
   }
+}
+
+function broadcast(state: SessionState): void {
+  send(IPC.state, state)
+}
+
+function broadcastPlan(view: PlanView): void {
+  send(PLAN_IPC.state, view)
 }
 
 /** Loads the renderer in the given view: the dev server while developing, the built files otherwise. */
@@ -89,7 +100,11 @@ function followLog(path: string): void {
   current.on('backfill', (lines) => session.apply(parseLines(lines), false))
   current.on('lines', (lines) => {
     patchLog({ lastLineAt: Date.now() })
-    session.apply(parseLines(lines), true)
+    const events = parseLines(lines)
+    session.apply(events, true)
+    for (const event of events) {
+      if (event.type === 'area_generated') plan?.enterArea(event.areaId)
+    }
   })
   current.start()
   tailer = current
@@ -139,6 +154,13 @@ function registerIpc(): void {
     return result.canceled ? null : (result.filePaths[0] ?? null)
   })
   ipcMain.handle(IPC.toggleOverlay, () => overlay?.toggle())
+
+  ipcMain.handle(PLAN_IPC.get, () => plan?.view())
+  ipcMain.handle(PLAN_IPC.setAnswers, (_event, answers: Answers | null) => plan?.setAnswers(answers))
+  ipcMain.handle(PLAN_IPC.chooseBuild, (_event, buildId: string | null) => plan?.chooseBuild(buildId))
+  ipcMain.handle(PLAN_IPC.setOptions, (_event, patch: Partial<RouteOptions>) => plan?.setOptions(patch ?? {}))
+  ipcMain.handle(PLAN_IPC.setPosition, (_event, position: number) => plan?.setPosition(position))
+  ipcMain.handle(PLAN_IPC.moveGroup, (_event, delta: number) => plan?.moveGroup(delta))
 }
 
 if (!app.requestSingleInstanceLock()) {
@@ -164,6 +186,8 @@ if (!app.requestSingleInstanceLock()) {
         saveConfig(configFile, config)
       }
     }
+
+    plan = new PlanStore(join(userData, 'plan.json'), broadcastPlan)
 
     registerIpc()
     createMainWindow()

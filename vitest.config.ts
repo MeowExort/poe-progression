@@ -2,6 +2,12 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  resolve: { alias: { '@shared': resolve(__dirname, 'src/shared') } },
+  resolve: {
+    alias: {
+      '@shared': resolve(__dirname, 'src/shared'),
+      '@core': resolve(__dirname, 'src/core'),
+      '@data': resolve(__dirname, 'data')
+    }
+  },
   test: { include: ['test/**/*.test.ts'] }
 })

@@ -425,3 +425,398 @@ code {
   color: var(--muted);
   text-align: right;
 }
+
+/* ── Shared form bits ──────────────────────────────────────── */
+
+select {
+  font: inherit;
+  color: inherit;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+a {
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.check {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.check input {
+  margin-top: 3px;
+  accent-color: var(--accent);
+}
+
+/* ── Questionnaire ─────────────────────────────────────────── */
+
+.questionnaire {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 760px;
+  padding: 8px 0 16px;
+}
+
+.questionnaire fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.questionnaire legend {
+  padding: 0;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.questionnaire small {
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+
+.chip.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1a1408;
+  font-weight: 600;
+}
+
+.chip.off {
+  background: transparent;
+  border-color: var(--bad);
+  color: var(--bad);
+  text-decoration: line-through;
+}
+
+/* ── Build cards ───────────────────────────────────────────── */
+
+.list-head {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.list-head .hint {
+  max-width: 720px;
+  margin-top: 0;
+}
+
+.list-head button {
+  flex: none;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+.build-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.build-card.top {
+  border-color: var(--accent);
+}
+
+.build-card.excluded {
+  opacity: 0.55;
+}
+
+.build-card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.build-card p {
+  margin: 0;
+}
+
+.build-card .actions {
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.build-meta,
+.note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.note.bad {
+  color: var(--bad);
+}
+
+.traits {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 4px 16px;
+  margin: 0;
+}
+
+.traits dt {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.traits dd {
+  margin: 0;
+}
+
+.meter {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.meter i {
+  width: 14px;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.meter i.on {
+  background: var(--accent);
+}
+
+.reasons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.reasons li::before {
+  content: '+ ';
+}
+
+.reasons li.bad::before {
+  content: '− ';
+}
+
+/* ── Plan and route ────────────────────────────────────────── */
+
+.plan {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 16px;
+  height: 100%;
+  min-height: 0;
+  padding-top: 10px;
+}
+
+.plan-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.plan-side .hint {
+  margin: 0;
+  font-size: 13px;
+}
+
+.route {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 8px;
+}
+
+.acts button {
+  padding: 3px 10px;
+  font-size: 13px;
+}
+
+.acts button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.acts .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+  vertical-align: middle;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.route .steps {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.step-area {
+  margin: 12px 0 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.step {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 2px solid var(--border);
+  border-radius: 0;
+  padding: 4px 0 4px 10px;
+  line-height: 1.45;
+}
+
+button.step:hover:not(:disabled) {
+  background: var(--panel);
+}
+
+.step.done {
+  opacity: 0.45;
+}
+
+.step.current {
+  border-left-color: var(--accent);
+  background: var(--panel-2);
+}
+
+.step-subs {
+  margin: 2px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.f-area {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.f-way {
+  color: var(--level);
+}
+
+.f-kill {
+  color: var(--bad);
+  font-weight: 600;
+}
+
+.f-quest {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.f-item {
+  color: #e6c98a;
+}
+
+.f-trial {
+  color: #c59be0;
+  font-weight: 600;
+}
+
+.f-craft {
+  color: #9ad0c2;
+}
+
+.f-dir {
+  display: inline-block;
+  min-width: 1.1em;
+  text-align: center;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ── Plan in the overlay ───────────────────────────────────── */
+
+.overlay-plan {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.overlay-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.overlay-nav button {
+  padding: 0 10px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.overlay-plan .steps {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.overlay-plan .step {
+  border-left-color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.off-route {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}

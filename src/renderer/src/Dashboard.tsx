@@ -1,20 +1,22 @@
 import { useState } from 'react'
 import { Feed } from './Feed'
 import { formatDuration } from './format'
-import { useNow, useSession } from './hooks'
-import { LogStatus } from './LogStatus'
+import { useNow, usePlan, useSession } from './hooks'
+import { PlanTab } from './PlanTab'
 import { Settings } from './Settings'
 
-type Tab = 'feed' | 'unknown' | 'settings'
+type Tab = 'plan' | 'feed' | 'unknown' | 'settings'
 
 export function Dashboard() {
   const session = useSession()
   const now = useNow()
-  const [tab, setTab] = useState<Tab>('feed')
-  if (!session) return null
+  const plan = usePlan()
+  const [tab, setTab] = useState<Tab>('plan')
+  if (!session || !plan) return null
 
   const { area, character, log } = session
   const tabs: { id: Tab; label: string }[] = [
+    { id: 'plan', label: 'План' },
     { id: 'feed', label: 'Лента' },
     { id: 'unknown', label: `Нераспознанное${session.unknown.length ? ` · ${session.unknown.length}` : ''}` },
     { id: 'settings', label: 'Настройки' }
@@ -80,8 +82,6 @@ export function Dashboard() {
         </article>
       </section>
 
-      <LogStatus log={log} />
-
       <nav className="tabs">
         {tabs.map((t) => (
           <button key={t.id} className={t.id === tab ? 'active' : ''} onClick={() => setTab(t.id)}>
@@ -91,6 +91,7 @@ export function Dashboard() {
       </nav>
 
       <main className="panel">
+        {tab === 'plan' && <PlanTab plan={plan} />}
         {tab === 'feed' && (
           <Feed entries={session.feed} empty="Событий пока нет. Зайди в игру и перейди в любую зону." />
         )}

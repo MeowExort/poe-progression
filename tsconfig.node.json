@@ -9,8 +9,9 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "types": ["node"],
-    "paths": { "@shared/*": ["./src/shared/*"] }
+    "types": ["node", "vite/client"],
+    "resolveJsonModule": true,
+    "paths": { "@shared/*": ["./src/shared/*"], "@core/*": ["./src/core/*"], "@data/*": ["./data/*"] }
   },
-  "include": ["electron.vite.config.ts", "vitest.config.ts", "src/main/**/*", "src/preload/**/*", "src/shared/**/*", "test/**/*"]
+  "include": ["electron.vite.config.ts", "vitest.config.ts", "src/main/**/*", "src/core/**/*", "src/preload/**/*", "src/shared/**/*", "test/**/*"]
 }
