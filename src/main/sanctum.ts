@@ -325,6 +325,20 @@ export class SanctumService {
     this.emit()
   }
 
+  /**
+   * Forgets a finished run: it leaves the history and with it every statistic. Meant for
+   * runs that should not count, like a test run with currency taken out of the stash.
+   */
+  deleteRun(runId: number): void {
+    const run = this.runs.find((entry) => entry.id === runId)
+    if (!run || run.outcome === 'active') return
+    this.runs = this.runs.filter((entry) => entry !== run)
+    if (this.finishedRunId === runId) this.finishedRunId = null
+    this.saveRuns()
+    this.saveState()
+    this.emit()
+  }
+
   /** Resolves when every inventory reading asked for so far is done. For tests and shutdown. */
   settled(): Promise<void> {
     return this.pending

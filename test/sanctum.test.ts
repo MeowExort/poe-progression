@@ -641,6 +641,37 @@ describe('SanctumService', () => {
     expect(service.view().runs[0].floors[0].done).toBe(false)
   })
 
+  it('deletes a finished run from the history and the statistics, for good', async () => {
+    const { service } = setup([])
+    playFloor(service, 1, 0)
+    service.failActive()
+    playFloor(service, 1, 1000, 'b')
+    service.failActive()
+    await service.settled()
+    const [newer, older] = service.view().runs
+    expect(service.view().stats.allTime.runs).toBe(2)
+
+    service.deleteRun(older.id)
+    const view = service.view()
+    expect(view.runs.map((run) => run.id)).toEqual([newer.id])
+    expect(view.stats.allTime).toMatchObject({ runs: 1, failed: 1 })
+    expect(view.stats.session.runs).toBe(1)
+    expect(view.runCounts).toMatchObject({ session: 1, today: 1 })
+
+    // Unknown ids change nothing; the deletion survives a restart.
+    service.deleteRun(12345)
+    expect(service.view().runs).toHaveLength(1)
+    expect(setup([]).service.view().runs.map((run) => run.id)).toEqual([newer.id])
+  })
+
+  it('does not delete the run that is going on', () => {
+    const { service } = setup([])
+    playFloor(service, 1, 0)
+    const active = service.view().active!
+    service.deleteRun(active.run.id)
+    expect(service.view().active?.run.id).toBe(active.run.id)
+  })
+
   // ── Restarting the app in the middle of a run ──
 
   const area = (seconds: number, areaId: string, seed: string): LogEvent => ({

@@ -275,6 +275,9 @@ function registerIpc(): void {
   ipcMain.handle(SANCTUM_IPC.setOutcome, (_event, runId: number, outcome: 'completed' | 'failed') => {
     if (outcome === 'completed' || outcome === 'failed') sanctum?.setOutcome(runId, outcome)
   })
+  ipcMain.handle(SANCTUM_IPC.deleteRun, (_event, runId: number) => {
+    if (typeof runId === 'number') sanctum?.deleteRun(runId)
+  })
 }
 
 if (!app.requestSingleInstanceLock()) {

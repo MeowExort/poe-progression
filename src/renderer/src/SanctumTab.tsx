@@ -386,6 +386,7 @@ function FloorTimes({ run, liveFloor, live }: { run: RunView; liveFloor?: number
 
 function Run({ run }: { run: RunView }) {
   const won = run.outcome === 'completed'
+  const [confirming, setConfirming] = useState(false)
   return (
     <details className="method run">
       <summary>
@@ -409,6 +410,19 @@ function Run({ run }: { run: RunView }) {
         <button onClick={() => void window.poe.sanctum.setOutcome(run.id, won ? 'failed' : 'completed')}>
           {won ? 'На самом деле провален' : 'На самом деле пройден'}
         </button>
+        {confirming ? (
+          <span className="confirm">
+            <span className="bad">Удалить забег навсегда? Он пропадёт из истории и всей статистики.</span>
+            <button className="danger" onClick={() => void window.poe.sanctum.deleteRun(run.id)}>
+              Да, удалить
+            </button>
+            <button onClick={() => setConfirming(false)}>Отмена</button>
+          </span>
+        ) : (
+          <button className="quiet" onClick={() => setConfirming(true)}>
+            Удалить забег
+          </button>
+        )}
       </div>
     </details>
   )

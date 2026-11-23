@@ -177,6 +177,8 @@ export interface SanctumApi {
   dumpSiteAnswer(): Promise<string | null>
   /** Corrects how a finished run ended. */
   setOutcome(runId: number, outcome: 'completed' | 'failed'): Promise<void>
+  /** Removes a finished run from the history and from every statistic, for good. */
+  deleteRun(runId: number): Promise<void>
 }
 
 export const SANCTUM_IPC = {
@@ -188,6 +190,7 @@ export const SANCTUM_IPC = {
   newSession: 'sanctum:new-session',
   failActive: 'sanctum:fail-active',
   setOutcome: 'sanctum:set-outcome',
+  deleteRun: 'sanctum:delete-run',
   dumpSiteAnswer: 'sanctum:dump-site-answer',
   setTracked: 'sanctum:set-tracked',
   getCatalog: 'sanctum:get-catalog'

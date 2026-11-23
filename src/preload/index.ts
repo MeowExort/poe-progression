@@ -56,7 +56,8 @@ const api: PoeApi = {
     newSession: () => ipcRenderer.invoke(SANCTUM_IPC.newSession),
     failActive: () => ipcRenderer.invoke(SANCTUM_IPC.failActive),
     dumpSiteAnswer: () => ipcRenderer.invoke(SANCTUM_IPC.dumpSiteAnswer),
-    setOutcome: (runId, outcome) => ipcRenderer.invoke(SANCTUM_IPC.setOutcome, runId, outcome)
+    setOutcome: (runId, outcome) => ipcRenderer.invoke(SANCTUM_IPC.setOutcome, runId, outcome),
+    deleteRun: (runId) => ipcRenderer.invoke(SANCTUM_IPC.deleteRun, runId)
   },
   update: {
     get: () => ipcRenderer.invoke(UPDATE_IPC.get),
