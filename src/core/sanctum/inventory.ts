@@ -84,3 +84,17 @@ export function diffSnapshots(before: InventorySnapshot, after: InventorySnapsho
 export function entryCount(snapshot: InventorySnapshot): number {
   return Object.keys(snapshot.stacks).length + Object.keys(snapshot.singles).length
 }
+
+/**
+ * From the site's list of the account's characters, the name of the one that logged in last:
+ * that is the character being played. Returns null when the answer is not such a list.
+ */
+export function lastPlayedCharacter(body: unknown): string | null {
+  if (!Array.isArray(body)) return null
+  let best: { name: string; at: number } | null = null
+  for (const entry of body as { name?: unknown; lastLoginTime?: unknown }[]) {
+    if (typeof entry?.name !== 'string' || typeof entry.lastLoginTime !== 'number') continue
+    if (!best || entry.lastLoginTime > best.at) best = { name: entry.name, at: entry.lastLoginTime }
+  }
+  return best?.name ?? null
+}

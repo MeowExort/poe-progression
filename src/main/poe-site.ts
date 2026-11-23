@@ -36,7 +36,17 @@ export class PoeSite {
     this.sleep = options.sleep ?? ((ms) => new Promise((resolve) => setTimeout(resolve, ms)))
   }
 
-  async getItems(account: string, character: string, cookie: string): Promise<unknown> {
+  /** A character's equipment, inventory and gold. */
+  getItems(account: string, character: string, cookie: string): Promise<unknown> {
+    return this.get('get-items', { accountName: account, character, realm: 'pc' }, cookie)
+  }
+
+  /** Every character of the account, each with the time it last logged in. */
+  getCharacters(account: string, cookie: string): Promise<unknown> {
+    return this.get('get-characters', { accountName: account, realm: 'pc' }, cookie)
+  }
+
+  private async get(endpoint: string, params: Record<string, string>, cookie: string): Promise<unknown> {
     const wait = Math.ceil((this.blockedUntil - this.now()) / 1000)
     if (wait > 0) throw new SiteError('rate-limit', `Сайт просит подождать с запросами ещё ${wait} с.`)
 
@@ -44,10 +54,8 @@ export class PoeSite {
     if (gap > 0) await this.sleep(gap)
     this.lastRequestAt = this.now()
 
-    const url = new URL('https://www.pathofexile.com/character-window/get-items')
-    url.searchParams.set('accountName', account)
-    url.searchParams.set('character', character)
-    url.searchParams.set('realm', 'pc')
+    const url = new URL(`https://www.pathofexile.com/character-window/${endpoint}`)
+    for (const [name, value] of Object.entries(params)) url.searchParams.set(name, value)
 
     let response: Response
     try {

@@ -85,6 +85,8 @@ export interface SanctumTotals {
 export interface SanctumView {
   account: string
   character: string
+  /** True while the character is picked automatically: the one that logged in last. */
+  autoCharacter: boolean
   cookieStored: boolean
   /** False when the operating system offers no way to encrypt the cookie; it is not stored then. */
   canStoreCookie: boolean
@@ -107,7 +109,9 @@ export interface SanctumView {
 
 export interface SanctumAccess {
   account: string
+  /** Ignored while `autoCharacter` is on. */
   character: string
+  autoCharacter: boolean
   /** A new session cookie; omit to keep the stored one. */
   cookie?: string
 }

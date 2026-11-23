@@ -10,21 +10,33 @@ const number = (value: number, digits = 0): string =>
 function Access({ view, session }: { view: SanctumView; session: SessionState }) {
   const [account, setAccount] = useState(view.account)
   const [character, setCharacter] = useState(view.character)
+  const [auto, setAuto] = useState(view.autoCharacter)
   const [cookie, setCookie] = useState('')
 
-  // The log already knows the character's name: offer it instead of making the player type it.
+  // The app may have picked another character itself: show the one in use.
   useEffect(() => {
-    if (!character && session.character) setCharacter(session.character.name)
-  }, [character, session.character])
+    if (view.autoCharacter) setCharacter(view.character)
+  }, [view.autoCharacter, view.character])
 
-  const dirty = account.trim() !== view.account || character.trim() !== view.character || cookie.trim() !== ''
+  // Without automatic choice, the log's last level-up is a good first guess for the name.
+  useEffect(() => {
+    if (!auto && !character && session.character) setCharacter(session.character.name)
+  }, [auto, character, session.character])
+
+  const dirty =
+    account.trim() !== view.account ||
+    auto !== view.autoCharacter ||
+    (!auto && character.trim() !== view.character) ||
+    cookie.trim() !== ''
 
   return (
     <form
       className="side-block access"
       onSubmit={(e) => {
         e.preventDefault()
-        void window.poe.sanctum.saveAccess({ account, character, cookie: cookie || undefined }).then(() => setCookie(''))
+        void window.poe.sanctum
+          .saveAccess({ account, character, autoCharacter: auto, cookie: cookie || undefined })
+          .then(() => setCookie(''))
       }}
     >
       <h4>Доступ к инвентарю</h4>
@@ -38,7 +50,17 @@ function Access({ view, session }: { view: SanctumView; session: SessionState })
       </label>
       <label className="field">
         <span>Персонаж</span>
-        <input value={character} onChange={(e) => setCharacter(e.target.value)} spellCheck={false} />
+        <input
+          value={character}
+          onChange={(e) => setCharacter(e.target.value)}
+          disabled={auto}
+          placeholder={auto ? 'определится сам' : ''}
+          spellCheck={false}
+        />
+      </label>
+      <label className="check">
+        <input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} />
+        <span>Выбирать персонажа автоматически — того, кем заходил последним; проверяется в начале каждого забега</span>
       </label>
       <label className="field">
         <span>Cookie POESESSID</span>

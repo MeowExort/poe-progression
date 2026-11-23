@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { diffSnapshots, entryCount, toSnapshot, type InventorySnapshot } from '@core/sanctum/inventory'
+import { diffSnapshots, entryCount, lastPlayedCharacter, toSnapshot, type InventorySnapshot } from '@core/sanctum/inventory'
 import { valueLoot } from '@core/sanctum/prices'
 import { SanctumTracker, type Boundary, type TrackedRun } from '@core/sanctum/runs'
 import { computeTotals, EMPTY_LOOT, mergeLoot } from '@core/sanctum/stats'
@@ -42,6 +42,9 @@ export interface SanctumDeps {
 export class SanctumService {
   private account = ''
   private character = ''
+  private autoCharacter = true
+  /** The run for which the current character was last looked up. */
+  private characterCheckedFor: number | null = null
   private status: SanctumView['status'] = null
   private busy = false
   private snapshots: InventorySnapshot[] = []
@@ -85,9 +88,14 @@ export class SanctumService {
     }
     if (deps.file) {
       try {
-        const stored = JSON.parse(readFileSync(deps.file, 'utf8')) as { account?: unknown; character?: unknown }
+        const stored = JSON.parse(readFileSync(deps.file, 'utf8')) as {
+          account?: unknown
+          character?: unknown
+          autoCharacter?: unknown
+        }
         if (typeof stored.account === 'string') this.account = stored.account
         if (typeof stored.character === 'string') this.character = stored.character
+        if (typeof stored.autoCharacter === 'boolean') this.autoCharacter = stored.autoCharacter
       } catch {
         // No saved settings yet.
       }
@@ -99,6 +107,7 @@ export class SanctumService {
     return {
       account: this.account,
       character: this.character,
+      autoCharacter: this.autoCharacter,
       cookieStored: this.deps.secrets.has(COOKIE),
       canStoreCookie: this.deps.secrets.available,
       status: this.status,
@@ -192,13 +201,19 @@ export class SanctumService {
   /** Reads the inventory at a run boundary and books what was gained to the floor it belongs to. */
   private async readBoundary(boundary: Boundary): Promise<void> {
     const run = (): StoredRun | undefined => this.runs.find((entry) => entry.id === boundary.runId)
-    if (!this.account || !this.character || !this.deps.secrets.has(COOKIE)) {
+    const ready = this.account && this.deps.secrets.has(COOKIE) && (this.character || this.autoCharacter)
+    if (!ready) {
       const stored = run()
       if (stored) stored.lootNote = 'Лут не посчитан: не настроен доступ к инвентарю.'
       return
     }
 
     await this.sleep(BOUNDARY_DELAY_MS)
+    // The player may have switched characters since the last run: look once per run.
+    if (this.autoCharacter && this.characterCheckedFor !== boundary.runId) {
+      this.characterCheckedFor = boundary.runId
+      await this.detectCharacter()
+    }
     const snapshot = await this.request()
     const stored = run()
     if (!snapshot) {
@@ -247,18 +262,11 @@ export class SanctumService {
   /** Saves the access settings, then checks them with a real request. */
   async saveAccess(access: SanctumAccess): Promise<void> {
     const account = String(access.account ?? '').trim()
-    const character = String(access.character ?? '').trim()
-    if (account !== this.account || character !== this.character) {
-      // Snapshots of another character cannot be compared with this one's.
-      this.snapshots = []
-      this.lastLoot = null
-    }
+    this.autoCharacter = access.autoCharacter !== false
+    if (account !== this.account) this.setCharacter('')
     this.account = account
-    this.character = character
-    if (this.deps.file) {
-      mkdirSync(dirname(this.deps.file), { recursive: true })
-      writeFileSync(this.deps.file, JSON.stringify({ account, character }, null, 2))
-    }
+    if (!this.autoCharacter) this.setCharacter(String(access.character ?? '').trim())
+    this.saveAccount()
 
     if (access.cookie !== undefined && access.cookie.trim() !== '') {
       const cookie = normalizeCookie(access.cookie)
@@ -268,14 +276,60 @@ export class SanctumService {
       }
     }
 
+    if (this.autoCharacter && !(await this.detectCharacter())) return
     const snapshot = await this.request()
     if (snapshot) {
       const gold = snapshot.gold != null ? `, золото: ${snapshot.gold}` : ''
       this.done(
-        `Доступ есть: ${snapshot.characterClass ?? 'персонаж'} ${snapshot.level ?? '?'} ур., лига ${snapshot.league ?? '?'}. ` +
-          `В инвентаре позиций: ${entryCount(snapshot)}${gold}.`
+        `Доступ есть: ${this.character} — ${snapshot.characterClass ?? 'персонаж'} ${snapshot.level ?? '?'} ур., ` +
+          `лига ${snapshot.league ?? '?'}. В инвентаре позиций: ${entryCount(snapshot)}${gold}.`
       )
     }
+  }
+
+  /**
+   * Finds out which character is being played: the one that logged in last. Returns false,
+   * with the reason reported, when the site could not say.
+   */
+  private async detectCharacter(): Promise<boolean> {
+    const cookie = this.deps.secrets.get(COOKIE)
+    if (!this.account || !cookie) {
+      this.fail(this.account ? 'Нет сохранённой cookie: без неё сайт не показывает инвентарь.' : 'Укажи имя аккаунта.')
+      return false
+    }
+    try {
+      const name = lastPlayedCharacter(await this.deps.site.getCharacters(this.account, cookie))
+      if (!name) {
+        this.fail('Сайт не вернул список персонажей: проверь имя аккаунта (с #цифрами).')
+        return false
+      }
+      if (name !== this.character) {
+        this.setCharacter(name)
+        this.saveAccount()
+      }
+      return true
+    } catch (error) {
+      this.fail(error instanceof SiteError ? error.message : 'Запрос к сайту не удался.')
+      return false
+    }
+  }
+
+  private setCharacter(name: string): void {
+    if (name === this.character) return
+    this.character = name
+    // Snapshots of another character cannot be compared with this one's.
+    this.snapshots = []
+    this.lastLoot = null
+    this.runSnapshot = null
+  }
+
+  private saveAccount(): void {
+    if (!this.deps.file) return
+    mkdirSync(dirname(this.deps.file), { recursive: true })
+    writeFileSync(
+      this.deps.file,
+      JSON.stringify({ account: this.account, character: this.character, autoCharacter: this.autoCharacter }, null, 2)
+    )
   }
 
   clearCookie(): void {
@@ -324,7 +378,7 @@ export class SanctumService {
   private async request(): Promise<InventorySnapshot | null> {
     if (this.busy) return null
     if (!this.account || !this.character) {
-      this.fail('Укажи имя аккаунта и персонажа.')
+      this.fail(this.autoCharacter ? 'Не удалось определить персонажа: проверь доступ.' : 'Укажи имя аккаунта и персонажа.')
       return null
     }
     const cookie = this.deps.secrets.get(COOKIE)

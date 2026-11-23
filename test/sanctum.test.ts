@@ -2,7 +2,7 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { diffSnapshots, toSnapshot } from '../src/core/sanctum/inventory'
+import { diffSnapshots, lastPlayedCharacter, toSnapshot } from '../src/core/sanctum/inventory'
 import { parseCurrencyOverview, valueLoot } from '../src/core/sanctum/prices'
 import { normalizeCookie, PoeSite, SiteError } from '../src/main/poe-site'
 import { PriceBook } from '../src/main/prices'
@@ -61,6 +61,17 @@ describe('toSnapshot', () => {
   it('rejects answers that are not a character', () => {
     expect(toSnapshot(false, 0)).toBeNull()
     expect(toSnapshot({ error: { code: 1 } }, 0)).toBeNull()
+  })
+})
+
+describe('lastPlayedCharacter', () => {
+  it('picks the character with the latest login', () => {
+    expect(lastPlayedCharacter([{ name: 'A', lastLoginTime: 5 }, { name: 'B', lastLoginTime: 9 }, { name: 'C', lastLoginTime: 7 }])).toBe('B')
+  })
+  it('skips malformed entries and rejects answers that are not a list', () => {
+    expect(lastPlayedCharacter([{ name: 'A' }, { lastLoginTime: 9 }, { name: 'B', lastLoginTime: 1 }])).toBe('B')
+    expect(lastPlayedCharacter(false)).toBeNull()
+    expect(lastPlayedCharacter([])).toBeNull()
   })
 })
 
@@ -271,10 +282,14 @@ describe('PriceBook', () => {
 })
 
 describe('SanctumService', () => {
-  function setup(answers: unknown[], options: { encryption?: boolean } = {}) {
+  function setup(answers: unknown[], options: { encryption?: boolean; characters?: () => unknown } = {}) {
     const queue = [...answers]
+    const asked: string[] = []
     const site = new PoeSite({
-      fetch: (async () => {
+      fetch: (async (url: URL) => {
+        asked.push(`${url.pathname.split('/').pop()} ${url.searchParams.get('character') ?? ''}`.trim())
+        // The list of characters is answered separately, so the queue only holds inventories.
+        if (url.pathname.endsWith('get-characters')) return respond(options.characters?.() ?? [])
         const next = queue.shift()
         return next instanceof Response ? next : respond(next)
       }) as unknown as typeof fetch,
@@ -290,17 +305,23 @@ describe('SanctumService', () => {
       prices: new PriceBook(join(dir, 'prices.json'), (async () => respond(ninjaAnswer)) as unknown as typeof fetch),
       onChange: (view) => views.push(view.busy)
     })
-    return { service, views }
+    return { service, views, asked }
   }
 
-  const access = { account: 'Name#1234', character: 'Tester', cookie: COOKIE }
+  const access = { account: 'Name#1234', character: 'Tester', autoCharacter: false, cookie: COOKIE }
+  const autoAccess = { account: 'Name#1234', character: '', autoCharacter: true, cookie: COOKIE }
+  const roster = (latest: string) => [
+    { name: 'OldOne', lastLoginTime: 100 },
+    { name: latest, lastLoginTime: 300 },
+    { name: 'Middle', lastLoginTime: 200 }
+  ]
 
   it('saves the access settings, checks them and reports what it found', async () => {
     const { service, views } = setup([siteAnswer([stack('Chaos Orb', 5)], 42)])
     await service.saveAccess(access)
     const view = service.view()
-    expect(view).toMatchObject({ account: 'Name#1234', character: 'Tester', cookieStored: true, busy: false })
-    expect(view.status).toEqual({ ok: true, message: expect.stringMatching(/Assassin 82 ур\., лига Covens.*позиций: 1, золото: 42/) })
+    expect(view).toMatchObject({ account: 'Name#1234', character: 'Tester', autoCharacter: false, cookieStored: true, busy: false })
+    expect(view.status).toEqual({ ok: true, message: expect.stringMatching(/Tester — Assassin 82 ур\., лига Covens.*позиций: 1, золото: 42/) })
     expect(views[views.length - 1]).toBe(false)
     expect(JSON.stringify(view)).not.toContain(COOKIE)
   })
@@ -347,6 +368,48 @@ describe('SanctumService', () => {
     expect(second.service.view()).toMatchObject({ account: 'Name#1234', character: 'Tester', cookieStored: true })
     second.service.clearCookie()
     expect(second.service.view().cookieStored).toBe(false)
+  })
+
+  it('picks the character that logged in last when asked to choose automatically', async () => {
+    const { service, asked } = setup([siteAnswer([])], { characters: () => roster('Fresh') })
+    await service.saveAccess(autoAccess)
+    expect(service.view()).toMatchObject({ character: 'Fresh', autoCharacter: true, status: { ok: true } })
+    expect(asked).toEqual(['get-characters', 'get-items Fresh'])
+    // The choice is remembered, so the tab shows it right away after a restart.
+    expect(setup([]).service.view()).toMatchObject({ character: 'Fresh', autoCharacter: true })
+  })
+
+  it('explains when the site returns no characters for the account', async () => {
+    const { service } = setup([], { characters: () => false })
+    await service.saveAccess(autoAccess)
+    expect(service.view()).toMatchObject({ character: '', status: { ok: false, message: expect.stringMatching(/список персонажей/) } })
+  })
+
+  it('follows a switch to another character at the start of the next run, once per run', async () => {
+    let current = 'First'
+    const { service, asked } = setup(
+      [siteAnswer([]), siteAnswer([], 0), siteAnswer([stack('Chaos Orb', 3)], 0), siteAnswer([stack('Divine Orb', 9)], 0)],
+      { characters: () => roster(current) }
+    )
+    await service.saveAccess(autoAccess)
+    asked.length = 0
+
+    // Run one on the first character: one look-up, then inventories.
+    service.onArea(1000, 'SanctumFoyer_1_1', 'run-1')
+    service.onArea(2000, 'SanctumCellar', 'room')
+    service.onArea(3000, 'SanctumFoyer_Fellshrine', 'lobby')
+    await service.settled()
+    expect(asked).toEqual(['get-characters', 'get-items First', 'get-items First'])
+    expect(service.view().active?.run.loot.chaos).toBe(3)
+
+    // The player logs in as someone else and starts over: nine divines there are not loot.
+    current = 'Second'
+    asked.length = 0
+    service.onArea(4000, 'SanctumFoyer_1_2', 'run-2')
+    await service.settled()
+    expect(asked).toEqual(['get-characters', 'get-items Second'])
+    expect(service.view().character).toBe('Second')
+    expect(service.view().active?.run.loot).toMatchObject({ chaos: 0, lines: [] })
   })
 
   // ── Runs ──
