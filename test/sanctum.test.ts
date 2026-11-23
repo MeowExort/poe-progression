@@ -730,7 +730,7 @@ describe('SanctumService', () => {
   })
 
   it('prices a relic that dropped and adds it to the totals when the price arrives', async () => {
-    let release: (price: { pricing: 'priced'; chaos: number; note: string }) => void = () => {}
+    let release: (price: { pricing: 'priced'; chaos: number; note: string; url: string | null }) => void = () => {}
     const asked: string[][] = []
     const relics: SanctumDeps['relics'] = {
       price: (relic) => {
@@ -753,11 +753,14 @@ describe('SanctumService', () => {
     expect(waiting).toMatchObject({ chaos: 10, unpriced: 1 })
     expect(waiting.lines.find((line) => line.relic)?.relic).toMatchObject({ itemId: 'r1', pricing: 'pending' })
 
-    release({ pricing: 'priced', chaos: 1200, note: 'По 5 самым дешёвым лотам с теми же модами.' })
+    release({ pricing: 'priced', chaos: 1200, note: 'Медиана 5 самых дешёвых из 6 лотов с теми же модами.', url: 'https://www.pathofexile.com/trade/search/Covens/abc' })
     await new Promise((resolve) => setTimeout(resolve, 0))
     const priced = service.view().active!.run
     expect(priced.loot).toMatchObject({ chaos: 1210, divine: 1210 / 120, unpriced: 0 })
-    expect(priced.floors[0].loot?.lines[0]).toMatchObject({ chaos: 1200, relic: { pricing: 'priced', note: expect.stringContaining('5') } })
+    expect(priced.floors[0].loot?.lines[0]).toMatchObject({
+      chaos: 1200,
+      relic: { pricing: 'priced', note: expect.stringContaining('5'), tradeUrl: 'https://www.pathofexile.com/trade/search/Covens/abc' }
+    })
   })
 
   it('says relics are not priced when no pricer is available', async () => {

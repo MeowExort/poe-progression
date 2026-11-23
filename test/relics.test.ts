@@ -155,19 +155,27 @@ describe('relics in the loot', () => {
 const json = (body: unknown, status = 200, headers: Record<string, string> = {}): Response =>
   new Response(JSON.stringify(body), { status, headers })
 
-/** A trade site that answers searches by which stat ids are asked for. */
-function fakeTrade(offersFor: (statIds: string[], query: Record<string, any>) => { amount: number; currency: string }[]) {
+type Offer = { amount: number; currency: string }
+
+/**
+ * A trade site that answers a search by the modifier filters asked for. `offersFor` gets the
+ * filters as "id>=min" strings (or just "id") and returns every matching offer, cheapest first.
+ */
+function fakeTrade(offersFor: (filters: string[], query: Record<string, any>) => Offer[]) {
   const calls: string[] = []
-  const searches = new Map<string, { amount: number; currency: string }[]>()
+  const searches = new Map<string, Offer[]>()
   const request: TradeRequest = async (url, init) => {
     if (init.method === 'POST') {
       const { query } = JSON.parse(init.body!) as { query: Record<string, any> }
-      const ids = (query.stats[0].filters as { id: string }[]).map((filter) => filter.id)
-      calls.push(`search ${query.name ?? ids.join('+')}`)
+      const filters = (query.stats[0].filters as { id: string; value?: { min?: number } }[]).map((filter) =>
+        filter.value?.min !== undefined ? `${filter.id}>=${filter.value.min}` : filter.id
+      )
+      calls.push(`search ${query.name ?? filters.join(' + ')}`)
       const id = `q${searches.size}`
-      const offers = offersFor(ids, query)
+      const offers = offersFor(filters, query)
       searches.set(id, offers)
-      return json({ id, result: offers.map((_, i) => `${id}-${i}`), total: offers.length })
+      // Like the real site: the ids of the cheapest hundred, and the count of all.
+      return json({ id, result: offers.slice(0, 100).map((_, i) => `${id}-${i}`), total: offers.length })
     }
     const id = new URL(url).searchParams.get('query')!
     calls.push('fetch')
@@ -241,60 +249,102 @@ describe('TradeClient', () => {
 })
 
 describe('RelicPricer', () => {
-  const reveal2 = relic(['2 additional Rooms are revealed on the Sanctum Map'])
+  const chaos = (...amounts: number[]): Offer[] => amounts.map((amount) => ({ amount, currency: 'chaos' }))
+  const pricerFor = (offersFor: Parameters<typeof fakeTrade>[0]) => {
+    const trade = fakeTrade(offersFor)
+    return { trade, pricer: new RelicPricer(new TradeClient(trade.request, quick), priceBook()) }
+  }
+  const searches = (calls: string[]): string[] => calls.filter((call) => call.startsWith('search'))
 
-  it('prices a relic from offers with the same modifier', async () => {
-    const trade = fakeTrade(() => divines(5, 6, 6, 7, 9, 30))
-    const pricer = new RelicPricer(new TradeClient(trade.request, quick), priceBook())
-    expect(await pricer.price(reveal2, 'Covens')).toEqual({
+  const reveal2 = relic(['2 additional Rooms are revealed on the Sanctum Map'])
+  const QUANTITY = 'sanctum.stat_1680962389'
+
+  it('prices a relic from the offers with the same modifier, and links to that search', async () => {
+    const { trade, pricer } = pricerFor(() => divines(5, 6, 6, 7, 9, 30))
+    expect(await pricer.price(reveal2, 'SSF Covens')).toEqual({
       pricing: 'priced',
       chaos: 1200,
-      note: 'По 5 самым дешёвым лотам с теми же модами.'
+      note: 'Медиана 5 самых дешёвых из 6 лотов с теми же модами.',
+      url: 'https://www.pathofexile.com/trade/search/SSF%20Covens/q0'
     })
-    expect(trade.calls).toEqual([`search ${REVEAL}`, 'fetch'])
+    expect(trade.calls).toEqual([`search ${REVEAL}>=2`, 'fetch'])
   })
 
-  it('asks once for identical relics', async () => {
-    const trade = fakeTrade(() => divines(6, 6, 6))
-    const pricer = new RelicPricer(new TradeClient(trade.request, quick), priceBook())
-    await pricer.price(reveal2, 'Covens')
-    await pricer.price({ ...reveal2, baseType: 'Urn Relic' }, 'Covens')
-    expect(trade.calls.filter((call) => call.startsWith('search'))).toHaveLength(1)
+  it('does not take a lone overpriced offer for a price: it looks at slightly lower rolls instead', async () => {
+    // A junk modifier at a perfect roll: one seller asks 350 chaos; the same modifier a bit lower goes for 3.
+    const junk = relic(['Chests have 10% chance to drop Double Aureus Coins'])
+    const { trade, pricer } = pricerFor(([filter]) => (filter === `${CHEST_AUREUS}>=10` ? chaos(350) : chaos(2, 3, 3, 4, 5, 6, 350)))
+    const price = await pricer.price(junk, 'Covens')
+    expect(price).toMatchObject({ pricing: 'priced', chaos: 3, url: expect.stringContaining('/q1') })
+    expect(price.note).toBe('Таких же по значениям лотов мало (1), поэтому взята медиана 5 самых дешёвых из 7 лотов с теми же модами со значениями от 80%.')
+    expect(searches(trade.calls)).toEqual([`search ${CHEST_AUREUS}>=10`, `search ${CHEST_AUREUS}>=8`])
   })
 
-  it('falls back to the best single modifier when the exact set is rare', async () => {
+  it('gives no price when even similar relics are too few, and says what it saw', async () => {
+    const { pricer } = pricerFor(([filter]) => (filter === `${CHEST_AUREUS}>=10` ? chaos(350) : chaos(350, 400)))
+    expect(await pricer.price(relic(['Chests have 10% chance to drop Double Aureus Coins']), 'Covens')).toEqual({
+      pricing: 'none',
+      chaos: null,
+      note: 'Слишком мало лотов для оценки: 1, самый дешёвый — 350 c. В суммы не входит — посмотри на трейде.',
+      url: 'https://www.pathofexile.com/trade/search/Covens/q0'
+    })
+  })
+
+  it('does not loosen a small whole number into another tier', async () => {
+    // Two offers for "2 rooms" are not a market, and "1 room" relics would say nothing about them.
+    const { trade, pricer } = pricerFor(() => divines(6, 7))
+    const price = await pricer.price(reveal2, 'Covens')
+    expect(price).toMatchObject({ pricing: 'none', note: expect.stringContaining('2, самый дешёвый — 1200 c') })
+    expect(searches(trade.calls)).toEqual([`search ${REVEAL}>=2`])
+  })
+
+  it('keeps the price of a valuable modifier that has a real market at its roll', async () => {
+    const quantity = (roll: number) => relic([`${roll}% increased Quantity of Relics Dropped by Monsters`])
+    // Rolls of 24 and up sell for divines; lower rolls are worth next to nothing.
+    const { pricer } = pricerFor(([filter]) => (Number(filter.split('>=')[1]) >= 24 ? divines(2, 3, 3, 4) : chaos(1, 1, 2, 2, 3, ...Array(4).fill(600))))
+    expect(matchRelicMods(quantity(25).mods).matched[0].id).toBe(QUANTITY)
+    expect(await pricer.price(quantity(25), 'Covens')).toMatchObject({ pricing: 'priced', chaos: 600 })
+    expect(await pricer.price(quantity(10), 'Covens')).toMatchObject({ pricing: 'priced', chaos: 2 })
+  })
+
+  it('values a relic by its best modifier when the exact combination is rare', async () => {
     const two = relic(['2 additional Rooms are revealed on the Sanctum Map', 'Chests have 5% chance to drop Double Aureus Coins'])
-    const trade = fakeTrade((ids) => (ids.length === 2 ? divines(20) : ids[0] === REVEAL ? divines(5, 6, 7) : [{ amount: 3, currency: 'chaos' }]))
-    const pricer = new RelicPricer(new TradeClient(trade.request, quick), priceBook())
-    const price = await pricer.price(two, 'Covens')
-    // One offer for the pair at 20 divines is not trusted over nothing; it is still the highest here.
-    expect(price).toMatchObject({ pricing: 'priced', chaos: 4000 })
-    expect(trade.calls.filter((call) => call.startsWith('search'))).toHaveLength(3)
-  })
-
-  it('uses the single-modifier price when the exact set has no offers at all', async () => {
-    const two = relic(['2 additional Rooms are revealed on the Sanctum Map', 'Chests have 5% chance to drop Double Aureus Coins'])
-    const trade = fakeTrade((ids) => (ids.length === 2 ? [] : ids[0] === REVEAL ? divines(5, 6, 7) : []))
-    const pricer = new RelicPricer(new TradeClient(trade.request, quick), priceBook())
+    const { trade, pricer } = pricerFor((filters) =>
+      filters.length === 2 ? divines(20) : filters[0].startsWith(REVEAL) ? divines(5, 6, 7) : chaos(1, 2, 3, 4)
+    )
     expect(await pricer.price(two, 'Covens')).toEqual({
       pricing: 'priced',
       chaos: 1200,
-      note: 'По 3 самым дешёвым лотам с модом «2 additional Rooms are revealed on the Sanctum Map».'
+      note: 'Медиана 3 самых дешёвых из 3 лотов с модом «2 additional Rooms are revealed on the Sanctum Map».',
+      url: 'https://www.pathofexile.com/trade/search/Covens/q2'
+    })
+    // The pair at these rolls, the pair a little lower, then each modifier alone.
+    expect(searches(trade.calls)).toHaveLength(4)
+  })
+
+  it('asks once for identical relics and reuses a search shared by different relics', async () => {
+    const { trade, pricer } = pricerFor(() => divines(6, 6, 6))
+    await pricer.price(reveal2, 'Covens')
+    await pricer.price({ ...reveal2, baseType: 'Papyrus Relic' }, 'Covens')
+    expect(searches(trade.calls)).toHaveLength(1)
+  })
+
+  it('prices a unique by name from whatever offers there are', async () => {
+    const { pricer } = pricerFor((_filters, query) => (query.name === 'The Night Lamp' ? divines(1, 2) : []))
+    const lamp = relic(['The Herald of the Scourge drops an additional Forbidden Tome'], { unique: 'The Night Lamp' })
+    expect(await pricer.price(lamp, 'Covens')).toMatchObject({
+      pricing: 'priced',
+      chaos: 300,
+      note: 'Медиана 2 самых дешёвых из 2 лотов этого уника.'
     })
   })
 
-  it('searches a unique by name', async () => {
-    const trade = fakeTrade((_ids, query) => (query.name === 'The Night Lamp' ? divines(1, 1, 2) : []))
-    const pricer = new RelicPricer(new TradeClient(trade.request, quick), priceBook())
-    const lamp = relic(['The Herald of the Scourge drops an additional Forbidden Tome'], { unique: 'The Night Lamp' })
-    expect(await pricer.price(lamp, 'Covens')).toMatchObject({ pricing: 'priced', chaos: 200, note: expect.stringContaining('этого уника') })
-  })
-
   it('says so when nothing comparable is on sale or the modifiers are unknown', async () => {
-    const pricer = new RelicPricer(new TradeClient(fakeTrade(() => []).request, quick), priceBook())
+    const { pricer } = pricerFor(() => [])
     expect(await pricer.price(reveal2, 'Covens')).toMatchObject({ pricing: 'none', note: 'Похожих лотов на трейде нет.' })
     expect(await pricer.price(relic(['A modifier from the future']), 'Covens')).toMatchObject({
       pricing: 'none',
+      url: null,
       note: expect.stringContaining('A modifier from the future')
     })
   })

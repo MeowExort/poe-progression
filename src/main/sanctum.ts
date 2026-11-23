@@ -342,6 +342,7 @@ export class SanctumService {
         target.chaos = price.chaos
         target.relic.pricing = price.pricing
         target.relic.note = price.note
+        target.relic.tradeUrl = price.url
         run.loot[floor] = retotal(loot, this.deps.prices.peek(league)?.divineChaos ?? null)
         this.saveRuns()
         this.emit()

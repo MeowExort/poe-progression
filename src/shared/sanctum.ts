@@ -25,6 +25,8 @@ export interface RelicLine {
   pricing: 'pending' | 'priced' | 'none' | 'failed'
   /** How the price was arrived at, or why there is none; ready to show. */
   note: string | null
+  /** The trade search behind the verdict, to open in a browser. */
+  tradeUrl?: string | null
 }
 
 export interface LootValue {

@@ -209,6 +209,14 @@ export function LootTable({ loot }: { loot: LootValue }) {
                   <small className="relic-mods">
                     {line.relic.mods.join(' · ')}
                     {line.relic.note && <em> — {line.relic.note}</em>}
+                    {line.relic.tradeUrl && (
+                      <>
+                        {' '}
+                        <a href={line.relic.tradeUrl} target="_blank" rel="noreferrer" className="ref">
+                          открыть на трейде
+                        </a>
+                      </>
+                    )}
                   </small>
                 )}
               </td>
