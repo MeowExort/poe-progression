@@ -1375,25 +1375,25 @@ button.step:hover:not(:disabled) {
   height: 26px;
 }
 
-.sbar .chip {
+.sbar .orb {
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
-.sbar .chip img {
+.sbar .orb img {
   width: 24px;
   height: 24px;
   filter: drop-shadow(0 1px 2px #000);
 }
 
-.sbar .chip b {
+.sbar .orb b {
   font-size: 16px;
   font-weight: 600;
   color: #f1e6cf;
 }
 
-.sbar .chip.zero {
+.sbar .orb.zero {
   opacity: .38;
 }
 
@@ -1619,18 +1619,23 @@ button.step:hover:not(:disabled) {
   font-weight: 400;
 }
 
-/* The currency chips shrink and clip; the loot total always keeps its place in the row. */
-.sbar .lootrow .chips {
+/*
+ * The tracked currency shrinks and clips; the loot total always keeps its place in the row.
+ * These are named "orb", not "chip": the questionnaire's chips are buttons with other rules.
+ */
+.sbar .lootrow .orbs {
   flex: 1;
   min-width: 0;
+  height: 100%;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 14px;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.sbar .lootrow .chip {
+.sbar .lootrow .orb {
   flex: none;
 }
 

@@ -81,7 +81,7 @@ function Chips({ tracked, trackAll, loot }: { tracked: TrackedItem[]; trackAll: 
   return (
     <>
       {chips.map((chip) => (
-        <span key={chip.name} className={chip.count ? 'chip' : 'chip zero'} title={chip.name}>
+        <span key={chip.name} className={chip.count ? 'orb' : 'orb zero'} title={chip.name}>
           {chip.icon ? <img src={chip.icon} alt="" /> : <i className="noicon">{chip.name.slice(0, 2)}</i>}
           <b>{number(chip.count)}</b>
         </span>
@@ -157,7 +157,7 @@ export function SanctumBar({ view, now, demo }: { view: SanctumView; now: number
           </div>
           <div className="main">
             <div className="lootrow">
-              <div className="chips">
+              <div className="orbs">
                 <Chips tracked={view.tracked} trackAll={view.trackAll} loot={shown.run.loot} />
               </div>
               <span className="value">{valueText(shown.run.loot)}</span>
