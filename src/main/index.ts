@@ -18,6 +18,10 @@ import { Session } from './session'
 
 const preload = join(__dirname, '../preload/index.js')
 
+// Keep one data folder whether the app runs from source or as a packaged exe
+// (the packaged app would otherwise be named after its product name).
+app.setName('poe-progression')
+
 let config: AppConfig
 let configFile: string
 let historyFile: string
