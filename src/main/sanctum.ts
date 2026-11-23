@@ -1,7 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { diffSnapshots, entryCount, lastPlayedCharacter, toSnapshot, type InventorySnapshot } from '@core/sanctum/inventory'
-import { valueLoot } from '@core/sanctum/prices'
+import { valueLoot, type Prices } from '@core/sanctum/prices'
 import { classifyArea, SanctumTracker, type Boundary, type TrackedRun } from '@core/sanctum/runs'
 import { computeTotals, EMPTY_LOOT, mergeLoot, retotal } from '@core/sanctum/stats'
 import type { LootValue, RunView, SanctumAccess, SanctumView, TrackedItem } from '@shared/sanctum'
@@ -236,7 +236,8 @@ export class SanctumService {
   }
 
   private runsView(): Pick<SanctumView, 'sessionStartedAt' | 'runCounts' | 'runs' | 'active' | 'finished' | 'stats'> {
-    const views = this.runs.map(toRunView)
+    const prices = this.deps.prices.peek(this.league ?? FALLBACK_LEAGUE)
+    const views = this.runs.map((run) => toRunView(run, prices))
     const ended = views.filter((run) => run.outcome !== 'active')
     const live = this.tracker.active
     const activeRun = live ? views.find((run) => run.id === live.run.id) : undefined
@@ -559,9 +560,30 @@ function cleanNames(names: unknown[]): string[] {
   return [...new Set(clean.filter(Boolean))].slice(0, 40)
 }
 
-function toRunView(run: StoredRun): RunView {
-  // Runs saved before room times were recorded have none.
-  const floors = run.floors.map((floor) => ({ ...floor, roomMs: floor.roomMs ?? [], loot: run.loot[floor.floor] ?? null }))
+/**
+ * Loot recorded by earlier versions lacks what later ones store with every line: whether the
+ * item is currency, and its picture. Fill both in, so old runs count in the statistics too.
+ * Back then only currency had a price, so a priced line was currency; for the rest, being on
+ * the price list is the best evidence there is.
+ */
+function completeLoot(loot: LootValue, prices: Prices | null): LootValue {
+  if (loot.lines.every((line) => line.currency !== undefined && line.icon !== undefined)) return loot
+  return {
+    ...loot,
+    lines: loot.lines.map((line) => ({
+      ...line,
+      currency: line.currency ?? (line.chaos !== null || prices?.chaosByName[line.name] !== undefined),
+      icon: line.icon ?? prices?.icons[line.name] ?? null
+    }))
+  }
+}
+
+function toRunView(run: StoredRun, prices: Prices | null): RunView {
+  const floors = run.floors.map((floor) => {
+    const loot = run.loot[floor.floor]
+    // Runs saved before room times were recorded have none.
+    return { ...floor, roomMs: floor.roomMs ?? [], loot: loot ? completeLoot(loot, prices) : null }
+  })
   return {
     id: run.id,
     sessionId: run.sessionId,

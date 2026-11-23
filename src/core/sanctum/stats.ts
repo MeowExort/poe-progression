@@ -15,6 +15,9 @@ export function mergeLoot(a: LootValue | null, b: LootValue): LootValue {
     } else {
       known.count += line.count
       known.chaos = known.chaos === null && line.chaos === null ? null : (known.chaos ?? 0) + (line.chaos ?? 0)
+      // Either side may know more about the item than the other (older records know less).
+      known.currency = known.currency || line.currency
+      known.icon = known.icon ?? line.icon
     }
   }
   const merged = [...lines.values()].sort((x, y) => (y.chaos ?? -1) - (x.chaos ?? -1) || x.name.localeCompare(y.name))

@@ -570,8 +570,49 @@ describe('SanctumService', () => {
     // The history survives a restart; a new session starts its own statistics.
     const reopened = setup([]).service.view()
     expect(reopened.runs).toHaveLength(1)
-    expect(reopened.stats.allTime.runs).toBe(1)
+    expect(reopened.stats.allTime).toEqual(view.stats.allTime)
     expect(reopened.stats.session.runs).toBe(0)
+  })
+
+  it('counts currency from runs recorded by earlier versions, alone and next to new runs', async () => {
+    // What an earlier version wrote: no "currency" flag, no picture, no room times.
+    const legacyLine = (name: string, count: number, chaos: number | null) => ({ name, count, chaos })
+    const legacyRun = {
+      id: 1,
+      startedAt: 1,
+      endedAt: 1000,
+      outcome: 'completed',
+      sessionId: 1,
+      transitMs: 0,
+      lootNote: null,
+      floors: [{ floor: 1, rooms: 8, ms: 900, done: true }],
+      loot: {
+        1: {
+          lines: [legacyLine('Divine Orb', 2, 240), legacyLine('Chaos Orb', 30, 30), legacyLine('Volatile Vaal Orb', 3, null), legacyLine('Urn Relic of Fortune', 1, null)],
+          gold: 0,
+          chaos: 270,
+          divine: 2.25,
+          unpriced: 2
+        }
+      }
+    }
+    writeFileSync(join(dir, 'runs.json'), JSON.stringify({ runs: [legacyRun] }))
+
+    const { service } = setup([siteAnswer([]), siteAnswer([], 0), siteAnswer([stack('Chaos Orb', 5), stack('Sacred Orb', 1)], 0)])
+    await service.saveAccess(access) // also learns the league, so the price list is at hand
+    await service.getCatalog()
+    // Priced lines were currency; an unpriced one counts if the price list knows it; a relic does not.
+    expect(service.view().stats.allTime.currency).toEqual({ 'Divine Orb': 2, 'Chaos Orb': 30, 'Volatile Vaal Orb': 3 })
+
+    playFloor(service, 1, 0)
+    service.failActive()
+    await service.settled()
+    const { stats, runs } = service.view()
+    expect(stats.allTime.currency).toEqual({ 'Divine Orb': 2, 'Chaos Orb': 35, 'Volatile Vaal Orb': 3, 'Sacred Orb': 1 })
+    expect(stats.allTime.chaos).toBe(275)
+    expect(stats.session.currency).toEqual({ 'Chaos Orb': 5, 'Sacred Orb': 1 })
+    // The old run also gets pictures from the price list.
+    expect(runs[1].loot.lines.find((line) => line.name === 'Volatile Vaal Orb')?.icon).toContain('volatile.png')
   })
 
   it('tracks runs without loot when access is not set up, and says so', async () => {
