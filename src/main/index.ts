@@ -1,14 +1,19 @@
 import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
-import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, safeStorage, shell } from 'electron'
 import { IPC, type AppConfig, type SessionState } from '@shared/api'
 import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
+import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
 import { detectLogPath, loadConfig, saveConfig } from './config'
 import { parseLine } from './log/parser'
 import { LogTailer } from './log/tailer'
 import { Overlay } from './overlay'
 import { PlanStore } from './plan'
+import { PoeSite } from './poe-site'
+import { PriceBook } from './prices'
+import { SanctumService } from './sanctum'
+import { SecretStore } from './secrets'
 import { Session } from './session'
 
 const preload = join(__dirname, '../preload/index.js')
@@ -20,6 +25,7 @@ let mainWindow: BrowserWindow | null = null
 let overlay: Overlay | null = null
 let tailer: LogTailer | null = null
 let plan: PlanStore | null = null
+let sanctum: SanctumService | null = null
 
 const session = new Session({
   onChange: broadcast,
@@ -166,6 +172,11 @@ function registerIpc(): void {
   ipcMain.handle(PLAN_IPC.setOptions, (_event, patch: Partial<RouteOptions>) => plan?.setOptions(patch ?? {}))
   ipcMain.handle(PLAN_IPC.setPosition, (_event, position: number) => plan?.setPosition(position))
   ipcMain.handle(PLAN_IPC.moveGroup, (_event, delta: number) => plan?.moveGroup(delta))
+
+  ipcMain.handle(SANCTUM_IPC.get, () => sanctum?.view())
+  ipcMain.handle(SANCTUM_IPC.saveAccess, (_event, access: SanctumAccess) => sanctum?.saveAccess(access ?? {}))
+  ipcMain.handle(SANCTUM_IPC.clearCookie, () => sanctum?.clearCookie())
+  ipcMain.handle(SANCTUM_IPC.snapshot, () => sanctum?.snapshot())
 }
 
 if (!app.requestSingleInstanceLock()) {
@@ -193,6 +204,13 @@ if (!app.requestSingleInstanceLock()) {
     }
 
     plan = new PlanStore(join(userData, 'plan.json'), broadcastPlan)
+    sanctum = new SanctumService({
+      file: join(userData, 'account.json'),
+      site: new PoeSite(),
+      secrets: new SecretStore(join(userData, 'secrets.json'), safeStorage),
+      prices: new PriceBook(join(userData, 'prices.json')),
+      onChange: (view) => send(SANCTUM_IPC.state, view)
+    })
 
     registerIpc()
     createMainWindow()

@@ -1,5 +1,6 @@
 import type { FeedEntry } from './events'
 import type { PlanApi } from './plan'
+import type { SanctumApi } from './sanctum'
 
 export interface AppConfig {
   /** Absolute path to Client.txt. Empty until detected or chosen. */
@@ -69,6 +70,7 @@ export interface PoeApi {
   detectLog(): Promise<AppConfig>
   toggleOverlay(): Promise<void>
   plan: PlanApi
+  sanctum: SanctumApi
 }
 
 export const IPC = {

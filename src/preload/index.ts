@@ -1,6 +1,7 @@
 import { contextBridge, ipcRenderer, type IpcRendererEvent } from 'electron'
 import { IPC, type PoeApi, type SessionState } from '@shared/api'
 import { PLAN_IPC, type PlanView } from '@shared/plan'
+import { SANCTUM_IPC, type SanctumView } from '@shared/sanctum'
 
 const api: PoeApi = {
   getState: () => ipcRenderer.invoke(IPC.getState),
@@ -33,6 +34,19 @@ const api: PoeApi = {
     setOptions: (patch) => ipcRenderer.invoke(PLAN_IPC.setOptions, patch),
     setPosition: (position) => ipcRenderer.invoke(PLAN_IPC.setPosition, position),
     moveGroup: (delta) => ipcRenderer.invoke(PLAN_IPC.moveGroup, delta)
+  },
+  sanctum: {
+    get: () => ipcRenderer.invoke(SANCTUM_IPC.get),
+    onChange: (listener) => {
+      const handler = (_event: IpcRendererEvent, view: SanctumView): void => listener(view)
+      ipcRenderer.on(SANCTUM_IPC.state, handler)
+      return () => {
+        ipcRenderer.removeListener(SANCTUM_IPC.state, handler)
+      }
+    },
+    saveAccess: (access) => ipcRenderer.invoke(SANCTUM_IPC.saveAccess, access),
+    clearCookie: () => ipcRenderer.invoke(SANCTUM_IPC.clearCookie),
+    snapshot: () => ipcRenderer.invoke(SANCTUM_IPC.snapshot)
   }
 }
 

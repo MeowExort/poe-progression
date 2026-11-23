@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { SessionState } from '@shared/api'
 import type { PlanView } from '@shared/plan'
+import type { SanctumView } from '@shared/sanctum'
 
 /** The live session state pushed from the main process; null until the first snapshot arrives. */
 export function useSession(): SessionState | null {
@@ -44,4 +45,21 @@ export function usePlan(): PlanView | null {
     }
   }, [])
   return plan
+}
+
+/** The loot tracker's state pushed from the main process; null until the first snapshot arrives. */
+export function useSanctum(): SanctumView | null {
+  const [view, setView] = useState<SanctumView | null>(null)
+  useEffect(() => {
+    let active = true
+    void window.poe.sanctum.get().then((initial) => {
+      if (active) setView((current) => current ?? initial)
+    })
+    const unsubscribe = window.poe.sanctum.onChange(setView)
+    return () => {
+      active = false
+      unsubscribe()
+    }
+  }, [])
+  return view
 }

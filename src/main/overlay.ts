@@ -8,14 +8,25 @@ export interface OverlayOptions {
   onVisibility: (visible: boolean) => void
 }
 
+/** Ignore hotkey presses that follow each other faster than this: a held key auto-repeats. */
+const TOGGLE_DEBOUNCE_MS = 250
+
 /**
  * A frameless, transparent, always-on-top panel shown over the game.
  * It is not focusable, so showing it or clicking it never takes keyboard focus from the game.
  * The game must run in "Windowed Fullscreen": nothing can be drawn over exclusive fullscreen.
+ *
+ * The window is shown once and stays shown. "Hiding" makes it fully transparent and
+ * click-through instead of calling hide(): a real hide/show cycle makes Windows replay its
+ * window animation and makes Chromium pause and then catch up on painting, which looks like lag.
  */
 export class Overlay {
   private window: BrowserWindow | null = null
   private accelerator: string | null = null
+  private visible = false
+  private lastToggle = 0
+  /** Opacity is not supported on Linux; there the window is really hidden and shown. */
+  private readonly fade = process.platform !== 'linux'
 
   constructor(private readonly options: OverlayOptions) {}
 
@@ -38,12 +49,16 @@ export class Overlay {
       focusable: false,
       hasShadow: false,
       alwaysOnTop: true,
-      webPreferences: { preload: this.options.preload }
+      // Keep painting while invisible, so the panel is up to date the moment it appears.
+      webPreferences: { preload: this.options.preload, backgroundThrottling: false }
     })
     // "screen-saver" is the highest level: stays above a borderless fullscreen game window.
     window.setAlwaysOnTop(true, 'screen-saver')
-    window.on('show', () => this.options.onVisibility(true))
-    window.on('hide', () => this.options.onVisibility(false))
+    if (this.fade) {
+      window.setOpacity(0)
+      window.setIgnoreMouseEvents(true)
+      window.once('ready-to-show', () => window.showInactive())
+    }
     window.on('closed', () => {
       this.window = null
     })
@@ -54,12 +69,21 @@ export class Overlay {
   toggle(): void {
     const window = this.window
     if (!window) return
-    if (window.isVisible()) {
-      window.hide()
-    } else {
+    const now = Date.now()
+    if (now - this.lastToggle < TOGGLE_DEBOUNCE_MS) return
+    this.lastToggle = now
+
+    this.visible = !this.visible
+    if (this.fade) {
+      window.setOpacity(this.visible ? 1 : 0)
+      window.setIgnoreMouseEvents(!this.visible)
+      if (this.visible) window.setAlwaysOnTop(true, 'screen-saver')
+    } else if (this.visible) {
       window.showInactive()
-      window.setAlwaysOnTop(true, 'screen-saver')
+    } else {
+      window.hide()
     }
+    this.options.onVisibility(this.visible)
   }
 
   /** Registers the global toggle hotkey, replacing the previous one. Returns false if the OS refused it. */

@@ -1,22 +1,25 @@
 import { useState } from 'react'
 import { Feed } from './Feed'
 import { formatDuration } from './format'
-import { useNow, usePlan, useSession } from './hooks'
+import { useNow, usePlan, useSanctum, useSession } from './hooks'
 import { PlanTab } from './PlanTab'
+import { SanctumTab } from './SanctumTab'
 import { Settings } from './Settings'
 
-type Tab = 'plan' | 'feed' | 'unknown' | 'settings'
+type Tab = 'plan' | 'sanctum' | 'feed' | 'unknown' | 'settings'
 
 export function Dashboard() {
   const session = useSession()
   const now = useNow()
   const plan = usePlan()
+  const sanctum = useSanctum()
   const [tab, setTab] = useState<Tab>('plan')
-  if (!session || !plan) return null
+  if (!session || !plan || !sanctum) return null
 
   const { area, character, log } = session
   const tabs: { id: Tab; label: string }[] = [
     { id: 'plan', label: 'План' },
+    { id: 'sanctum', label: 'Sanctum' },
     { id: 'feed', label: 'Лента' },
     { id: 'unknown', label: `Нераспознанное${session.unknown.length ? ` · ${session.unknown.length}` : ''}` },
     { id: 'settings', label: 'Настройки' }
@@ -92,6 +95,7 @@ export function Dashboard() {
 
       <main className="panel">
         {tab === 'plan' && <PlanTab plan={plan} />}
+        {tab === 'sanctum' && <SanctumTab view={sanctum} session={session} />}
         {tab === 'feed' && (
           <Feed entries={session.feed} empty="Событий пока нет. Зайди в игру и перейди в любую зону." />
         )}

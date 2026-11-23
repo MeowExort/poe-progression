@@ -1,0 +1,86 @@
+/** What the player carries at one moment, reduced to what matters for counting loot. */
+export interface InventorySnapshot {
+  takenAt: number
+  league: string | null
+  characterClass: string | null
+  level: number | null
+  /** Null when the site did not report gold. */
+  gold: number | null
+  /** Stackable items: name → total count across all stacks. */
+  stacks: Record<string, number>
+  /** Everything else: item id → display name. The id survives moving the item around. */
+  singles: Record<string, string>
+}
+
+export interface RawLoot {
+  gold: number
+  lines: { name: string; count: number }[]
+}
+
+interface SiteItem {
+  id?: unknown
+  inventoryId?: unknown
+  name?: unknown
+  typeLine?: unknown
+  stackSize?: unknown
+  maxStackSize?: unknown
+}
+
+const text = (value: unknown): string => (typeof value === 'string' ? value : '')
+
+/**
+ * Reads the answer of the site's character items request. Only the main inventory counts:
+ * equipped gear is not loot. Returns null when the answer is not a character at all.
+ */
+export function toSnapshot(body: unknown, takenAt: number): InventorySnapshot | null {
+  if (!body || typeof body !== 'object') return null
+  const { items, character, inventory } = body as {
+    items?: unknown
+    character?: { league?: unknown; class?: unknown; level?: unknown }
+    inventory?: { gold?: unknown }
+  }
+  if (!Array.isArray(items)) return null
+
+  const stacks: Record<string, number> = {}
+  const singles: Record<string, string> = {}
+  for (const item of items as SiteItem[]) {
+    if (!item || item.inventoryId !== 'MainInventory') continue
+    const name = [text(item.name), text(item.typeLine)].filter(Boolean).join(' ')
+    if (!name) continue
+    if (typeof item.maxStackSize === 'number' || typeof item.stackSize === 'number') {
+      stacks[name] = (stacks[name] ?? 0) + (typeof item.stackSize === 'number' ? item.stackSize : 1)
+    } else if (typeof item.id === 'string') {
+      singles[item.id] = name
+    }
+  }
+
+  return {
+    takenAt,
+    league: text(character?.league) || null,
+    characterClass: text(character?.class) || null,
+    level: typeof character?.level === 'number' ? character.level : null,
+    gold: typeof inventory?.gold === 'number' ? inventory.gold : null,
+    stacks,
+    singles
+  }
+}
+
+/** Everything that is in `after` but was not in `before`. Things that left the inventory are ignored. */
+export function diffSnapshots(before: InventorySnapshot, after: InventorySnapshot): RawLoot {
+  const gained = new Map<string, number>()
+  for (const [name, count] of Object.entries(after.stacks)) {
+    const more = count - (before.stacks[name] ?? 0)
+    if (more > 0) gained.set(name, more)
+  }
+  for (const [id, name] of Object.entries(after.singles)) {
+    if (!(id in before.singles)) gained.set(name, (gained.get(name) ?? 0) + 1)
+  }
+  return {
+    gold: before.gold != null && after.gold != null ? Math.max(0, after.gold - before.gold) : 0,
+    lines: [...gained].map(([name, count]) => ({ name, count }))
+  }
+}
+
+export function entryCount(snapshot: InventorySnapshot): number {
+  return Object.keys(snapshot.stacks).length + Object.keys(snapshot.singles).length
+}

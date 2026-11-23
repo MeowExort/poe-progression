@@ -1081,3 +1081,29 @@ button.step:hover:not(:disabled) {
 .method .items {
   margin-top: 8px;
 }
+
+/* ── Sanctum loot ──────────────────────────────────────────── */
+
+.access .field input {
+  width: 100%;
+}
+
+.note.ok {
+  color: var(--ok);
+}
+
+.loot-total {
+  margin: 0;
+  font-size: 16px;
+}
+
+.loot-total strong {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.items.loot td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
