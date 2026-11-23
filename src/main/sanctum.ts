@@ -92,7 +92,10 @@ export class SanctumService {
   })
   /** True from startup until `resume` is called, when a run was in progress at the last shutdown. */
   private awaitingResume = false
+  private resumed = false
   private replaying = false
+  /** Runs whose records must not change while a stretch of log is replayed. */
+  private frozen = new Set<number>()
   private tracked: string[] = [...DEFAULT_TRACKED]
   private trackAll = false
   /** The run that just ended, kept on screen while the player is still in the Sanctum lobby. */
@@ -226,65 +229,79 @@ export class SanctumService {
   }
 
   /**
-   * Call once after startup with what the game log recorded since the app last ran, or null
-   * when that is unknown. A run interrupted by the shutdown is continued through those events:
-   * rooms passed meanwhile get their real times from the log. Then the inventory is read once,
-   * and whatever was gained since the last reading before the shutdown is booked to the run.
+   * Call once after startup, with what the game log recorded since the app last ran (`missed`,
+   * null when that is unknown) and with the recent end of the log (`tail`).
    *
-   * Only the interrupted run is followed. Runs played entirely while the app was closed are
-   * not recorded: there would be no loot to go with them.
+   * A run interrupted by the shutdown is continued through the missed events: rooms passed
+   * meanwhile get their real times from the log, and one inventory reading books whatever was
+   * gained since the last reading before the shutdown.
+   *
+   * A run that began while the app was closed and is still going on is followed too: its
+   * rooms and times come from the log, its loot is counted from now on. Runs that began and
+   * ended in between are not recorded: there would be no loot to go with them.
    */
-  resume(events: LogEvent[] | null): void {
-    if (!this.awaitingResume) return
+  resume(missed: LogEvent[] | null, tail: LogEvent[] = []): void {
+    if (this.resumed) return
+    this.resumed = true
+    const interruptedId = this.awaitingResume ? (this.tracker.active?.run.id ?? null) : null
     this.awaitingResume = false
-    const live = this.tracker.active
-    if (!live) return
-    const runId = live.run.id
+    const known = new Set(this.runs.map((run) => run.id))
 
-    if (events === null) {
-      // Nothing is known about the time in between: the run cannot be continued.
-      this.replaying = true
-      this.tracker.fail(live.since)
-      this.replaying = false
-      return
-    }
-
-    const areas = events.filter((event) => event.type === 'area_generated')
-    let lastSeen: LogEvent | null = null
     this.replaying = true
-    for (const event of events) {
+    // Runs already in the history are not rewritten by reading the same stretch of log again.
+    this.frozen = new Set([...known].filter((id) => id !== interruptedId))
+    let source = missed
+    if (source === null) {
+      // Nothing is known about the time in between: the interrupted run cannot be continued.
+      // The end of the log still shows whether a run is going on right now.
+      const live = this.tracker.active
+      if (live) this.tracker.fail(live.since)
+      if (interruptedId !== null) this.frozen.add(interruptedId)
+      source = tail
+    }
+    /** The area change after which the interrupted run was no longer the one in progress. */
+    let endedBy: LogEvent | null = null
+    for (const event of source) {
       if (event.type === 'area_generated') this.tracker.area(event.ts, event.areaId, event.seed)
       else if (event.type === 'dialogue') this.tracker.dialogue(event.ts, event.speaker, event.text)
-      else continue
-      lastSeen = event
-      if (this.tracker.active?.run.id !== runId) break
+      if (interruptedId !== null && endedBy === null && this.tracker.active?.run.id !== interruptedId) endedBy = event
     }
     this.replaying = false
+    this.frozen = new Set()
 
-    // The event that ended the interrupted run may have started the next one. That run began
-    // while the app was closed, so it is not followed.
-    const started = this.tracker.active
-    if (started && started.run.id !== runId) {
-      this.tracker.drop()
-      this.runs = this.runs.filter((entry) => entry.id !== started.run.id)
-      this.saveRuns()
-      this.saveState()
+    const live = this.tracker.active
+    const lastArea = source.filter((event) => event.type === 'area_generated').at(-1) ?? null
+    this.runs = this.runs.filter((run) => known.has(run.id) || run.id === live?.run.id)
+
+    const interrupted = missed !== null ? this.runs.find((run) => run.id === interruptedId) : undefined
+    if (interrupted) {
+      const stillOn = live?.run.id === interrupted.id
+      // It ended on the very last area change and nothing began since: the player is still
+      // standing where it ended, loot in hand.
+      const endedJustNow = !live && endedBy !== null && endedBy === lastArea
+      if (stillOn || endedJustNow) {
+        const floor =
+          live?.where.kind === 'floor' ? live.where.floor : Math.max(1, ...interrupted.floors.map((entry) => entry.floor))
+        this.queueBoundary({ runId: interrupted.id, floor, kind: 'collect', required: true })
+        if (endedJustNow && lastArea?.type === 'area_generated' && classifyArea(lastArea.areaId).kind === 'lobby') {
+          this.finishedRunId = interrupted.id
+        }
+      } else {
+        interrupted.lootNote = 'Забег закончился, пока приложение было закрыто: лут за это время не посчитан.'
+      }
     }
 
-    const run = this.runs.find((entry) => entry.id === runId)
-    if (!run) return
-    const stillOn = this.tracker.active?.run.id === runId
-    // The run ended on the very last area change: the player is still where it ended, loot in hand.
-    const endedJustNow = !stillOn && lastSeen !== null && lastSeen === areas[areas.length - 1]
-    if (stillOn || endedJustNow) {
-      const where = this.tracker.active?.where
-      const floor = where?.kind === 'floor' ? where.floor : Math.max(1, ...run.floors.map((entry) => entry.floor))
-      this.queueBoundary({ runId, floor, kind: 'collect', required: true })
-      if (endedJustNow && classifyArea(areas[areas.length - 1].areaId).kind === 'lobby') this.finishedRunId = runId
-    } else {
-      run.lootNote = 'Забег закончился, пока приложение было закрыто: лут за это время не посчитан.'
-      this.saveRuns()
+    const joined = live && live.run.id !== interruptedId ? this.runs.find((run) => run.id === live.run.id) : undefined
+    if (joined && live) {
+      joined.lootNote = 'Забег начат при закрытом приложении: лут считается с момента запуска.'
+      // Whatever is in the inventory now was picked up unseen: start counting from here.
+      this.runSnapshot = null
+      const floor = live.where.kind === 'floor' ? live.where.floor : Math.max(1, ...joined.floors.map((entry) => entry.floor))
+      this.queueBoundary({ runId: joined.id, floor, kind: 'baseline', required: true })
     }
+
+    this.saveRuns()
+    this.saveState()
     this.emit()
   }
 
@@ -383,6 +400,7 @@ export class SanctumService {
 
   /** Stores what the tracker reports about a run, keeping the loot already counted for it. */
   private recordRun(run: TrackedRun): void {
+    if (this.frozen.has(run.id)) return
     const copy = structuredClone(run)
     const index = this.runs.findIndex((entry) => entry.id === run.id)
     if (index === -1) {

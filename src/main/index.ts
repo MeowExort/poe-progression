@@ -128,12 +128,18 @@ function followLog(path: string): void {
   session.patch({ log: { path, found: false, size: null, modifiedAt: null, liveLines: 0, lastLineAt: null } })
   if (!path) return
 
-  const current = new LogTailer(path, { resumeFrom: savedLogPosition(path) })
+  // The tail is read generously: it is also how a run already under way is recognised when
+  // the app starts with no saved position to continue from.
+  const current = new LogTailer(path, { resumeFrom: savedLogPosition(path), backfillBytes: 2 * 1024 * 1024 })
+  let tail: LogEvent[] = []
   const patchLog = (patch: Partial<SessionState['log']>): void =>
     session.patch({ log: { ...session.getState().log, ...patch } })
   current.on('found', (found) => patchLog({ found }))
   current.on('stats', (stats) => patchLog(stats))
-  current.on('backfill', (lines) => session.apply(parseLines(lines), false))
+  current.on('backfill', (lines) => {
+    tail = parseLines(lines)
+    session.apply(tail, false)
+  })
   current.on('resume', (lines) => {
     // What the game wrote while the app was closed: the plan and an interrupted Sanctum run
     // catch up on it, so a restart mid-run loses nothing.
@@ -141,7 +147,8 @@ function followLog(path: string): void {
     for (const event of events ?? []) {
       if (event.type === 'area_generated') plan?.enterArea(event.areaId)
     }
-    sanctum?.resume(events)
+    sanctum?.resume(events, tail)
+    tail = []
     saveLogPosition()
   })
   current.on('lines', (lines) => {

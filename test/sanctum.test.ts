@@ -652,6 +652,7 @@ describe('SanctumService', () => {
   })
 
   it('closes an interrupted run as failed when the log cannot say what happened since', async () => {
+    // (The end of the log is empty here, so no run is found to be going on either.)
     const first = setup([])
     playFloor(first.service, 1, 0)
     const { service } = setup([])
@@ -729,11 +730,71 @@ describe('SanctumService', () => {
     await second.service.settled()
 
     const view = second.service.view()
-    expect(second.asked).toEqual([])
     expect(view.runs).toHaveLength(1)
     expect(view.runs[0]).toMatchObject({ outcome: 'failed', lootNote: expect.stringContaining('пока приложение было закрыто') })
-    // The run started while the app was closed is not picked up halfway.
-    expect(view.active).toBeNull()
+    expect(view.runs[0].loot).toMatchObject({ chaos: 0, lines: [] })
+    // The run going on now is followed from here: the nine divines already in the bag are not its loot.
+    expect(second.asked).toEqual(['get-items Tester'])
+    expect(view.active).toMatchObject({ floor: 1, room: 0, since: sec(310) })
+    expect(view.active?.run).toMatchObject({
+      startedAt: sec(300),
+      lootNote: 'Забег начат при закрытом приложении: лут считается с момента запуска.',
+      loot: { chaos: 0, lines: [] }
+    })
+  })
+
+  it('joins a run that began while the app was closed and counts its loot from now on', async () => {
+    const first = setup([siteAnswer([])])
+    await first.service.saveAccess(access)
+
+    // Nothing was in progress at shutdown. Meanwhile: one whole run, then another that is still on.
+    const whole = [
+      area(0, 'SanctumFoyer_1_1', 'old'),
+      area(10, 'SanctumCellar', 'old-0'),
+      area(40, 'HideoutSpace', '1'),
+      area(100, 'SanctumFoyer_1_2', 'new'),
+      area(110, 'SanctumCellar', 'new-0'),
+      area(130, 'SanctumCellar', 'new-1')
+    ]
+    const second = setup([siteAnswer([stack('Chaos Orb', 50)], 0), siteAnswer([stack('Chaos Orb', 54)], 0)])
+    second.service.resume(whole)
+    await second.service.settled()
+
+    const joined = second.service.view()
+    // The run that came and went unseen is not recorded; the current one is, with its real times.
+    expect(joined.runs).toEqual([])
+    expect(joined.runCounts.session).toBe(1)
+    expect(joined.active?.run).toMatchObject({ startedAt: sec(100), loot: { chaos: 0 } })
+    expect(joined.active?.run.floors[0]).toMatchObject({ rooms: 2, roomMs: [20_000, 0], ms: 30_000 })
+
+    second.service.onArea(sec(150), 'SanctumCellar', 'new-2')
+    await second.service.settled()
+    expect(second.service.view().active?.run.loot).toMatchObject({ chaos: 4 })
+  })
+
+  it('recognises a run under way from the end of the log when it cannot tell what was missed', async () => {
+    const first = setup([siteAnswer([])])
+    await first.service.saveAccess(access)
+    playFloor(first.service, 1, 0)
+    first.service.failActive()
+
+    // The tail of the log holds that old run again, and a new one in progress.
+    const tail = [
+      area(0, 'SanctumFoyer_1_1', 'a-entrance-1'),
+      ...Array.from({ length: 8 }, (_, i) => area(10 + i * 10, 'SanctumCellar', `a-1-${i}`)),
+      area(500, 'HideoutSpace', '1'),
+      area(600, 'SanctumFoyer_1_1', 'fresh'),
+      area(610, 'SanctumCellar', 'fresh-0')
+    ]
+    const second = setup([siteAnswer([], 0)])
+    second.service.resume(null, tail)
+    await second.service.settled()
+
+    const view = second.service.view()
+    // The run already in the history is left exactly as it was recorded.
+    expect(view.runs).toHaveLength(1)
+    expect(view.runs[0]).toMatchObject({ startedAt: sec(0), outcome: 'failed', lootNote: null })
+    expect(view.active?.run).toMatchObject({ startedAt: sec(600), lootNote: expect.stringContaining('с момента запуска') })
   })
 
   it('reads the inventory once even when nothing happened in between', async () => {
