@@ -157,7 +157,9 @@ export function SanctumBar({ view, now, demo }: { view: SanctumView; now: number
           </div>
           <div className="main">
             <div className="lootrow">
-              <Chips tracked={view.tracked} trackAll={view.trackAll} loot={shown.run.loot} />
+              <div className="chips">
+                <Chips tracked={view.tracked} trackAll={view.trackAll} loot={shown.run.loot} />
+              </div>
               <span className="value">{valueText(shown.run.loot)}</span>
             </div>
             <div className="floors">

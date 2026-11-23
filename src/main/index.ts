@@ -1,6 +1,6 @@
 import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
-import { app, BrowserWindow, dialog, ipcMain, safeStorage, shell } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, safeStorage, session as electronSession, shell } from 'electron'
 import { IPC, type AppConfig, type Bounds, type OverlayLayout, type SessionState } from '@shared/api'
 import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
@@ -12,9 +12,11 @@ import { Overlay } from './overlay'
 import { PlanStore } from './plan'
 import { PoeSite } from './poe-site'
 import { PriceBook } from './prices'
+import { RelicPricer } from './relic-pricer'
 import { SanctumService } from './sanctum'
 import { SecretStore } from './secrets'
 import { Session } from './session'
+import { TradeClient } from './trade'
 
 const preload = join(__dirname, '../preload/index.js')
 
@@ -242,13 +244,32 @@ if (!app.requestSingleInstanceLock()) {
     }
 
     plan = new PlanStore(join(userData, 'plan.json'), broadcastPlan)
+    const secrets = new SecretStore(join(userData, 'secrets.json'), safeStorage)
+    const prices = new PriceBook(join(userData, 'prices.json'))
+    // The trade site only answers a browser. Its requests go through Chromium's own network
+    // stack in a separate in-memory session, which holds nothing but the player's site cookie.
+    const tradeSession = electronSession.fromPartition('poe-trade')
+    const trade = new TradeClient(async (url, init) => {
+      const cookie = secrets.get('poesessid')
+      if (cookie) {
+        await tradeSession.cookies.set({
+          url: 'https://www.pathofexile.com',
+          name: 'POESESSID',
+          value: cookie,
+          secure: true,
+          httpOnly: true
+        })
+      }
+      return tradeSession.fetch(url, init)
+    })
     sanctum = new SanctumService({
       file: join(userData, 'account.json'),
       runsFile: join(userData, 'sanctum-runs.json'),
       debugDir: join(userData, 'debug'),
       site: new PoeSite(),
-      secrets: new SecretStore(join(userData, 'secrets.json'), safeStorage),
-      prices: new PriceBook(join(userData, 'prices.json')),
+      secrets,
+      prices,
+      relics: new RelicPricer(trade, prices),
       onChange: (view) => {
         send(SANCTUM_IPC.state, view)
         // The bar replaces the side panel for as long as a run is on screen.

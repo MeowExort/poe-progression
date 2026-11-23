@@ -1,15 +1,17 @@
-import type { LootValue, RunView, SanctumTotals } from '@shared/sanctum'
+import type { LootLine, LootValue, RunView, SanctumTotals } from '@shared/sanctum'
 
 export const EMPTY_LOOT: LootValue = { lines: [], gold: 0, chaos: 0, divine: null, unpriced: 0 }
 
 /** Adds two lots of loot together, line by line. */
 export function mergeLoot(a: LootValue | null, b: LootValue): LootValue {
   if (!a) return b
-  const lines = new Map(a.lines.map((line) => [line.name, { ...line }]))
+  // Relics are kept apart by item; everything else adds up by name.
+  const keyOf = (line: LootLine): string => (line.relic ? `relic:${line.relic.itemId}` : line.name)
+  const lines = new Map(a.lines.map((line) => [keyOf(line), { ...line }]))
   for (const line of b.lines) {
-    const known = lines.get(line.name)
+    const known = lines.get(keyOf(line))
     if (!known) {
-      lines.set(line.name, { ...line })
+      lines.set(keyOf(line), { ...line })
     } else {
       known.count += line.count
       known.chaos = known.chaos === null && line.chaos === null ? null : (known.chaos ?? 0) + (line.chaos ?? 0)
@@ -58,4 +60,17 @@ export function currencyCounts(loot: LootValue): Record<string, number> {
   const counts: Record<string, number> = {}
   for (const line of loot.lines) if (line.currency) counts[line.name] = line.count
   return counts
+}
+
+/** Recomputes the sums of a loot after one of its lines changed price. */
+export function retotal(loot: LootValue, divineChaos: number | null): LootValue {
+  const chaos = loot.lines.reduce((sum, line) => sum + (line.chaos ?? 0), 0)
+  const lines = [...loot.lines].sort((x, y) => (y.chaos ?? -1) - (x.chaos ?? -1) || x.name.localeCompare(y.name))
+  return {
+    ...loot,
+    lines,
+    chaos,
+    divine: divineChaos ? chaos / divineChaos : loot.divine,
+    unpriced: lines.filter((line) => line.chaos === null).length
+  }
 }

@@ -3,10 +3,11 @@ import { dirname, join } from 'node:path'
 import { diffSnapshots, entryCount, lastPlayedCharacter, toSnapshot, type InventorySnapshot } from '@core/sanctum/inventory'
 import { valueLoot } from '@core/sanctum/prices'
 import { classifyArea, SanctumTracker, type Boundary, type TrackedRun } from '@core/sanctum/runs'
-import { computeTotals, EMPTY_LOOT, mergeLoot } from '@core/sanctum/stats'
+import { computeTotals, EMPTY_LOOT, mergeLoot, retotal } from '@core/sanctum/stats'
 import type { LootValue, RunView, SanctumAccess, SanctumView, TrackedItem } from '@shared/sanctum'
 import { normalizeCookie, SiteError, type PoeSite } from './poe-site'
 import type { PriceBook } from './prices'
+import type { RelicPricer } from './relic-pricer'
 import type { SecretStore } from './secrets'
 
 const COOKIE = 'poesessid'
@@ -43,6 +44,8 @@ export interface SanctumDeps {
   site: PoeSite
   secrets: SecretStore
   prices: PriceBook
+  /** Prices relics on the trade site; without it relics stay unpriced. */
+  relics?: Pick<RelicPricer, 'price'> | null
   onChange?: (view: SanctumView) => void
   now?: () => number
 }
@@ -120,6 +123,10 @@ export class SanctumService {
         if (typeof stored.trackAll === 'boolean') this.trackAll = stored.trackAll
         // Load prices ahead of the first run, so the tracked currency has its pictures from the start.
         if (this.league) void this.pricesFor(this.league).then(() => this.emit())
+        // Relics still waiting for a price when the app was closed get it now.
+        for (const run of this.runs) {
+          for (const floor of Object.keys(run.loot)) this.priceRelics(run, Number(floor))
+        }
       } catch {
         // No saved settings yet.
       }
@@ -310,10 +317,36 @@ export class SanctumService {
       const prices = await this.pricesFor(snapshot.league)
       const gained = valueLoot(diffSnapshots(previous, snapshot), prices)
       stored.loot[boundary.floor] = mergeLoot(stored.loot[boundary.floor] ?? null, gained)
+      this.priceRelics(stored, boundary.floor)
     }
     this.status = null
     this.saveRuns()
     this.emit()
+  }
+
+  /** Sends every relic of the floor that has no price yet to be priced; prices arrive later. */
+  private priceRelics(run: StoredRun, floor: number): void {
+    const league = this.league
+    for (const line of run.loot[floor]?.lines ?? []) {
+      const relic = line.relic
+      if (!relic || relic.pricing !== 'pending') continue
+      if (!this.deps.relics || !league) {
+        relic.pricing = 'none'
+        relic.note = 'Оценка реликвий недоступна.'
+        continue
+      }
+      void this.deps.relics.price(relic, league).then((price) => {
+        const loot = run.loot[floor]
+        const target = loot?.lines.find((entry) => entry.relic?.itemId === relic.itemId)
+        if (!loot || !target?.relic) return
+        target.chaos = price.chaos
+        target.relic.pricing = price.pricing
+        target.relic.note = price.note
+        run.loot[floor] = retotal(loot, this.deps.prices.peek(league)?.divineChaos ?? null)
+        this.saveRuns()
+        this.emit()
+      })
+    }
   }
 
   private async pricesFor(league: string | null) {

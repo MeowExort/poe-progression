@@ -6,7 +6,7 @@ import { diffSnapshots, lastPlayedCharacter, toSnapshot } from '../src/core/sanc
 import { combinePrices, parseExchangeOverview, valueLoot } from '../src/core/sanctum/prices'
 import { normalizeCookie, PoeSite, SiteError } from '../src/main/poe-site'
 import { PriceBook } from '../src/main/prices'
-import { SanctumService } from '../src/main/sanctum'
+import { SanctumService, type SanctumDeps } from '../src/main/sanctum'
 import { SecretStore, type Cipher } from '../src/main/secrets'
 
 const COOKIE = '0123456789abcdef0123456789abcdef'
@@ -110,12 +110,12 @@ describe('lastPlayedCharacter', () => {
 })
 
 describe('diffSnapshots', () => {
-  const before = toSnapshot(siteAnswer([stack('Chaos Orb', 10), stack('Vaal Orb', 6), single('old', 'Urn Relic')], 100), 0)!
+  const before = toSnapshot(siteAnswer([stack('Chaos Orb', 10), stack('Vaal Orb', 6), single('old', 'Topaz Ring')], 100), 0)!
 
   it('counts grown stacks, new stacks, new single items and gold', () => {
     const after = toSnapshot(
       siteAnswer(
-        [stack('Chaos Orb', 20), stack('Chaos Orb', 5), stack('Vaal Orb', 6), stack('Divine Orb', 2), single('old', 'Urn Relic'), single('new1', 'Urn Relic'), single('new2', 'Urn Relic')],
+        [stack('Chaos Orb', 20), stack('Chaos Orb', 5), stack('Vaal Orb', 6), stack('Divine Orb', 2), single('old', 'Topaz Ring'), single('new1', 'Topaz Ring'), single('new2', 'Topaz Ring')],
         350
       ),
       1
@@ -125,7 +125,7 @@ describe('diffSnapshots', () => {
     expect(Object.fromEntries(loot.lines.map((line) => [line.name, line.count]))).toEqual({
       'Chaos Orb': 15,
       'Divine Orb': 2,
-      'Urn Relic': 2
+      'Topaz Ring': 2
     })
   })
 
@@ -136,7 +136,7 @@ describe('diffSnapshots', () => {
 
   it('does not treat a rearranged inventory as loot', () => {
     // The same 10 chaos split into two stacks, the relic moved: ids and totals are unchanged.
-    const after = toSnapshot(siteAnswer([stack('Chaos Orb', 4), stack('Chaos Orb', 6), stack('Vaal Orb', 6), single('old', 'Urn Relic')], 100), 1)!
+    const after = toSnapshot(siteAnswer([stack('Chaos Orb', 4), stack('Chaos Orb', 6), stack('Vaal Orb', 6), single('old', 'Topaz Ring')], 100), 1)!
     expect(diffSnapshots(before, after)).toEqual({ gold: 0, lines: [] })
   })
 })
@@ -359,7 +359,10 @@ describe('PriceBook', () => {
 })
 
 describe('SanctumService', () => {
-  function setup(answers: unknown[], options: { encryption?: boolean; characters?: () => unknown } = {}) {
+  function setup(
+    answers: unknown[],
+    options: { encryption?: boolean; characters?: () => unknown; relics?: SanctumDeps['relics'] } = {}
+  ) {
     const queue = [...answers]
     const asked: string[] = []
     const site = new PoeSite({
@@ -380,6 +383,7 @@ describe('SanctumService', () => {
       site,
       secrets: new SecretStore(join(dir, 'secrets.json'), cipher(options.encryption ?? true)),
       prices: new PriceBook(join(dir, 'prices.json'), { fetch: ninjaFetch(), sleep: async () => {} }),
+      relics: options.relics,
       onChange: (view) => views.push(view.busy)
     })
     return { service, views, asked }
@@ -712,5 +716,56 @@ describe('SanctumService', () => {
       currency: true,
       icon: expect.stringContaining('VolatileVaalOrb')
     })
+  })
+
+  // ── Relics ──
+
+  const relicItem = (id: string, mod: string) => ({
+    id,
+    typeLine: 'Urn Relic of Fortune',
+    baseType: 'Urn Relic',
+    rarity: 'Magic',
+    identified: true,
+    explicitMods: [{ description: mod }]
+  })
+
+  it('prices a relic that dropped and adds it to the totals when the price arrives', async () => {
+    let release: (price: { pricing: 'priced'; chaos: number; note: string }) => void = () => {}
+    const asked: string[][] = []
+    const relics: SanctumDeps['relics'] = {
+      price: (relic) => {
+        asked.push(relic.mods)
+        return new Promise((resolve) => (release = resolve))
+      }
+    }
+    const { service } = setup(
+      [siteAnswer([]), siteAnswer([], 0), siteAnswer([stack('Chaos Orb', 10), relicItem('r1', '2 additional Rooms are revealed on the Sanctum Map')], 0)],
+      { relics }
+    )
+    await service.saveAccess(access)
+    playFloor(service, 1, 0)
+    service.onArea(sec(100), 'SanctumFoyer_Fellshrine', 'lobby')
+    await service.settled()
+
+    // The relic is listed at once, waiting; the currency is already counted.
+    const waiting = service.view().active!.run.loot
+    expect(asked).toEqual([['2 additional Rooms are revealed on the Sanctum Map']])
+    expect(waiting).toMatchObject({ chaos: 10, unpriced: 1 })
+    expect(waiting.lines.find((line) => line.relic)?.relic).toMatchObject({ itemId: 'r1', pricing: 'pending' })
+
+    release({ pricing: 'priced', chaos: 1200, note: 'По 5 самым дешёвым лотам с теми же модами.' })
+    await new Promise((resolve) => setTimeout(resolve, 0))
+    const priced = service.view().active!.run
+    expect(priced.loot).toMatchObject({ chaos: 1210, divine: 1210 / 120, unpriced: 0 })
+    expect(priced.floors[0].loot?.lines[0]).toMatchObject({ chaos: 1200, relic: { pricing: 'priced', note: expect.stringContaining('5') } })
+  })
+
+  it('says relics are not priced when no pricer is available', async () => {
+    const { service } = setup([siteAnswer([]), siteAnswer([], 0), siteAnswer([relicItem('r1', 'Gain 20 Resolve when you use a Fountain')], 0)])
+    await service.saveAccess(access)
+    playFloor(service, 1, 0)
+    service.failActive()
+    await service.settled()
+    expect(service.view().runs[0].loot.lines[0].relic).toMatchObject({ pricing: 'none', note: 'Оценка реликвий недоступна.' })
   })
 })

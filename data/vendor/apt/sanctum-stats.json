@@ -1,0 +1,597 @@
+[
+ {
+  "id": "sanctum.stat_774484840",
+  "ref": "#% chance for Resolve Mitigation to be doubled when Hit by an Enemy",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% chance for Resolve Mitigation to be doubled when Hit by an Enemy"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1960517795",
+  "ref": "#% chance to Avoid gaining an Affliction",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% chance to Avoid gaining an Affliction"
+   },
+   {
+    "string": "Cannot gain Afflictions",
+    "value": 100
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2284543592",
+  "ref": "#% chance to Avoid Resolve loss from Enemy Hits if you've been Hit recently",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% chance to Avoid Resolve loss from Enemy Hits if you've been Hit recently"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3134588943",
+  "ref": "#% increased chance to Avoid Resolve Loss from Enemy Melee Hits",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased chance to Avoid Resolve Loss from Enemy Melee Hits"
+   },
+   {
+    "string": "#% reduced chance to Avoid Resolve Loss from Enemy Melee Hits",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1798691236",
+  "ref": "#% increased chance to Avoid Resolve Loss from Enemy Projectile Hits",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased chance to Avoid Resolve Loss from Enemy Projectile Hits"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3866860190",
+  "ref": "#% increased Maximum Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased Maximum Resolve"
+   },
+   {
+    "string": "#% reduced Maximum Resolve",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3096446459",
+  "ref": "#% increased Merchant Prices",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased Merchant Prices"
+   },
+   {
+    "string": "#% reduced Merchant Prices",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1680962389",
+  "ref": "#% increased Quantity of Relics Dropped by Monsters",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased Quantity of Relics Dropped by Monsters"
+   },
+   {
+    "string": "#% reduced Quantity of Relics Dropped by Monsters",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1388771661",
+  "ref": "#% increased Resolve Aegis",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased Resolve Aegis"
+   },
+   {
+    "string": "#% reduced Resolve Aegis",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1306482168",
+  "ref": "#% increased Resolve Recovered",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "#% increased Resolve Recovered"
+   },
+   {
+    "string": "#% reduced Resolve Recovered",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1054634989",
+  "ref": "+# to Maximum Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "# to Maximum Resolve"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_386901949",
+  "ref": "An additional Room is revealed on the Sanctum Map",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "# additional Rooms are revealed on the Sanctum Map"
+   },
+   {
+    "string": "An additional Room is revealed on the Sanctum Map",
+    "value": 1
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1307773596",
+  "ref": "Aureus Coins are converted to Experience upon defeating the Herald of the Scourge",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Aureus Coins are converted to Experience upon defeating the Herald of the Scourge"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_315260783",
+  "ref": "Aureus Coins are converted to Relics upon defeating the Herald of the Scourge",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Aureus Coins are converted to Relics upon defeating the Herald of the Scourge"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1019656601",
+  "ref": "Aureus Coins are converted to Tainted Currency upon defeating the Herald of the Scourge",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Aureus Coins are converted to Tainted Currency upon defeating the Herald of the Scourge"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2207905451",
+  "ref": "Bosses impact #% increased Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Bosses impact #% increased Resolve"
+   },
+   {
+    "string": "Bosses impact #% reduced Resolve",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3226329527",
+  "ref": "Bosses take #% increased Damage",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Bosses take #% increased Damage"
+   },
+   {
+    "string": "Bosses take #% reduced Damage",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1512067281",
+  "ref": "Cannot be used with Forbidden Tomes below level #",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Cannot be used with Forbidden Tomes below level #"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2283325632",
+  "ref": "Cannot have Boons",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Cannot have Boons"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3381591146",
+  "ref": "Cannot have Inspiration",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Cannot have Inspiration"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_624917333",
+  "ref": "Cannot recover Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Cannot recover Resolve"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3926246735",
+  "ref": "Chests have #% chance to drop Double Aureus Coins",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Chests have #% chance to drop Double Aureus Coins"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_502549687",
+  "ref": "Duplicates up to # random Offer Reward upon defeating the Herald of the Scourge",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Duplicates up to # random Offer Reward upon defeating the Herald of the Scourge"
+   },
+   {
+    "string": "Duplicates up to # random Offer Rewards upon defeating the Herald of the Scourge"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2393318075",
+  "ref": "Gain # Aureus Coins at the start of the Sanctum",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Aureus Coins at the start of the Sanctum"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_4057192895",
+  "ref": "Gain # Aureus Coins when you complete a Room",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Aureus Coins when you complete a Room"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2942028778",
+  "ref": "Gain # Inspiration at the start of each Floor",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Inspiration at the start of each Floor"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3102760194",
+  "ref": "Gain # Inspiration at the start of the Sanctum",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Inspiration at the start of the Sanctum"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1518851624",
+  "ref": "Gain # Inspiration when you receive an Affliction",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Inspiration when you receive an Affliction"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3817232752",
+  "ref": "Gain # Maximum Resolve when you kill a Boss",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Maximum Resolve when you kill a Boss"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3722564733",
+  "ref": "Gain # Maximum Resolve when you use a Fountain",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Maximum Resolve when you use a Fountain"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_889527415",
+  "ref": "Gain # Resolve when you kill a Boss",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Resolve when you kill a Boss"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2607697594",
+  "ref": "Gain # Resolve when you use a Fountain",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Gain # Resolve when you use a Fountain"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_199414195",
+  "ref": "Guards impact #% increased Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Guards impact #% increased Resolve"
+   },
+   {
+    "string": "Guards impact #% reduced Resolve",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1471840332",
+  "ref": "Maximum Resolve is 1",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Maximum Resolve is 1"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_231205265",
+  "ref": "Monsters have #% chance to drop Double Aureus Coins",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Monsters have #% chance to drop Double Aureus Coins"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3554249693",
+  "ref": "Monsters impact #% increased Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Monsters impact #% increased Resolve"
+   },
+   {
+    "string": "Monsters impact #% reduced Resolve",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2549512259",
+  "ref": "Monsters take #% increased Damage",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Monsters take #% increased Damage"
+   },
+   {
+    "string": "Monsters take #% reduced Damage",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1278905604",
+  "ref": "No Resolve Mitigation, chance to Avoid Resolve loss or Resolve Aegis",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "No Resolve Mitigation, chance to Avoid Resolve loss or Resolve Aegis"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3002663227",
+  "ref": "Recover # Resolve when you complete a Room",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Recover # Resolve when you complete a Room"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3889616543",
+  "ref": "Resolve Aegis Recovers #% faster while not losing Resolve",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Resolve Aegis Recovers #% faster while not losing Resolve"
+   },
+   {
+    "string": "Resolve Aegis Recovers #% slower while not losing Resolve",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3621177126",
+  "ref": "Resolve Mitigation from Enemy Hits is based on +#% of Armour",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Resolve Mitigation from Enemy Hits is based on #% of Armour"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3237367570",
+  "ref": "Rooms are unknown on the Sanctum Map",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "Rooms are unknown on the Sanctum Map"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2149490821",
+  "ref": "The Herald of the Scourge deals #% more Damage",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge deals #% more Damage"
+   },
+   {
+    "string": "The Herald of the Scourge deals #% less Damage",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3878191575",
+  "ref": "The Herald of the Scourge drops an additional Forbidden Tome",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge drops # additional Forbidden Tomes"
+   },
+   {
+    "string": "The Herald of the Scourge drops an additional Forbidden Tome",
+    "value": 1
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1059486105",
+  "ref": "The Herald of the Scourge drops Eternal Damnation",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge drops Eternal Damnation"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2995848279",
+  "ref": "The Herald of the Scourge drops Sandstorm Visage",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge drops Sandstorm Visage"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_85125881",
+  "ref": "The Herald of the Scourge drops the Balance of Terror",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge drops the Balance of Terror"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_1133899331",
+  "ref": "The Herald of the Scourge drops the Original Sin",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge drops the Original Sin"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_4204412707",
+  "ref": "The Herald of the Scourge drops the Winds of Fate",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge drops the Winds of Fate"
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_2226900052",
+  "ref": "The Herald of the Scourge takes #% more Damage",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Herald of the Scourge takes #% more Damage"
+   },
+   {
+    "string": "The Herald of the Scourge takes #% less Damage",
+    "negate": true
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_290775436",
+  "ref": "The Merchant has an additional Choice",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "The Merchant has # additional Choices"
+   },
+   {
+    "string": "The Merchant has an additional Choice",
+    "value": 1
+   }
+  ]
+ },
+ {
+  "id": "sanctum.stat_3182333322",
+  "ref": "This item is destroyed when applied to a Sanctum",
+  "better": 1,
+  "matchers": [
+   {
+    "string": "This item is destroyed when applied to a Sanctum"
+   }
+  ]
+ }
+]

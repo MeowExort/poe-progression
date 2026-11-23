@@ -50,7 +50,7 @@ export class PriceBook {
     try {
       const stored = JSON.parse(readFileSync(file, 'utf8')) as Prices
       // Prices saved by an earlier build came from another source and are not comparable.
-      if (stored?.version === 2) this.cached = stored
+      if (stored?.version === 3) this.cached = stored
     } catch {
       this.cached = null
     }

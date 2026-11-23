@@ -201,21 +201,33 @@ export function LootTable({ loot }: { loot: LootValue }) {
       <table className="items loot">
         <tbody>
           {loot.lines.map((line) => (
-            <tr key={line.name}>
+            <tr key={line.relic?.itemId ?? line.name}>
               <td>
                 {line.icon && <img src={line.icon} alt="" />}
                 {line.name}
+                {line.relic && (
+                  <small className="relic-mods">
+                    {line.relic.mods.join(' · ')}
+                    {line.relic.note && <em> — {line.relic.note}</em>}
+                  </small>
+                )}
               </td>
               <td className="num">×{number(line.count)}</td>
-              <td className="num muted">{line.chaos != null ? `${number(line.chaos, 1)} c` : 'без цены'}</td>
+              <td className="num muted">
+                {line.chaos != null
+                  ? `${number(line.chaos, 1)} c`
+                  : line.relic?.pricing === 'pending'
+                    ? 'оценивается…'
+                    : 'без цены'}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
       {loot.unpriced > 0 && (
         <p className="hint">
-          Позиций без цены: {loot.unpriced}. В суммы они не входят: цены есть только у того, что продаётся на бирже
-          валюты.
+          Позиций без цены: {loot.unpriced}. В суммы они не входят. Валюта и фрагменты оцениваются по бирже, реликвии
+          — по похожим лотам на трейде.
         </p>
       )}
     </>

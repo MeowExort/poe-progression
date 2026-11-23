@@ -1618,3 +1618,40 @@ button.step:hover:not(:disabled) {
 .field .check span {
   font-weight: 400;
 }
+
+/* The currency chips shrink and clip; the loot total always keeps its place in the row. */
+.sbar .lootrow .chips {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sbar .lootrow .chip {
+  flex: none;
+}
+
+.sbar .lootrow .value {
+  flex: none;
+  margin-left: 0;
+}
+
+.sbar .side {
+  flex: none;
+}
+
+.relic-mods {
+  display: block;
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.relic-mods em {
+  font-style: normal;
+  color: var(--accent);
+}

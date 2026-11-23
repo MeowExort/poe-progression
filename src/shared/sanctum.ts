@@ -6,8 +6,25 @@ export interface LootLine {
   icon: string | null
   /** True for currency items (orbs, shards and the like). */
   currency: boolean
+  /** Set for a Sanctum relic: every relic is its own line, priced by its modifiers. */
+  relic?: RelicLine
   /** Value of the whole line in Chaos Orbs; null when there is no price for the item. */
   chaos: number | null
+}
+
+export interface RelicLine {
+  /** The item's id on the site; tells two relics of the same name apart. */
+  itemId: string
+  baseType: string
+  unique: string | null
+  mods: string[]
+  /**
+   * "pending": waiting for the trade site. "priced": `chaos` holds the estimate.
+   * "none": nothing comparable is on sale. "failed": the trade site could not be asked.
+   */
+  pricing: 'pending' | 'priced' | 'none' | 'failed'
+  /** How the price was arrived at, or why there is none; ready to show. */
+  note: string | null
 }
 
 export interface LootValue {
