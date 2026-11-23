@@ -1,6 +1,7 @@
 import type { Fragment, GemSource, RouteOptions, RouteStep } from '@shared/plan'
 import { AREAS, QUESTS, ROUTE_SOURCES, START_AREA, START_TOWN, type Area } from './data'
 import { GemCollector, type GemPlan } from './gems'
+import { translateParts } from './ru'
 
 /**
  * Turns the route sources into a flat list of steps.
@@ -80,7 +81,7 @@ export function buildPlanRoute(
       const sub = /^#sub\s*(.*)$/.exec(line)
       if (sub) {
         // Hints never move the player, so they are parsed against a throwaway state.
-        const parts = parseFragments(sub[1], { ...state, handIns: [] })
+        const parts = translateParts(sub[1], true, parseFragments(sub[1], { ...state, handIns: [] }))
         // A hint belongs to the route step above it, not to gem steps added after that step.
         const owner = steps.findLast((step) => !step.parts.some((part) => part.type === 'gem'))
         if (parts.length) owner?.subSteps.push(parts)
@@ -89,7 +90,7 @@ export function buildPlanRoute(
 
       const before = state.areaId
       state.handIns = []
-      const parts = parseFragments(line, state)
+      const parts = translateParts(line, false, parseFragments(line, state))
       if (!parts.length) continue
       steps.push({
         index: steps.length,

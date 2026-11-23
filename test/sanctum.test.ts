@@ -656,6 +656,7 @@ describe('SanctumService', () => {
     expect(view.runs.map((run) => run.id)).toEqual([newer.id])
     expect(view.stats.allTime).toMatchObject({ runs: 1, failed: 1 })
     expect(view.stats.session.runs).toBe(1)
+    expect(view.stats.today.runs).toBe(1)
     expect(view.runCounts).toMatchObject({ session: 1, today: 1 })
 
     // Unknown ids change nothing; the deletion survives a restart.
@@ -914,6 +915,22 @@ describe('SanctumService', () => {
     expect(service.view().runCounts.today).toBeGreaterThanOrEqual(1)
     service.newSession()
     expect(service.view().runCounts.session).toBe(0)
+  })
+
+  it('totals the runs begun today apart from the session and from all time', async () => {
+    const { service } = setup([])
+    const midnight = new Date().setHours(0, 0, 0, 0)
+    // One run the day before, one today; both in the same session.
+    service.onArea(midnight - 3_600_000, 'SanctumFoyer_1_1', 'yesterday')
+    service.onArea(midnight - 3_500_000, 'SanctumCellar', 'yesterday-room')
+    service.failActive()
+    service.onArea(midnight + 1000, 'SanctumFoyer_1_1', 'today')
+    service.onArea(midnight + 61_000, 'SanctumCellar', 'today-room')
+    service.failActive()
+    const { stats } = service.view()
+    expect(stats.today).toMatchObject({ runs: 1, failed: 1 })
+    expect(stats.session.runs).toBe(2)
+    expect(stats.allTime.runs).toBe(2)
   })
 
   it('keeps the finished run on screen until the player leaves the lobby', async () => {

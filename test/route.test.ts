@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import type { Fragment, RouteOptions, RouteStep } from '../src/shared/plan'
 import { buildRoute } from '../src/core/route/build'
+import { ROUTE_SOURCES } from '../src/core/route/data'
+import { ROUTE_RU, routeLineKey, translateParts } from '../src/core/route/ru'
 import { currentGroup, groupEnd, previousGroupStart } from '../src/core/route/groups'
 import { advance } from '../src/core/route/tracker'
 
@@ -41,10 +43,10 @@ const find = (predicate: (step: RouteStep) => boolean): RouteStep => {
 describe('buildRoute', () => {
   it('starts on the Twilight Strand and resolves names', () => {
     expect(route[0]).toMatchObject({ act: 1, areaId: '1_1_1', areaName: 'The Twilight Strand', arrivesAt: null })
-    expect(text(route[0].parts)).toBe('Find and kill [Hillock]')
+    expect(text(route[0].parts)).toBe('Найди и убей [Hillock]')
     expect(text(route[1].parts)).toBe("➞ [Lioneye's Watch]")
     expect(route[1].arrivesAt).toBe('1_1_town')
-    expect(text(route[2].parts)).toBe('Hand in [Enemy at the Gate]')
+    expect(text(route[2].parts)).toBe('Сдай квест [Enemy at the Gate]')
   })
 
   it('covers all ten acts and ends in Karui Shores territory', () => {
@@ -64,8 +66,8 @@ describe('buildRoute', () => {
   it('attaches hints to the step above them', () => {
     const glyphs = find((step) => text(step.parts).includes('[Glyph]'))
     expect(glyphs.subSteps.map(text)).toEqual([
-      'Little streams connect the 3 Rhoa nests',
-      'Usually form a triangle, but will rarely form a line'
+      'Три гнезда Rhoa соединены ручейками',
+      'Обычно они стоят треугольником, изредка — в линию'
     ])
   })
 
@@ -87,10 +89,10 @@ describe('buildRoute', () => {
   it('picks the bandit branch', () => {
     const lines = (bandit: RouteOptions['bandit']): string[] =>
       buildRoute({ ...options, bandit }).map((step) => text(step.parts))
-    expect(lines('kill')).toContain("Kill [Alira Darktongue], take [Alira's Amulet]")
-    expect(lines('alira')).toContain('Help [Alira Darktongue], take [The Apex]')
-    expect(lines('alira')).not.toContain("Kill [Alira Darktongue], take [Alira's Amulet]")
-    expect(lines('oak')).toContain('Find and help [Oak, Skullbreaker], take [The Apex]')
+    expect(lines('kill')).toContain("Убей [Alira Darktongue], забери [Alira's Amulet]")
+    expect(lines('alira')).toContain('Помоги [Alira Darktongue], забери [The Apex]')
+    expect(lines('alira')).not.toContain("Убей [Alira Darktongue], забери [Alira's Amulet]")
+    expect(lines('oak')).toContain('Найди [Oak, Skullbreaker] и помоги, забери [The Apex]')
   })
 
   it('keeps the walk consistent: every step starts where the previous one ended', () => {
@@ -106,6 +108,57 @@ describe('buildRoute', () => {
       buildRoute({ ...options, library }).some((step) => step.arrivesAt === '1_3_17_1')
     expect(visitsLibrary(true)).toBe(true)
     expect(visitsLibrary(false)).toBe(false)
+  })
+})
+
+describe('Russian wording', () => {
+  const lines = ROUTE_SOURCES.flatMap((source) => source.split(/\r\n|\r|\n/))
+    .map((line) => line.trim())
+    .filter((line) => line && !/^#(section|ifdef|ifndef|endif)/.test(line))
+    .map((line) => (line.startsWith('#sub') ? { hint: true, line: line.slice(4).trim() } : { hint: false, line }))
+
+  it('has every line of the route, in every branch', () => {
+    const missing = [...new Set(lines.map(({ line, hint }) => routeLineKey(line, hint)))].filter((key) => !(key in ROUTE_RU))
+    expect(missing).toEqual([])
+  })
+
+  it('uses every fragment of a line exactly once', () => {
+    for (const [key, template] of Object.entries(ROUTE_RU)) {
+      const fragments = key.match(/\{\w+\}/g)?.length ?? 0
+      const slots = (template.match(/\{\d+\}/g) ?? []).map((slot) => +slot.slice(1, -1)).sort((a, b) => a - b)
+      expect(slots, key).toEqual(Array.from({ length: fragments }, (_, i) => i))
+    }
+  })
+
+  it('carries no dead entries', () => {
+    const used = new Set(lines.map(({ line, hint }) => routeLineKey(line, hint)))
+    expect(Object.keys(ROUTE_RU).filter((key) => !used.has(key))).toEqual([])
+  })
+
+  it('leaves game names in English and words the rest in Russian', () => {
+    for (const step of route) {
+      for (const parts of [step.parts, ...step.subSteps]) {
+        for (const part of parts) {
+          // Names of the game world may stand in the middle of a sentence.
+          if (part.type === 'text') expect(part.text.replace(/Rhoa|Karui|Wraeclast|Oriath/g, ''), text(parts)).not.toMatch(/[A-Za-z]{2,}/)
+        }
+      }
+    }
+    expect(route.flatMap((step) => step.subSteps.map(text))).toContain('Иди [dir]')
+  })
+
+  it('may put the fragments in another order than the English line', () => {
+    const parts: Fragment[] = [
+      { type: 'text', text: 'Find and help ' },
+      { type: 'kill', name: 'Oak' },
+      { type: 'text', text: ', take ' },
+      { type: 'quest_text', text: 'The Apex' }
+    ]
+    expect(text(translateParts('Find and help {kill|Oak}, take {quest_text|The Apex}', false, parts))).toBe(
+      'Найди [Oak] и помоги, забери [The Apex]'
+    )
+    // A line the dictionary does not know stays as it was.
+    expect(translateParts('Dance with {kill|Oak}', false, parts)).toBe(parts)
   })
 })
 
@@ -139,7 +192,7 @@ describe('tracker', () => {
   it('groups the steps to do before the next area change', () => {
     const inMudFlats = indexOfArrival('1_1_3') + 1
     const group = currentGroup(route, inMudFlats)
-    expect(group.map((step) => text(step.parts))).toEqual(['Find 3x[Glyph]', '➞ [The Submerged Passage]'])
+    expect(group.map((step) => text(step.parts))).toEqual(['Найди 3× [Glyph]', '➞ [The Submerged Passage]'])
     expect(groupEnd(route, inMudFlats)).toBe(inMudFlats + 2)
   })
 

@@ -288,7 +288,7 @@ function Tile({ label, value, note, icon }: { label: string; value: string; note
 }
 
 function Stats({ view }: { view: SanctumView }) {
-  const [scope, setScope] = useState<'session' | 'allTime'>('session')
+  const [scope, setScope] = useState<'session' | 'today' | 'allTime'>('session')
   const now = useNow(5000)
   const totals: SanctumTotals = view.stats[scope]
   const sessionMs = now - view.sessionStartedAt
@@ -300,6 +300,9 @@ function Stats({ view }: { view: SanctumView }) {
         <nav className="acts">
           <button className={scope === 'session' ? 'active' : ''} onClick={() => setScope('session')}>
             Сессия
+          </button>
+          <button className={scope === 'today' ? 'active' : ''} onClick={() => setScope('today')}>
+            Сегодня
           </button>
           <button className={scope === 'allTime' ? 'active' : ''} onClick={() => setScope('allTime')}>
             Всё время

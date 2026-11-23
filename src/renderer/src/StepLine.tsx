@@ -2,6 +2,14 @@ import type { Fragment, RouteStep } from '@shared/plan'
 
 const ARROWS = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖']
 
+/** The Labyrinths by the names the game gives them. */
+const LABS: Record<string, string> = {
+  normal: 'The Labyrinth',
+  cruel: 'The Cruel Labyrinth',
+  merciless: 'The Merciless Labyrinth',
+  eternal: 'The Eternal Labyrinth'
+}
+
 function Part({ part }: { part: Fragment }) {
   switch (part.type) {
     case 'text':
@@ -14,11 +22,11 @@ function Part({ part }: { part: Fragment }) {
     case 'waypoint_use':
       return <span className="f-area">Waypoint ➞ {part.name}</span>
     case 'logout':
-      return <span className="f-area">Logout ➞ {part.name}</span>
+      return <span className="f-area">Перезайди в игру ➞ {part.name}</span>
     case 'portal_use':
-      return <span className="f-area">Portal ➞ {part.name}</span>
+      return <span className="f-area">Портал ➞ {part.name}</span>
     case 'portal_set':
-      return <span className="f-way">Portal</span>
+      return <span className="f-way">портал</span>
     case 'waypoint':
     case 'waypoint_get':
       return <span className="f-way">Waypoint</span>
@@ -32,11 +40,11 @@ function Part({ part }: { part: Fragment }) {
     case 'trial':
       return <span className="f-trial">Trial of Ascendancy</span>
     case 'ascend':
-      return <span className="f-trial">The Labyrinth ({part.lab})</span>
+      return <span className="f-trial">{LABS[part.lab] ?? 'The Labyrinth'}</span>
     case 'crafting':
       return (
         <span className="f-craft">
-          Crafting Recipe{part.recipes.length ? `: ${part.recipes.join(', ')}` : ''}
+          рецепт крафта{part.recipes.length ? `: ${part.recipes.join(', ')}` : ''}
         </span>
       )
     case 'dir':

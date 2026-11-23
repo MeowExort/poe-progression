@@ -371,6 +371,7 @@ export class SanctumService {
       finished: views.find((run) => run.id === this.finishedRunId) ?? null,
       stats: {
         session: computeTotals(ended.filter((run) => run.sessionId === this.sessionId)),
+        today: computeTotals(ended.filter((run) => run.startedAt >= midnight)),
         allTime: computeTotals(ended)
       }
     }

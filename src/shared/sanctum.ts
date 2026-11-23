@@ -145,7 +145,8 @@ export interface SanctumView {
   active: { run: RunView; floor: number | null; room: number | null; inSanctum: boolean; since: number } | null
   /** The run that just ended, while the player is still in the Sanctum lobby; null otherwise. */
   finished: RunView | null
-  stats: { session: SanctumTotals; allTime: SanctumTotals }
+  /** Totals of the ended runs: of the session, of those begun today (since midnight), of all. */
+  stats: { session: SanctumTotals; today: SanctumTotals; allTime: SanctumTotals }
 }
 
 export interface SanctumAccess {
