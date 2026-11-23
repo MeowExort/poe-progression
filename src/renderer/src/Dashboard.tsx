@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Feed } from './Feed'
+import { FilterTab } from './FilterTab'
 import { formatDuration } from './format'
-import { useNow, usePlan, useSanctum, useSession, useUpdate } from './hooks'
+import { useFilter, useNow, usePlan, useSanctum, useSession, useUpdate } from './hooks'
 import { PlanTab } from './PlanTab'
 import { SanctumTab } from './SanctumTab'
 import { Settings } from './Settings'
 import { UpdateBanner } from './UpdateBanner'
 
-type Tab = 'plan' | 'sanctum' | 'feed' | 'unknown' | 'settings'
+type Tab = 'plan' | 'filter' | 'sanctum' | 'feed' | 'unknown' | 'settings'
 
 export function Dashboard() {
   const session = useSession()
@@ -15,12 +16,14 @@ export function Dashboard() {
   const plan = usePlan()
   const sanctum = useSanctum()
   const update = useUpdate()
+  const filter = useFilter()
   const [tab, setTab] = useState<Tab>('plan')
-  if (!session || !plan || !sanctum || !update) return null
+  if (!session || !plan || !sanctum || !update || !filter) return null
 
   const { area, character, log } = session
   const tabs: { id: Tab; label: string }[] = [
     { id: 'plan', label: 'План' },
+    { id: 'filter', label: 'Фильтр' },
     { id: 'sanctum', label: 'Sanctum' },
     { id: 'feed', label: 'Лента' },
     { id: 'unknown', label: `Нераспознанное${session.unknown.length ? ` · ${session.unknown.length}` : ''}` },
@@ -99,6 +102,7 @@ export function Dashboard() {
 
       <main className="panel">
         {tab === 'plan' && <PlanTab plan={plan} />}
+        {tab === 'filter' && <FilterTab view={filter} />}
         {tab === 'sanctum' && <SanctumTab view={sanctum} session={session} />}
         {tab === 'feed' && (
           <Feed entries={session.feed} empty="Событий пока нет. Зайди в игру и перейди в любую зону." />

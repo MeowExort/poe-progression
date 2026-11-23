@@ -1,5 +1,6 @@
 import { contextBridge, ipcRenderer, type IpcRendererEvent } from 'electron'
 import { IPC, type PoeApi, type SessionState } from '@shared/api'
+import { FILTER_IPC, type FilterView } from '@shared/filter'
 import { PLAN_IPC, type PlanView } from '@shared/plan'
 import { SANCTUM_IPC, type SanctumView } from '@shared/sanctum'
 import { UPDATE_IPC, type UpdateState } from '@shared/update'
@@ -61,6 +62,18 @@ const api: PoeApi = {
     dumpSiteAnswer: () => ipcRenderer.invoke(SANCTUM_IPC.dumpSiteAnswer),
     setOutcome: (runId, outcome) => ipcRenderer.invoke(SANCTUM_IPC.setOutcome, runId, outcome),
     deleteRun: (runId) => ipcRenderer.invoke(SANCTUM_IPC.deleteRun, runId)
+  },
+  filter: {
+    get: () => ipcRenderer.invoke(FILTER_IPC.get),
+    onChange: (listener) => {
+      const handler = (_event: IpcRendererEvent, view: FilterView): void => listener(view)
+      ipcRenderer.on(FILTER_IPC.state, handler)
+      return () => {
+        ipcRenderer.removeListener(FILTER_IPC.state, handler)
+      }
+    },
+    setOptions: (patch) => ipcRenderer.invoke(FILTER_IPC.setOptions, patch),
+    openFolder: () => ipcRenderer.invoke(FILTER_IPC.openFolder)
   },
   update: {
     get: () => ipcRenderer.invoke(UPDATE_IPC.get),

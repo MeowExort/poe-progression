@@ -1,4 +1,5 @@
 import type { FeedEntry } from './events'
+import type { FilterApi } from './filter'
 import type { PlanApi } from './plan'
 import type { SanctumApi } from './sanctum'
 import type { UpdateApi } from './update'
@@ -104,6 +105,7 @@ export interface PoeApi {
   copyText(text: string): Promise<void>
   plan: PlanApi
   sanctum: SanctumApi
+  filter: FilterApi
   update: UpdateApi
 }
 

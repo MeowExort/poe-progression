@@ -358,6 +358,11 @@ export class SanctumService {
     }
   }
 
+  /** The league of the tracked character, once an inventory reading told it. */
+  get currentLeague(): string | null {
+    return this.league
+  }
+
   /** Resolves when every inventory reading asked for so far is done. For tests and shutdown. */
   settled(): Promise<void> {
     return this.pending

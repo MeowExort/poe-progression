@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { SessionState } from '@shared/api'
 import type { PlanView } from '@shared/plan'
+import type { FilterView } from '@shared/filter'
 import type { SanctumView } from '@shared/sanctum'
 import type { UpdateState } from '@shared/update'
 
@@ -80,4 +81,21 @@ export function useUpdate(): UpdateState | null {
     }
   }, [])
   return state
+}
+
+/** The loot filter the app writes for the build; null until the first snapshot arrives. */
+export function useFilter(): FilterView | null {
+  const [view, setView] = useState<FilterView | null>(null)
+  useEffect(() => {
+    let active = true
+    void window.poe.filter.get().then((initial) => {
+      if (active) setView((current) => current ?? initial)
+    })
+    const unsubscribe = window.poe.filter.onChange(setView)
+    return () => {
+      active = false
+      unsubscribe()
+    }
+  }, [])
+  return view
 }

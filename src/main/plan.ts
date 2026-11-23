@@ -98,6 +98,11 @@ export class PlanStore {
     }
   }
 
+  /** What the loot filter is built from: the class and the imported build with its chosen skill sets. */
+  filterInput(): { characterClass: CharacterClass | null; pob: PobBuild | null; setIndexes: number[] } {
+    return { characterClass: this.characterClass(), pob: this.pob, setIndexes: this.selectedSets() }
+  }
+
   /** True when there is a build whose tree the character's own could be compared with. */
   get followsTree(): boolean {
     return (this.pob?.treeSpecs.length ?? 0) > 0

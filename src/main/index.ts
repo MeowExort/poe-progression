@@ -3,6 +3,7 @@ import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { app, BrowserWindow, clipboard, dialog, ipcMain, safeStorage, session as electronSession, shell } from 'electron'
 import { IPC, type AppConfig, type Bounds, type OverlayLayout, type SessionState } from '@shared/api'
+import { FILTER_IPC } from '@shared/filter'
 import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
 import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
@@ -10,6 +11,7 @@ import { UPDATE_IPC } from '@shared/update'
 import { autoUpdater } from 'electron-updater'
 import { AREAS } from '@core/route/data'
 import { detectLogPath, loadConfig, readBounds, saveConfig } from './config'
+import { FilterWriter } from './filter'
 import { parseLine } from './log/parser'
 import { LogTailer } from './log/tailer'
 import { Overlay } from './overlay'
@@ -65,6 +67,16 @@ function broadcast(state: SessionState): void {
 
 function broadcastPlan(view: PlanView): void {
   send(PLAN_IPC.state, view)
+  scheduleFilterRefresh()
+}
+
+let filter: FilterWriter | null = null
+let filterTimer: NodeJS.Timeout | null = null
+
+/** The plan reports every step taken; the filter only depends on the build, so it can wait a moment. */
+function scheduleFilterRefresh(): void {
+  if (filterTimer) clearTimeout(filterTimer)
+  filterTimer = setTimeout(() => filter?.refresh(), 1500)
 }
 
 /** Loads the renderer in the given view: the dev server while developing, the built files otherwise. */
@@ -291,6 +303,14 @@ function registerIpc(): void {
   ipcMain.handle(PLAN_IPC.refreshTree, () => readTree(true))
   ipcMain.handle(PLAN_IPC.setTreeTarget, (_event, index: number | null) => plan?.setTreeTarget(index))
 
+  ipcMain.handle(FILTER_IPC.get, () => filter?.view())
+  ipcMain.handle(FILTER_IPC.setOptions, (_event, patch: { enabled?: boolean; usePrices?: boolean; useBuildNames?: boolean; dir?: string | null }) =>
+    filter?.setOptions(patch ?? {})
+  )
+  ipcMain.handle(FILTER_IPC.openFolder, () => {
+    if (filter) void shell.openPath(filter.dir)
+  })
+
   ipcMain.handle(UPDATE_IPC.get, () => updater?.view())
   ipcMain.handle(UPDATE_IPC.check, () => updater?.check())
   ipcMain.handle(UPDATE_IPC.install, () => updater?.install())
@@ -378,6 +398,24 @@ if (!app.requestSingleInstanceLock()) {
         overlay?.setInRun(view.active !== null || view.finished !== null)
       }
     })
+
+    filter = new FilterWriter({
+      file: join(userData, 'filter.json'),
+      defaultDir: join(app.getPath('documents'), 'My Games', 'Path of Exile'),
+      input: () => {
+        const league = sanctum?.currentLeague ?? null
+        const book = league ? prices.peek(league) : null
+        return {
+          ...plan!.filterInput(),
+          prices: book ? { chaosByName: book.chaosByName, divineChaos: book.divineChaos } : null
+        }
+      },
+      onChange: (view) => send(FILTER_IPC.state, view)
+    })
+    filter.refresh()
+    // Prices older than the cache allows are fetched again; the filter follows once they arrive.
+    const league = sanctum.currentLeague
+    if (league) void prices.get(league).then(() => filter?.refresh(), () => {})
 
     // Only an installed copy can update itself; running from source has nothing to replace.
     updater = new Updater({
