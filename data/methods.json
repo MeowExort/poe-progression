@@ -1,0 +1,46 @@
+{
+  "source": {
+    "label": "Патчноуты 3.30",
+    "url": "https://www.pathofexile.com/forum/view-thread/4013680"
+  },
+  "methods": [
+    {
+      "id": "chance-orb",
+      "title": "Orb of Chance на белую базу",
+      "text": "Orb of Chance, применённый к обычному (белому) предмету, может превратить его в уник на этой базе. В 3.30 шанс значительно повышен, но сами сферы стали намного реже и у торговцев больше не продаются. Тот же эффект даёт опция станка, меняющая редкость предмета. Одна сфера даётся за продажу торговцу обычного, магического, редкого и уникального предметов одной базы.",
+      "quotes": [
+        "Significantly increased the chances to get a Unique Item from an Orb of Chance, or the crafting bench option to reroll the rarity of a non-Unique item.",
+        "Orbs of Chance are now much rarer, due to becoming much more effective at resulting in Unique items, and are no longer offered by Vendors.",
+        "Vendoring a Normal, Magic, Rare and Unique item of the same base type now awards 1 Orb of Chance (previously 5)."
+      ]
+    },
+    {
+      "id": "item-tiers",
+      "title": "Предметы с тиром (с 6 акта)",
+      "text": "С 6 акта редкие и магические предметы могут выпасть с тиром от 2 до 5. Чем выше тир, тем лучше моды при опознании, выше уровень базы, больше качество, сокетов и связей. Шанс на тир зависит от редкости предметов у монстра, поэтому сильные редкие и уникальные монстры — основной источник хороших баз.",
+      "quotes": [
+        "In Act 6 onwards, Rare and Magic Items now have a change to generate with an Item Tier, ranging from 2 to 5. The tier of the item influences the modifier tier rating on the item when it is identified, higher tier resulting in higher modifier tier rating.",
+        "In addition, Item Tier will influence the chance for the item to be a higher level base type (for Weapons and Armours), chance to have Quality, chance for higher Quality, and chance to have more Sockets and Socket links.",
+        "Item Rarity on Monsters affects the chance for Rare and Magic items to have Item Tiers."
+      ]
+    },
+    {
+      "id": "fractured",
+      "title": "Fractured-предметы стали редкими",
+      "text": "В 3.30 убрано большинство источников fractured-предметов из механик лиг. Из подтверждённого остаётся шанс у предметов 5-го тира выпасть как fractured-магические. Планируй такой предмет как далёкую цель, а не как ранний шаг.",
+      "quotes": [
+        "Removed many sources of Fractured Items dropping, primarily from League Mechanics such as Legion, Ritual, Heist, Blight, Delirium, Delve and Incursion.",
+        "Tier 5 items have a chance to drop as Fractured Magic items."
+      ]
+    },
+    {
+      "id": "genesis-equipment",
+      "title": "Экипировка из дерева Бреча (Genesis Tree)",
+      "text": "У Genesis Tree есть поддерево Equipment: его ноды повышают шанс нужного типа модов и рейтинг тира модов у «рождённой» экипировки. Как именно выращивать предметы и что для этого нужно, в патчноутах 3.30 не описано — это я не проверял.",
+      "quotes": [
+        "On the Genesis Equipment Tree, Notables now grant Birthed Equipment has 200% increased chance for a specific type of Modifier (previously 300), or Birthed Equipment has 50% reduced chance for a specific type of Modifier (previously 60).",
+        "On the Genesis Equipment Tree, small nodes now grant Birthed Equipment has +10 to Modifier Tier Rating (previously +20)."
+      ]
+    }
+  ]
+}

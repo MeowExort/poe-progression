@@ -1,0 +1,5086 @@
+{
+ "Paua Amulet": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Coral Amulet": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Amber Amulet": {
+  "type": "Amulet",
+  "level": 5
+ },
+ "Jade Amulet": {
+  "type": "Amulet",
+  "level": 5
+ },
+ "Lapis Amulet": {
+  "type": "Amulet",
+  "level": 5
+ },
+ "Gold Amulet": {
+  "type": "Amulet",
+  "level": 8
+ },
+ "Onyx Amulet": {
+  "type": "Amulet",
+  "level": 20
+ },
+ "Turquoise Amulet": {
+  "type": "Amulet",
+  "level": 16
+ },
+ "Agate Amulet": {
+  "type": "Amulet",
+  "level": 16
+ },
+ "Citrine Amulet": {
+  "type": "Amulet",
+  "level": 16
+ },
+ "Ruby Amulet": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Unset Amulet": {
+  "type": "Amulet",
+  "level": 5
+ },
+ "Pearlescent Amulet": {
+  "type": "Amulet",
+  "level": 8
+ },
+ "Blue Pearl Amulet": {
+  "type": "Amulet",
+  "level": 77
+ },
+ "Marble Amulet": {
+  "type": "Amulet",
+  "level": 74
+ },
+ "Seaglass Amulet": {
+  "type": "Amulet",
+  "level": 74
+ },
+ "Astrolabe Amulet": {
+  "type": "Amulet",
+  "level": 69
+ },
+ "Simplex Amulet": {
+  "type": "Amulet",
+  "level": 24
+ },
+ "Focused Amulet": {
+  "type": "Amulet",
+  "level": 24
+ },
+ "Jet Amulet": {
+  "type": "Amulet",
+  "level": 12
+ },
+ "Black Maw Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Bonespire Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Ashscale Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Lone Antler Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Deep One Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Breakrib Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Deadhand Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Undying Flesh Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Rot Head Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Mandible Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Chrysalis Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Writhing Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Hexclaw Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Primal Skull Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Wereclaw Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Splitnewt Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Clutching Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Avian Twins Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Fangjaw Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Horned Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Spinefuse Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Three Rat Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Monkey Twins Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Longtooth Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Rotfeather Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Monkey Paw Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Three Hands Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Greatwolf Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Chieftain Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Gargantuan Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Goliath Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Rhoa Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Blood Viper Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Chimeral Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Squid Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Sand Spitter Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Shield Crab Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Goatman Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Devourer Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Plagued Arachnid Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Watcher Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Savage Crab Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Flame Hellion Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Frost Hellion Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Lynx Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Ape Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Wolf Alpha Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Magma Hound Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Pitbull Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Ursa Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Taurus Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Retch Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Cobra Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Carrion Queen Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Scrabbler Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Black Widow Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Scorpion Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Tiger Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Vulture Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Rhex Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Hybrid Arachnid Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Octopus Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Spider Crab Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Great Maw Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Croaker Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Craicic Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Fenumal Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Saqawine Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Farric Talisman": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Avian Twins Talisman (Fire-To-Cold)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Avian Twins Talisman (Fire-To-Lightning)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Avian Twins Talisman (Cold-To-Lightning)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Avian Twins Talisman (Cold-To-Fire)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Avian Twins Talisman (Lightning-To-Cold)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Monkey Paw Talisman (Power)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Monkey Paw Talisman (Frenzy)": {
+  "type": "Amulet",
+  "level": 1
+ },
+ "Rusted Hatchet": {
+  "type": "One Handed Axe",
+  "level": 1
+ },
+ "Jade Hatchet": {
+  "type": "One Handed Axe",
+  "level": 6
+ },
+ "Boarding Axe": {
+  "type": "One Handed Axe",
+  "level": 11
+ },
+ "Cleaver": {
+  "type": "One Handed Axe",
+  "level": 16
+ },
+ "Broad Axe": {
+  "type": "One Handed Axe",
+  "level": 21
+ },
+ "Arming Axe": {
+  "type": "One Handed Axe",
+  "level": 25
+ },
+ "Decorative Axe": {
+  "type": "One Handed Axe",
+  "level": 29
+ },
+ "Spectral Axe": {
+  "type": "One Handed Axe",
+  "level": 33
+ },
+ "Etched Hatchet": {
+  "type": "One Handed Axe",
+  "level": 35
+ },
+ "Jasper Axe": {
+  "type": "One Handed Axe",
+  "level": 36
+ },
+ "Tomahawk": {
+  "type": "One Handed Axe",
+  "level": 39
+ },
+ "Wrist Chopper": {
+  "type": "One Handed Axe",
+  "level": 42
+ },
+ "War Axe": {
+  "type": "One Handed Axe",
+  "level": 45
+ },
+ "Chest Splitter": {
+  "type": "One Handed Axe",
+  "level": 48
+ },
+ "Ceremonial Axe": {
+  "type": "One Handed Axe",
+  "level": 51
+ },
+ "Wraith Axe": {
+  "type": "One Handed Axe",
+  "level": 54
+ },
+ "Engraved Hatchet": {
+  "type": "One Handed Axe",
+  "level": 56
+ },
+ "Karui Axe": {
+  "type": "One Handed Axe",
+  "level": 57
+ },
+ "Siege Axe": {
+  "type": "One Handed Axe",
+  "level": 59
+ },
+ "Reaver Axe": {
+  "type": "One Handed Axe",
+  "level": 61
+ },
+ "Butcher Axe": {
+  "type": "One Handed Axe",
+  "level": 63
+ },
+ "Vaal Hatchet": {
+  "type": "One Handed Axe",
+  "level": 65
+ },
+ "Royal Axe": {
+  "type": "One Handed Axe",
+  "level": 67
+ },
+ "Infernal Axe": {
+  "type": "One Handed Axe",
+  "level": 69
+ },
+ "Runic Hatchet": {
+  "type": "One Handed Axe",
+  "level": 71
+ },
+ "Maltreatment Axe": {
+  "type": "One Handed Axe",
+  "level": 30
+ },
+ "Disapprobation Axe": {
+  "type": "One Handed Axe",
+  "level": 50
+ },
+ "Psychotic Axe": {
+  "type": "One Handed Axe",
+  "level": 70
+ },
+ "Stone Axe": {
+  "type": "Two Handed Axe",
+  "level": 1
+ },
+ "Jade Chopper": {
+  "type": "Two Handed Axe",
+  "level": 9
+ },
+ "Woodsplitter": {
+  "type": "Two Handed Axe",
+  "level": 13
+ },
+ "Poleaxe": {
+  "type": "Two Handed Axe",
+  "level": 18
+ },
+ "Double Axe": {
+  "type": "Two Handed Axe",
+  "level": 23
+ },
+ "Gilded Axe": {
+  "type": "Two Handed Axe",
+  "level": 28
+ },
+ "Shadow Axe": {
+  "type": "Two Handed Axe",
+  "level": 33
+ },
+ "Dagger Axe": {
+  "type": "Two Handed Axe",
+  "level": 36
+ },
+ "Jasper Chopper": {
+  "type": "Two Handed Axe",
+  "level": 37
+ },
+ "Timber Axe": {
+  "type": "Two Handed Axe",
+  "level": 41
+ },
+ "Headsman Axe": {
+  "type": "Two Handed Axe",
+  "level": 45
+ },
+ "Labrys": {
+  "type": "Two Handed Axe",
+  "level": 49
+ },
+ "Noble Axe": {
+  "type": "Two Handed Axe",
+  "level": 52
+ },
+ "Abyssal Axe": {
+  "type": "Two Handed Axe",
+  "level": 55
+ },
+ "Talon Axe": {
+  "type": "Two Handed Axe",
+  "level": 59
+ },
+ "Karui Chopper": {
+  "type": "Two Handed Axe",
+  "level": 58
+ },
+ "Sundering Axe": {
+  "type": "Two Handed Axe",
+  "level": 60
+ },
+ "Ezomyte Axe": {
+  "type": "Two Handed Axe",
+  "level": 62
+ },
+ "Vaal Axe": {
+  "type": "Two Handed Axe",
+  "level": 64
+ },
+ "Despot Axe": {
+  "type": "Two Handed Axe",
+  "level": 66
+ },
+ "Void Axe": {
+  "type": "Two Handed Axe",
+  "level": 68
+ },
+ "Fleshripper": {
+  "type": "Two Handed Axe",
+  "level": 70
+ },
+ "Prime Cleaver": {
+  "type": "Two Handed Axe",
+  "level": 30
+ },
+ "Honed Cleaver": {
+  "type": "Two Handed Axe",
+  "level": 50
+ },
+ "Apex Cleaver": {
+  "type": "Two Handed Axe",
+  "level": 70
+ },
+ "Rustic Sash": {
+  "type": "Belt",
+  "level": 1
+ },
+ "Chain Belt": {
+  "type": "Belt",
+  "level": 1
+ },
+ "Leather Belt": {
+  "type": "Belt",
+  "level": 8
+ },
+ "Heavy Belt": {
+  "type": "Belt",
+  "level": 8
+ },
+ "Cloth Belt": {
+  "type": "Belt",
+  "level": 16
+ },
+ "Studded Belt": {
+  "type": "Belt",
+  "level": 16
+ },
+ "Micro-Distillery Belt": {
+  "type": "Belt",
+  "level": 24
+ },
+ "Mechalarm Belt": {
+  "type": "Belt",
+  "level": 56
+ },
+ "Mechanical Belt": {
+  "type": "Belt",
+  "level": 56
+ },
+ "Vanguard Belt": {
+  "type": "Belt",
+  "level": 78
+ },
+ "Crystal Belt": {
+  "type": "Belt",
+  "level": 79
+ },
+ "Stygian Vise": {
+  "type": "Belt",
+  "level": 1
+ },
+ "Cord Belt": {
+  "type": "Belt",
+  "level": 1
+ },
+ "Golden Obi": {
+  "type": "Belt",
+  "level": 1
+ },
+ "Plate Vest": {
+  "type": "Body Armour",
+  "level": 1
+ },
+ "Chestplate": {
+  "type": "Body Armour",
+  "level": 6
+ },
+ "Copper Plate": {
+  "type": "Body Armour",
+  "level": 17
+ },
+ "War Plate": {
+  "type": "Body Armour",
+  "level": 21
+ },
+ "Full Plate": {
+  "type": "Body Armour",
+  "level": 28
+ },
+ "Arena Plate": {
+  "type": "Body Armour",
+  "level": 32
+ },
+ "Lordly Plate": {
+  "type": "Body Armour",
+  "level": 35
+ },
+ "Bronze Plate": {
+  "type": "Body Armour",
+  "level": 37
+ },
+ "Battle Plate": {
+  "type": "Body Armour",
+  "level": 41
+ },
+ "Sun Plate": {
+  "type": "Body Armour",
+  "level": 45
+ },
+ "Colosseum Plate": {
+  "type": "Body Armour",
+  "level": 49
+ },
+ "Majestic Plate": {
+  "type": "Body Armour",
+  "level": 53
+ },
+ "Golden Plate": {
+  "type": "Body Armour",
+  "level": 56
+ },
+ "Crusader Plate": {
+  "type": "Body Armour",
+  "level": 59
+ },
+ "Astral Plate": {
+  "type": "Body Armour",
+  "level": 62
+ },
+ "Gladiator Plate": {
+  "type": "Body Armour",
+  "level": 65
+ },
+ "Glorious Plate": {
+  "type": "Body Armour",
+  "level": 68
+ },
+ "Titan Plate": {
+  "type": "Body Armour",
+  "level": 73
+ },
+ "Legion Plate": {
+  "type": "Body Armour",
+  "level": 78
+ },
+ "Royal Plate": {
+  "type": "Body Armour",
+  "level": 84
+ },
+ "Shabby Jerkin": {
+  "type": "Body Armour",
+  "level": 1
+ },
+ "Strapped Leather": {
+  "type": "Body Armour",
+  "level": 9
+ },
+ "Buckskin Tunic": {
+  "type": "Body Armour",
+  "level": 17
+ },
+ "Wild Leather": {
+  "type": "Body Armour",
+  "level": 25
+ },
+ "Full Leather": {
+  "type": "Body Armour",
+  "level": 28
+ },
+ "Sun Leather": {
+  "type": "Body Armour",
+  "level": 32
+ },
+ "Thief's Garb": {
+  "type": "Body Armour",
+  "level": 35
+ },
+ "Eelskin Tunic": {
+  "type": "Body Armour",
+  "level": 37
+ },
+ "Frontier Leather": {
+  "type": "Body Armour",
+  "level": 41
+ },
+ "Glorious Leather": {
+  "type": "Body Armour",
+  "level": 45
+ },
+ "Coronal Leather": {
+  "type": "Body Armour",
+  "level": 49
+ },
+ "Cutthroat's Garb": {
+  "type": "Body Armour",
+  "level": 53
+ },
+ "Sharkskin Tunic": {
+  "type": "Body Armour",
+  "level": 56
+ },
+ "Destiny Leather": {
+  "type": "Body Armour",
+  "level": 59
+ },
+ "Exquisite Leather": {
+  "type": "Body Armour",
+  "level": 62
+ },
+ "Zodiac Leather": {
+  "type": "Body Armour",
+  "level": 65
+ },
+ "Assassin's Garb": {
+  "type": "Body Armour",
+  "level": 68
+ },
+ "Supreme Leather": {
+  "type": "Body Armour",
+  "level": 73
+ },
+ "Astral Leather": {
+  "type": "Body Armour",
+  "level": 78
+ },
+ "Syndicate's Garb": {
+  "type": "Body Armour",
+  "level": 84
+ },
+ "Simple Robe": {
+  "type": "Body Armour",
+  "level": 1
+ },
+ "Silken Vest": {
+  "type": "Body Armour",
+  "level": 11
+ },
+ "Scholar's Robe": {
+  "type": "Body Armour",
+  "level": 18
+ },
+ "Silken Garb": {
+  "type": "Body Armour",
+  "level": 25
+ },
+ "Mage's Vestment": {
+  "type": "Body Armour",
+  "level": 28
+ },
+ "Silk Robe": {
+  "type": "Body Armour",
+  "level": 32
+ },
+ "Cabalist Regalia": {
+  "type": "Body Armour",
+  "level": 35
+ },
+ "Sage's Robe": {
+  "type": "Body Armour",
+  "level": 37
+ },
+ "Silken Wrap": {
+  "type": "Body Armour",
+  "level": 41
+ },
+ "Conjurer's Vestment": {
+  "type": "Body Armour",
+  "level": 45
+ },
+ "Spidersilk Robe": {
+  "type": "Body Armour",
+  "level": 49
+ },
+ "Destroyer Regalia": {
+  "type": "Body Armour",
+  "level": 53
+ },
+ "Savant's Robe": {
+  "type": "Body Armour",
+  "level": 56
+ },
+ "Necromancer Silks": {
+  "type": "Body Armour",
+  "level": 59
+ },
+ "Occultist's Vestment": {
+  "type": "Body Armour",
+  "level": 62
+ },
+ "Widowsilk Robe": {
+  "type": "Body Armour",
+  "level": 65
+ },
+ "Vaal Regalia": {
+  "type": "Body Armour",
+  "level": 68
+ },
+ "Arcane Vestment": {
+  "type": "Body Armour",
+  "level": 73
+ },
+ "Nightweave Robe": {
+  "type": "Body Armour",
+  "level": 78
+ },
+ "Twilight Regalia": {
+  "type": "Body Armour",
+  "level": 84
+ },
+ "Scale Vest": {
+  "type": "Body Armour",
+  "level": 1
+ },
+ "Light Brigandine": {
+  "type": "Body Armour",
+  "level": 8
+ },
+ "Scale Doublet": {
+  "type": "Body Armour",
+  "level": 17
+ },
+ "Infantry Brigandine": {
+  "type": "Body Armour",
+  "level": 21
+ },
+ "Full Scale Armour": {
+  "type": "Body Armour",
+  "level": 28
+ },
+ "Soldier's Brigandine": {
+  "type": "Body Armour",
+  "level": 32
+ },
+ "Field Lamellar": {
+  "type": "Body Armour",
+  "level": 35
+ },
+ "Wyrmscale Doublet": {
+  "type": "Body Armour",
+  "level": 38
+ },
+ "Hussar Brigandine": {
+  "type": "Body Armour",
+  "level": 42
+ },
+ "Full Wyrmscale": {
+  "type": "Body Armour",
+  "level": 46
+ },
+ "Commander's Brigandine": {
+  "type": "Body Armour",
+  "level": 50
+ },
+ "Battle Lamellar": {
+  "type": "Body Armour",
+  "level": 54
+ },
+ "Dragonscale Doublet": {
+  "type": "Body Armour",
+  "level": 57
+ },
+ "Desert Brigandine": {
+  "type": "Body Armour",
+  "level": 60
+ },
+ "Full Dragonscale": {
+  "type": "Body Armour",
+  "level": 63
+ },
+ "General's Brigandine": {
+  "type": "Body Armour",
+  "level": 66
+ },
+ "Triumphant Lamellar": {
+  "type": "Body Armour",
+  "level": 69
+ },
+ "Full Wyvernscale": {
+  "type": "Body Armour",
+  "level": 73
+ },
+ "Marshall's Brigandine": {
+  "type": "Body Armour",
+  "level": 78
+ },
+ "Conquest Lamellar": {
+  "type": "Body Armour",
+  "level": 84
+ },
+ "Chainmail Vest": {
+  "type": "Body Armour",
+  "level": 1
+ },
+ "Chainmail Tunic": {
+  "type": "Body Armour",
+  "level": 8
+ },
+ "Ringmail Coat": {
+  "type": "Body Armour",
+  "level": 17
+ },
+ "Chainmail Doublet": {
+  "type": "Body Armour",
+  "level": 21
+ },
+ "Full Ringmail": {
+  "type": "Body Armour",
+  "level": 28
+ },
+ "Full Chainmail": {
+  "type": "Body Armour",
+  "level": 32
+ },
+ "Holy Chainmail": {
+  "type": "Body Armour",
+  "level": 35
+ },
+ "Latticed Ringmail": {
+  "type": "Body Armour",
+  "level": 39
+ },
+ "Crusader Chainmail": {
+  "type": "Body Armour",
+  "level": 43
+ },
+ "Ornate Ringmail": {
+  "type": "Body Armour",
+  "level": 47
+ },
+ "Chain Hauberk": {
+  "type": "Body Armour",
+  "level": 51
+ },
+ "Devout Chainmail": {
+  "type": "Body Armour",
+  "level": 55
+ },
+ "Loricated Ringmail": {
+  "type": "Body Armour",
+  "level": 58
+ },
+ "Conquest Chainmail": {
+  "type": "Body Armour",
+  "level": 61
+ },
+ "Elegant Ringmail": {
+  "type": "Body Armour",
+  "level": 64
+ },
+ "Saint's Hauberk": {
+  "type": "Body Armour",
+  "level": 67
+ },
+ "Saintly Chainmail": {
+  "type": "Body Armour",
+  "level": 70
+ },
+ "Grand Ringmail": {
+  "type": "Body Armour",
+  "level": 73
+ },
+ "Paladin's Hauberk": {
+  "type": "Body Armour",
+  "level": 78
+ },
+ "Sacred Chainmail": {
+  "type": "Body Armour",
+  "level": 84
+ },
+ "Padded Vest": {
+  "type": "Body Armour",
+  "level": 1
+ },
+ "Oiled Vest": {
+  "type": "Body Armour",
+  "level": 9
+ },
+ "Padded Jacket": {
+  "type": "Body Armour",
+  "level": 18
+ },
+ "Oiled Coat": {
+  "type": "Body Armour",
+  "level": 22
+ },
+ "Scarlet Raiment": {
+  "type": "Body Armour",
+  "level": 28
+ },
+ "Waxed Garb": {
+  "type": "Body Armour",
+  "level": 32
+ },
+ "Bone Armour": {
+  "type": "Body Armour",
+  "level": 35
+ },
+ "Quilted Jacket": {
+  "type": "Body Armour",
+  "level": 40
+ },
+ "Sleek Coat": {
+  "type": "Body Armour",
+  "level": 44
+ },
+ "Crimson Raiment": {
+  "type": "Body Armour",
+  "level": 48
+ },
+ "Lacquered Garb": {
+  "type": "Body Armour",
+  "level": 52
+ },
+ "Crypt Armour": {
+  "type": "Body Armour",
+  "level": 56
+ },
+ "Sentinel Jacket": {
+  "type": "Body Armour",
+  "level": 59
+ },
+ "Varnished Coat": {
+  "type": "Body Armour",
+  "level": 62
+ },
+ "Blood Raiment": {
+  "type": "Body Armour",
+  "level": 65
+ },
+ "Sadist Garb": {
+  "type": "Body Armour",
+  "level": 68
+ },
+ "Carnal Armour": {
+  "type": "Body Armour",
+  "level": 71
+ },
+ "Sanguine Raiment": {
+  "type": "Body Armour",
+  "level": 73
+ },
+ "Torturer Garb": {
+  "type": "Body Armour",
+  "level": 78
+ },
+ "Necrotic Armour": {
+  "type": "Body Armour",
+  "level": 84
+ },
+ "Sacrificial Garb": {
+  "type": "Body Armour",
+  "level": 72
+ },
+ "Grasping Mail": {
+  "type": "Body Armour",
+  "level": 70
+ },
+ "Golden Mantle": {
+  "type": "Body Armour",
+  "level": 20
+ },
+ "Iron Greaves": {
+  "type": "Boots",
+  "level": 1
+ },
+ "Steel Greaves": {
+  "type": "Boots",
+  "level": 9
+ },
+ "Plated Greaves": {
+  "type": "Boots",
+  "level": 23
+ },
+ "Reinforced Greaves": {
+  "type": "Boots",
+  "level": 33
+ },
+ "Antique Greaves": {
+  "type": "Boots",
+  "level": 37
+ },
+ "Ancient Greaves": {
+  "type": "Boots",
+  "level": 46
+ },
+ "Goliath Greaves": {
+  "type": "Boots",
+  "level": 54
+ },
+ "Vaal Greaves": {
+  "type": "Boots",
+  "level": 62
+ },
+ "Titan Greaves": {
+  "type": "Boots",
+  "level": 68
+ },
+ "Precursor Greaves": {
+  "type": "Boots",
+  "level": 78
+ },
+ "Leviathan Greaves": {
+  "type": "Boots",
+  "level": 84
+ },
+ "Basemetal Treads": {
+  "type": "Boots",
+  "level": 20
+ },
+ "Darksteel Treads": {
+  "type": "Boots",
+  "level": 50
+ },
+ "Brimstone Treads": {
+  "type": "Boots",
+  "level": 80
+ },
+ "Rawhide Boots": {
+  "type": "Boots",
+  "level": 1
+ },
+ "Goathide Boots": {
+  "type": "Boots",
+  "level": 12
+ },
+ "Deerskin Boots": {
+  "type": "Boots",
+  "level": 22
+ },
+ "Nubuck Boots": {
+  "type": "Boots",
+  "level": 34
+ },
+ "Eelskin Boots": {
+  "type": "Boots",
+  "level": 39
+ },
+ "Sharkskin Boots": {
+  "type": "Boots",
+  "level": 44
+ },
+ "Shagreen Boots": {
+  "type": "Boots",
+  "level": 55
+ },
+ "Stealth Boots": {
+  "type": "Boots",
+  "level": 62
+ },
+ "Slink Boots": {
+  "type": "Boots",
+  "level": 69
+ },
+ "Harpyskin Boots": {
+  "type": "Boots",
+  "level": 78
+ },
+ "Velour Boots": {
+  "type": "Boots",
+  "level": 84
+ },
+ "Cloudwhisper Boots": {
+  "type": "Boots",
+  "level": 20
+ },
+ "Windbreak Boots": {
+  "type": "Boots",
+  "level": 50
+ },
+ "Stormrider Boots": {
+  "type": "Boots",
+  "level": 80
+ },
+ "Wool Shoes": {
+  "type": "Boots",
+  "level": 1
+ },
+ "Velvet Slippers": {
+  "type": "Boots",
+  "level": 9
+ },
+ "Silk Slippers": {
+  "type": "Boots",
+  "level": 22
+ },
+ "Scholar Boots": {
+  "type": "Boots",
+  "level": 32
+ },
+ "Satin Slippers": {
+  "type": "Boots",
+  "level": 38
+ },
+ "Samite Slippers": {
+  "type": "Boots",
+  "level": 44
+ },
+ "Conjurer Boots": {
+  "type": "Boots",
+  "level": 53
+ },
+ "Arcanist Slippers": {
+  "type": "Boots",
+  "level": 61
+ },
+ "Sorcerer Boots": {
+  "type": "Boots",
+  "level": 67
+ },
+ "Sage Slippers": {
+  "type": "Boots",
+  "level": 78
+ },
+ "Warlock Boots": {
+  "type": "Boots",
+  "level": 84
+ },
+ "Duskwalk Slippers": {
+  "type": "Boots",
+  "level": 20
+ },
+ "Nightwind Slippers": {
+  "type": "Boots",
+  "level": 50
+ },
+ "Dreamquest Slippers": {
+  "type": "Boots",
+  "level": 80
+ },
+ "Leatherscale Boots": {
+  "type": "Boots",
+  "level": 6
+ },
+ "Ironscale Boots": {
+  "type": "Boots",
+  "level": 18
+ },
+ "Bronzescale Boots": {
+  "type": "Boots",
+  "level": 30
+ },
+ "Steelscale Boots": {
+  "type": "Boots",
+  "level": 36
+ },
+ "Serpentscale Boots": {
+  "type": "Boots",
+  "level": 42
+ },
+ "Wyrmscale Boots": {
+  "type": "Boots",
+  "level": 51
+ },
+ "Hydrascale Boots": {
+  "type": "Boots",
+  "level": 59
+ },
+ "Dragonscale Boots": {
+  "type": "Boots",
+  "level": 65
+ },
+ "Chimerascale Boots": {
+  "type": "Boots",
+  "level": 78
+ },
+ "Wyvernscale Boots": {
+  "type": "Boots",
+  "level": 84
+ },
+ "Two-Toned Boots (Armour/Evasion)": {
+  "type": "Boots",
+  "level": 70
+ },
+ "Chain Boots": {
+  "type": "Boots",
+  "level": 5
+ },
+ "Ringmail Boots": {
+  "type": "Boots",
+  "level": 13
+ },
+ "Mesh Boots": {
+  "type": "Boots",
+  "level": 28
+ },
+ "Riveted Boots": {
+  "type": "Boots",
+  "level": 36
+ },
+ "Zealot Boots": {
+  "type": "Boots",
+  "level": 40
+ },
+ "Soldier Boots": {
+  "type": "Boots",
+  "level": 49
+ },
+ "Legion Boots": {
+  "type": "Boots",
+  "level": 58
+ },
+ "Crusader Boots": {
+  "type": "Boots",
+  "level": 64
+ },
+ "Martyr Boots": {
+  "type": "Boots",
+  "level": 78
+ },
+ "Paladin Boots": {
+  "type": "Boots",
+  "level": 84
+ },
+ "Two-Toned Boots (Armour/Energy Shield)": {
+  "type": "Boots",
+  "level": 70
+ },
+ "Wrapped Boots": {
+  "type": "Boots",
+  "level": 6
+ },
+ "Strapped Boots": {
+  "type": "Boots",
+  "level": 16
+ },
+ "Clasped Boots": {
+  "type": "Boots",
+  "level": 27
+ },
+ "Shackled Boots": {
+  "type": "Boots",
+  "level": 34
+ },
+ "Trapper Boots": {
+  "type": "Boots",
+  "level": 41
+ },
+ "Ambush Boots": {
+  "type": "Boots",
+  "level": 47
+ },
+ "Carnal Boots": {
+  "type": "Boots",
+  "level": 55
+ },
+ "Assassin's Boots": {
+  "type": "Boots",
+  "level": 63
+ },
+ "Murder Boots": {
+  "type": "Boots",
+  "level": 69
+ },
+ "Infiltrator Boots": {
+  "type": "Boots",
+  "level": 78
+ },
+ "Phantom Boots": {
+  "type": "Boots",
+  "level": 84
+ },
+ "Fugitive Boots": {
+  "type": "Boots",
+  "level": 70
+ },
+ "Two-Toned Boots (Evasion/Energy Shield)": {
+  "type": "Boots",
+  "level": 70
+ },
+ "Runic Greaves": {
+  "type": "Boots",
+  "level": 24
+ },
+ "Runic Sollerets": {
+  "type": "Boots",
+  "level": 48
+ },
+ "Runic Sabatons": {
+  "type": "Boots",
+  "level": 69
+ },
+ "Golden Caligae": {
+  "type": "Boots",
+  "level": 12
+ },
+ "Crude Bow": {
+  "type": "Bow",
+  "level": 1
+ },
+ "Short Bow": {
+  "type": "Bow",
+  "level": 5
+ },
+ "Long Bow": {
+  "type": "Bow",
+  "level": 9
+ },
+ "Composite Bow": {
+  "type": "Bow",
+  "level": 14
+ },
+ "Recurve Bow": {
+  "type": "Bow",
+  "level": 18
+ },
+ "Bone Bow": {
+  "type": "Bow",
+  "level": 23
+ },
+ "Royal Bow": {
+  "type": "Bow",
+  "level": 28
+ },
+ "Death Bow": {
+  "type": "Bow",
+  "level": 32
+ },
+ "Reflex Bow": {
+  "type": "Bow",
+  "level": 36
+ },
+ "Grove Bow": {
+  "type": "Bow",
+  "level": 35
+ },
+ "Decurve Bow": {
+  "type": "Bow",
+  "level": 38
+ },
+ "Compound Bow": {
+  "type": "Bow",
+  "level": 41
+ },
+ "Sniper Bow": {
+  "type": "Bow",
+  "level": 44
+ },
+ "Ivory Bow": {
+  "type": "Bow",
+  "level": 47
+ },
+ "Highborn Bow": {
+  "type": "Bow",
+  "level": 50
+ },
+ "Decimation Bow": {
+  "type": "Bow",
+  "level": 53
+ },
+ "Steelwood Bow": {
+  "type": "Bow",
+  "level": 57
+ },
+ "Thicket Bow": {
+  "type": "Bow",
+  "level": 56
+ },
+ "Citadel Bow": {
+  "type": "Bow",
+  "level": 58
+ },
+ "Ranger Bow": {
+  "type": "Bow",
+  "level": 60
+ },
+ "Assassin Bow": {
+  "type": "Bow",
+  "level": 62
+ },
+ "Spine Bow": {
+  "type": "Bow",
+  "level": 64
+ },
+ "Imperial Bow": {
+  "type": "Bow",
+  "level": 66
+ },
+ "Harbinger Bow": {
+  "type": "Bow",
+  "level": 68
+ },
+ "Maraketh Bow": {
+  "type": "Bow",
+  "level": 71
+ },
+ "Hedron Bow": {
+  "type": "Bow",
+  "level": 30
+ },
+ "Foundry Bow": {
+  "type": "Bow",
+  "level": 50
+ },
+ "Solarine Bow": {
+  "type": "Bow",
+  "level": 70
+ },
+ "Ethereal Bow": {
+  "type": "Bow",
+  "level": 1
+ },
+ "Nailed Fist": {
+  "type": "Claw",
+  "level": 1
+ },
+ "Sharktooth Claw": {
+  "type": "Claw",
+  "level": 7
+ },
+ "Awl": {
+  "type": "Claw",
+  "level": 12
+ },
+ "Cat's Paw": {
+  "type": "Claw",
+  "level": 17
+ },
+ "Blinder": {
+  "type": "Claw",
+  "level": 22
+ },
+ "Timeworn Claw": {
+  "type": "Claw",
+  "level": 26
+ },
+ "Sparkling Claw": {
+  "type": "Claw",
+  "level": 30
+ },
+ "Fright Claw": {
+  "type": "Claw",
+  "level": 34
+ },
+ "Double Claw": {
+  "type": "Claw",
+  "level": 36
+ },
+ "Thresher Claw": {
+  "type": "Claw",
+  "level": 37
+ },
+ "Gouger": {
+  "type": "Claw",
+  "level": 40
+ },
+ "Tiger's Paw": {
+  "type": "Claw",
+  "level": 43
+ },
+ "Gut Ripper": {
+  "type": "Claw",
+  "level": 46
+ },
+ "Prehistoric Claw": {
+  "type": "Claw",
+  "level": 49
+ },
+ "Noble Claw": {
+  "type": "Claw",
+  "level": 52
+ },
+ "Eagle Claw": {
+  "type": "Claw",
+  "level": 55
+ },
+ "Twin Claw": {
+  "type": "Claw",
+  "level": 57
+ },
+ "Great White Claw": {
+  "type": "Claw",
+  "level": 58
+ },
+ "Throat Stabber": {
+  "type": "Claw",
+  "level": 60
+ },
+ "Hellion's Paw": {
+  "type": "Claw",
+  "level": 62
+ },
+ "Eye Gouger": {
+  "type": "Claw",
+  "level": 64
+ },
+ "Vaal Claw": {
+  "type": "Claw",
+  "level": 66
+ },
+ "Imperial Claw": {
+  "type": "Claw",
+  "level": 68
+ },
+ "Terror Claw": {
+  "type": "Claw",
+  "level": 70
+ },
+ "Gemini Claw": {
+  "type": "Claw",
+  "level": 72
+ },
+ "Shadow Fangs": {
+  "type": "Claw",
+  "level": 30
+ },
+ "Malign Fangs": {
+  "type": "Claw",
+  "level": 50
+ },
+ "Void Fangs": {
+  "type": "Claw",
+  "level": 70
+ },
+ "Glass Shank": {
+  "type": "Dagger",
+  "level": 1
+ },
+ "Skinning Knife": {
+  "type": "Dagger",
+  "level": 5
+ },
+ "Stiletto": {
+  "type": "Dagger",
+  "level": 15
+ },
+ "Prong Dagger": {
+  "type": "Dagger",
+  "level": 36
+ },
+ "Flaying Knife": {
+  "type": "Dagger",
+  "level": 30
+ },
+ "Poignard": {
+  "type": "Dagger",
+  "level": 41
+ },
+ "Trisula": {
+  "type": "Dagger",
+  "level": 51
+ },
+ "Gutting Knife": {
+  "type": "Dagger",
+  "level": 56
+ },
+ "Ambusher": {
+  "type": "Dagger",
+  "level": 60
+ },
+ "Sai": {
+  "type": "Dagger",
+  "level": 70
+ },
+ "Hollowpoint Dagger": {
+  "type": "Dagger",
+  "level": 30
+ },
+ "Pressurised Dagger": {
+  "type": "Dagger",
+  "level": 50
+ },
+ "Pneumatic Dagger": {
+  "type": "Dagger",
+  "level": 70
+ },
+ "Ethereal Blade": {
+  "type": "Dagger",
+  "level": 1
+ },
+ "Carving Knife": {
+  "type": "Dagger",
+  "level": 10
+ },
+ "Boot Knife": {
+  "type": "Dagger",
+  "level": 20
+ },
+ "Copper Kris": {
+  "type": "Dagger",
+  "level": 24
+ },
+ "Skean": {
+  "type": "Dagger",
+  "level": 28
+ },
+ "Imp Dagger": {
+  "type": "Dagger",
+  "level": 32
+ },
+ "Butcher Knife": {
+  "type": "Dagger",
+  "level": 38
+ },
+ "Boot Blade": {
+  "type": "Dagger",
+  "level": 44
+ },
+ "Golden Kris": {
+  "type": "Dagger",
+  "level": 47
+ },
+ "Royal Skean": {
+  "type": "Dagger",
+  "level": 50
+ },
+ "Fiend Dagger": {
+  "type": "Dagger",
+  "level": 53
+ },
+ "Slaughter Knife": {
+  "type": "Dagger",
+  "level": 58
+ },
+ "Ezomyte Dagger": {
+  "type": "Dagger",
+  "level": 62
+ },
+ "Platinum Kris": {
+  "type": "Dagger",
+  "level": 64
+ },
+ "Imperial Skean": {
+  "type": "Dagger",
+  "level": 66
+ },
+ "Demon Dagger": {
+  "type": "Dagger",
+  "level": 68
+ },
+ "Flickerflame Blade": {
+  "type": "Dagger",
+  "level": 30
+ },
+ "Flashfire Blade": {
+  "type": "Dagger",
+  "level": 50
+ },
+ "Infernal Blade": {
+  "type": "Dagger",
+  "level": 70
+ },
+ "Fishing Rod": {
+  "type": "Fishing Rod",
+  "level": 1
+ },
+ "Small Life Flask": {
+  "type": "Flask",
+  "level": 1
+ },
+ "Medium Life Flask": {
+  "type": "Flask",
+  "level": 3
+ },
+ "Large Life Flask": {
+  "type": "Flask",
+  "level": 6
+ },
+ "Greater Life Flask": {
+  "type": "Flask",
+  "level": 12
+ },
+ "Grand Life Flask": {
+  "type": "Flask",
+  "level": 18
+ },
+ "Giant Life Flask": {
+  "type": "Flask",
+  "level": 24
+ },
+ "Colossal Life Flask": {
+  "type": "Flask",
+  "level": 30
+ },
+ "Sacred Life Flask": {
+  "type": "Flask",
+  "level": 36
+ },
+ "Hallowed Life Flask": {
+  "type": "Flask",
+  "level": 42
+ },
+ "Sanctified Life Flask": {
+  "type": "Flask",
+  "level": 50
+ },
+ "Divine Life Flask": {
+  "type": "Flask",
+  "level": 60
+ },
+ "Eternal Life Flask": {
+  "type": "Flask",
+  "level": 65
+ },
+ "Small Mana Flask": {
+  "type": "Flask",
+  "level": 1
+ },
+ "Medium Mana Flask": {
+  "type": "Flask",
+  "level": 3
+ },
+ "Large Mana Flask": {
+  "type": "Flask",
+  "level": 6
+ },
+ "Greater Mana Flask": {
+  "type": "Flask",
+  "level": 12
+ },
+ "Grand Mana Flask": {
+  "type": "Flask",
+  "level": 18
+ },
+ "Giant Mana Flask": {
+  "type": "Flask",
+  "level": 24
+ },
+ "Colossal Mana Flask": {
+  "type": "Flask",
+  "level": 30
+ },
+ "Sacred Mana Flask": {
+  "type": "Flask",
+  "level": 36
+ },
+ "Hallowed Mana Flask": {
+  "type": "Flask",
+  "level": 42
+ },
+ "Sanctified Mana Flask": {
+  "type": "Flask",
+  "level": 50
+ },
+ "Divine Mana Flask": {
+  "type": "Flask",
+  "level": 60
+ },
+ "Eternal Mana Flask": {
+  "type": "Flask",
+  "level": 65
+ },
+ "Small Hybrid Flask": {
+  "type": "Flask",
+  "level": 10
+ },
+ "Medium Hybrid Flask": {
+  "type": "Flask",
+  "level": 20
+ },
+ "Large Hybrid Flask": {
+  "type": "Flask",
+  "level": 30
+ },
+ "Colossal Hybrid Flask": {
+  "type": "Flask",
+  "level": 40
+ },
+ "Sacred Hybrid Flask": {
+  "type": "Flask",
+  "level": 50
+ },
+ "Hallowed Hybrid Flask": {
+  "type": "Flask",
+  "level": 60
+ },
+ "Diamond Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Ruby Flask": {
+  "type": "Flask",
+  "level": 18
+ },
+ "Sapphire Flask": {
+  "type": "Flask",
+  "level": 18
+ },
+ "Topaz Flask": {
+  "type": "Flask",
+  "level": 18
+ },
+ "Granite Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Quicksilver Flask": {
+  "type": "Flask",
+  "level": 4
+ },
+ "Amethyst Flask": {
+  "type": "Flask",
+  "level": 18
+ },
+ "Quartz Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Jade Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Basalt Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Aquamarine Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Stibnite Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Sulphur Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Silver Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Bismuth Flask": {
+  "type": "Flask",
+  "level": 8
+ },
+ "Gold Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Corundum Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Iron Flask": {
+  "type": "Flask",
+  "level": 27
+ },
+ "Iron Gauntlets": {
+  "type": "Gloves",
+  "level": 1
+ },
+ "Plated Gauntlets": {
+  "type": "Gloves",
+  "level": 11
+ },
+ "Bronze Gauntlets": {
+  "type": "Gloves",
+  "level": 23
+ },
+ "Steel Gauntlets": {
+  "type": "Gloves",
+  "level": 35
+ },
+ "Antique Gauntlets": {
+  "type": "Gloves",
+  "level": 39
+ },
+ "Ancient Gauntlets": {
+  "type": "Gloves",
+  "level": 47
+ },
+ "Goliath Gauntlets": {
+  "type": "Gloves",
+  "level": 53
+ },
+ "Vaal Gauntlets": {
+  "type": "Gloves",
+  "level": 63
+ },
+ "Titan Gauntlets": {
+  "type": "Gloves",
+  "level": 69
+ },
+ "Precursor Gauntlets": {
+  "type": "Gloves",
+  "level": 78
+ },
+ "Leviathan Gauntlets": {
+  "type": "Gloves",
+  "level": 84
+ },
+ "Preserving Gauntlets": {
+  "type": "Gloves",
+  "level": 16
+ },
+ "Guarding Gauntlets": {
+  "type": "Gloves",
+  "level": 40
+ },
+ "Thwarting Gauntlets": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Spiked Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Rawhide Gloves": {
+  "type": "Gloves",
+  "level": 1
+ },
+ "Goathide Gloves": {
+  "type": "Gloves",
+  "level": 9
+ },
+ "Deerskin Gloves": {
+  "type": "Gloves",
+  "level": 21
+ },
+ "Nubuck Gloves": {
+  "type": "Gloves",
+  "level": 33
+ },
+ "Eelskin Gloves": {
+  "type": "Gloves",
+  "level": 38
+ },
+ "Sharkskin Gloves": {
+  "type": "Gloves",
+  "level": 45
+ },
+ "Shagreen Gloves": {
+  "type": "Gloves",
+  "level": 54
+ },
+ "Stealth Gloves": {
+  "type": "Gloves",
+  "level": 62
+ },
+ "Slink Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Harpyskin Gloves": {
+  "type": "Gloves",
+  "level": 78
+ },
+ "Velour Gloves": {
+  "type": "Gloves",
+  "level": 84
+ },
+ "Tinker Gloves": {
+  "type": "Gloves",
+  "level": 10
+ },
+ "Apprentice Gloves": {
+  "type": "Gloves",
+  "level": 40
+ },
+ "Trapsetter Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Gripped Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Wool Gloves": {
+  "type": "Gloves",
+  "level": 1
+ },
+ "Velvet Gloves": {
+  "type": "Gloves",
+  "level": 12
+ },
+ "Silk Gloves": {
+  "type": "Gloves",
+  "level": 25
+ },
+ "Embroidered Gloves": {
+  "type": "Gloves",
+  "level": 36
+ },
+ "Satin Gloves": {
+  "type": "Gloves",
+  "level": 41
+ },
+ "Samite Gloves": {
+  "type": "Gloves",
+  "level": 47
+ },
+ "Conjurer Gloves": {
+  "type": "Gloves",
+  "level": 55
+ },
+ "Arcanist Gloves": {
+  "type": "Gloves",
+  "level": 60
+ },
+ "Sorcerer Gloves": {
+  "type": "Gloves",
+  "level": 69
+ },
+ "Sage Gloves": {
+  "type": "Gloves",
+  "level": 78
+ },
+ "Warlock Gloves": {
+  "type": "Gloves",
+  "level": 84
+ },
+ "Leyline Gloves": {
+  "type": "Gloves",
+  "level": 10
+ },
+ "Aetherwind Gloves": {
+  "type": "Gloves",
+  "level": 40
+ },
+ "Nexus Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Fingerless Silk Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Fishscale Gauntlets": {
+  "type": "Gloves",
+  "level": 1
+ },
+ "Ironscale Gauntlets": {
+  "type": "Gloves",
+  "level": 15
+ },
+ "Bronzescale Gauntlets": {
+  "type": "Gloves",
+  "level": 27
+ },
+ "Steelscale Gauntlets": {
+  "type": "Gloves",
+  "level": 36
+ },
+ "Serpentscale Gauntlets": {
+  "type": "Gloves",
+  "level": 43
+ },
+ "Wyrmscale Gauntlets": {
+  "type": "Gloves",
+  "level": 49
+ },
+ "Hydrascale Gauntlets": {
+  "type": "Gloves",
+  "level": 59
+ },
+ "Dragonscale Gauntlets": {
+  "type": "Gloves",
+  "level": 67
+ },
+ "Chimerascale Gauntlets": {
+  "type": "Gloves",
+  "level": 78
+ },
+ "Wyvernscale Gauntlets": {
+  "type": "Gloves",
+  "level": 84
+ },
+ "Chain Gloves": {
+  "type": "Gloves",
+  "level": 7
+ },
+ "Ringmail Gloves": {
+  "type": "Gloves",
+  "level": 19
+ },
+ "Mesh Gloves": {
+  "type": "Gloves",
+  "level": 32
+ },
+ "Riveted Gloves": {
+  "type": "Gloves",
+  "level": 37
+ },
+ "Zealot Gloves": {
+  "type": "Gloves",
+  "level": 43
+ },
+ "Soldier Gloves": {
+  "type": "Gloves",
+  "level": 51
+ },
+ "Legion Gloves": {
+  "type": "Gloves",
+  "level": 57
+ },
+ "Crusader Gloves": {
+  "type": "Gloves",
+  "level": 66
+ },
+ "Martyr Gloves": {
+  "type": "Gloves",
+  "level": 78
+ },
+ "Paladin Gloves": {
+  "type": "Gloves",
+  "level": 84
+ },
+ "Apothecary's Gloves": {
+  "type": "Gloves",
+  "level": 70
+ },
+ "Wrapped Mitts": {
+  "type": "Gloves",
+  "level": 5
+ },
+ "Strapped Mitts": {
+  "type": "Gloves",
+  "level": 16
+ },
+ "Clasped Mitts": {
+  "type": "Gloves",
+  "level": 31
+ },
+ "Trapper Mitts": {
+  "type": "Gloves",
+  "level": 36
+ },
+ "Ambush Mitts": {
+  "type": "Gloves",
+  "level": 45
+ },
+ "Carnal Mitts": {
+  "type": "Gloves",
+  "level": 50
+ },
+ "Assassin's Mitts": {
+  "type": "Gloves",
+  "level": 58
+ },
+ "Murder Mitts": {
+  "type": "Gloves",
+  "level": 67
+ },
+ "Infiltrator Mitts": {
+  "type": "Gloves",
+  "level": 78
+ },
+ "Phantom Mitts": {
+  "type": "Gloves",
+  "level": 84
+ },
+ "Runic Gloves": {
+  "type": "Gloves",
+  "level": 24
+ },
+ "Runic Gages": {
+  "type": "Gloves",
+  "level": 48
+ },
+ "Runic Gauntlets": {
+  "type": "Gloves",
+  "level": 69
+ },
+ "Golden Bracers": {
+  "type": "Gloves",
+  "level": 12
+ },
+ "Battering Uulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Spiking Uulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Impaling Uulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Hardening Uulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Molten Xophgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Erupting Xophgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Flamecaller Xophgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Stoking Xophgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Storming Eshgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Replicating Eshgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Draining Eshgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Jolting Eshgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Squalling Tulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Freezing Tulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Summoning Tulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Aegis Tulgraft": {
+  "type": "Graft",
+  "level": 1
+ },
+ "Iron Hat": {
+  "type": "Helmet",
+  "level": 1
+ },
+ "Cone Helmet": {
+  "type": "Helmet",
+  "level": 7
+ },
+ "Barbute Helmet": {
+  "type": "Helmet",
+  "level": 18
+ },
+ "Close Helmet": {
+  "type": "Helmet",
+  "level": 26
+ },
+ "Gladiator Helmet": {
+  "type": "Helmet",
+  "level": 35
+ },
+ "Reaver Helmet": {
+  "type": "Helmet",
+  "level": 40
+ },
+ "Siege Helmet": {
+  "type": "Helmet",
+  "level": 48
+ },
+ "Samnite Helmet": {
+  "type": "Helmet",
+  "level": 55
+ },
+ "Ezomyte Burgonet": {
+  "type": "Helmet",
+  "level": 60
+ },
+ "Royal Burgonet": {
+  "type": "Helmet",
+  "level": 65
+ },
+ "Eternal Burgonet": {
+  "type": "Helmet",
+  "level": 69
+ },
+ "General's Helmet": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Conqueror's Helmet": {
+  "type": "Helmet",
+  "level": 78
+ },
+ "Giantslayer Helmet": {
+  "type": "Helmet",
+  "level": 84
+ },
+ "Leather Cap": {
+  "type": "Helmet",
+  "level": 1
+ },
+ "Tricorne": {
+  "type": "Helmet",
+  "level": 10
+ },
+ "Leather Hood": {
+  "type": "Helmet",
+  "level": 20
+ },
+ "Wolf Pelt": {
+  "type": "Helmet",
+  "level": 30
+ },
+ "Hunter Hood": {
+  "type": "Helmet",
+  "level": 41
+ },
+ "Noble Tricorne": {
+  "type": "Helmet",
+  "level": 47
+ },
+ "Ursine Pelt": {
+  "type": "Helmet",
+  "level": 55
+ },
+ "Silken Hood": {
+  "type": "Helmet",
+  "level": 60
+ },
+ "Sinner Tricorne": {
+  "type": "Helmet",
+  "level": 64
+ },
+ "Lion Pelt": {
+  "type": "Helmet",
+  "level": 70
+ },
+ "Dire Pelt": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Grizzly Pelt": {
+  "type": "Helmet",
+  "level": 78
+ },
+ "Majestic Pelt": {
+  "type": "Helmet",
+  "level": 84
+ },
+ "Vine Circlet": {
+  "type": "Helmet",
+  "level": 1
+ },
+ "Iron Circlet": {
+  "type": "Helmet",
+  "level": 8
+ },
+ "Torture Cage": {
+  "type": "Helmet",
+  "level": 17
+ },
+ "Tribal Circlet": {
+  "type": "Helmet",
+  "level": 26
+ },
+ "Bone Circlet": {
+  "type": "Helmet",
+  "level": 34
+ },
+ "Lunaris Circlet": {
+  "type": "Helmet",
+  "level": 39
+ },
+ "Steel Circlet": {
+  "type": "Helmet",
+  "level": 48
+ },
+ "Necromancer Circlet": {
+  "type": "Helmet",
+  "level": 54
+ },
+ "Solaris Circlet": {
+  "type": "Helmet",
+  "level": 59
+ },
+ "Mind Cage": {
+  "type": "Helmet",
+  "level": 65
+ },
+ "Hubris Circlet": {
+  "type": "Helmet",
+  "level": 69
+ },
+ "Moonlit Circlet": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Sunfire Circlet": {
+  "type": "Helmet",
+  "level": 78
+ },
+ "Lich's Circlet": {
+  "type": "Helmet",
+  "level": 84
+ },
+ "Battered Helm": {
+  "type": "Helmet",
+  "level": 1
+ },
+ "Sallet": {
+  "type": "Helmet",
+  "level": 13
+ },
+ "Visored Sallet": {
+  "type": "Helmet",
+  "level": 23
+ },
+ "Gilded Sallet": {
+  "type": "Helmet",
+  "level": 33
+ },
+ "Secutor Helm": {
+  "type": "Helmet",
+  "level": 36
+ },
+ "Fencer Helm": {
+  "type": "Helmet",
+  "level": 43
+ },
+ "Lacquered Helmet": {
+  "type": "Helmet",
+  "level": 51
+ },
+ "Fluted Bascinet": {
+  "type": "Helmet",
+  "level": 58
+ },
+ "Pig-Faced Bascinet": {
+  "type": "Helmet",
+  "level": 63
+ },
+ "Nightmare Bascinet": {
+  "type": "Helmet",
+  "level": 67
+ },
+ "Knight Helm": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Conquest Helmet": {
+  "type": "Helmet",
+  "level": 78
+ },
+ "Haunted Bascinet": {
+  "type": "Helmet",
+  "level": 84
+ },
+ "Sorrow Mask": {
+  "type": "Helmet",
+  "level": 15
+ },
+ "Atonement Mask": {
+  "type": "Helmet",
+  "level": 45
+ },
+ "Penitent Mask": {
+  "type": "Helmet",
+  "level": 75
+ },
+ "Rusted Coif": {
+  "type": "Helmet",
+  "level": 5
+ },
+ "Soldier Helmet": {
+  "type": "Helmet",
+  "level": 12
+ },
+ "Great Helmet": {
+  "type": "Helmet",
+  "level": 22
+ },
+ "Crusader Helmet": {
+  "type": "Helmet",
+  "level": 31
+ },
+ "Aventail Helmet": {
+  "type": "Helmet",
+  "level": 37
+ },
+ "Zealot Helmet": {
+  "type": "Helmet",
+  "level": 44
+ },
+ "Great Crown": {
+  "type": "Helmet",
+  "level": 53
+ },
+ "Magistrate Crown": {
+  "type": "Helmet",
+  "level": 58
+ },
+ "Prophet Crown": {
+  "type": "Helmet",
+  "level": 63
+ },
+ "Praetor Crown": {
+  "type": "Helmet",
+  "level": 68
+ },
+ "Faithful Helmet": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Paladin Crown": {
+  "type": "Helmet",
+  "level": 78
+ },
+ "Divine Crown": {
+  "type": "Helmet",
+  "level": 84
+ },
+ "Imp Crown": {
+  "type": "Helmet",
+  "level": 15
+ },
+ "Demon Crown": {
+  "type": "Helmet",
+  "level": 45
+ },
+ "Archdemon Crown": {
+  "type": "Helmet",
+  "level": 75
+ },
+ "Bone Helmet": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Scare Mask": {
+  "type": "Helmet",
+  "level": 1
+ },
+ "Plague Mask": {
+  "type": "Helmet",
+  "level": 10
+ },
+ "Iron Mask": {
+  "type": "Helmet",
+  "level": 17
+ },
+ "Festival Mask": {
+  "type": "Helmet",
+  "level": 28
+ },
+ "Golden Mask": {
+  "type": "Helmet",
+  "level": 35
+ },
+ "Raven Mask": {
+  "type": "Helmet",
+  "level": 38
+ },
+ "Callous Mask": {
+  "type": "Helmet",
+  "level": 45
+ },
+ "Regicide Mask": {
+  "type": "Helmet",
+  "level": 52
+ },
+ "Harlequin Mask": {
+  "type": "Helmet",
+  "level": 57
+ },
+ "Vaal Mask": {
+  "type": "Helmet",
+  "level": 62
+ },
+ "Deicide Mask": {
+  "type": "Helmet",
+  "level": 67
+ },
+ "Jester Mask": {
+  "type": "Helmet",
+  "level": 73
+ },
+ "Ancient Mask": {
+  "type": "Helmet",
+  "level": 78
+ },
+ "Torturer's Mask": {
+  "type": "Helmet",
+  "level": 84
+ },
+ "Gale Crown": {
+  "type": "Helmet",
+  "level": 15
+ },
+ "Winter Crown": {
+  "type": "Helmet",
+  "level": 45
+ },
+ "Blizzard Crown": {
+  "type": "Helmet",
+  "level": 75
+ },
+ "Runic Helm": {
+  "type": "Helmet",
+  "level": 25
+ },
+ "Runic Crest": {
+  "type": "Helmet",
+  "level": 49
+ },
+ "Runic Crown": {
+  "type": "Helmet",
+  "level": 68
+ },
+ "Golden Wreath": {
+  "type": "Helmet",
+  "level": 12
+ },
+ "Crimson Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Viridian Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Cobalt Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Prismatic Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Ghastly Eye Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Hypnotic Eye Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Murderous Eye Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Searching Eye Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Assembled Eye Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Large Cluster Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Medium Cluster Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Small Cluster Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Timeless Jewel": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Mycelium Core": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Ursine Charm": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Lupine Charm": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Corvine Charm": {
+  "type": "Jewel",
+  "level": 1
+ },
+ "Driftwood Club": {
+  "type": "One Handed Mace",
+  "level": 1
+ },
+ "Tribal Club": {
+  "type": "One Handed Mace",
+  "level": 5
+ },
+ "Spiked Club": {
+  "type": "One Handed Mace",
+  "level": 10
+ },
+ "Stone Hammer": {
+  "type": "One Handed Mace",
+  "level": 15
+ },
+ "War Hammer": {
+  "type": "One Handed Mace",
+  "level": 20
+ },
+ "Bladed Mace": {
+  "type": "One Handed Mace",
+  "level": 24
+ },
+ "Ceremonial Mace": {
+  "type": "One Handed Mace",
+  "level": 28
+ },
+ "Dream Mace": {
+  "type": "One Handed Mace",
+  "level": 32
+ },
+ "Wyrm Mace": {
+  "type": "One Handed Mace",
+  "level": 34
+ },
+ "Petrified Club": {
+  "type": "One Handed Mace",
+  "level": 35
+ },
+ "Barbed Club": {
+  "type": "One Handed Mace",
+  "level": 38
+ },
+ "Rock Breaker": {
+  "type": "One Handed Mace",
+  "level": 41
+ },
+ "Battle Hammer": {
+  "type": "One Handed Mace",
+  "level": 44
+ },
+ "Flanged Mace": {
+  "type": "One Handed Mace",
+  "level": 47
+ },
+ "Ornate Mace": {
+  "type": "One Handed Mace",
+  "level": 50
+ },
+ "Phantom Mace": {
+  "type": "One Handed Mace",
+  "level": 53
+ },
+ "Dragon Mace": {
+  "type": "One Handed Mace",
+  "level": 55
+ },
+ "Ancestral Club": {
+  "type": "One Handed Mace",
+  "level": 56
+ },
+ "Tenderizer": {
+  "type": "One Handed Mace",
+  "level": 58
+ },
+ "Gavel": {
+  "type": "One Handed Mace",
+  "level": 60
+ },
+ "Legion Hammer": {
+  "type": "One Handed Mace",
+  "level": 62
+ },
+ "Pernach": {
+  "type": "One Handed Mace",
+  "level": 64
+ },
+ "Auric Mace": {
+  "type": "One Handed Mace",
+  "level": 66
+ },
+ "Nightmare Mace": {
+  "type": "One Handed Mace",
+  "level": 68
+ },
+ "Behemoth Mace": {
+  "type": "One Handed Mace",
+  "level": 70
+ },
+ "Flare Mace": {
+  "type": "One Handed Mace",
+  "level": 30
+ },
+ "Crack Mace": {
+  "type": "One Handed Mace",
+  "level": 50
+ },
+ "Boom Mace": {
+  "type": "One Handed Mace",
+  "level": 70
+ },
+ "Driftwood Sceptre": {
+  "type": "Sceptre",
+  "level": 1
+ },
+ "Darkwood Sceptre": {
+  "type": "Sceptre",
+  "level": 5
+ },
+ "Bronze Sceptre": {
+  "type": "Sceptre",
+  "level": 10
+ },
+ "Quartz Sceptre": {
+  "type": "Sceptre",
+  "level": 15
+ },
+ "Iron Sceptre": {
+  "type": "Sceptre",
+  "level": 20
+ },
+ "Ochre Sceptre": {
+  "type": "Sceptre",
+  "level": 24
+ },
+ "Ritual Sceptre": {
+  "type": "Sceptre",
+  "level": 28
+ },
+ "Shadow Sceptre": {
+  "type": "Sceptre",
+  "level": 32
+ },
+ "Horned Sceptre": {
+  "type": "Sceptre",
+  "level": 36
+ },
+ "Grinning Fetish": {
+  "type": "Sceptre",
+  "level": 35
+ },
+ "Sekhem": {
+  "type": "Sceptre",
+  "level": 38
+ },
+ "Crystal Sceptre": {
+  "type": "Sceptre",
+  "level": 41
+ },
+ "Lead Sceptre": {
+  "type": "Sceptre",
+  "level": 44
+ },
+ "Blood Sceptre": {
+  "type": "Sceptre",
+  "level": 47
+ },
+ "Royal Sceptre": {
+  "type": "Sceptre",
+  "level": 50
+ },
+ "Abyssal Sceptre": {
+  "type": "Sceptre",
+  "level": 53
+ },
+ "Stag Sceptre": {
+  "type": "Sceptre",
+  "level": 55
+ },
+ "Karui Sceptre": {
+  "type": "Sceptre",
+  "level": 56
+ },
+ "Tyrant's Sekhem": {
+  "type": "Sceptre",
+  "level": 58
+ },
+ "Opal Sceptre": {
+  "type": "Sceptre",
+  "level": 60
+ },
+ "Platinum Sceptre": {
+  "type": "Sceptre",
+  "level": 62
+ },
+ "Vaal Sceptre": {
+  "type": "Sceptre",
+  "level": 64
+ },
+ "Carnal Sceptre": {
+  "type": "Sceptre",
+  "level": 66
+ },
+ "Void Sceptre": {
+  "type": "Sceptre",
+  "level": 68
+ },
+ "Sambar Sceptre": {
+  "type": "Sceptre",
+  "level": 70
+ },
+ "Oscillating Sceptre": {
+  "type": "Sceptre",
+  "level": 30
+ },
+ "Stabilising Sceptre": {
+  "type": "Sceptre",
+  "level": 50
+ },
+ "Alternating Sceptre": {
+  "type": "Sceptre",
+  "level": 70
+ },
+ "Driftwood Maul": {
+  "type": "Two Handed Mace",
+  "level": 1
+ },
+ "Tribal Maul": {
+  "type": "Two Handed Mace",
+  "level": 8
+ },
+ "Mallet": {
+  "type": "Two Handed Mace",
+  "level": 12
+ },
+ "Sledgehammer": {
+  "type": "Two Handed Mace",
+  "level": 17
+ },
+ "Jagged Maul": {
+  "type": "Two Handed Mace",
+  "level": 22
+ },
+ "Brass Maul": {
+  "type": "Two Handed Mace",
+  "level": 27
+ },
+ "Fright Maul": {
+  "type": "Two Handed Mace",
+  "level": 32
+ },
+ "Morning Star": {
+  "type": "Two Handed Mace",
+  "level": 34
+ },
+ "Totemic Maul": {
+  "type": "Two Handed Mace",
+  "level": 36
+ },
+ "Great Mallet": {
+  "type": "Two Handed Mace",
+  "level": 40
+ },
+ "Steelhead": {
+  "type": "Two Handed Mace",
+  "level": 44
+ },
+ "Spiny Maul": {
+  "type": "Two Handed Mace",
+  "level": 48
+ },
+ "Plated Maul": {
+  "type": "Two Handed Mace",
+  "level": 51
+ },
+ "Dread Maul": {
+  "type": "Two Handed Mace",
+  "level": 54
+ },
+ "Solar Maul": {
+  "type": "Two Handed Mace",
+  "level": 56
+ },
+ "Karui Maul": {
+  "type": "Two Handed Mace",
+  "level": 57
+ },
+ "Colossus Mallet": {
+  "type": "Two Handed Mace",
+  "level": 59
+ },
+ "Piledriver": {
+  "type": "Two Handed Mace",
+  "level": 61
+ },
+ "Meatgrinder": {
+  "type": "Two Handed Mace",
+  "level": 63
+ },
+ "Imperial Maul": {
+  "type": "Two Handed Mace",
+  "level": 65
+ },
+ "Terror Maul": {
+  "type": "Two Handed Mace",
+  "level": 67
+ },
+ "Coronal Maul": {
+  "type": "Two Handed Mace",
+  "level": 69
+ },
+ "Blunt Force Condenser": {
+  "type": "Two Handed Mace",
+  "level": 30
+ },
+ "Crushing Force Magnifier": {
+  "type": "Two Handed Mace",
+  "level": 50
+ },
+ "Impact Force Propagator": {
+  "type": "Two Handed Mace",
+  "level": 70
+ },
+ "Cured Quiver": {
+  "type": "Quiver",
+  "level": 1
+ },
+ "Rugged Quiver": {
+  "type": "Quiver",
+  "level": 1
+ },
+ "Conductive Quiver": {
+  "type": "Quiver",
+  "level": 1
+ },
+ "Heavy Quiver": {
+  "type": "Quiver",
+  "level": 5
+ },
+ "Light Quiver": {
+  "type": "Quiver",
+  "level": 12
+ },
+ "Serrated Arrow Quiver": {
+  "type": "Quiver",
+  "level": 4
+ },
+ "Two-Point Arrow Quiver": {
+  "type": "Quiver",
+  "level": 36
+ },
+ "Sharktooth Arrow Quiver": {
+  "type": "Quiver",
+  "level": 14
+ },
+ "Blunt Arrow Quiver": {
+  "type": "Quiver",
+  "level": 31
+ },
+ "Fire Arrow Quiver": {
+  "type": "Quiver",
+  "level": 9
+ },
+ "Broadhead Arrow Quiver": {
+  "type": "Quiver",
+  "level": 49
+ },
+ "Penetrating Arrow Quiver": {
+  "type": "Quiver",
+  "level": 25
+ },
+ "Spike-Point Arrow Quiver": {
+  "type": "Quiver",
+  "level": 40
+ },
+ "Ornate Quiver": {
+  "type": "Quiver",
+  "level": 45
+ },
+ "Feathered Arrow Quiver": {
+  "type": "Quiver",
+  "level": 20
+ },
+ "Blazing Arrow Quiver": {
+  "type": "Quiver",
+  "level": 45
+ },
+ "Vile Arrow Quiver": {
+  "type": "Quiver",
+  "level": 55
+ },
+ "Heavy Arrow Quiver": {
+  "type": "Quiver",
+  "level": 61
+ },
+ "Primal Arrow Quiver": {
+  "type": "Quiver",
+  "level": 66
+ },
+ "Artillery Quiver": {
+  "type": "Quiver",
+  "level": 1
+ },
+ "Iron Ring": {
+  "type": "Ring",
+  "level": 1
+ },
+ "Coral Ring": {
+  "type": "Ring",
+  "level": 1
+ },
+ "Paua Ring": {
+  "type": "Ring",
+  "level": 1
+ },
+ "Gold Ring": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Topaz Ring": {
+  "type": "Ring",
+  "level": 12
+ },
+ "Sapphire Ring": {
+  "type": "Ring",
+  "level": 8
+ },
+ "Ruby Ring": {
+  "type": "Ring",
+  "level": 16
+ },
+ "Prismatic Ring": {
+  "type": "Ring",
+  "level": 30
+ },
+ "Moonstone Ring": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Amethyst Ring": {
+  "type": "Ring",
+  "level": 30
+ },
+ "Diamond Ring": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Two-Stone Ring": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Unset Ring": {
+  "type": "Ring",
+  "level": 5
+ },
+ "Bone Ring": {
+  "type": "Ring",
+  "level": 25
+ },
+ "Steel Ring": {
+  "type": "Ring",
+  "level": 80
+ },
+ "Opal Ring": {
+  "type": "Ring",
+  "level": 80
+ },
+ "Vermillion Ring": {
+  "type": "Ring",
+  "level": 80
+ },
+ "Cerulean Ring": {
+  "type": "Ring",
+  "level": 80
+ },
+ "Iolite Ring": {
+  "type": "Ring",
+  "level": 80
+ },
+ "Two-Stone Ring (Fire/Lightning)": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Two-Stone Ring (Cold/Lightning)": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Two-Stone Ring (Fire/Cold)": {
+  "type": "Ring",
+  "level": 20
+ },
+ "Cogwork Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Geodesic Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Composite Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Manifold Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Ratcheting Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Helical Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Dusk Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Penumbra Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Gloam Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Tenebrous Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Shadowed Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Nameless Ring": {
+  "type": "Ring",
+  "level": 24
+ },
+ "Cryonic Ring": {
+  "type": "Ring",
+  "level": 32
+ },
+ "Enthalpic Ring": {
+  "type": "Ring",
+  "level": 32
+ },
+ "Synaptic Ring": {
+  "type": "Ring",
+  "level": 32
+ },
+ "Organic Ring": {
+  "type": "Ring",
+  "level": 32
+ },
+ "Fugitive Ring": {
+  "type": "Ring",
+  "level": 32
+ },
+ "Formless Ring": {
+  "type": "Ring",
+  "level": 42
+ },
+ "Ring": {
+  "type": "Ring",
+  "level": 1
+ },
+ "Breach Ring": {
+  "type": "Ring",
+  "level": 1
+ },
+ "Golden Hoop": {
+  "type": "Ring",
+  "level": 12
+ },
+ "Jet Ring": {
+  "type": "Ring",
+  "level": 1
+ },
+ "Splintered Tower Shield": {
+  "type": "Shield",
+  "level": 1
+ },
+ "Corroded Tower Shield": {
+  "type": "Shield",
+  "level": 5
+ },
+ "Rawhide Tower Shield": {
+  "type": "Shield",
+  "level": 11
+ },
+ "Cedar Tower Shield": {
+  "type": "Shield",
+  "level": 17
+ },
+ "Copper Tower Shield": {
+  "type": "Shield",
+  "level": 24
+ },
+ "Reinforced Tower Shield": {
+  "type": "Shield",
+  "level": 30
+ },
+ "Painted Tower Shield": {
+  "type": "Shield",
+  "level": 35
+ },
+ "Buckskin Tower Shield": {
+  "type": "Shield",
+  "level": 39
+ },
+ "Mahogany Tower Shield": {
+  "type": "Shield",
+  "level": 43
+ },
+ "Bronze Tower Shield": {
+  "type": "Shield",
+  "level": 47
+ },
+ "Girded Tower Shield": {
+  "type": "Shield",
+  "level": 51
+ },
+ "Crested Tower Shield": {
+  "type": "Shield",
+  "level": 55
+ },
+ "Shagreen Tower Shield": {
+  "type": "Shield",
+  "level": 58
+ },
+ "Ebony Tower Shield": {
+  "type": "Shield",
+  "level": 61
+ },
+ "Ezomyte Tower Shield": {
+  "type": "Shield",
+  "level": 64
+ },
+ "Colossal Tower Shield": {
+  "type": "Shield",
+  "level": 67
+ },
+ "Pinnacle Tower Shield": {
+  "type": "Shield",
+  "level": 70
+ },
+ "Exothermic Tower Shield": {
+  "type": "Shield",
+  "level": 30
+ },
+ "Magmatic Tower Shield": {
+  "type": "Shield",
+  "level": 50
+ },
+ "Heat-attuned Tower Shield": {
+  "type": "Shield",
+  "level": 70
+ },
+ "Goathide Buckler": {
+  "type": "Shield",
+  "level": 1
+ },
+ "Pine Buckler": {
+  "type": "Shield",
+  "level": 8
+ },
+ "Painted Buckler": {
+  "type": "Shield",
+  "level": 16
+ },
+ "Hammered Buckler": {
+  "type": "Shield",
+  "level": 23
+ },
+ "War Buckler": {
+  "type": "Shield",
+  "level": 29
+ },
+ "Gilded Buckler": {
+  "type": "Shield",
+  "level": 34
+ },
+ "Oak Buckler": {
+  "type": "Shield",
+  "level": 38
+ },
+ "Enameled Buckler": {
+  "type": "Shield",
+  "level": 42
+ },
+ "Corrugated Buckler": {
+  "type": "Shield",
+  "level": 46
+ },
+ "Battle Buckler": {
+  "type": "Shield",
+  "level": 50
+ },
+ "Golden Buckler": {
+  "type": "Shield",
+  "level": 54
+ },
+ "Ironwood Buckler": {
+  "type": "Shield",
+  "level": 57
+ },
+ "Lacquered Buckler": {
+  "type": "Shield",
+  "level": 60
+ },
+ "Vaal Buckler": {
+  "type": "Shield",
+  "level": 63
+ },
+ "Crusader Buckler": {
+  "type": "Shield",
+  "level": 66
+ },
+ "Imperial Buckler": {
+  "type": "Shield",
+  "level": 69
+ },
+ "Endothermic Buckler": {
+  "type": "Shield",
+  "level": 30
+ },
+ "Polar Buckler": {
+  "type": "Shield",
+  "level": 50
+ },
+ "Cold-attuned Buckler": {
+  "type": "Shield",
+  "level": 70
+ },
+ "Twig Spirit Shield": {
+  "type": "Shield",
+  "level": 1
+ },
+ "Yew Spirit Shield": {
+  "type": "Shield",
+  "level": 9
+ },
+ "Bone Spirit Shield": {
+  "type": "Shield",
+  "level": 15
+ },
+ "Tarnished Spirit Shield": {
+  "type": "Shield",
+  "level": 23
+ },
+ "Jingling Spirit Shield": {
+  "type": "Shield",
+  "level": 28
+ },
+ "Brass Spirit Shield": {
+  "type": "Shield",
+  "level": 33
+ },
+ "Walnut Spirit Shield": {
+  "type": "Shield",
+  "level": 37
+ },
+ "Ivory Spirit Shield": {
+  "type": "Shield",
+  "level": 41
+ },
+ "Ancient Spirit Shield": {
+  "type": "Shield",
+  "level": 45
+ },
+ "Chiming Spirit Shield": {
+  "type": "Shield",
+  "level": 49
+ },
+ "Thorium Spirit Shield": {
+  "type": "Shield",
+  "level": 53
+ },
+ "Lacewood Spirit Shield": {
+  "type": "Shield",
+  "level": 56
+ },
+ "Fossilised Spirit Shield": {
+  "type": "Shield",
+  "level": 59
+ },
+ "Vaal Spirit Shield": {
+  "type": "Shield",
+  "level": 62
+ },
+ "Harmonic Spirit Shield": {
+  "type": "Shield",
+  "level": 65
+ },
+ "Titanium Spirit Shield": {
+  "type": "Shield",
+  "level": 68
+ },
+ "Exhausting Spirit Shield": {
+  "type": "Shield",
+  "level": 30
+ },
+ "Subsuming Spirit Shield": {
+  "type": "Shield",
+  "level": 50
+ },
+ "Transfer-attuned Spirit Shield": {
+  "type": "Shield",
+  "level": 70
+ },
+ "Rotted Round Shield": {
+  "type": "Shield",
+  "level": 5
+ },
+ "Fir Round Shield": {
+  "type": "Shield",
+  "level": 12
+ },
+ "Studded Round Shield": {
+  "type": "Shield",
+  "level": 20
+ },
+ "Scarlet Round Shield": {
+  "type": "Shield",
+  "level": 27
+ },
+ "Splendid Round Shield": {
+  "type": "Shield",
+  "level": 33
+ },
+ "Maple Round Shield": {
+  "type": "Shield",
+  "level": 39
+ },
+ "Spiked Round Shield": {
+  "type": "Shield",
+  "level": 45
+ },
+ "Crimson Round Shield": {
+  "type": "Shield",
+  "level": 49
+ },
+ "Baroque Round Shield": {
+  "type": "Shield",
+  "level": 54
+ },
+ "Teak Round Shield": {
+  "type": "Shield",
+  "level": 58
+ },
+ "Spiny Round Shield": {
+  "type": "Shield",
+  "level": 62
+ },
+ "Cardinal Round Shield": {
+  "type": "Shield",
+  "level": 66
+ },
+ "Elegant Round Shield": {
+  "type": "Shield",
+  "level": 70
+ },
+ "Plank Kite Shield": {
+  "type": "Shield",
+  "level": 7
+ },
+ "Linden Kite Shield": {
+  "type": "Shield",
+  "level": 13
+ },
+ "Reinforced Kite Shield": {
+  "type": "Shield",
+  "level": 20
+ },
+ "Layered Kite Shield": {
+  "type": "Shield",
+  "level": 27
+ },
+ "Ceremonial Kite Shield": {
+  "type": "Shield",
+  "level": 34
+ },
+ "Etched Kite Shield": {
+  "type": "Shield",
+  "level": 40
+ },
+ "Steel Kite Shield": {
+  "type": "Shield",
+  "level": 46
+ },
+ "Laminated Kite Shield": {
+  "type": "Shield",
+  "level": 50
+ },
+ "Angelic Kite Shield": {
+  "type": "Shield",
+  "level": 55
+ },
+ "Branded Kite Shield": {
+  "type": "Shield",
+  "level": 59
+ },
+ "Champion Kite Shield": {
+  "type": "Shield",
+  "level": 62
+ },
+ "Mosaic Kite Shield": {
+  "type": "Shield",
+  "level": 65
+ },
+ "Archon Kite Shield": {
+  "type": "Shield",
+  "level": 68
+ },
+ "Spiked Bundle": {
+  "type": "Shield",
+  "level": 5
+ },
+ "Driftwood Spiked Shield": {
+  "type": "Shield",
+  "level": 12
+ },
+ "Alloyed Spiked Shield": {
+  "type": "Shield",
+  "level": 20
+ },
+ "Burnished Spiked Shield": {
+  "type": "Shield",
+  "level": 27
+ },
+ "Ornate Spiked Shield": {
+  "type": "Shield",
+  "level": 33
+ },
+ "Redwood Spiked Shield": {
+  "type": "Shield",
+  "level": 39
+ },
+ "Compound Spiked Shield": {
+  "type": "Shield",
+  "level": 45
+ },
+ "Polished Spiked Shield": {
+  "type": "Shield",
+  "level": 49
+ },
+ "Sovereign Spiked Shield": {
+  "type": "Shield",
+  "level": 54
+ },
+ "Alder Spiked Shield": {
+  "type": "Shield",
+  "level": 58
+ },
+ "Ezomyte Spiked Shield": {
+  "type": "Shield",
+  "level": 62
+ },
+ "Mirrored Spiked Shield": {
+  "type": "Shield",
+  "level": 66
+ },
+ "Supreme Spiked Shield": {
+  "type": "Shield",
+  "level": 70
+ },
+ "Golden Flame": {
+  "type": "Shield",
+  "level": 15
+ },
+ "Gnarled Branch": {
+  "type": "Staff",
+  "level": 1
+ },
+ "Primitive Staff": {
+  "type": "Staff",
+  "level": 9
+ },
+ "Long Staff": {
+  "type": "Staff",
+  "level": 18
+ },
+ "Royal Staff": {
+  "type": "Staff",
+  "level": 28
+ },
+ "Crescent Staff": {
+  "type": "Staff",
+  "level": 36
+ },
+ "Woodful Staff": {
+  "type": "Staff",
+  "level": 37
+ },
+ "Quarterstaff": {
+  "type": "Staff",
+  "level": 45
+ },
+ "Highborn Staff": {
+  "type": "Staff",
+  "level": 52
+ },
+ "Moon Staff": {
+  "type": "Staff",
+  "level": 57
+ },
+ "Primordial Staff": {
+  "type": "Staff",
+  "level": 58
+ },
+ "Lathi": {
+  "type": "Staff",
+  "level": 62
+ },
+ "Imperial Staff": {
+  "type": "Staff",
+  "level": 66
+ },
+ "Eclipse Staff": {
+  "type": "Staff",
+  "level": 70
+ },
+ "Transformer Staff": {
+  "type": "Staff",
+  "level": 30
+ },
+ "Reciprocation Staff": {
+  "type": "Staff",
+  "level": 50
+ },
+ "Battery Staff": {
+  "type": "Staff",
+  "level": 70
+ },
+ "Iron Staff": {
+  "type": "Staff",
+  "level": 13
+ },
+ "Coiled Staff": {
+  "type": "Staff",
+  "level": 23
+ },
+ "Vile Staff": {
+  "type": "Staff",
+  "level": 33
+ },
+ "Military Staff": {
+  "type": "Staff",
+  "level": 41
+ },
+ "Serpentine Staff": {
+  "type": "Staff",
+  "level": 49
+ },
+ "Foul Staff": {
+  "type": "Staff",
+  "level": 55
+ },
+ "Ezomyte Staff": {
+  "type": "Staff",
+  "level": 60
+ },
+ "Maelstrom Staff": {
+  "type": "Staff",
+  "level": 64
+ },
+ "Judgement Staff": {
+  "type": "Staff",
+  "level": 68
+ },
+ "Capacity Rod": {
+  "type": "Staff",
+  "level": 30
+ },
+ "Potentiality Rod": {
+  "type": "Staff",
+  "level": 50
+ },
+ "Eventuality Rod": {
+  "type": "Staff",
+  "level": 70
+ },
+ "Rusted Sword": {
+  "type": "One Handed Sword",
+  "level": 1
+ },
+ "Copper Sword": {
+  "type": "One Handed Sword",
+  "level": 5
+ },
+ "Sabre": {
+  "type": "One Handed Sword",
+  "level": 10
+ },
+ "Broad Sword": {
+  "type": "One Handed Sword",
+  "level": 15
+ },
+ "War Sword": {
+  "type": "One Handed Sword",
+  "level": 20
+ },
+ "Ancient Sword": {
+  "type": "One Handed Sword",
+  "level": 24
+ },
+ "Elegant Sword": {
+  "type": "One Handed Sword",
+  "level": 28
+ },
+ "Dusk Blade": {
+  "type": "One Handed Sword",
+  "level": 32
+ },
+ "Hook Sword": {
+  "type": "One Handed Sword",
+  "level": 34
+ },
+ "Variscite Blade": {
+  "type": "One Handed Sword",
+  "level": 35
+ },
+ "Cutlass": {
+  "type": "One Handed Sword",
+  "level": 38
+ },
+ "Baselard": {
+  "type": "One Handed Sword",
+  "level": 41
+ },
+ "Battle Sword": {
+  "type": "One Handed Sword",
+  "level": 44
+ },
+ "Elder Sword": {
+  "type": "One Handed Sword",
+  "level": 47
+ },
+ "Graceful Sword": {
+  "type": "One Handed Sword",
+  "level": 50
+ },
+ "Twilight Blade": {
+  "type": "One Handed Sword",
+  "level": 53
+ },
+ "Grappler": {
+  "type": "One Handed Sword",
+  "level": 55
+ },
+ "Gemstone Sword": {
+  "type": "One Handed Sword",
+  "level": 56
+ },
+ "Corsair Sword": {
+  "type": "One Handed Sword",
+  "level": 58
+ },
+ "Gladius": {
+  "type": "One Handed Sword",
+  "level": 60
+ },
+ "Legion Sword": {
+  "type": "One Handed Sword",
+  "level": 62
+ },
+ "Vaal Blade": {
+  "type": "One Handed Sword",
+  "level": 64
+ },
+ "Eternal Sword": {
+  "type": "One Handed Sword",
+  "level": 66
+ },
+ "Midnight Blade": {
+  "type": "One Handed Sword",
+  "level": 68
+ },
+ "Tiger Hook": {
+  "type": "One Handed Sword",
+  "level": 70
+ },
+ "Fickle Spiritblade": {
+  "type": "One Handed Sword",
+  "level": 30
+ },
+ "Capricious Spiritblade": {
+  "type": "One Handed Sword",
+  "level": 50
+ },
+ "Anarchic Spiritblade": {
+  "type": "One Handed Sword",
+  "level": 70
+ },
+ "Ghostflame Blade": {
+  "type": "One Handed Sword",
+  "level": 68
+ },
+ "Random One Hand Sword": {
+  "type": "One Handed Sword",
+  "level": 1
+ },
+ "Charan's Sword": {
+  "type": "One Handed Sword",
+  "level": 1
+ },
+ "Energy Blade One Handed": {
+  "type": "One Handed Sword",
+  "level": 1
+ },
+ "Rusted Spike": {
+  "type": "One Handed Sword",
+  "level": 1
+ },
+ "Whalebone Rapier": {
+  "type": "One Handed Sword",
+  "level": 7
+ },
+ "Battered Foil": {
+  "type": "One Handed Sword",
+  "level": 12
+ },
+ "Basket Rapier": {
+  "type": "One Handed Sword",
+  "level": 17
+ },
+ "Jagged Foil": {
+  "type": "One Handed Sword",
+  "level": 22
+ },
+ "Antique Rapier": {
+  "type": "One Handed Sword",
+  "level": 26
+ },
+ "Elegant Foil": {
+  "type": "One Handed Sword",
+  "level": 30
+ },
+ "Thorn Rapier": {
+  "type": "One Handed Sword",
+  "level": 34
+ },
+ "Smallsword": {
+  "type": "One Handed Sword",
+  "level": 36
+ },
+ "Wyrmbone Rapier": {
+  "type": "One Handed Sword",
+  "level": 37
+ },
+ "Burnished Foil": {
+  "type": "One Handed Sword",
+  "level": 40
+ },
+ "Estoc": {
+  "type": "One Handed Sword",
+  "level": 43
+ },
+ "Serrated Foil": {
+  "type": "One Handed Sword",
+  "level": 46
+ },
+ "Primeval Rapier": {
+  "type": "One Handed Sword",
+  "level": 49
+ },
+ "Fancy Foil": {
+  "type": "One Handed Sword",
+  "level": 52
+ },
+ "Apex Rapier": {
+  "type": "One Handed Sword",
+  "level": 55
+ },
+ "Courtesan Sword": {
+  "type": "One Handed Sword",
+  "level": 57
+ },
+ "Dragonbone Rapier": {
+  "type": "One Handed Sword",
+  "level": 58
+ },
+ "Tempered Foil": {
+  "type": "One Handed Sword",
+  "level": 60
+ },
+ "Pecoraro": {
+  "type": "One Handed Sword",
+  "level": 62
+ },
+ "Spiraled Foil": {
+  "type": "One Handed Sword",
+  "level": 64
+ },
+ "Vaal Rapier": {
+  "type": "One Handed Sword",
+  "level": 66
+ },
+ "Jewelled Foil": {
+  "type": "One Handed Sword",
+  "level": 68
+ },
+ "Harpy Rapier": {
+  "type": "One Handed Sword",
+  "level": 70
+ },
+ "Dragoon Sword": {
+  "type": "One Handed Sword",
+  "level": 72
+ },
+ "Keyblade": {
+  "type": "Two Handed Sword",
+  "level": 1
+ },
+ "Corroded Blade": {
+  "type": "Two Handed Sword",
+  "level": 1
+ },
+ "Longsword": {
+  "type": "Two Handed Sword",
+  "level": 8
+ },
+ "Bastard Sword": {
+  "type": "Two Handed Sword",
+  "level": 12
+ },
+ "Two-Handed Sword": {
+  "type": "Two Handed Sword",
+  "level": 17
+ },
+ "Etched Greatsword": {
+  "type": "Two Handed Sword",
+  "level": 22
+ },
+ "Ornate Sword": {
+  "type": "Two Handed Sword",
+  "level": 27
+ },
+ "Spectral Sword": {
+  "type": "Two Handed Sword",
+  "level": 32
+ },
+ "Curved Blade": {
+  "type": "Two Handed Sword",
+  "level": 35
+ },
+ "Butcher Sword": {
+  "type": "Two Handed Sword",
+  "level": 36
+ },
+ "Footman Sword": {
+  "type": "Two Handed Sword",
+  "level": 40
+ },
+ "Highland Blade": {
+  "type": "Two Handed Sword",
+  "level": 44
+ },
+ "Engraved Greatsword": {
+  "type": "Two Handed Sword",
+  "level": 48
+ },
+ "Tiger Sword": {
+  "type": "Two Handed Sword",
+  "level": 51
+ },
+ "Wraith Sword": {
+  "type": "Two Handed Sword",
+  "level": 54
+ },
+ "Lithe Blade": {
+  "type": "Two Handed Sword",
+  "level": 56
+ },
+ "Headman's Sword": {
+  "type": "Two Handed Sword",
+  "level": 57
+ },
+ "Reaver Sword": {
+  "type": "Two Handed Sword",
+  "level": 59
+ },
+ "Ezomyte Blade": {
+  "type": "Two Handed Sword",
+  "level": 61
+ },
+ "Vaal Greatsword": {
+  "type": "Two Handed Sword",
+  "level": 63
+ },
+ "Lion Sword": {
+  "type": "Two Handed Sword",
+  "level": 65
+ },
+ "Infernal Sword": {
+  "type": "Two Handed Sword",
+  "level": 67
+ },
+ "Exquisite Blade": {
+  "type": "Two Handed Sword",
+  "level": 70
+ },
+ "Rebuking Blade": {
+  "type": "Two Handed Sword",
+  "level": 30
+ },
+ "Blasting Blade": {
+  "type": "Two Handed Sword",
+  "level": 50
+ },
+ "Banishing Blade": {
+  "type": "Two Handed Sword",
+  "level": 70
+ },
+ "Random Two Hand Sword": {
+  "type": "Two Handed Sword",
+  "level": 1
+ },
+ "Energy Blade Two Handed": {
+  "type": "Two Handed Sword",
+  "level": 1
+ },
+ "Prismatic Tincture": {
+  "type": "Tincture",
+  "level": 18
+ },
+ "Rosethorn Tincture": {
+  "type": "Tincture",
+  "level": 18
+ },
+ "Ironwood Tincture": {
+  "type": "Tincture",
+  "level": 18
+ },
+ "Ashbark Tincture": {
+  "type": "Tincture",
+  "level": 32
+ },
+ "Borealwood Tincture": {
+  "type": "Tincture",
+  "level": 32
+ },
+ "Fulgurite Tincture": {
+  "type": "Tincture",
+  "level": 32
+ },
+ "Poisonberry Tincture": {
+  "type": "Tincture",
+  "level": 45
+ },
+ "Blood Sap Tincture": {
+  "type": "Tincture",
+  "level": 45
+ },
+ "Oakbranch Tincture": {
+  "type": "Tincture",
+  "level": 60
+ },
+ "Sporebloom Tincture": {
+  "type": "Tincture",
+  "level": 52
+ },
+ "Driftwood Wand": {
+  "type": "Wand",
+  "level": 1
+ },
+ "Goat's Horn": {
+  "type": "Wand",
+  "level": 6
+ },
+ "Carved Wand": {
+  "type": "Wand",
+  "level": 12
+ },
+ "Quartz Wand": {
+  "type": "Wand",
+  "level": 18
+ },
+ "Spiraled Wand": {
+  "type": "Wand",
+  "level": 24
+ },
+ "Sage Wand": {
+  "type": "Wand",
+  "level": 30
+ },
+ "Pagan Wand": {
+  "type": "Wand",
+  "level": 34
+ },
+ "Faun's Horn": {
+  "type": "Wand",
+  "level": 35
+ },
+ "Engraved Wand": {
+  "type": "Wand",
+  "level": 40
+ },
+ "Crystal Wand": {
+  "type": "Wand",
+  "level": 45
+ },
+ "Coiled Wand": {
+  "type": "Wand",
+  "level": 49
+ },
+ "Omen Wand": {
+  "type": "Wand",
+  "level": 53
+ },
+ "Heathen Wand": {
+  "type": "Wand",
+  "level": 55
+ },
+ "Demon's Horn": {
+  "type": "Wand",
+  "level": 56
+ },
+ "Imbued Wand": {
+  "type": "Wand",
+  "level": 59
+ },
+ "Opal Wand": {
+  "type": "Wand",
+  "level": 62
+ },
+ "Tornado Wand": {
+  "type": "Wand",
+  "level": 65
+ },
+ "Prophecy Wand": {
+  "type": "Wand",
+  "level": 68
+ },
+ "Profane Wand": {
+  "type": "Wand",
+  "level": 70
+ },
+ "Assembler Wand": {
+  "type": "Wand",
+  "level": 30
+ },
+ "Congregator Wand": {
+  "type": "Wand",
+  "level": 50
+ },
+ "Accumulator Wand": {
+  "type": "Wand",
+  "level": 70
+ },
+ "Somatic Wand": {
+  "type": "Wand",
+  "level": 12
+ },
+ "Blasting Wand": {
+  "type": "Wand",
+  "level": 40
+ },
+ "Kinetic Wand": {
+  "type": "Wand",
+  "level": 59
+ },
+ "Convoking Wand": {
+  "type": "Wand",
+  "level": 72
+ },
+ "Calling Wand": {
+  "type": "Wand",
+  "level": 20
+ },
+ "Convening Wand": {
+  "type": "Wand",
+  "level": 50
+ },
+ "Scorched Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Severed Rhoa Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Sea Witch's Tentacle": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Crustacean's Claw": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Totemic Visage": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Skeletal Archer's Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Skeletal Warrior's Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Warden's Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Goatman's Horn": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Mariner's Tricorne": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Elemental Essence": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Galvanic Tentacle": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Siren's Tentacle": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Cutthroat's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Golemic Stone": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Gargantuan Claws": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Hollowed Skull": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bonestalker's Ribcage": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Templar Skull": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Arachnid Fangs": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Severed Stinger": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bandit Rogue's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Poacher's Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Cobra Tail": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bandit Witch's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Arachnid Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Vaal Appendage": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bandit Warrior's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Primate Foot": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Ursine Flesh": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Artificial Appendage": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Severed Scythe-hand": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Captain's Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Spined Claws": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Molten Core": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Defaced Bust": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Spectral Hood": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Soldier's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Flaming Ribbon": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Statue Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Voidbearer's Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Voltaic Apparatus": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "General's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Brute's Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Thaumaturge's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Spiked Carapace": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Skeletal Beast Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Scholar's Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Aristocrat's Torso": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Despot's Fist": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Vulture's Gut": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Templar Banner": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Pocked Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Pocked Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Flesh-fused Lantern": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Carved Haunches": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Blazing Skull": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Gladiator's Heart": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Swordmaster's Blade": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Chitinous Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Engorged Eye": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Corrupted Carapace": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Vendigo Claws": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Overseer's Whip": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Justicar's Helm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Flaming Furnace": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Adherent's Crown": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Heretical Tome": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Hallowed Descry": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Skeletal Tail": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Scholar's Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Ravenous Skull": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Noble's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Conjoined Hound Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Scout's Bow": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Ancestor's Club": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Skeleton Wheel": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Osseous Talon": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Flayed Visage": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bear Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Boar Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Stag Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Arachnid Egg Sac": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Infested Torso": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "King Crab's Claw": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Calcified Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Wraith Claws": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Infected Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Inquisitor's Claw": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Necromancer's Mask": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Ornate Torso": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Devourer's Antenna": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Blackened Lungs": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Construct's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Spider Queen's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Dessicated Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Hag's Stomach": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Ghostly Claw": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Terrifying Maw": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Armoured Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Blackguard's Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Champion's Banner": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Lunar Bow": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Golden Ankh": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Gemling Torso": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Scarecrow's Pitchfork": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Charred Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Sun-bleached Breastplate": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Resplendent Sceptre": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Solar Shield": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Crescent Blade": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Smuggler's Hand": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Coagulated Essence": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Gelid Fangs": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Desert Sword": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Scorpion Stinger": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Lithic Haunches": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Chimeral Eye": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Chaos Golem's Core": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Desert Queen's Crown": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Voltaic Skull": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Flayed Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Inquisitor's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Witch's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Hag's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Diseased Wing": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bloodied Arm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Prosthetic Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Distended Stomach": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Smouldering Leg": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Broken Bust": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Osseous Scythe": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Flaming Goat Hoof": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Maven's Orrery": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Sirus' Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Incarnation of Dread's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Incarnation of Neglect's Cube": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Incarnation of Fear's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Searing Exarch's Descry": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Eater of Worlds' Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Elder's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Shaper's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Venarius' Scripture": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Minotaur's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Hydra's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Chimera's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Phoenix's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Constrictor's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Purifier's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Enslaver's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Eradicator's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Baran's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Veritania's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Drox's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Al-Hezmin's Head": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Pit Fighter's Helm": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Lion's Claws": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Bat's Wings": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Nightmarish Book of Depravity": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Nightmarish Head of Uhtred": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Nightmarish Core of the Unbreakable": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Nightmarish Wings of Lycia": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Nightmarish Wings of Catarina": {
+  "type": "Viscera",
+  "level": 1
+ },
+ "Coven Queen's Crown": {
+  "type": "Viscera",
+  "level": 1
+ }
+}

@@ -169,6 +169,8 @@ function parseSpec(spec: Node, i: number): PobTreeSpec {
   }
 }
 
+const INFLUENCE_LINE = /^(Shaper|Elder|Crusader|Redeemer|Hunter|Warlord|Searing Exarch|Eater of Worlds) Item$/
+
 function parseItems(items: Node): PobItemSet[] {
   const byId = new Map<string, Omit<PobItem, 'slot'>>()
   for (const item of list(items.Item)) {
@@ -205,7 +207,38 @@ function parseItemText(raw: string): Omit<PobItem, 'slot'> | null {
   const next = lines[rarityIndex + 2]
   // Rare and unique items have a name line followed by the base type; a "Key: value" line is a property.
   const named = rarity === 'RARE' || rarity === 'UNIQUE' || rarity === 'RELIC'
-  return { rarity, name, base: named && next && !next.includes(':') ? next : null }
+
+  let links = 0
+  const influences: string[] = []
+  const craftedMods: string[] = []
+  let fractured = false
+  let corrupted = false
+  for (const line of lines) {
+    const sockets = /^Sockets:\s*(.+)$/.exec(line)
+    if (sockets) {
+      // "R-G-B B-B": dashes link sockets, spaces separate the linked groups.
+      links = Math.max(...sockets[1].split(/\s+/).map((group) => group.split('-').length))
+      continue
+    }
+    const influence = INFLUENCE_LINE.exec(line)
+    if (influence) influences.push(influence[1])
+    if (line === 'Corrupted') corrupted = true
+    // Mod lines carry tags in braces before the text: "{crafted}{range:0.5}+(10-15)% to Fire Resistance".
+    const tags = /^(?:\{[^}]*\})+/.exec(line)?.[0] ?? ''
+    if (tags.includes('{fractured}')) fractured = true
+    if (tags.includes('{crafted}')) craftedMods.push(line.slice(tags.length).trim())
+  }
+
+  return {
+    rarity,
+    name,
+    base: named && next && !next.includes(':') ? next : null,
+    links,
+    influences,
+    craftedMods,
+    fractured,
+    corrupted
+  }
 }
 
 /** Removes Path of Building colour codes such as ^7 and ^xFFAA00. */

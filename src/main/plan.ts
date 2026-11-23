@@ -4,6 +4,7 @@ import { findBuild, rankBuilds } from '@core/builds'
 import { parsePobCode, PobError } from '@core/pob/parse'
 import { buildPlanRoute } from '@core/route/build'
 import { requiredGems } from '@core/route/gems'
+import { buildSourcing } from '@core/sources'
 import { groupEnd, previousGroupStart } from '@core/route/groups'
 import { advance } from '@core/route/tracker'
 import {
@@ -14,6 +15,7 @@ import {
   type GemSource,
   type PlanView,
   type PobBuild,
+  type Sourcing,
   type RouteOptions,
   type RouteStep,
   type Style
@@ -39,6 +41,7 @@ export class PlanStore {
   private steps: RouteStep[] = []
   private gemSources: Record<string, GemSource> = {}
   private libraryOnlyGems: string[] = []
+  private sourcing: Sourcing | null = null
 
   constructor(
     private readonly file: string | null,
@@ -66,6 +69,7 @@ export class PlanStore {
       pobSets: this.selectedSets(),
       gemSources: this.gemSources,
       libraryOnlyGems: this.libraryOnlyGems,
+      sourcing: this.sourcing,
       characterClass: this.characterClass(),
       options,
       steps: this.steps,
@@ -177,6 +181,7 @@ export class PlanStore {
   private rebuild(): void {
     const characterClass = this.characterClass()
     this.libraryOnlyGems = []
+    this.sourcing = this.pob ? buildSourcing(this.pob) : null
     if (!characterClass) {
       this.steps = []
       this.gemSources = {}

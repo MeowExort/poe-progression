@@ -58,12 +58,22 @@ Hyrri's Ire
 Zodiac Leather
 Unique ID: abc
 Item Level: 84
+Sockets: G-G-G G-B
+Corrupted
     </Item>
     <Item id="2">
 			Rarity: RARE
 Doom Thirst
 Spine Bow
 Item Level: 80
+Sockets: G-G-G-G-G-G
+LevelReq: 64
+Implicits: 0
+Adds (10-15) to (20-25) Physical Damage
+{fractured}{range:0.5}(15-18)% increased Attack Speed
+{crafted}{range:1}+(20-25)% to Global Critical Strike Multiplier
+Shaper Item
+Hunter Item
     </Item>
     <Item id="3">
 			Rarity: MAGIC
@@ -137,9 +147,39 @@ describe('parsePobCode', () => {
       {
         title: 'Early maps',
         items: [
-          { slot: 'Body Armour', rarity: 'UNIQUE', name: "Hyrri's Ire", base: 'Zodiac Leather' },
-          { slot: 'Weapon 1', rarity: 'RARE', name: 'Doom Thirst', base: 'Spine Bow' },
-          { slot: 'Flask 1', rarity: 'MAGIC', name: 'Seething Divine Life Flask of Sealing', base: null }
+          {
+            slot: 'Body Armour',
+            rarity: 'UNIQUE',
+            name: "Hyrri's Ire",
+            base: 'Zodiac Leather',
+            links: 3,
+            influences: [],
+            craftedMods: [],
+            fractured: false,
+            corrupted: true
+          },
+          {
+            slot: 'Weapon 1',
+            rarity: 'RARE',
+            name: 'Doom Thirst',
+            base: 'Spine Bow',
+            links: 6,
+            influences: ['Shaper', 'Hunter'],
+            craftedMods: ['+(20-25)% to Global Critical Strike Multiplier'],
+            fractured: true,
+            corrupted: false
+          },
+          {
+            slot: 'Flask 1',
+            rarity: 'MAGIC',
+            name: 'Seething Divine Life Flask of Sealing',
+            base: null,
+            links: 0,
+            influences: [],
+            craftedMods: [],
+            fractured: false,
+            corrupted: false
+          }
         ]
       }
     ])

@@ -1,0 +1,3807 @@
+[
+ {
+  "name": "A Chilling Wind",
+  "stack": 4,
+  "reward": "Level 21 Vaal Cold Snap",
+  "kind": "gem",
+  "page": "A_Chilling_Wind",
+  "details": [
+   "Quality: +20%",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "A Dab of Ink",
+  "stack": 9,
+  "reward": "The Poet's Pen",
+  "kind": "unique",
+  "page": "A_Dab_of_Ink"
+ },
+ {
+  "name": "A Dusty Memory",
+  "stack": 5,
+  "reward": "Item",
+  "kind": "rare",
+  "page": "A_Dusty_Memory",
+  "details": [
+   "Item Level: 100",
+   "Fractured"
+  ]
+ },
+ {
+  "name": "A Familiar Call",
+  "stack": 3,
+  "reward": "Jewellery of Farrul",
+  "kind": "magic",
+  "page": "A_Familiar_Call",
+  "details": [
+   "Item Level: 100",
+   "Shaper + Hunter Item"
+  ]
+ },
+ {
+  "name": "A Fate Worse Than Death",
+  "stack": 4,
+  "reward": "Cortex",
+  "kind": "unique",
+  "page": "A_Fate_Worse_Than_Death",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "A Modest Request",
+  "stack": 3,
+  "reward": "Megalomaniac",
+  "kind": "unique",
+  "page": "A_Modest_Request",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "A Mother's Parting Gift",
+  "stack": 6,
+  "reward": "Fertile Mind",
+  "kind": "unique",
+  "page": "A_Mothers_Parting_Gift",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "A Note in the Wind",
+  "stack": 4,
+  "reward": "Asenath's Mark",
+  "kind": "unique",
+  "page": "A_Note_in_the_Wind"
+ },
+ {
+  "name": "A Sea of Blue",
+  "stack": 3,
+  "reward": "13x Orb of Alteration",
+  "kind": "currency",
+  "page": "A_Sea_of_Blue"
+ },
+ {
+  "name": "A Stone Perfected",
+  "stack": 5,
+  "reward": "Jewel",
+  "kind": "unique",
+  "page": "A_Stone_Perfected",
+  "details": [
+   "Primordial",
+   "1-2 Implicit",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Abandoned Wealth",
+  "stack": 5,
+  "reward": "3x Exalted Orb",
+  "kind": "currency",
+  "page": "Abandoned_Wealth"
+ },
+ {
+  "name": "Acclimatisation",
+  "stack": 2,
+  "reward": "20x Orb of Alteration",
+  "kind": "currency",
+  "page": "Acclimatisation"
+ },
+ {
+  "name": "Akil's Prophecy",
+  "stack": 3,
+  "reward": "Elegant Round Shield",
+  "kind": "unique",
+  "page": "Akils_Prophecy",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Alivia's Grace",
+  "stack": 6,
+  "reward": "Queen of the Forest",
+  "kind": "unique",
+  "page": "Alivias_Grace"
+ },
+ {
+  "name": "Alluring Bounty",
+  "stack": 7,
+  "reward": "10x Exalted Orb",
+  "kind": "currency",
+  "page": "Alluring_Bounty"
+ },
+ {
+  "name": "Alone in the Darkness",
+  "stack": 5,
+  "reward": "Delve Item",
+  "kind": "unique",
+  "page": "Alone_in_the_Darkness"
+ },
+ {
+  "name": "Altered Perception",
+  "stack": 3,
+  "reward": "Simulacrum",
+  "kind": "currency",
+  "page": "Altered_Perception"
+ },
+ {
+  "name": "Ambitious Obsession",
+  "stack": 4,
+  "reward": "Threaded Delirium Orb",
+  "kind": "currency",
+  "page": "Ambitious_Obsession"
+ },
+ {
+  "name": "Anarchy's Price",
+  "stack": 13,
+  "reward": "Voltaxic Rift",
+  "kind": "unique",
+  "page": "Anarchys_Price",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Apocalypse",
+  "stack": 2,
+  "reward": "Eyes of the Greatwolf",
+  "kind": "unique",
+  "page": "Apocalypse",
+  "details": [
+   "Item Level: 82",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Arrogance of the Vaal",
+  "stack": 8,
+  "reward": "Item",
+  "kind": "unique",
+  "page": "Arrogance_of_the_Vaal",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Assassin's Favour",
+  "stack": 9,
+  "reward": "Dagger",
+  "kind": "unique",
+  "page": "Assassins_Favour"
+ },
+ {
+  "name": "Assassin's Gift",
+  "stack": 9,
+  "reward": "Divinarius",
+  "kind": "unique",
+  "page": "Assassins_Gift",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Astral Protection",
+  "stack": 5,
+  "reward": "Shield",
+  "kind": "white",
+  "page": "Astral_Protection",
+  "details": [
+   "Shaper Item"
+  ]
+ },
+ {
+  "name": "Atziri's Arsenal",
+  "stack": 4,
+  "reward": "Weapon",
+  "kind": "unique",
+  "page": "Atziris_Arsenal",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Audacity",
+  "stack": 5,
+  "reward": "Doryani's Fist",
+  "kind": "unique",
+  "page": "Audacity",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Auspicious Ambitions",
+  "stack": 4,
+  "reward": "Experimented Item",
+  "kind": "white",
+  "page": "Auspicious_Ambitions",
+  "details": [
+   "Item Level: 100",
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "Avian Pursuit",
+  "stack": 3,
+  "reward": "1,500x Vivid Crystallised Lifeforce",
+  "kind": "currency",
+  "page": "Avian_Pursuit"
+ },
+ {
+  "name": "Azure Rage",
+  "stack": 4,
+  "reward": "Punishing Map",
+  "kind": "magic",
+  "page": "Azure_Rage",
+  "details": [
+   "Map Tier: 16"
+  ]
+ },
+ {
+  "name": "Azyran's Reward",
+  "stack": 9,
+  "reward": "Prismatic Jewel",
+  "kind": "unique",
+  "page": "Azyrans_Reward",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Baited Expectations",
+  "stack": 8,
+  "reward": "Fishing Item",
+  "kind": "unique",
+  "page": "Baited_Expectations"
+ },
+ {
+  "name": "Beauty Through Death",
+  "stack": 5,
+  "reward": "Atziri's Reflection",
+  "kind": "unique",
+  "page": "Beauty_Through_Death"
+ },
+ {
+  "name": "Bijoux",
+  "stack": 3,
+  "reward": "Cluster Jewel",
+  "kind": "rare",
+  "page": "Bijoux",
+  "details": [
+   "Item Level: 84"
+  ]
+ },
+ {
+  "name": "Blind Venture",
+  "stack": 7,
+  "reward": "Ring",
+  "kind": "unique",
+  "page": "Blind_Venture",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Boon of Justice",
+  "stack": 6,
+  "reward": "Offering to the Goddess",
+  "kind": "white",
+  "page": "Boon_of_Justice"
+ },
+ {
+  "name": "Boon of the First Ones",
+  "stack": 6,
+  "reward": "Bestiary Item",
+  "kind": "unique",
+  "page": "Boon_of_the_First_Ones"
+ },
+ {
+  "name": "Bound by Flame",
+  "stack": 2,
+  "reward": "Level 21 Flame Link",
+  "kind": "gem",
+  "page": "Bound_by_Flame",
+  "details": [
+   "Quality: +20%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Boundless Realms",
+  "stack": 4,
+  "reward": "Map",
+  "kind": "white",
+  "page": "Boundless_Realms"
+ },
+ {
+  "name": "Bowyer's Dream",
+  "stack": 6,
+  "reward": "Six-Link Harbinger Bow",
+  "kind": "white",
+  "page": "Bowyers_Dream",
+  "details": [
+   "Item Level: 91"
+  ]
+ },
+ {
+  "name": "Broken Promises",
+  "stack": 2,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Broken_Promises"
+ },
+ {
+  "name": "Broken Truce",
+  "stack": 5,
+  "reward": "Cold Iron Point",
+  "kind": "unique",
+  "page": "Broken_Truce"
+ },
+ {
+  "name": "Brotherhood in Exile",
+  "stack": 5,
+  "reward": "One With Nothing",
+  "kind": "unique",
+  "page": "Brotherhood_in_Exile",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Brush, Paint and Palette",
+  "stack": 5,
+  "reward": "The Artist",
+  "kind": "other",
+  "page": "Brush%2C_Paint_and_Palette"
+ },
+ {
+  "name": "Buried Treasure",
+  "stack": 3,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Buried_Treasure"
+ },
+ {
+  "name": "Burning Blood",
+  "stack": 6,
+  "reward": "Xoph's Blood",
+  "kind": "unique",
+  "page": "Burning_Blood",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Call to the First Ones",
+  "stack": 5,
+  "reward": "Talisman",
+  "kind": "rare",
+  "page": "Call_to_the_First_Ones"
+ },
+ {
+  "name": "Cameria's Cut",
+  "stack": 2,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Camerias_Cut"
+ },
+ {
+  "name": "Cartographer's Delight",
+  "stack": 3,
+  "reward": "Map",
+  "kind": "other",
+  "page": "Cartographers_Delight",
+  "details": [
+   "Map Tier: 5"
+  ]
+ },
+ {
+  "name": "Chasing Risk",
+  "stack": 4,
+  "reward": "Synthesis Item",
+  "kind": "unique",
+  "page": "Chasing_Risk"
+ },
+ {
+  "name": "Checkmate",
+  "stack": 8,
+  "reward": "76x Simulacrum Splinter",
+  "kind": "currency",
+  "page": "Checkmate"
+ },
+ {
+  "name": "Choking Guilt",
+  "stack": 6,
+  "reward": "Stranglegasp",
+  "kind": "unique",
+  "page": "Choking_Guilt"
+ },
+ {
+  "name": "Costly Curio",
+  "stack": 6,
+  "reward": "Item",
+  "kind": "unique",
+  "page": "Costly_Curio",
+  "details": [
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "Council of Cats",
+  "stack": 4,
+  "reward": "Farrul Item",
+  "kind": "unique",
+  "page": "Council_of_Cats"
+ },
+ {
+  "name": "Coveted Possession",
+  "stack": 9,
+  "reward": "5x Regal Orb",
+  "kind": "currency",
+  "page": "Coveted_Possession"
+ },
+ {
+  "name": "Cursed Words",
+  "stack": 13,
+  "reward": "Maw of Mischief",
+  "kind": "unique",
+  "page": "Cursed_Words"
+ },
+ {
+  "name": "Damnation",
+  "stack": 16,
+  "reward": "The Original Scripture",
+  "kind": "unique",
+  "page": "Damnation",
+  "details": [
+   "Item Level: 83"
+  ]
+ },
+ {
+  "name": "Dark Dreams",
+  "stack": 4,
+  "reward": "Bone Helmet",
+  "kind": "rare",
+  "page": "Dark_Dreams",
+  "details": [
+   "Elder Item"
+  ]
+ },
+ {
+  "name": "Dark Temptation",
+  "stack": 5,
+  "reward": "Obliteration",
+  "kind": "unique",
+  "page": "Dark_Temptation"
+ },
+ {
+  "name": "Darker Half",
+  "stack": 3,
+  "reward": "5x Eldritch Chaos Orb",
+  "kind": "currency",
+  "page": "Darker_Half"
+ },
+ {
+  "name": "Deadly Joy",
+  "stack": 6,
+  "reward": "Torrent's Reclamation",
+  "kind": "unique",
+  "page": "Deadly_Joy",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Death",
+  "stack": 4,
+  "reward": "Mon'tregul's Grasp",
+  "kind": "unique",
+  "page": "Death"
+ },
+ {
+  "name": "Deathly Designs",
+  "stack": 7,
+  "reward": "Level 21 Trap Gem",
+  "kind": "gem",
+  "page": "Deathly_Designs",
+  "details": [
+   "Quality: +23%",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Dementophobia",
+  "stack": 11,
+  "reward": "10x Delirium Orb",
+  "kind": "currency",
+  "page": "Dementophobia"
+ },
+ {
+  "name": "Demigod's Wager",
+  "stack": 7,
+  "reward": "Orb of Annulment",
+  "kind": "currency",
+  "page": "Demigods_Wager"
+ },
+ {
+  "name": "Desecrated Virtue",
+  "stack": 9,
+  "reward": "Level 4 Exceptional Support Gem",
+  "kind": "gem",
+  "page": "Desecrated_Virtue",
+  "details": [
+   "Quality: +23%",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Desperate Crusade",
+  "stack": 3,
+  "reward": "Prism Guardian",
+  "kind": "unique",
+  "page": "Desperate_Crusade"
+ },
+ {
+  "name": "Destined to Crumble",
+  "stack": 5,
+  "reward": "Body Armour",
+  "kind": "rare",
+  "page": "Destined_to_Crumble",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "Dialla's Subjugation",
+  "stack": 7,
+  "reward": "Support Gem",
+  "kind": "gem",
+  "page": "Diallas_Subjugation",
+  "details": [
+   "Quality: +23%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Disdain",
+  "stack": 5,
+  "reward": "Delirium Orb",
+  "kind": "currency",
+  "page": "Disdain"
+ },
+ {
+  "name": "Divine Beauty",
+  "stack": 12,
+  "reward": "7x Divine Orb",
+  "kind": "currency",
+  "page": "Divine_Beauty"
+ },
+ {
+  "name": "Divine Shard",
+  "stack": 2,
+  "reward": "Divine Vessel",
+  "kind": "currency",
+  "page": "Divine_Shard"
+ },
+ {
+  "name": "Doedre's Madness",
+  "stack": 9,
+  "reward": "Doedre Item",
+  "kind": "unique",
+  "page": "Doedres_Madness"
+ },
+ {
+  "name": "Doryani's Epiphany",
+  "stack": 3,
+  "reward": "Level 21 Transfigured Gem",
+  "kind": "gem",
+  "page": "Doryanis_Epiphany",
+  "details": [
+   "Quality: +20%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Draped in Dreams",
+  "stack": 5,
+  "reward": "Six-Link Astral Plate",
+  "kind": "white",
+  "page": "Draped_in_Dreams",
+  "details": [
+   "Item Level: 100",
+   "Influenced Item"
+  ]
+ },
+ {
+  "name": "Duality",
+  "stack": 2,
+  "reward": "Body Armour",
+  "kind": "white",
+  "page": "Duality",
+  "details": [
+   "Item Level: 100",
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "Dying Anguish",
+  "stack": 8,
+  "reward": "Level 19 Transfigured Gem",
+  "kind": "gem",
+  "page": "Dying_Anguish",
+  "details": [
+   "Quality: +19%"
+  ]
+ },
+ {
+  "name": "Dying Light",
+  "stack": 10,
+  "reward": "Diamond Ring",
+  "kind": "rare",
+  "page": "Dying_Light",
+  "details": [
+   "Item Level: 100",
+   "Shaper + Elder Item"
+  ]
+ },
+ {
+  "name": "Earth Drinker",
+  "stack": 5,
+  "reward": "Granite Flask",
+  "kind": "unique",
+  "page": "Earth_Drinker"
+ },
+ {
+  "name": "Echoes of Love",
+  "stack": 3,
+  "reward": "Fidelitas' Spike",
+  "kind": "unique",
+  "page": "Echoes_of_Love",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Eldritch Perfection",
+  "stack": 4,
+  "reward": "Item",
+  "kind": "white",
+  "page": "Eldritch_Perfection",
+  "details": [
+   "Item Level: 100",
+   "Perfect Eldritch Implicit Modifier"
+  ]
+ },
+ {
+  "name": "Emperor of Purity",
+  "stack": 7,
+  "reward": "Six-Link Holy Chainmail",
+  "kind": "white",
+  "page": "Emperor_of_Purity",
+  "details": [
+   "Item Level: 60"
+  ]
+ },
+ {
+  "name": "Emperor's Luck",
+  "stack": 5,
+  "reward": "5x Currency",
+  "kind": "currency",
+  "page": "Emperors_Luck"
+ },
+ {
+  "name": "Endless Night",
+  "stack": 7,
+  "reward": "Maloney's Mechanism",
+  "kind": "unique",
+  "page": "Endless_Night"
+ },
+ {
+  "name": "Energy Sword",
+  "stack": 3,
+  "reward": "Ephemeral Edge",
+  "kind": "unique",
+  "page": "Energy_Sword"
+ },
+ {
+  "name": "Etched in Blood",
+  "stack": 9,
+  "reward": "Rigwald's Quills",
+  "kind": "unique",
+  "page": "Etched_in_Blood",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Eternal Bonds",
+  "stack": 4,
+  "reward": "Replica Cortex",
+  "kind": "unique",
+  "page": "Eternal_Bonds"
+ },
+ {
+  "name": "Ever-Changing",
+  "stack": 3,
+  "reward": "10x Orb of Unmaking",
+  "kind": "currency",
+  "page": "Ever-Changing"
+ },
+ {
+  "name": "Fateful Meeting",
+  "stack": 9,
+  "reward": "League-Specific Item",
+  "kind": "unique",
+  "page": "Fateful_Meeting",
+  "details": [
+   "Double-Influenced Item",
+   "Item Level: 97",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Father's Love",
+  "stack": 2,
+  "reward": "Sublime Vision",
+  "kind": "unique",
+  "page": "Fathers_Love"
+ },
+ {
+  "name": "Fire Of Unknown Origin",
+  "stack": 7,
+  "reward": "Nimis",
+  "kind": "unique",
+  "page": "Fire_Of_Unknown_Origin"
+ },
+ {
+  "name": "Forbidden Power",
+  "stack": 4,
+  "reward": "Balefire",
+  "kind": "unique",
+  "page": "Forbidden_Power",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Friendship",
+  "stack": 3,
+  "reward": "Aul's Uprising",
+  "kind": "unique",
+  "page": "Friendship"
+ },
+ {
+  "name": "From Bone to Ashes",
+  "stack": 8,
+  "reward": "Ngamahu's Flame",
+  "kind": "unique",
+  "page": "From_Bone_to_Ashes",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Further Invention",
+  "stack": 4,
+  "reward": "Helmet",
+  "kind": "magic",
+  "page": "Further_Invention",
+  "details": [
+   "Double-Influenced Item",
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "Gemcutter's Mercy",
+  "stack": 3,
+  "reward": "Empower, Enhance or Enlighten",
+  "kind": "gem",
+  "page": "Gemcutters_Mercy"
+ },
+ {
+  "name": "Gemcutter's Promise",
+  "stack": 3,
+  "reward": "Gem",
+  "kind": "gem",
+  "page": "Gemcutters_Promise",
+  "details": [
+   "Quality: +20%"
+  ]
+ },
+ {
+  "name": "Gift of Asenath",
+  "stack": 5,
+  "reward": "Asenath's Gentle Touch",
+  "kind": "unique",
+  "page": "Gift_of_Asenath",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Gift of the Gemling Queen",
+  "stack": 9,
+  "reward": "Level 20 Support Gem",
+  "kind": "gem",
+  "page": "Gift_of_the_Gemling_Queen"
+ },
+ {
+  "name": "Glimmer of Hope",
+  "stack": 8,
+  "reward": "Gold Ring",
+  "kind": "unique",
+  "page": "Glimmer_of_Hope"
+ },
+ {
+  "name": "Grave Knowledge",
+  "stack": 6,
+  "reward": "Summon Raging Spirit",
+  "kind": "gem",
+  "page": "Grave_Knowledge",
+  "details": [
+   "Quality: +20%"
+  ]
+ },
+ {
+  "name": "Guardian's Challenge",
+  "stack": 4,
+  "reward": "Shaper Guardian Map",
+  "kind": "white",
+  "page": "Guardians_Challenge"
+ },
+ {
+  "name": "Harmony of Souls",
+  "stack": 9,
+  "reward": "9x Shrieking Essence",
+  "kind": "currency",
+  "page": "Harmony_of_Souls"
+ },
+ {
+  "name": "Haunting Shadows",
+  "stack": 4,
+  "reward": "Metamorph Item",
+  "kind": "unique",
+  "page": "Haunting_Shadows"
+ },
+ {
+  "name": "Her Mask",
+  "stack": 4,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Her_Mask"
+ },
+ {
+  "name": "Heterochromia",
+  "stack": 2,
+  "reward": "Two-Stone Ring",
+  "kind": "unique",
+  "page": "Heterochromia"
+ },
+ {
+  "name": "History",
+  "stack": 5,
+  "reward": "2x Hinekora's Lock",
+  "kind": "currency",
+  "page": "History"
+ },
+ {
+  "name": "Home",
+  "stack": 3,
+  "reward": "Exceptional Support Gem",
+  "kind": "gem",
+  "page": "Home",
+  "details": [
+   "Quality: +1-20%"
+  ]
+ },
+ {
+  "name": "Hope",
+  "stack": 5,
+  "reward": "Prismatic Ring",
+  "kind": "unique",
+  "page": "Hope",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "House of Mirrors",
+  "stack": 9,
+  "reward": "Mirror of Kalandra",
+  "kind": "currency",
+  "page": "House_of_Mirrors"
+ },
+ {
+  "name": "Hubris",
+  "stack": 5,
+  "reward": "Ring",
+  "kind": "unique",
+  "page": "Hubris"
+ },
+ {
+  "name": "Humility",
+  "stack": 9,
+  "reward": "Tabula Rasa",
+  "kind": "unique",
+  "page": "Humility"
+ },
+ {
+  "name": "Hunter's Resolve",
+  "stack": 8,
+  "reward": "Bow",
+  "kind": "unique",
+  "page": "Hunters_Resolve"
+ },
+ {
+  "name": "Hunter's Reward",
+  "stack": 3,
+  "reward": "The Taming",
+  "kind": "unique",
+  "page": "Hunters_Reward"
+ },
+ {
+  "name": "I See Brothers",
+  "stack": 2,
+  "reward": "2x Fracturing Orb",
+  "kind": "currency",
+  "page": "I_See_Brothers"
+ },
+ {
+  "name": "Immortal Resolve",
+  "stack": 6,
+  "reward": "Six-Linked Body Armour",
+  "kind": "white",
+  "page": "Immortal_Resolve",
+  "details": [
+   "Influenced Item"
+  ]
+ },
+ {
+  "name": "Imperfect Memories",
+  "stack": 5,
+  "reward": "Astrolabe",
+  "kind": "currency",
+  "page": "Imperfect_Memories"
+ },
+ {
+  "name": "Imperial Legacy",
+  "stack": 22,
+  "reward": "Six-Link Imperial Bow",
+  "kind": "white",
+  "page": "Imperial_Legacy",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "Jack in the Box",
+  "stack": 4,
+  "reward": "Item",
+  "kind": "unique",
+  "page": "Jack_in_the_Box"
+ },
+ {
+  "name": "Judging Voices",
+  "stack": 9,
+  "reward": "Forbidden Shako",
+  "kind": "unique",
+  "page": "Judging_Voices"
+ },
+ {
+  "name": "Justified Ambition",
+  "stack": 5,
+  "reward": "Synthesis Map",
+  "kind": "unique",
+  "page": "Justified_Ambition"
+ },
+ {
+  "name": "Keeper's Corruption",
+  "stack": 7,
+  "reward": "Eldritch Bone Helmet (Concentrated Effect)",
+  "kind": "magic",
+  "page": "Keepers_Corruption",
+  "details": [
+   "Item Level: 89",
+   "Elder Item"
+  ]
+ },
+ {
+  "name": "Lachrymal Necrosis",
+  "stack": 3,
+  "reward": "Jewel",
+  "kind": "rare",
+  "page": "Lachrymal_Necrosis",
+  "details": [
+   "Implicit Modifier:",
+   "Corrupted Blood cannot be inflicted on you",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Lantador's Lost Love",
+  "stack": 7,
+  "reward": "Two-Stone Ring",
+  "kind": "rare",
+  "page": "Lantadors_Lost_Love"
+ },
+ {
+  "name": "Last Hope",
+  "stack": 3,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Last_Hope"
+ },
+ {
+  "name": "Last Stand",
+  "stack": 3,
+  "reward": "The Surrender",
+  "kind": "unique",
+  "page": "Last_Stand"
+ },
+ {
+  "name": "Left to Fate",
+  "stack": 4,
+  "reward": "Map",
+  "kind": "rare",
+  "page": "Left_to_Fate",
+  "details": [
+   "Map Tier: 16",
+   "Unidentified Corrupted"
+  ]
+ },
+ {
+  "name": "Lethean Temptation",
+  "stack": 6,
+  "reward": "Nebulis",
+  "kind": "unique",
+  "page": "Lethean_Temptation"
+ },
+ {
+  "name": "Light and Truth",
+  "stack": 2,
+  "reward": "Crystal Sceptre",
+  "kind": "unique",
+  "page": "Light_and_Truth"
+ },
+ {
+  "name": "Lingering Remnants",
+  "stack": 16,
+  "reward": "Vaal Temple Map",
+  "kind": "rare",
+  "page": "Lingering_Remnants",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Lonely Warrior",
+  "stack": 10,
+  "reward": "Defiance of Destiny",
+  "kind": "unique",
+  "page": "Lonely_Warrior"
+ },
+ {
+  "name": "Lost Worlds",
+  "stack": 8,
+  "reward": "Map",
+  "kind": "white",
+  "page": "Lost_Worlds",
+  "details": [
+   "Map Tier: 15"
+  ]
+ },
+ {
+  "name": "Love Through Ice",
+  "stack": 4,
+  "reward": "Unnatural Instinct",
+  "kind": "unique",
+  "page": "Love_Through_Ice",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Loyalty",
+  "stack": 5,
+  "reward": "3x Orb of Fusing",
+  "kind": "currency",
+  "page": "Loyalty"
+ },
+ {
+  "name": "Lucky Bastion",
+  "stack": 6,
+  "reward": "Svalinn",
+  "kind": "unique",
+  "page": "Lucky_Bastion"
+ },
+ {
+  "name": "Lucky Connections",
+  "stack": 7,
+  "reward": "20x Orb of Fusing",
+  "kind": "currency",
+  "page": "Lucky_Connections"
+ },
+ {
+  "name": "Lucky Deck",
+  "stack": 9,
+  "reward": "10x Stacked Deck",
+  "kind": "currency",
+  "page": "Lucky_Deck"
+ },
+ {
+  "name": "Luminous Trove",
+  "stack": 7,
+  "reward": "Voices",
+  "kind": "unique",
+  "page": "Luminous_Trove",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Lysah's Respite",
+  "stack": 6,
+  "reward": "Agate Amulet",
+  "kind": "unique",
+  "page": "Lysahs_Respite",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Magnum Opus",
+  "stack": 5,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Magnum_Opus"
+ },
+ {
+  "name": "Man With Bear",
+  "stack": 3,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Man_With_Bear"
+ },
+ {
+  "name": "Matryoshka",
+  "stack": 8,
+  "reward": "Item",
+  "kind": "unique",
+  "page": "Matryoshka",
+  "details": [
+   "Vestigial",
+   "Item Level: 86"
+  ]
+ },
+ {
+  "name": "Mawr Blaidd",
+  "stack": 16,
+  "reward": "Eyes of the Greatwolf",
+  "kind": "unique",
+  "page": "Mawr_Blaidd"
+ },
+ {
+  "name": "Merciless Armament",
+  "stack": 4,
+  "reward": "Merciless Two-Hand Weapon",
+  "kind": "magic",
+  "page": "Merciless_Armament",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "Might is Right",
+  "stack": 9,
+  "reward": "Trypanon",
+  "kind": "unique",
+  "page": "Might_is_Right"
+ },
+ {
+  "name": "Misery in Darkness",
+  "stack": 6,
+  "reward": "Shroud of the Lightless",
+  "kind": "unique",
+  "page": "Misery_in_Darkness"
+ },
+ {
+  "name": "Mitts",
+  "stack": 5,
+  "reward": "Gloves",
+  "kind": "unique",
+  "page": "Mitts"
+ },
+ {
+  "name": "Monochrome",
+  "stack": 3,
+  "reward": "Valdo's Puzzle Box",
+  "kind": "currency",
+  "page": "Monochrome"
+ },
+ {
+  "name": "More is Never Enough",
+  "stack": 7,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "More_is_Never_Enough"
+ },
+ {
+  "name": "No Traces",
+  "stack": 9,
+  "reward": "30x Orb of Scouring",
+  "kind": "currency",
+  "page": "No_Traces"
+ },
+ {
+  "name": "Nook's Crown",
+  "stack": 4,
+  "reward": "Bone Helmet",
+  "kind": "rare",
+  "page": "Nooks_Crown",
+  "details": [
+   "Item Level: 100",
+   "Elder Item"
+  ]
+ },
+ {
+  "name": "One Last Score",
+  "stack": 5,
+  "reward": "Experimented Jewellery",
+  "kind": "white",
+  "page": "One_Last_Score",
+  "details": [
+   "Item Level: 86"
+  ]
+ },
+ {
+  "name": "Outfoxed",
+  "stack": 2,
+  "reward": "Veiled Exalted Orb",
+  "kind": "currency",
+  "page": "Outfoxed"
+ },
+ {
+  "name": "Parasitic Passengers",
+  "stack": 8,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Parasitic_Passengers"
+ },
+ {
+  "name": "Peaceful Moments",
+  "stack": 5,
+  "reward": "Timeless Jewel",
+  "kind": "unique",
+  "page": "Peaceful_Moments"
+ },
+ {
+  "name": "Pearls Before Swine",
+  "stack": 3,
+  "reward": "Progenesis",
+  "kind": "unique",
+  "page": "Pearls_Before_Swine"
+ },
+ {
+  "name": "Perfection",
+  "stack": 5,
+  "reward": "Jewellery",
+  "kind": "rare",
+  "page": "Perfection",
+  "details": [
+   "Item Level: 100",
+   "Shaper Item"
+  ]
+ },
+ {
+  "name": "Poisoned Faith",
+  "stack": 8,
+  "reward": "Arakaali's Fang",
+  "kind": "unique",
+  "page": "Poisoned_Faith",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Prejudice",
+  "stack": 7,
+  "reward": "Item",
+  "kind": "unique",
+  "page": "Prejudice",
+  "details": [
+   "Influenced Item"
+  ]
+ },
+ {
+  "name": "Pride Before the Fall",
+  "stack": 8,
+  "reward": "Kaom's Heart",
+  "kind": "unique",
+  "page": "Pride_Before_the_Fall",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Pride of the First Ones",
+  "stack": 7,
+  "reward": "Farrul's Fur",
+  "kind": "unique",
+  "page": "Pride_of_the_First_Ones"
+ },
+ {
+  "name": "Prometheus' Armoury",
+  "stack": 6,
+  "reward": "One-Hand Weapon",
+  "kind": "rare",
+  "page": "Prometheus_Armoury",
+  "details": [
+   "Item Level: 100",
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "Prosperity",
+  "stack": 10,
+  "reward": "Perandus' Gold Ring",
+  "kind": "magic",
+  "page": "Prosperity"
+ },
+ {
+  "name": "Rain of Chaos",
+  "stack": 8,
+  "reward": "Chaos Orb",
+  "kind": "currency",
+  "page": "Rain_of_Chaos"
+ },
+ {
+  "name": "Rain Tempter",
+  "stack": 9,
+  "reward": "Map",
+  "kind": "white",
+  "page": "Rain_Tempter",
+  "details": [
+   "Map Tier: 6"
+  ]
+ },
+ {
+  "name": "Rats",
+  "stack": 8,
+  "reward": "Rat's Nest",
+  "kind": "unique",
+  "page": "Rats"
+ },
+ {
+  "name": "Rebirth",
+  "stack": 27,
+  "reward": "Charan's Sword",
+  "kind": "unique",
+  "page": "Rebirth"
+ },
+ {
+  "name": "Rebirth and Renewal",
+  "stack": 12,
+  "reward": "Simplex Amulet",
+  "kind": "white",
+  "page": "Rebirth_and_Renewal",
+  "details": [
+   "Item Level: 86"
+  ]
+ },
+ {
+  "name": "Reckless Ambition",
+  "stack": 6,
+  "reward": "Omeyocan",
+  "kind": "unique",
+  "page": "Reckless_Ambition"
+ },
+ {
+  "name": "Reflection of the Heart",
+  "stack": 2,
+  "reward": "Kalandra's Touch",
+  "kind": "unique",
+  "page": "Reflection_of_the_Heart"
+ },
+ {
+  "name": "Remembrance",
+  "stack": 8,
+  "reward": "Precursor's Emblem",
+  "kind": "unique",
+  "page": "Remembrance",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Runic Luck",
+  "stack": 4,
+  "reward": "10x Vendor Refresh Currency",
+  "kind": "currency",
+  "page": "Runic_Luck"
+ },
+ {
+  "name": "Sambodhi's Vow",
+  "stack": 3,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "Sambodhis_Vow"
+ },
+ {
+  "name": "Sambodhi's Wisdom",
+  "stack": 3,
+  "reward": "Tabula Rasa",
+  "kind": "unique",
+  "page": "Sambodhis_Wisdom",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Scholar of the Seas",
+  "stack": 7,
+  "reward": "Mao Kun",
+  "kind": "unique",
+  "page": "Scholar_of_the_Seas"
+ },
+ {
+  "name": "Seven Years Bad Luck",
+  "stack": 13,
+  "reward": "Mirror Shard",
+  "kind": "currency",
+  "page": "Seven_Years_Bad_Luck"
+ },
+ {
+  "name": "Shard of Fate",
+  "stack": 4,
+  "reward": "Vivid Jewel",
+  "kind": "magic",
+  "page": "Shard_of_Fate"
+ },
+ {
+  "name": "Silence and Frost",
+  "stack": 7,
+  "reward": "The Pandemonius",
+  "kind": "unique",
+  "page": "Silence_and_Frost"
+ },
+ {
+  "name": "Something Dark",
+  "stack": 5,
+  "reward": "Blueprint",
+  "kind": "white",
+  "page": "Something_Dark",
+  "details": [
+   "Area Level: 83",
+   "Fully Revealed"
+  ]
+ },
+ {
+  "name": "Squandered Prosperity",
+  "stack": 5,
+  "reward": "The Light of Meaning",
+  "kind": "unique",
+  "page": "Squandered_Prosperity",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Struck by Lightning",
+  "stack": 3,
+  "reward": "Electrocuting Jewellery",
+  "kind": "magic",
+  "page": "Struck_by_Lightning",
+  "details": [
+   "Item Level: 76"
+  ]
+ },
+ {
+  "name": "Succor of the Sinless",
+  "stack": 6,
+  "reward": "Bottled Faith",
+  "kind": "unique",
+  "page": "Succor_of_the_Sinless"
+ },
+ {
+  "name": "Temperance",
+  "stack": 4,
+  "reward": "Relic",
+  "kind": "unique",
+  "page": "Temperance",
+  "details": [
+   "Item Level: 83"
+  ]
+ },
+ {
+  "name": "Terrible Secret of Space",
+  "stack": 8,
+  "reward": "Level 21 Transfigured Golem Gem",
+  "kind": "gem",
+  "page": "Terrible_Secret_of_Space",
+  "details": [
+   "Quality: +23%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Academic",
+  "stack": 8,
+  "reward": "Inspired Learning",
+  "kind": "unique",
+  "page": "The_Academic"
+ },
+ {
+  "name": "The Admirer",
+  "stack": 9,
+  "reward": "Atziri Item",
+  "kind": "unique",
+  "page": "The_Admirer"
+ },
+ {
+  "name": "The Adventuring Spirit",
+  "stack": 6,
+  "reward": "Victario's Influence",
+  "kind": "unique",
+  "page": "The_Adventuring_Spirit"
+ },
+ {
+  "name": "The Aesthete",
+  "stack": 8,
+  "reward": "Shavronne Item",
+  "kind": "unique",
+  "page": "The_Aesthete"
+ },
+ {
+  "name": "The Apothecary",
+  "stack": 5,
+  "reward": "Mageblood",
+  "kind": "unique",
+  "page": "The_Apothecary"
+ },
+ {
+  "name": "The Archmage's Right Hand",
+  "stack": 7,
+  "reward": "Glyphic Prophecy Wand",
+  "kind": "magic",
+  "page": "The_Archmages_Right_Hand",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Arena Champion",
+  "stack": 10,
+  "reward": "Map",
+  "kind": "white",
+  "page": "The_Arena_Champion",
+  "details": [
+   "Map Tier: 12"
+  ]
+ },
+ {
+  "name": "The Army of Blood",
+  "stack": 6,
+  "reward": "Bloodbond",
+  "kind": "unique",
+  "page": "The_Army_of_Blood"
+ },
+ {
+  "name": "The Artist",
+  "stack": 11,
+  "reward": "Level 4 Enhance",
+  "kind": "gem",
+  "page": "The_Artist",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Aspirant",
+  "stack": 5,
+  "reward": "Item",
+  "kind": "magic",
+  "page": "The_Aspirant",
+  "details": [
+   "Elevated Item",
+   "Influenced Item"
+  ]
+ },
+ {
+  "name": "The Astromancer",
+  "stack": 7,
+  "reward": "The Eternity Shroud",
+  "kind": "unique",
+  "page": "The_Astromancer",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Avenger",
+  "stack": 12,
+  "reward": "Mjölner",
+  "kind": "unique",
+  "page": "The_Avenger",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Awakened",
+  "stack": 6,
+  "reward": "Jewellery",
+  "kind": "rare",
+  "page": "The_Awakened",
+  "details": [
+   "Item Level: 86",
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "The Bargain",
+  "stack": 5,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Bargain"
+ },
+ {
+  "name": "The Battle Born",
+  "stack": 5,
+  "reward": "Axe",
+  "kind": "unique",
+  "page": "The_Battle_Born"
+ },
+ {
+  "name": "The Bear Woman",
+  "stack": 6,
+  "reward": "Fecund Ursine Pelt",
+  "kind": "magic",
+  "page": "The_Bear_Woman",
+  "details": [
+   "Warlord Item"
+  ]
+ },
+ {
+  "name": "The Beast",
+  "stack": 6,
+  "reward": "Belly of the Beast",
+  "kind": "unique",
+  "page": "The_Beast"
+ },
+ {
+  "name": "The Betrayal",
+  "stack": 9,
+  "reward": "Maligaro's Virtuosity",
+  "kind": "unique",
+  "page": "The_Betrayal"
+ },
+ {
+  "name": "The Bitter Blossom",
+  "stack": 3,
+  "reward": "Level 21 Chaos Gem",
+  "kind": "gem",
+  "page": "The_Bitter_Blossom",
+  "details": [
+   "Quality: +23%",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Blazing Fire",
+  "stack": 6,
+  "reward": "Chin Sol",
+  "kind": "unique",
+  "page": "The_Blazing_Fire"
+ },
+ {
+  "name": "The Blessing of Moosh",
+  "stack": 4,
+  "reward": "Level 21 Transfigured Gem",
+  "kind": "gem",
+  "page": "The_Blessing_of_Moosh",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Body",
+  "stack": 4,
+  "reward": "Body Armour",
+  "kind": "unique",
+  "page": "The_Body"
+ },
+ {
+  "name": "The Bones",
+  "stack": 6,
+  "reward": "Level 21 Vaal Summon Skeletons",
+  "kind": "gem",
+  "page": "The_Bones",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Brawny Battle Mage",
+  "stack": 5,
+  "reward": "Merciless Tornado Wand",
+  "kind": "magic",
+  "page": "The_Brawny_Battle_Mage",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Breach",
+  "stack": 4,
+  "reward": "Breach Item",
+  "kind": "unique",
+  "page": "The_Breach"
+ },
+ {
+  "name": "The Brittle Emperor",
+  "stack": 8,
+  "reward": "Voll's Devotion",
+  "kind": "unique",
+  "page": "The_Brittle_Emperor",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Cache",
+  "stack": 6,
+  "reward": "Jewellery",
+  "kind": "unique",
+  "page": "The_Cache"
+ },
+ {
+  "name": "The Cacophony",
+  "stack": 8,
+  "reward": "3x Deafening Essence",
+  "kind": "currency",
+  "page": "The_Cacophony"
+ },
+ {
+  "name": "The Calling",
+  "stack": 6,
+  "reward": "Beyond Item",
+  "kind": "unique",
+  "page": "The_Calling"
+ },
+ {
+  "name": "The Card Sharp",
+  "stack": 4,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Card_Sharp"
+ },
+ {
+  "name": "The Carrion Crow",
+  "stack": 4,
+  "reward": "Life Armour",
+  "kind": "magic",
+  "page": "The_Carrion_Crow"
+ },
+ {
+  "name": "The Cataclysm",
+  "stack": 13,
+  "reward": "Level 21 Spell Gem",
+  "kind": "gem",
+  "page": "The_Cataclysm",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Catalyst",
+  "stack": 3,
+  "reward": "Vaal Orb",
+  "kind": "currency",
+  "page": "The_Catalyst"
+ },
+ {
+  "name": "The Catch",
+  "stack": 18,
+  "reward": "Fishing Rod",
+  "kind": "white",
+  "page": "The_Catch",
+  "details": [
+   "Item Level: 99"
+  ]
+ },
+ {
+  "name": "The Celestial Justicar",
+  "stack": 6,
+  "reward": "Six-Link Astral Plate",
+  "kind": "white",
+  "page": "The_Celestial_Justicar"
+ },
+ {
+  "name": "The Celestial Stone",
+  "stack": 10,
+  "reward": "Opal Ring",
+  "kind": "white",
+  "page": "The_Celestial_Stone",
+  "details": [
+   "Item Level: 100",
+   "Shaper Item"
+  ]
+ },
+ {
+  "name": "The Chains that Bind",
+  "stack": 11,
+  "reward": "Six-Link Body Armour",
+  "kind": "white",
+  "page": "The_Chains_that_Bind"
+ },
+ {
+  "name": "The Cheater",
+  "stack": 3,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Cheater"
+ },
+ {
+  "name": "The Chosen",
+  "stack": 5,
+  "reward": "Skin of the Lords",
+  "kind": "unique",
+  "page": "The_Chosen",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Coming Storm",
+  "stack": 8,
+  "reward": "Lightning Coil",
+  "kind": "unique",
+  "page": "The_Coming_Storm"
+ },
+ {
+  "name": "The Conduit",
+  "stack": 9,
+  "reward": "Doryani's Fist",
+  "kind": "unique",
+  "page": "The_Conduit"
+ },
+ {
+  "name": "The Craving",
+  "stack": 4,
+  "reward": "Unending Hunger",
+  "kind": "unique",
+  "page": "The_Craving"
+ },
+ {
+  "name": "The Cursed King",
+  "stack": 8,
+  "reward": "Rigwald's Curse",
+  "kind": "unique",
+  "page": "The_Cursed_King"
+ },
+ {
+  "name": "The Damned",
+  "stack": 6,
+  "reward": "Soul Ripper",
+  "kind": "unique",
+  "page": "The_Damned"
+ },
+ {
+  "name": "The Dapper Prodigy",
+  "stack": 6,
+  "reward": "Six-Link Body Armour",
+  "kind": "white",
+  "page": "The_Dapper_Prodigy",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Dark Mage",
+  "stack": 6,
+  "reward": "Six-Link Staff",
+  "kind": "white",
+  "page": "The_Dark_Mage",
+  "details": [
+   "Item Level: 55"
+  ]
+ },
+ {
+  "name": "The Darkest Dream",
+  "stack": 6,
+  "reward": "Severed in Sleep",
+  "kind": "unique",
+  "page": "The_Darkest_Dream",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Deal",
+  "stack": 5,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Deal"
+ },
+ {
+  "name": "The Deceiver",
+  "stack": 4,
+  "reward": "Belt of the Deceiver",
+  "kind": "unique",
+  "page": "The_Deceiver",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Deep Ones",
+  "stack": 5,
+  "reward": "Tidebreaker",
+  "kind": "unique",
+  "page": "The_Deep_Ones"
+ },
+ {
+  "name": "The Demon",
+  "stack": 10,
+  "reward": "Headhunter",
+  "kind": "unique",
+  "page": "The_Demon",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Demoness",
+  "stack": 5,
+  "reward": "Death's Hand",
+  "kind": "unique",
+  "page": "The_Demoness"
+ },
+ {
+  "name": "The Destination",
+  "stack": 9,
+  "reward": "Watcher's Eye",
+  "kind": "unique",
+  "page": "The_Destination",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Devastator",
+  "stack": 8,
+  "reward": "Atziri's Disfavour",
+  "kind": "unique",
+  "page": "The_Devastator",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Doctor",
+  "stack": 8,
+  "reward": "Headhunter",
+  "kind": "unique",
+  "page": "The_Doctor"
+ },
+ {
+  "name": "The Doppelganger",
+  "stack": 2,
+  "reward": "Mirror Arrow",
+  "kind": "gem",
+  "page": "The_Doppelganger",
+  "details": [
+   "Quality: +20%"
+  ]
+ },
+ {
+  "name": "The Dragon",
+  "stack": 4,
+  "reward": "Coruscating Elixir",
+  "kind": "unique",
+  "page": "The_Dragon"
+ },
+ {
+  "name": "The Dragon's Heart",
+  "stack": 11,
+  "reward": "Level 4 Empower",
+  "kind": "gem",
+  "page": "The_Dragons_Heart",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Dreamer",
+  "stack": 6,
+  "reward": "Chayula Item",
+  "kind": "unique",
+  "page": "The_Dreamer"
+ },
+ {
+  "name": "The Dreamland",
+  "stack": 8,
+  "reward": "Poorjoy's Asylum",
+  "kind": "unique",
+  "page": "The_Dreamland"
+ },
+ {
+  "name": "The Drunken Aristocrat",
+  "stack": 8,
+  "reward": "Divination Distillate",
+  "kind": "unique",
+  "page": "The_Drunken_Aristocrat"
+ },
+ {
+  "name": "The Dungeon Master",
+  "stack": 7,
+  "reward": "Belt",
+  "kind": "unique",
+  "page": "The_Dungeon_Master",
+  "details": [
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "The Easy Stroll",
+  "stack": 2,
+  "reward": "Map",
+  "kind": "rare",
+  "page": "The_Easy_Stroll",
+  "details": [
+   "Map Tier: 15",
+   "Modifiers: 8",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Eldritch Decay",
+  "stack": 4,
+  "reward": "Uber Elder Fragment",
+  "kind": "white",
+  "page": "The_Eldritch_Decay"
+ },
+ {
+  "name": "The Emptiness",
+  "stack": 6,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Emptiness"
+ },
+ {
+  "name": "The Encroaching Darkness",
+  "stack": 8,
+  "reward": "Map",
+  "kind": "unique",
+  "page": "The_Encroaching_Darkness",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Endless Darkness",
+  "stack": 9,
+  "reward": "Voidforge",
+  "kind": "unique",
+  "page": "The_Endless_Darkness"
+ },
+ {
+  "name": "The Endurance",
+  "stack": 4,
+  "reward": "Vivid Crimson Jewel",
+  "kind": "magic",
+  "page": "The_Endurance"
+ },
+ {
+  "name": "The Enforcer",
+  "stack": 4,
+  "reward": "Spiked Gloves of the Conquest (Culling Strike)",
+  "kind": "magic",
+  "page": "The_Enforcer",
+  "details": [
+   "Item Level: 86",
+   "Warlord Item"
+  ]
+ },
+ {
+  "name": "The Enlightened",
+  "stack": 6,
+  "reward": "Level 3 Enlighten",
+  "kind": "gem",
+  "page": "The_Enlightened"
+ },
+ {
+  "name": "The Enthusiasts",
+  "stack": 3,
+  "reward": "Victario's Influence",
+  "kind": "unique",
+  "page": "The_Enthusiasts",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Escape",
+  "stack": 5,
+  "reward": "Seven-League Step",
+  "kind": "unique",
+  "page": "The_Escape"
+ },
+ {
+  "name": "The Eternal War",
+  "stack": 4,
+  "reward": "Timeless Jewel",
+  "kind": "unique",
+  "page": "The_Eternal_War",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Ethereal",
+  "stack": 7,
+  "reward": "Six-Link Vaal Regalia",
+  "kind": "white",
+  "page": "The_Ethereal"
+ },
+ {
+  "name": "The Everlasting",
+  "stack": 3,
+  "reward": "Originator Incarnation Item",
+  "kind": "unique",
+  "page": "The_Everlasting"
+ },
+ {
+  "name": "The Explorer",
+  "stack": 6,
+  "reward": "Map",
+  "kind": "rare",
+  "page": "The_Explorer",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Eye of Terror",
+  "stack": 8,
+  "reward": "Mageblood",
+  "kind": "unique",
+  "page": "The_Eye_of_Terror",
+  "details": [
+   "{Foulborn}"
+  ]
+ },
+ {
+  "name": "The Eye of the Dragon",
+  "stack": 10,
+  "reward": "Jewel",
+  "kind": "unique",
+  "page": "The_Eye_of_the_Dragon",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Fathomless Depths",
+  "stack": 8,
+  "reward": "Lightpoacher",
+  "kind": "unique",
+  "page": "The_Fathomless_Depths"
+ },
+ {
+  "name": "The Feast",
+  "stack": 5,
+  "reward": "Romira's Banquet",
+  "kind": "unique",
+  "page": "The_Feast",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Fiend",
+  "stack": 11,
+  "reward": "Headhunter",
+  "kind": "unique",
+  "page": "The_Fiend",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Finishing Touch",
+  "stack": 2,
+  "reward": "1x Fertile Catalyst",
+  "kind": "currency",
+  "page": "The_Finishing_Touch"
+ },
+ {
+  "name": "The Fishmonger",
+  "stack": 4,
+  "reward": "Albino Rhoa Feather",
+  "kind": "white",
+  "page": "The_Fishmonger"
+ },
+ {
+  "name": "The Fletcher",
+  "stack": 5,
+  "reward": "Drillneck",
+  "kind": "unique",
+  "page": "The_Fletcher",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Flora's Gift",
+  "stack": 5,
+  "reward": "Five-Link Staff",
+  "kind": "white",
+  "page": "The_Floras_Gift",
+  "details": [
+   "Item Level: 66"
+  ]
+ },
+ {
+  "name": "The Fool",
+  "stack": 4,
+  "reward": "20x Orb of Chance",
+  "kind": "currency",
+  "page": "The_Fool"
+ },
+ {
+  "name": "The Forgotten Treasure",
+  "stack": 6,
+  "reward": "Leather Belt",
+  "kind": "unique",
+  "page": "The_Forgotten_Treasure",
+  "details": [
+   "Double-Influenced Item"
+  ]
+ },
+ {
+  "name": "The Formless Sea",
+  "stack": 7,
+  "reward": "Varunastra",
+  "kind": "unique",
+  "page": "The_Formless_Sea"
+ },
+ {
+  "name": "The Forsaken",
+  "stack": 7,
+  "reward": "Umbilicus Immortalis",
+  "kind": "unique",
+  "page": "The_Forsaken"
+ },
+ {
+  "name": "The Fortunate",
+  "stack": 12,
+  "reward": "2x Divine Orb",
+  "kind": "currency",
+  "page": "The_Fortunate"
+ },
+ {
+  "name": "The Forward Gaze",
+  "stack": 6,
+  "reward": "Replica Item",
+  "kind": "unique",
+  "page": "The_Forward_Gaze"
+ },
+ {
+  "name": "The Fox",
+  "stack": 6,
+  "reward": "Level 20 Gem",
+  "kind": "gem",
+  "page": "The_Fox"
+ },
+ {
+  "name": "The Fox in the Brambles",
+  "stack": 7,
+  "reward": "Bramblejack",
+  "kind": "unique",
+  "page": "The_Fox_in_the_Brambles",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Gambler",
+  "stack": 5,
+  "reward": "Divination Card",
+  "kind": "other",
+  "page": "The_Gambler"
+ },
+ {
+  "name": "The Garish Power",
+  "stack": 4,
+  "reward": "Jewel",
+  "kind": "unique",
+  "page": "The_Garish_Power"
+ },
+ {
+  "name": "The Gemcutter",
+  "stack": 3,
+  "reward": "Gemcutter's Prism",
+  "kind": "currency",
+  "page": "The_Gemcutter"
+ },
+ {
+  "name": "The Gentleman",
+  "stack": 4,
+  "reward": "Sword",
+  "kind": "unique",
+  "page": "The_Gentleman",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Gladiator",
+  "stack": 5,
+  "reward": "Nightmare Bascinet",
+  "kind": "unique",
+  "page": "The_Gladiator"
+ },
+ {
+  "name": "The Golden Era",
+  "stack": 7,
+  "reward": "Flaring Eclipse Staff",
+  "kind": "magic",
+  "page": "The_Golden_Era",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Greatest Intentions",
+  "stack": 10,
+  "reward": "The Saviour",
+  "kind": "unique",
+  "page": "The_Greatest_Intentions",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Gulf",
+  "stack": 5,
+  "reward": "Thread of Hope",
+  "kind": "unique",
+  "page": "The_Gulf",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Hale Heart",
+  "stack": 4,
+  "reward": "Item",
+  "kind": "rare",
+  "page": "The_Hale_Heart",
+  "details": [
+   "Item Level: 100",
+   "Elder Item"
+  ]
+ },
+ {
+  "name": "The Harvester",
+  "stack": 11,
+  "reward": "The Harvest",
+  "kind": "unique",
+  "page": "The_Harvester"
+ },
+ {
+  "name": "The Hermit",
+  "stack": 9,
+  "reward": "Lifesprig",
+  "kind": "unique",
+  "page": "The_Hermit"
+ },
+ {
+  "name": "The Hive of Knowledge",
+  "stack": 6,
+  "reward": "Machina Mitts",
+  "kind": "unique",
+  "page": "The_Hive_of_Knowledge",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Hoarder",
+  "stack": 12,
+  "reward": "Exalted Orb",
+  "kind": "currency",
+  "page": "The_Hoarder"
+ },
+ {
+  "name": "The Hook",
+  "stack": 8,
+  "reward": "Level 21 Transfigured Gem",
+  "kind": "gem",
+  "page": "The_Hook",
+  "details": [
+   "Quality: +23%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Hunger",
+  "stack": 9,
+  "reward": "Taste of Hate",
+  "kind": "unique",
+  "page": "The_Hunger"
+ },
+ {
+  "name": "The Immortal",
+  "stack": 10,
+  "reward": "House of Mirrors",
+  "kind": "other",
+  "page": "The_Immortal"
+ },
+ {
+  "name": "The Incantation",
+  "stack": 4,
+  "reward": "The Whispering Ice",
+  "kind": "unique",
+  "page": "The_Incantation"
+ },
+ {
+  "name": "The Innocent",
+  "stack": 10,
+  "reward": "40x Orb of Regret",
+  "kind": "currency",
+  "page": "The_Innocent"
+ },
+ {
+  "name": "The Inoculated",
+  "stack": 4,
+  "reward": "Seraphim's Armour",
+  "kind": "magic",
+  "page": "The_Inoculated"
+ },
+ {
+  "name": "The Insane Cat",
+  "stack": 9,
+  "reward": "Mageblood",
+  "kind": "unique",
+  "page": "The_Insane_Cat",
+  "details": [
+   "Item Level: 84",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Insatiable",
+  "stack": 3,
+  "reward": "The Harvest",
+  "kind": "unique",
+  "page": "The_Insatiable",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Inventor",
+  "stack": 6,
+  "reward": "10x Vaal Orb",
+  "kind": "currency",
+  "page": "The_Inventor"
+ },
+ {
+  "name": "The Jester",
+  "stack": 9,
+  "reward": "Merciless One-Hand Weapon",
+  "kind": "magic",
+  "page": "The_Jester",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Jeweller's Boon",
+  "stack": 5,
+  "reward": "Five-Linked Body Armour",
+  "kind": "white",
+  "page": "The_Jewellers_Boon",
+  "details": [
+   "Influenced Item"
+  ]
+ },
+ {
+  "name": "The Journalist",
+  "stack": 10,
+  "reward": "Helmet",
+  "kind": "rare",
+  "page": "The_Journalist",
+  "details": [
+   "Double-Veiled Item"
+  ]
+ },
+ {
+  "name": "The Journey",
+  "stack": 4,
+  "reward": "Journey Tattoo",
+  "kind": "currency",
+  "page": "The_Journey"
+ },
+ {
+  "name": "The King's Blade",
+  "stack": 5,
+  "reward": "Bloodthirsty Eternal Sword",
+  "kind": "magic",
+  "page": "The_Kings_Blade",
+  "details": [
+   "Item Level: 66"
+  ]
+ },
+ {
+  "name": "The King's Heart",
+  "stack": 8,
+  "reward": "Kaom's Heart",
+  "kind": "unique",
+  "page": "The_Kings_Heart"
+ },
+ {
+  "name": "The Lake",
+  "stack": 8,
+  "reward": "Reflecting Mist",
+  "kind": "currency",
+  "page": "The_Lake"
+ },
+ {
+  "name": "The Landing",
+  "stack": 5,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Landing"
+ },
+ {
+  "name": "The Last Laugh",
+  "stack": 5,
+  "reward": "Replica Dragonfang's Flight",
+  "kind": "unique",
+  "page": "The_Last_Laugh",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Last One Standing",
+  "stack": 10,
+  "reward": "Atziri's Disfavour",
+  "kind": "unique",
+  "page": "The_Last_One_Standing"
+ },
+ {
+  "name": "The Last Supper",
+  "stack": 6,
+  "reward": "Bino's Kitchen Knife",
+  "kind": "unique",
+  "page": "The_Last_Supper"
+ },
+ {
+  "name": "The Leviathan",
+  "stack": 7,
+  "reward": "Maven Item",
+  "kind": "unique",
+  "page": "The_Leviathan",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Lich",
+  "stack": 12,
+  "reward": "Midnight Bargain",
+  "kind": "unique",
+  "page": "The_Lich",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Life Thief",
+  "stack": 6,
+  "reward": "Zerphi's Heart",
+  "kind": "unique",
+  "page": "The_Life_Thief"
+ },
+ {
+  "name": "The Lion",
+  "stack": 5,
+  "reward": "Lioneye Item",
+  "kind": "unique",
+  "page": "The_Lion"
+ },
+ {
+  "name": "The Long Con",
+  "stack": 4,
+  "reward": "Elderslayer's Exalted Orb",
+  "kind": "currency",
+  "page": "The_Long_Con"
+ },
+ {
+  "name": "The Long Watch",
+  "stack": 3,
+  "reward": "The Fourth Vow",
+  "kind": "unique",
+  "page": "The_Long_Watch"
+ },
+ {
+  "name": "The Lord in Black",
+  "stack": 6,
+  "reward": "Ring of Bameth",
+  "kind": "magic",
+  "page": "The_Lord_in_Black",
+  "details": [
+   "Item Level: 83"
+  ]
+ },
+ {
+  "name": "The Lord of Celebration",
+  "stack": 4,
+  "reward": "Sceptre of Celebration",
+  "kind": "magic",
+  "page": "The_Lord_of_Celebration",
+  "details": [
+   "Shaper Item"
+  ]
+ },
+ {
+  "name": "The Lover",
+  "stack": 2,
+  "reward": "Jewellery",
+  "kind": "rare",
+  "page": "The_Lover",
+  "details": [
+   "Item Level: 79"
+  ]
+ },
+ {
+  "name": "The Lunaris Priestess",
+  "stack": 5,
+  "reward": "Sire of Shards",
+  "kind": "unique",
+  "page": "The_Lunaris_Priestess"
+ },
+ {
+  "name": "The Mad King",
+  "stack": 7,
+  "reward": "Vaal Aspect",
+  "kind": "unique",
+  "page": "The_Mad_King"
+ },
+ {
+  "name": "The Magma Crab",
+  "stack": 6,
+  "reward": "Level 21 Vaal Molten Shell",
+  "kind": "gem",
+  "page": "The_Magma_Crab",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Master Artisan",
+  "stack": 5,
+  "reward": "20x Quality Currency",
+  "kind": "currency",
+  "page": "The_Master_Artisan"
+ },
+ {
+  "name": "The Mayor",
+  "stack": 5,
+  "reward": "The Light of Meaning",
+  "kind": "unique",
+  "page": "The_Mayor"
+ },
+ {
+  "name": "The Mercenary",
+  "stack": 5,
+  "reward": "Shield",
+  "kind": "unique",
+  "page": "The_Mercenary",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Messenger",
+  "stack": 4,
+  "reward": "Harbinger Item",
+  "kind": "unique",
+  "page": "The_Messenger"
+ },
+ {
+  "name": "The Metalsmith's Gift",
+  "stack": 6,
+  "reward": "Prismatic Ring",
+  "kind": "white",
+  "page": "The_Metalsmiths_Gift"
+ },
+ {
+  "name": "The Mind's Eyes",
+  "stack": 7,
+  "reward": "Astral Projector",
+  "kind": "unique",
+  "page": "The_Minds_Eyes"
+ },
+ {
+  "name": "The Miracle",
+  "stack": 3,
+  "reward": "Awakened Exceptional Gem",
+  "kind": "gem",
+  "page": "The_Miracle"
+ },
+ {
+  "name": "The Mountain",
+  "stack": 6,
+  "reward": "Jewel of Potency",
+  "kind": "magic",
+  "page": "The_Mountain"
+ },
+ {
+  "name": "The Nurse",
+  "stack": 8,
+  "reward": "The Doctor",
+  "kind": "other",
+  "page": "The_Nurse"
+ },
+ {
+  "name": "The Oath",
+  "stack": 6,
+  "reward": "Death's Oath",
+  "kind": "unique",
+  "page": "The_Oath"
+ },
+ {
+  "name": "The Obscured",
+  "stack": 7,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Obscured"
+ },
+ {
+  "name": "The Offering",
+  "stack": 8,
+  "reward": "Shavronne's Wrappings",
+  "kind": "unique",
+  "page": "The_Offering"
+ },
+ {
+  "name": "The Offspring",
+  "stack": 9,
+  "reward": "Ryslatha's Coil",
+  "kind": "unique",
+  "page": "The_Offspring"
+ },
+ {
+  "name": "The Old Man",
+  "stack": 12,
+  "reward": "Fishing Rod",
+  "kind": "rare",
+  "page": "The_Old_Man",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The One That Got Away",
+  "stack": 7,
+  "reward": "Replica Bated Breath",
+  "kind": "unique",
+  "page": "The_One_That_Got_Away"
+ },
+ {
+  "name": "The One With All",
+  "stack": 6,
+  "reward": "Le Heup of All",
+  "kind": "unique",
+  "page": "The_One_With_All",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Opulent",
+  "stack": 5,
+  "reward": "Ring",
+  "kind": "rare",
+  "page": "The_Opulent",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Pack Leader",
+  "stack": 6,
+  "reward": "Alpha's Howl",
+  "kind": "unique",
+  "page": "The_Pack_Leader"
+ },
+ {
+  "name": "The Pact",
+  "stack": 9,
+  "reward": "Pledge of Hands",
+  "kind": "unique",
+  "page": "The_Pact"
+ },
+ {
+  "name": "The Patient",
+  "stack": 8,
+  "reward": "The Nurse",
+  "kind": "other",
+  "page": "The_Patient"
+ },
+ {
+  "name": "The Penitent",
+  "stack": 5,
+  "reward": "Unset Ring",
+  "kind": "unique",
+  "page": "The_Penitent"
+ },
+ {
+  "name": "The Poet",
+  "stack": 9,
+  "reward": "Blood of Corruption",
+  "kind": "unique",
+  "page": "The_Poet",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Polymath",
+  "stack": 3,
+  "reward": "Astramentis",
+  "kind": "unique",
+  "page": "The_Polymath"
+ },
+ {
+  "name": "The Porcupine",
+  "stack": 6,
+  "reward": "Six-Link Short Bow",
+  "kind": "white",
+  "page": "The_Porcupine",
+  "details": [
+   "Item Level: 50"
+  ]
+ },
+ {
+  "name": "The Price of Devotion",
+  "stack": 7,
+  "reward": "Mageblood",
+  "kind": "unique",
+  "page": "The_Price_of_Devotion",
+  "details": [
+   "Quality: +20%",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Price of Loyalty",
+  "stack": 4,
+  "reward": "Skin of the Loyal",
+  "kind": "unique",
+  "page": "The_Price_of_Loyalty",
+  "details": [
+   "Item Level: 25",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Price of Prescience",
+  "stack": 5,
+  "reward": "Vaal Temple Map",
+  "kind": "rare",
+  "page": "The_Price_of_Prescience",
+  "details": [
+   "Delirium: 100%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Price of Protection",
+  "stack": 5,
+  "reward": "Elder Guardian Occupied Map",
+  "kind": "rare",
+  "page": "The_Price_of_Protection",
+  "details": [
+   "Modifiers: 8",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Primordial",
+  "stack": 5,
+  "reward": "Jewel",
+  "kind": "unique",
+  "page": "The_Primordial",
+  "details": [
+   "Primordial"
+  ]
+ },
+ {
+  "name": "The Prince of Darkness",
+  "stack": 6,
+  "reward": "Elegant Hubris",
+  "kind": "unique",
+  "page": "The_Prince_of_Darkness"
+ },
+ {
+  "name": "The Professor",
+  "stack": 4,
+  "reward": "The Putrid Cloister",
+  "kind": "unique",
+  "page": "The_Professor"
+ },
+ {
+  "name": "The Progeny of Lunaris",
+  "stack": 2,
+  "reward": "Dying Sun",
+  "kind": "unique",
+  "page": "The_Progeny_of_Lunaris"
+ },
+ {
+  "name": "The Puzzle",
+  "stack": 5,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Puzzle"
+ },
+ {
+  "name": "The Queen",
+  "stack": 16,
+  "reward": "Atziri's Acuity",
+  "kind": "unique",
+  "page": "The_Queen"
+ },
+ {
+  "name": "The Rabbit's Foot",
+  "stack": 8,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Rabbits_Foot"
+ },
+ {
+  "name": "The Rabid Rhoa",
+  "stack": 4,
+  "reward": "Malicious Gemini Claw",
+  "kind": "magic",
+  "page": "The_Rabid_Rhoa",
+  "details": [
+   "Item Level: 83"
+  ]
+ },
+ {
+  "name": "The Realm",
+  "stack": 5,
+  "reward": "Portal",
+  "kind": "gem",
+  "page": "The_Realm",
+  "details": [
+   "Quality: +1-20%"
+  ]
+ },
+ {
+  "name": "The Return of the Rat",
+  "stack": 3,
+  "reward": "Tavukai",
+  "kind": "unique",
+  "page": "The_Return_of_the_Rat"
+ },
+ {
+  "name": "The Risk",
+  "stack": 3,
+  "reward": "Ventor's Gamble",
+  "kind": "unique",
+  "page": "The_Risk"
+ },
+ {
+  "name": "The Rite of Elements",
+  "stack": 5,
+  "reward": "Level 21 Golem Gem",
+  "kind": "gem",
+  "page": "The_Rite_of_Elements",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Road to Power",
+  "stack": 7,
+  "reward": "Runic One-Hand Weapon",
+  "kind": "magic",
+  "page": "The_Road_to_Power",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Rusted Bard",
+  "stack": 9,
+  "reward": "4x Tainted Mythic Orb",
+  "kind": "currency",
+  "page": "The_Rusted_Bard"
+ },
+ {
+  "name": "The Ruthless Ceinture",
+  "stack": 7,
+  "reward": "Meginord's Girdle",
+  "kind": "unique",
+  "page": "The_Ruthless_Ceinture",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Sacrifice",
+  "stack": 4,
+  "reward": "Six-Link Sacrificial Garb",
+  "kind": "white",
+  "page": "The_Sacrifice",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Saint's Treasure",
+  "stack": 10,
+  "reward": "2x Exalted Orb",
+  "kind": "currency",
+  "page": "The_Saints_Treasure"
+ },
+ {
+  "name": "The Samurai's Eye",
+  "stack": 3,
+  "reward": "Watcher's Eye",
+  "kind": "unique",
+  "page": "The_Samurais_Eye"
+ },
+ {
+  "name": "The Scarred Meadow",
+  "stack": 9,
+  "reward": "Wake of Destruction",
+  "kind": "unique",
+  "page": "The_Scarred_Meadow"
+ },
+ {
+  "name": "The Scavenger",
+  "stack": 8,
+  "reward": "Carcass Jack",
+  "kind": "unique",
+  "page": "The_Scavenger"
+ },
+ {
+  "name": "The Scholar",
+  "stack": 3,
+  "reward": "40x Scroll of Wisdom",
+  "kind": "currency",
+  "page": "The_Scholar"
+ },
+ {
+  "name": "The Scout",
+  "stack": 8,
+  "reward": "7x Exalted Orb",
+  "kind": "currency",
+  "page": "The_Scout"
+ },
+ {
+  "name": "The Seeker",
+  "stack": 9,
+  "reward": "3x Orb of Annulment",
+  "kind": "currency",
+  "page": "The_Seeker"
+ },
+ {
+  "name": "The Sephirot",
+  "stack": 11,
+  "reward": "10x Divine Orb",
+  "kind": "currency",
+  "page": "The_Sephirot"
+ },
+ {
+  "name": "The Shepherd's Sandals",
+  "stack": 3,
+  "reward": "Boots",
+  "kind": "unique",
+  "page": "The_Shepherds_Sandals",
+  "details": [
+   "Item Level: 100",
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "The Shieldbearer",
+  "stack": 8,
+  "reward": "The Squire",
+  "kind": "unique",
+  "page": "The_Shieldbearer"
+ },
+ {
+  "name": "The Side Quest",
+  "stack": 5,
+  "reward": "Incarnation Echo",
+  "kind": "white",
+  "page": "The_Side_Quest"
+ },
+ {
+  "name": "The Sigil",
+  "stack": 3,
+  "reward": "Unassailable Amulet",
+  "kind": "magic",
+  "page": "The_Sigil"
+ },
+ {
+  "name": "The Silly Boy",
+  "stack": 9,
+  "reward": "Disabled",
+  "kind": "other",
+  "page": "The_Silly_Boy"
+ },
+ {
+  "name": "The Siren",
+  "stack": 7,
+  "reward": "The Whispering Ice",
+  "kind": "unique",
+  "page": "The_Siren",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Skeleton",
+  "stack": 6,
+  "reward": "Level 1 Summon Skeletons",
+  "kind": "gem",
+  "page": "The_Skeleton",
+  "details": [
+   "Quality: +23%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Slumbering Beast",
+  "stack": 5,
+  "reward": "Hinekora's Lock",
+  "kind": "currency",
+  "page": "The_Slumbering_Beast"
+ },
+ {
+  "name": "The Soul",
+  "stack": 9,
+  "reward": "Soul Taker",
+  "kind": "unique",
+  "page": "The_Soul"
+ },
+ {
+  "name": "The Spark and the Flame",
+  "stack": 2,
+  "reward": "Berek's Respite",
+  "kind": "unique",
+  "page": "The_Spark_and_the_Flame"
+ },
+ {
+  "name": "The Spoiled Prince",
+  "stack": 4,
+  "reward": "Dictator's Prophecy Wand",
+  "kind": "magic",
+  "page": "The_Spoiled_Prince",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Standoff",
+  "stack": 3,
+  "reward": "Rustic Sash",
+  "kind": "unique",
+  "page": "The_Standoff"
+ },
+ {
+  "name": "The Stormcaller",
+  "stack": 4,
+  "reward": "Agnerod Staff",
+  "kind": "unique",
+  "page": "The_Stormcaller"
+ },
+ {
+  "name": "The Strategist",
+  "stack": 6,
+  "reward": "Inspired Learning",
+  "kind": "unique",
+  "page": "The_Strategist",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Summoner",
+  "stack": 6,
+  "reward": "Minion Gem",
+  "kind": "gem",
+  "page": "The_Summoner",
+  "details": [
+   "Quality: +20%"
+  ]
+ },
+ {
+  "name": "The Sun",
+  "stack": 7,
+  "reward": "Rise of the Phoenix",
+  "kind": "unique",
+  "page": "The_Sun"
+ },
+ {
+  "name": "The Surgeon",
+  "stack": 4,
+  "reward": "Surgeon's Flask",
+  "kind": "magic",
+  "page": "The_Surgeon"
+ },
+ {
+  "name": "The Surveyor",
+  "stack": 4,
+  "reward": "Map",
+  "kind": "white",
+  "page": "The_Surveyor",
+  "details": [
+   "Map Tier: 14"
+  ]
+ },
+ {
+  "name": "The Survivalist",
+  "stack": 3,
+  "reward": "7x Orb of Alchemy",
+  "kind": "currency",
+  "page": "The_Survivalist"
+ },
+ {
+  "name": "The Sword King's Salute",
+  "stack": 7,
+  "reward": "Daresso's Salute",
+  "kind": "unique",
+  "page": "The_Sword_Kings_Salute"
+ },
+ {
+  "name": "The Thaumaturgist",
+  "stack": 8,
+  "reward": "Shavronne's Revelation",
+  "kind": "unique",
+  "page": "The_Thaumaturgist",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Throne",
+  "stack": 2,
+  "reward": "Kaom's Roots",
+  "kind": "unique",
+  "page": "The_Throne",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Tinkerer's Table",
+  "stack": 5,
+  "reward": "5x Fossil",
+  "kind": "currency",
+  "page": "The_Tinkerers_Table"
+ },
+ {
+  "name": "The Tireless Extractor",
+  "stack": 8,
+  "reward": "10x Oil",
+  "kind": "currency",
+  "page": "The_Tireless_Extractor"
+ },
+ {
+  "name": "The Tower",
+  "stack": 6,
+  "reward": "Staff",
+  "kind": "unique",
+  "page": "The_Tower"
+ },
+ {
+  "name": "The Traitor",
+  "stack": 4,
+  "reward": "Wand",
+  "kind": "unique",
+  "page": "The_Traitor",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Transformation",
+  "stack": 5,
+  "reward": "Tainted Mythic Orb",
+  "kind": "currency",
+  "page": "The_Transformation"
+ },
+ {
+  "name": "The Trial",
+  "stack": 7,
+  "reward": "Map",
+  "kind": "rare",
+  "page": "The_Trial",
+  "details": [
+   "Map Tier: 15",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Tumbleweed",
+  "stack": 2,
+  "reward": "Diamond Ring of Redemption",
+  "kind": "magic",
+  "page": "The_Tumbleweed",
+  "details": [
+   "Item Level: 100",
+   "Redeemer Item"
+  ]
+ },
+ {
+  "name": "The Twilight Moon",
+  "stack": 6,
+  "reward": "The Twilight Temple",
+  "kind": "unique",
+  "page": "The_Twilight_Moon"
+ },
+ {
+  "name": "The Twins",
+  "stack": 8,
+  "reward": "Gemini Claw of Celebration",
+  "kind": "magic",
+  "page": "The_Twins",
+  "details": [
+   "Item Level: 83"
+  ]
+ },
+ {
+  "name": "The Tyrant",
+  "stack": 9,
+  "reward": "Merciless Weapon",
+  "kind": "magic",
+  "page": "The_Tyrant",
+  "details": [
+   "Item Level: 100"
+  ]
+ },
+ {
+  "name": "The Undaunted",
+  "stack": 5,
+  "reward": "Nemesis Item",
+  "kind": "unique",
+  "page": "The_Undaunted",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Undisputed",
+  "stack": 8,
+  "reward": "Merciless Vaal Axe",
+  "kind": "magic",
+  "page": "The_Undisputed",
+  "details": [
+   "Item Level: 100",
+   "Elder Item"
+  ]
+ },
+ {
+  "name": "The Unexpected Prize",
+  "stack": 2,
+  "reward": "Attribute Transforming Jewel",
+  "kind": "unique",
+  "page": "The_Unexpected_Prize",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Union",
+  "stack": 7,
+  "reward": "10x Gemcutter's Prism",
+  "kind": "currency",
+  "page": "The_Union"
+ },
+ {
+  "name": "The Valkyrie",
+  "stack": 8,
+  "reward": "Nemesis Item",
+  "kind": "unique",
+  "page": "The_Valkyrie"
+ },
+ {
+  "name": "The Vast",
+  "stack": 7,
+  "reward": "Song of the Sirens",
+  "kind": "unique",
+  "page": "The_Vast"
+ },
+ {
+  "name": "The Visionary",
+  "stack": 6,
+  "reward": "Lioneye's Vision",
+  "kind": "unique",
+  "page": "The_Visionary"
+ },
+ {
+  "name": "The Warden",
+  "stack": 4,
+  "reward": "Amulet",
+  "kind": "rare",
+  "page": "The_Warden",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Warlord",
+  "stack": 6,
+  "reward": "Six-Link Coronal Maul",
+  "kind": "white",
+  "page": "The_Warlord",
+  "details": [
+   "Item Level: 83"
+  ]
+ },
+ {
+  "name": "The Watcher",
+  "stack": 12,
+  "reward": "Crown of Eyes",
+  "kind": "unique",
+  "page": "The_Watcher"
+ },
+ {
+  "name": "The Web",
+  "stack": 8,
+  "reward": "Weapon of Crafting",
+  "kind": "magic",
+  "page": "The_Web"
+ },
+ {
+  "name": "The Wedding Gift",
+  "stack": 2,
+  "reward": "Arakaali's Fang",
+  "kind": "unique",
+  "page": "The_Wedding_Gift"
+ },
+ {
+  "name": "The White Knight",
+  "stack": 8,
+  "reward": "Six-Link Astral Plate",
+  "kind": "white",
+  "page": "The_White_Knight",
+  "details": [
+   "Item Level: 100",
+   "Crusader Item"
+  ]
+ },
+ {
+  "name": "The Whiteout",
+  "stack": 8,
+  "reward": "Cospri's Malice",
+  "kind": "unique",
+  "page": "The_Whiteout"
+ },
+ {
+  "name": "The Wilted Rose",
+  "stack": 7,
+  "reward": "Level 21 Aura Gem",
+  "kind": "gem",
+  "page": "The_Wilted_Rose",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The Wind",
+  "stack": 7,
+  "reward": "Windripper",
+  "kind": "unique",
+  "page": "The_Wind"
+ },
+ {
+  "name": "The Witch",
+  "stack": 8,
+  "reward": "Kiara's Determination",
+  "kind": "unique",
+  "page": "The_Witch"
+ },
+ {
+  "name": "The Wolf",
+  "stack": 5,
+  "reward": "Rigwald Item",
+  "kind": "unique",
+  "page": "The_Wolf"
+ },
+ {
+  "name": "The Wolf's Legacy",
+  "stack": 4,
+  "reward": "Vaults of Atziri",
+  "kind": "unique",
+  "page": "The_Wolfs_Legacy"
+ },
+ {
+  "name": "The Wolf's Shadow",
+  "stack": 3,
+  "reward": "Hyaon's Fury",
+  "kind": "unique",
+  "page": "The_Wolfs_Shadow"
+ },
+ {
+  "name": "The Wolven King's Bite",
+  "stack": 8,
+  "reward": "Rigwald's Quills",
+  "kind": "unique",
+  "page": "The_Wolven_Kings_Bite"
+ },
+ {
+  "name": "The Wolverine",
+  "stack": 4,
+  "reward": "Claw",
+  "kind": "unique",
+  "page": "The_Wolverine",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "The World Eater",
+  "stack": 8,
+  "reward": "Starforge",
+  "kind": "unique",
+  "page": "The_World_Eater"
+ },
+ {
+  "name": "The Wrath",
+  "stack": 8,
+  "reward": "10x Chaos Orb",
+  "kind": "currency",
+  "page": "The_Wrath"
+ },
+ {
+  "name": "The Wretched",
+  "stack": 6,
+  "reward": "Belt",
+  "kind": "unique",
+  "page": "The_Wretched"
+ },
+ {
+  "name": "Thirst for Knowledge",
+  "stack": 5,
+  "reward": "Gluttony",
+  "kind": "unique",
+  "page": "Thirst_for_Knowledge"
+ },
+ {
+  "name": "Three Faces in the Dark",
+  "stack": 7,
+  "reward": "3x Chaos Orb",
+  "kind": "currency",
+  "page": "Three_Faces_in_the_Dark"
+ },
+ {
+  "name": "Three Voices",
+  "stack": 3,
+  "reward": "3x Essence",
+  "kind": "currency",
+  "page": "Three_Voices"
+ },
+ {
+  "name": "Thunderous Skies",
+  "stack": 5,
+  "reward": "Storm Cloud",
+  "kind": "unique",
+  "page": "Thunderous_Skies"
+ },
+ {
+  "name": "Time-Lost Relic",
+  "stack": 10,
+  "reward": "League-Specific Item",
+  "kind": "unique",
+  "page": "Time-Lost_Relic"
+ },
+ {
+  "name": "Toxic Tidings",
+  "stack": 5,
+  "reward": "Dendrobate",
+  "kind": "unique",
+  "page": "Toxic_Tidings",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Tranquillity",
+  "stack": 7,
+  "reward": "Voltaxic Rift",
+  "kind": "unique",
+  "page": "Tranquillity"
+ },
+ {
+  "name": "Treasure Hunter",
+  "stack": 7,
+  "reward": "Vaults of Atziri",
+  "kind": "unique",
+  "page": "Treasure_Hunter",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Treasures of the Vaal",
+  "stack": 12,
+  "reward": "Vaal Jewel",
+  "kind": "unique",
+  "page": "Treasures_of_the_Vaal",
+  "details": [
+   "Two-Implicit",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Triskaidekaphobia",
+  "stack": 13,
+  "reward": "Map",
+  "kind": "rare",
+  "page": "Triskaidekaphobia",
+  "details": [
+   "Map Tier: 13",
+   "Delirium: 100%",
+   "Modifiers: 8",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Turn the Other Cheek",
+  "stack": 3,
+  "reward": "Pacifism",
+  "kind": "unique",
+  "page": "Turn_the_Other_Cheek",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Unchained",
+  "stack": 4,
+  "reward": "Facebreaker",
+  "kind": "unique",
+  "page": "Unchained",
+  "details": [
+   "Twice Corrupted"
+  ]
+ },
+ {
+  "name": "Underground Forest",
+  "stack": 4,
+  "reward": "10x Grand Eldritch Ichor",
+  "kind": "currency",
+  "page": "Underground_Forest"
+ },
+ {
+  "name": "Unrequited Love",
+  "stack": 16,
+  "reward": "19x Mirror Shard",
+  "kind": "currency",
+  "page": "Unrequited_Love"
+ },
+ {
+  "name": "Vanity",
+  "stack": 9,
+  "reward": "Tabula Rasa",
+  "kind": "unique",
+  "page": "Vanity",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Vile Power",
+  "stack": 5,
+  "reward": "Doomfletch",
+  "kind": "unique",
+  "page": "Vile_Power"
+ },
+ {
+  "name": "Vinia's Token",
+  "stack": 5,
+  "reward": "10x Orb of Regret",
+  "kind": "currency",
+  "page": "Vinias_Token"
+ },
+ {
+  "name": "Void of the Elements",
+  "stack": 3,
+  "reward": "Overpowering Opal Ring",
+  "kind": "magic",
+  "page": "Void_of_the_Elements",
+  "details": [
+   "Item Level: 100",
+   "Elder Item"
+  ]
+ },
+ {
+  "name": "Volatile Power",
+  "stack": 9,
+  "reward": "Vaal Gem",
+  "kind": "gem",
+  "page": "Volatile_Power",
+  "details": [
+   "Quality: +20%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Wealth and Power",
+  "stack": 11,
+  "reward": "Level 4 Enlighten",
+  "kind": "gem",
+  "page": "Wealth_and_Power",
+  "details": [
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "When Currents Blaze",
+  "stack": 2,
+  "reward": "Stormfire",
+  "kind": "unique",
+  "page": "When_Currents_Blaze",
+  "details": [
+   "Quality: +20%",
+   "Corrupted"
+  ]
+ },
+ {
+  "name": "Who Asked",
+  "stack": 9,
+  "reward": "Dictator's Weapon",
+  "kind": "magic",
+  "page": "Who_Asked",
+  "details": [
+   "Item Level: 83",
+   "Fractured"
+  ]
+ },
+ {
+  "name": "Winter's Embrace",
+  "stack": 2,
+  "reward": "Circle of Fear",
+  "kind": "unique",
+  "page": "Winters_Embrace",
+  "details": [
+   "Three-Implicit",
+   "Synthesised"
+  ]
+ }
+]

@@ -144,6 +144,14 @@ export interface PobItem {
   name: string
   base: string | null
   rarity: string
+  /** Size of the largest group of linked sockets; 0 when the item has none. */
+  links: number
+  /** "Shaper", "Hunter", "Searing Exarch" and so on. */
+  influences: string[]
+  /** Mods Path of Building marks as crafted: bench crafts, enchantments and anointments. */
+  craftedMods: string[]
+  fractured: boolean
+  corrupted: boolean
 }
 
 export interface PobItemSet {
@@ -171,6 +179,45 @@ export interface GemSource {
   stepIndex: number | null
 }
 
+// ── Where to get the build's items in SSF ──────────────────────
+
+export interface SourceNote {
+  text: string
+  tone: 'info' | 'good' | 'bad'
+  /** Where the statement comes from, for the player to check. */
+  ref?: { label: string; url: string }
+}
+
+export interface ItemSourcing {
+  name: string
+  base: string | null
+  rarity: string
+  /** Every place the build uses the item: "Body Armour · Early maps". */
+  usedIn: string[]
+  notes: SourceNote[]
+  /** Ids of the general methods that apply to this item. */
+  methods: string[]
+  /** A wiki page about the item, for uniques. */
+  wikiUrl: string | null
+}
+
+/** A general way of getting items, backed by quotes from an official source. */
+export interface SourcingMethod {
+  id: string
+  title: string
+  text: string
+  quotes: string[]
+  ref: { label: string; url: string }
+}
+
+export interface Sourcing {
+  uniques: ItemSourcing[]
+  /** Non-unique items with something that takes work in SSF: links, influence, fractured mods, crafts. */
+  special: ItemSourcing[]
+  /** Only the methods referenced by at least one item, plus the always-relevant ones. */
+  methods: SourcingMethod[]
+}
+
 // ── Plan ───────────────────────────────────────────────────────
 
 export interface PlanView {
@@ -185,6 +232,8 @@ export interface PlanView {
   gemSources: Record<string, GemSource>
   /** Names of gems this class can only get through the Library detour, while it is switched off. */
   libraryOnlyGems: string[]
+  /** How to obtain the imported build's items without trading; null without a PoB build. */
+  sourcing: Sourcing | null
   /** From the PoB build when imported, otherwise from the chosen card. */
   characterClass: CharacterClass | null
   options: RouteOptions

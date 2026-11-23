@@ -1,0 +1,6717 @@
+[
+ {
+  "name": "Abberath's Hooves",
+  "base": "Goathide Boots"
+ },
+ {
+  "name": "Abberath's Horn",
+  "base": "Goat's Horn"
+ },
+ {
+  "name": "Abhorrent Interrogation",
+  "base": "Ambush Mitts",
+  "league": "Harvest",
+  "source": "Drops from Oshabi, Avatar of the Grove"
+ },
+ {
+  "name": "Abyssus",
+  "base": "Ezomyte Burgonet"
+ },
+ {
+  "name": "Actum",
+  "base": "Butcher Axe",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Admiral's Arrogance",
+  "base": "Antique Gauntlets",
+  "league": "Settlers of Kalguur",
+  "source": "Drops from Admiral Valerius in Shipping encounters"
+ },
+ {
+  "name": "Advancing Fortress",
+  "base": "Gut Ripper"
+ },
+ {
+  "name": "Aegis Aurora",
+  "base": "Champion Kite Shield"
+ },
+ {
+  "name": "Agnerod East",
+  "base": "Imperial Staff"
+ },
+ {
+  "name": "Agnerod North",
+  "base": "Imperial Staff"
+ },
+ {
+  "name": "Agnerod South",
+  "base": "Imperial Staff"
+ },
+ {
+  "name": "Agnerod West",
+  "base": "Imperial Staff"
+ },
+ {
+  "name": "Ahkeli's Meadow",
+  "base": "Ruby Ring",
+  "league": "Delve",
+  "source": "Drops from Aul, the Crystal King",
+  "level": 49
+ },
+ {
+  "name": "Ahkeli's Mountain",
+  "base": "Ruby Ring",
+  "league": "Delve",
+  "source": "Drops from Ahuatotli, the Blind",
+  "level": 49
+ },
+ {
+  "name": "Ahkeli's Valley",
+  "base": "Ruby Ring",
+  "league": "Delve",
+  "source": "Drops from Kurgal, the Blackblooded",
+  "level": 49
+ },
+ {
+  "name": "Ahn's Contempt",
+  "base": "Praetor Crown"
+ },
+ {
+  "name": "Ahn's Heritage",
+  "base": "Colossal Tower Shield"
+ },
+ {
+  "name": "Ahn's Might",
+  "base": "Midnight Blade"
+ },
+ {
+  "name": "Ahuana's Bite",
+  "base": "Sharktooth Arrow Quiver",
+  "level": 56
+ },
+ {
+  "name": "Akoya's Gaze",
+  "base": "Regicide Mask"
+ },
+ {
+  "name": "Al Dhih",
+  "base": "Timeworn Claw",
+  "league": "Legion"
+ },
+ {
+  "name": "Alberon's Warpath",
+  "base": "Soldier Boots"
+ },
+ {
+  "name": "Algor Mortis",
+  "base": "Carnal Mitts",
+  "league": "Delirium"
+ },
+ {
+  "name": "Allelopathy",
+  "base": "Sorcerer Gloves"
+ },
+ {
+  "name": "Allure",
+  "base": "Vaal Claw"
+ },
+ {
+  "name": "Alpha's Howl",
+  "base": "Sinner Tricorne"
+ },
+ {
+  "name": "Amanamu's Gaze",
+  "base": "Ghastly Eye Jewel",
+  "source": "Drops from Abyssal Liches in Abyssal Depths",
+  "level": 40
+ },
+ {
+  "name": "Ambu's Charge",
+  "base": "Crusader Chainmail"
+ },
+ {
+  "name": "Amplification Rod",
+  "base": "Spiraled Wand",
+  "source": "No longer obtainable",
+  "level": 36
+ },
+ {
+  "name": "Anathema",
+  "base": "Moonstone Ring",
+  "level": 49
+ },
+ {
+  "name": "Anatomical Knowledge",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Ancestral Vision",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Ancient Skull",
+  "base": "Bone Helmet",
+  "league": "Ritual"
+ },
+ {
+  "name": "Ancient Waystones",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Andvarius",
+  "base": "Gold Ring"
+ },
+ {
+  "name": "Annihilation's Approach",
+  "base": "Dragonscale Boots",
+  "source": "Drops from The Searing Exarch (Uber)"
+ },
+ {
+  "name": "Apep's Rage",
+  "base": "Opal Wand"
+ },
+ {
+  "name": "Apep's Slumber",
+  "base": "Ancient Spirit Shield",
+  "league": "Incursion",
+  "source": "Opening Grove Vessel in Toxic Grove"
+ },
+ {
+  "name": "Apep's Supremacy",
+  "base": "Vaal Spirit Shield",
+  "league": "Incursion",
+  "source": "Upgraded from Apep's Slumber via Vial of Awakening"
+ },
+ {
+  "name": "Apex Mode",
+  "base": "Cobalt Jewel",
+  "league": "Heist",
+  "source": "Drops from The Unbreakable in Contract: Breaking the Unbreakable"
+ },
+ {
+  "name": "Apparitions",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Arakaali's Fang",
+  "base": "Fiend Dagger"
+ },
+ {
+  "name": "Araku Tiki",
+  "base": "Coral Amulet"
+ },
+ {
+  "name": "Arborix",
+  "base": "Assassin Bow",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Architect's Hand",
+  "base": "Strapped Mitts",
+  "league": "Incursion",
+  "source": "Opening Fortified Casket in Defense Research Lab"
+ },
+ {
+  "name": "Arn's Anguish",
+  "base": "Cloth Belt",
+  "league": "Ritual",
+  "source": "Drops from The Maven",
+  "level": 68
+ },
+ {
+  "name": "Ascent From Flesh",
+  "base": "Chain Belt",
+  "level": 44
+ },
+ {
+  "name": "Asenath's Chant",
+  "base": "Iron Circlet",
+  "source": "No longer obtainable",
+  "level": 45
+ },
+ {
+  "name": "Asenath's Gentle Touch",
+  "base": "Silk Gloves",
+  "league": "Legion"
+ },
+ {
+  "name": "Asenath's Mark",
+  "base": "Iron Circlet"
+ },
+ {
+  "name": "Ashcaller",
+  "base": "Quartz Wand"
+ },
+ {
+  "name": "Ashes of the Stars",
+  "base": "Onyx Amulet",
+  "source": "Drops from The Eater of Worlds (Uber)",
+  "level": 60
+ },
+ {
+  "name": "Ashrend",
+  "base": "Buckskin Tunic"
+ },
+ {
+  "name": "Asphyxia's Wrath",
+  "base": "Two-Point Arrow Quiver"
+ },
+ {
+  "name": "Assailum",
+  "base": "Sinner Tricorne"
+ },
+ {
+  "name": "Assassin's Haste",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Astral Projector",
+  "base": "Topaz Ring",
+  "level": 40
+ },
+ {
+  "name": "Astramentis",
+  "base": "Onyx Amulet"
+ },
+ {
+  "name": "Atziri's Acuity",
+  "base": "Vaal Gauntlets",
+  "source": "Drops from Atziri, Queen of the Vaal in The Alluring Abyss",
+  "level": 75
+ },
+ {
+  "name": "Atziri's Disfavour",
+  "base": "Vaal Axe",
+  "source": "Drops from Atziri, Queen of the Vaal in The Alluring Abyss",
+  "level": 75
+ },
+ {
+  "name": "Atziri's Foible",
+  "base": "Paua Amulet",
+  "level": 16
+ },
+ {
+  "name": "Atziri's Mirror",
+  "base": "Golden Buckler",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Atziri's Promise",
+  "base": "Amethyst Flask",
+  "source": "Drops from Atziri, Queen of the Vaal in The Apex of Sacrifice",
+  "level": 68
+ },
+ {
+  "name": "Atziri's Reflection",
+  "base": "Golden Buckler",
+  "source": "Drops from Atziri, Queen of the Vaal in The Alluring Abyss",
+  "level": 68
+ },
+ {
+  "name": "Atziri's Reign",
+  "base": "Crimson Jewel",
+  "source": "Use Vaal Orb on Crimson Jewel"
+ },
+ {
+  "name": "Atziri's Rule",
+  "base": "Judgement Staff",
+  "source": "Drops from Atziri, Queen of the Vaal in The Alluring Abyss"
+ },
+ {
+  "name": "Atziri's Splendour",
+  "base": "Sacrificial Garb",
+  "source": "Drops from Atziri, Queen of the Vaal in The Alluring Abyss",
+  "level": 75
+ },
+ {
+  "name": "Atziri's Step",
+  "base": "Slink Boots",
+  "source": "Drops from Atziri, Queen of the Vaal in The Apex of Sacrifice"
+ },
+ {
+  "name": "Augyre",
+  "base": "Void Sceptre"
+ },
+ {
+  "name": "Aukuna's Will",
+  "base": "Clasped Mitts",
+  "league": "Legion"
+ },
+ {
+  "name": "Aul's Uprising",
+  "base": "Onyx Amulet",
+  "league": "Delve",
+  "source": "Drops from Aul, the Crystal King",
+  "level": 55
+ },
+ {
+  "name": "Aurseize",
+  "base": "Steelscale Gauntlets"
+ },
+ {
+  "name": "Aurumvorax",
+  "base": "Basket Rapier"
+ },
+ {
+  "name": "Auxium",
+  "base": "Chain Belt"
+ },
+ {
+  "name": "Axiom Perpetuum",
+  "base": "Bronze Sceptre"
+ },
+ {
+  "name": "Azadi Crest",
+  "base": "Lacquered Buckler",
+  "source": "Drops from Mercenary after winning a duel",
+  "league": "Mercenaries of Trarthus"
+ },
+ {
+  "name": "Badge of the Brotherhood",
+  "base": "Turquoise Amulet",
+  "league": "Blight",
+  "level": 60
+ },
+ {
+  "name": "Balefire",
+  "base": "Opal Sceptre"
+ },
+ {
+  "name": "Baleful Dominion",
+  "base": "Hypnotic Eye Jewel",
+  "league": "Abyss",
+  "source": "Drops from Zorath, Vile Assembled"
+ },
+ {
+  "name": "Bane of the Apostate",
+  "base": "Judgement Staff",
+  "league": "Covens",
+  "source": "Drops from The Coven Queen"
+ },
+ {
+  "name": "Bated Breath",
+  "base": "Chain Belt",
+  "level": 22
+ },
+ {
+  "name": "Beacon of Madness",
+  "base": "Two-Toned Boots (Armour/Evasion)",
+  "league": "Delirium"
+ },
+ {
+  "name": "Bear's Girdle",
+  "base": "Leather Belt",
+  "league": "Harvest",
+  "source": "Drops from Ersi, Mother of Thorns in The Sacred Grove",
+  "level": 68
+ },
+ {
+  "name": "Belly of the Beast",
+  "base": "Full Wyrmscale"
+ },
+ {
+  "name": "Belt of the Deceiver",
+  "base": "Heavy Belt",
+  "level": 20
+ },
+ {
+  "name": "Beltimber Blade",
+  "base": "Eternal Sword"
+ },
+ {
+  "name": "Berek's Grip",
+  "base": "Two-Stone Ring",
+  "league": "Domination, Nemesis"
+ },
+ {
+  "name": "Berek's Pass",
+  "base": "Two-Stone Ring",
+  "league": "Domination, Nemesis"
+ },
+ {
+  "name": "Berek's Respite",
+  "base": "Two-Stone Ring",
+  "league": "Domination, Nemesis"
+ },
+ {
+  "name": "Betrayal's Sting",
+  "base": "Steel Ring",
+  "source": "Drops from Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "Binds of Bloody Vengeance",
+  "base": "Vanguard Belt",
+  "source": "Drops from Mercenary after winning a duel",
+  "league": "Mercenaries of Trarthus"
+ },
+ {
+  "name": "Bino's Kitchen Knife",
+  "base": "Slaughter Knife",
+  "level": 65
+ },
+ {
+  "name": "Bisco's Collar",
+  "base": "Gold Amulet",
+  "source": "No longer obtainable",
+  "level": 30
+ },
+ {
+  "name": "Bisco's Leash",
+  "base": "Heavy Belt",
+  "level": 30
+ },
+ {
+  "name": "Bitter Instinct",
+  "base": "Spiny Round Shield",
+  "source": "Drops from Uber Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "Bitterbind Point",
+  "base": "Titanium Spirit Shield",
+  "league": "Betrayal",
+  "source": "Drops from Catarina, Master of Undeath"
+ },
+ {
+  "name": "Bitterdream",
+  "base": "Shadow Sceptre"
+ },
+ {
+  "name": "Black Sun Crest",
+  "base": "Lacquered Helmet"
+ },
+ {
+  "name": "Black Zenith",
+  "base": "Fingerless Silk Gloves",
+  "source": "Drops from The Infinite Hunger"
+ },
+ {
+  "name": "Blackflame",
+  "base": "Amethyst Ring",
+  "league": "Ritual",
+  "source": "Purchase from Ritual Reward",
+  "level": 49
+ },
+ {
+  "name": "Blackgleam",
+  "base": "Cured Quiver"
+ },
+ {
+  "name": "Blackheart",
+  "base": "Iron Ring"
+ },
+ {
+  "name": "Blasphemer's Grasp",
+  "base": "Assassin's Mitts",
+  "source": "Drops from The Elder"
+ },
+ {
+  "name": "Blightwell",
+  "base": "Clutching Talisman",
+  "league": "Talisman Hardcore",
+  "level": 28
+ },
+ {
+  "name": "Blood of Corruption",
+  "base": "Amber Amulet",
+  "source": "Use Vaal Orb on Tear of Purity"
+ },
+ {
+  "name": "Blood of the Karui",
+  "base": "Sanctified Life Flask",
+  "league": "Domination, Nemesis"
+ },
+ {
+  "name": "Blood Price",
+  "base": "Reaver Helmet"
+ },
+ {
+  "name": "Blood Sacrifice",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Bloodboil",
+  "base": "Coral Ring",
+  "source": "No longer obtainable",
+  "level": 24
+ },
+ {
+  "name": "Bloodbond",
+  "base": "Bone Armour"
+ },
+ {
+  "name": "Bloodgrip",
+  "base": "Coral Amulet"
+ },
+ {
+  "name": "Bloodnotch",
+  "base": "Crimson Jewel"
+ },
+ {
+  "name": "Bloodplay",
+  "base": "Stiletto"
+ },
+ {
+  "name": "Bloodseeker",
+  "base": "Hellion's Paw"
+ },
+ {
+  "name": "Bloodsoaked Medallion",
+  "base": "Amber Amulet",
+  "level": 49
+ },
+ {
+  "name": "Blunderbore",
+  "base": "Astral Plate",
+  "league": "Heist"
+ },
+ {
+  "name": "Bonemeld",
+  "base": "Marble Amulet",
+  "source": "Drops from Incarnation of Dread in Moment of Reverence"
+ },
+ {
+  "name": "Bones of Ullr",
+  "base": "Silk Slippers"
+ },
+ {
+  "name": "Bottled Faith",
+  "base": "Sulphur Flask",
+  "league": "Synthesis",
+  "source": "Drops from Synthete Nightmare in The Cortex"
+ },
+ {
+  "name": "Bound Fate",
+  "base": "Cloth Belt",
+  "level": 49
+ },
+ {
+  "name": "Brain Rattler",
+  "base": "Meatgrinder"
+ },
+ {
+  "name": "Bramblejack",
+  "base": "Plate Vest"
+ },
+ {
+  "name": "Brawn",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Breath of the Council",
+  "base": "Carnal Sceptre"
+ },
+ {
+  "name": "Breathstealer",
+  "base": "Hydrascale Gauntlets",
+  "league": "Blight",
+  "source": "Drops in Blighted Maps"
+ },
+ {
+  "name": "Brightbeak",
+  "base": "War Hammer"
+ },
+ {
+  "name": "Brinerot Flag",
+  "base": "Tarnished Spirit Shield",
+  "league": "Warbands",
+  "source": "Drops from Brinerot Warband monsters"
+ },
+ {
+  "name": "Brinerot Mark",
+  "base": "Unset Ring",
+  "league": "Warbands",
+  "level": 44
+ },
+ {
+  "name": "Brinerot Whalers",
+  "base": "Trapper Boots",
+  "league": "Warbands",
+  "source": "Drops from Brinerot Warband monsters"
+ },
+ {
+  "name": "Briskwrap",
+  "base": "Strapped Leather"
+ },
+ {
+  "name": "Brittle Barrier",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Broken Faith",
+  "base": "Archon Kite Shield",
+  "league": "Warbands",
+  "source": "Drops from Renegade Warband monsters"
+ },
+ {
+  "name": "Bronn's Lithe",
+  "base": "Cutthroat's Garb"
+ },
+ {
+  "name": "Brutal Restraint",
+  "base": "Timeless Jewel",
+  "league": "Legion",
+  "source": "Drops from Maraketh Legion"
+ },
+ {
+  "name": "Brute Force Solution",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Brutus' Lead Sprinkler",
+  "base": "Ritual Sceptre",
+  "league": "Torment"
+ },
+ {
+  "name": "Bubonic Trail",
+  "base": "Murder Boots",
+  "league": "Abyss",
+  "source": "Drops from Amanamu, Liege of the Lightless or Ulaman, Sovereign of the Well"
+ },
+ {
+  "name": "Cadigan's Authority",
+  "base": "Platinum Sceptre",
+  "source": "Obtained from Shipping in Kingsmarch"
+ },
+ {
+  "name": "Cadigan's Crown",
+  "base": "Runic Crown",
+  "league": "Expedition",
+  "source": "Drops from Olroth, Origin of the Fall in Expedition Logbook"
+ },
+ {
+  "name": "Calamitous Visions",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "Call of the Brotherhood",
+  "base": "Two-Stone Ring"
+ },
+ {
+  "name": "Call of the Void",
+  "base": "Sapphire Ring",
+  "source": "Drops from The Elder (Uber Uber)",
+  "level": 16
+ },
+ {
+  "name": "Callinellus Malleus",
+  "base": "Auric Mace"
+ },
+ {
+  "name": "Cameria's Avarice",
+  "base": "Gavel",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Cameria's Maul",
+  "base": "Gavel"
+ },
+ {
+  "name": "Cane of Kulemak",
+  "base": "Serpentine Staff",
+  "source": "Drops from Catarina, Master of Undeath",
+  "level": 68
+ },
+ {
+  "name": "Cane of Unravelling",
+  "base": "Ezomyte Staff"
+ },
+ {
+  "name": "Carcass Jack",
+  "base": "Varnished Coat"
+ },
+ {
+  "name": "Careful Planning",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Carnage Heart",
+  "base": "Onyx Amulet"
+ },
+ {
+  "name": "Ceaseless Feast",
+  "base": "Spiked Gloves",
+  "source": "Drops from The Infinite Hunger"
+ },
+ {
+  "name": "Ceinture of Benevolence",
+  "base": "Cloth Belt",
+  "level": 40
+ },
+ {
+  "name": "Cerberus Limb",
+  "base": "Blood Sceptre",
+  "league": "Delve",
+  "source": "Drops from Ahuatotli, the Blind"
+ },
+ {
+  "name": "Chaber Cairn",
+  "base": "Great Mallet",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "Chain of Endurance",
+  "base": "Chain Belt",
+  "level": 14
+ },
+ {
+  "name": "Chains of Command",
+  "base": "Saintly Chainmail"
+ },
+ {
+  "name": "Chains of Emancipation",
+  "base": "Chain Belt",
+  "league": "Heist",
+  "source": "Drops from Friedrich Tarollo, Slave Merchant in Contract: The Slaver King",
+  "level": 61
+ },
+ {
+  "name": "Chalice of Horrors",
+  "base": "War Buckler"
+ },
+ {
+  "name": "Cheap Construction",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Chernobog's Pillar",
+  "base": "Ebony Tower Shield"
+ },
+ {
+  "name": "Cherrubim's Maleficence",
+  "base": "Triumphant Lamellar"
+ },
+ {
+  "name": "Chill of Corruption",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Chin Sol",
+  "base": "Assassin Bow"
+ },
+ {
+  "name": "Chitus' Apex",
+  "base": "Necromancer Circlet"
+ },
+ {
+  "name": "Chitus' Needle",
+  "base": "Elegant Foil",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Chober Chaber",
+  "base": "Great Mallet"
+ },
+ {
+  "name": "Choir of the Storm",
+  "base": "Lapis Amulet",
+  "league": "Breach",
+  "source": "Upgraded from Voice of the Storm using Blessing of Esh",
+  "level": 69
+ },
+ {
+  "name": "Cinderswallow Urn",
+  "base": "Silver Flask",
+  "league": "Betrayal",
+  "source": "Drops from Catarina, Master of Undeath",
+  "level": 48
+ },
+ {
+  "name": "Circle of Ambition",
+  "base": "Prismatic Ring",
+  "source": "Drops from Synthete Nightmare in The Cortex (Uber)",
+  "level": 64
+ },
+ {
+  "name": "Circle of Anguish",
+  "base": "Ruby Ring",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete",
+  "level": 52
+ },
+ {
+  "name": "Circle of Fear",
+  "base": "Sapphire Ring",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete",
+  "level": 52
+ },
+ {
+  "name": "Circle of Guilt",
+  "base": "Iron Ring",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete",
+  "level": 52
+ },
+ {
+  "name": "Circle of Nostalgia",
+  "base": "Amethyst Ring",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete",
+  "level": 52
+ },
+ {
+  "name": "Circle of Regret",
+  "base": "Topaz Ring",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete",
+  "level": 52
+ },
+ {
+  "name": "Clayshaper",
+  "base": "Rock Breaker"
+ },
+ {
+  "name": "Clear Mind",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Cloak of Defiance",
+  "base": "Lacquered Garb"
+ },
+ {
+  "name": "Cloak of Flame",
+  "base": "Scholar's Robe"
+ },
+ {
+  "name": "Cloak of Tawm'r Isley",
+  "base": "Savant's Robe",
+  "source": "Drops from Elreon, Light's Judge during Betrayal encounters"
+ },
+ {
+  "name": "Coated Shrapnel",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Coiling Whisper",
+  "base": "Amethyst Ring",
+  "source": "Drops from Incarnation of Fear in Moment of Trauma",
+  "level": 32
+ },
+ {
+  "name": "Cold Iron Point",
+  "base": "Ezomyte Dagger"
+ },
+ {
+  "name": "Cold Steel",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Collateral Damage",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Combat Focus",
+  "base": "Crimson Jewel",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Combustibles",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Command of the Pit",
+  "base": "Riveted Gloves",
+  "league": "Delve",
+  "source": "Drops from Kurgal, the Blackblooded"
+ },
+ {
+  "name": "Conqueror's Efficiency",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Conqueror's Longevity",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Conqueror's Potency",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Coralito's Signature",
+  "base": "Diamond Flask"
+ },
+ {
+  "name": "Corona Solaris",
+  "base": "Crystal Wand",
+  "source": "No longer obtainable",
+  "level": 63
+ },
+ {
+  "name": "Corpse Rose",
+  "base": "Imbued Wand",
+  "league": "Covens",
+  "source": "Drops from a boss empowered by a Fate that rewards this item"
+ },
+ {
+  "name": "Corpsewalker",
+  "base": "Carnal Boots",
+  "league": "Heist"
+ },
+ {
+  "name": "Corrupted Energy",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Coruscating Elixir",
+  "base": "Ruby Flask"
+ },
+ {
+  "name": "Cospri's Malice",
+  "base": "Jewelled Foil"
+ },
+ {
+  "name": "Cospri's Will",
+  "base": "Assassin's Garb"
+ },
+ {
+  "name": "Coward's Chains",
+  "base": "Chain Belt",
+  "league": "Incursion",
+  "source": "Opening Experimental Chest in Hybridisation Chamber",
+  "level": 22
+ },
+ {
+  "name": "Coward's Legacy",
+  "base": "Chain Belt",
+  "league": "Incursion",
+  "source": "Upgraded from Coward's Chains via Vial of Consequence",
+  "level": 52
+ },
+ {
+  "name": "Cowards' Wail",
+  "base": "Ezomyte Tower Shield"
+ },
+ {
+  "name": "Cowl of the Ceraunophile",
+  "base": "Solaris Circlet",
+  "league": "Blight",
+  "source": "Drops in Blighted Maps"
+ },
+ {
+  "name": "Cowl of the Cryophile",
+  "base": "Silken Hood",
+  "league": "Blight",
+  "source": "Drops in Blighted Maps"
+ },
+ {
+  "name": "Cowl of the Thermophile",
+  "base": "Ezomyte Burgonet",
+  "league": "Blight",
+  "source": "Drops in Blighted Maps"
+ },
+ {
+  "name": "Cragfall",
+  "base": "Serrated Arrow Quiver",
+  "source": "No longer obtainable",
+  "level": 5
+ },
+ {
+  "name": "Craghead",
+  "base": "Serrated Arrow Quiver",
+  "level": 5
+ },
+ {
+  "name": "Craiceann's Carapace",
+  "base": "Golden Plate",
+  "league": "Bestiary",
+  "source": "Drops from Craiceann, First of the Deep",
+  "level": 64
+ },
+ {
+  "name": "Craiceann's Chitin",
+  "base": "Magistrate Crown",
+  "league": "Bestiary",
+  "source": "Drops from Craiceann, First of the Deep"
+ },
+ {
+  "name": "Craiceann's Pincers",
+  "base": "Titan Gauntlets",
+  "league": "Bestiary",
+  "source": "Drops from Craiceann, First of the Deep"
+ },
+ {
+  "name": "Craiceann's Tracks",
+  "base": "Goliath Greaves",
+  "league": "Bestiary",
+  "source": "Drops from Craiceann, First of the Deep"
+ },
+ {
+  "name": "Crest of Desire",
+  "base": "Fluted Bascinet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Crest of Perandus",
+  "base": "Pine Buckler"
+ },
+ {
+  "name": "Crown of Eyes",
+  "base": "Hubris Circlet"
+ },
+ {
+  "name": "Crown of the Inward Eye",
+  "base": "Prophet Crown",
+  "source": "Drops from Sirus, Awakener of Worlds"
+ },
+ {
+  "name": "Crown of the Pale King",
+  "base": "Regicide Mask",
+  "league": "Tempest"
+ },
+ {
+  "name": "Crown of the Tyrant",
+  "base": "Magistrate Crown",
+  "league": "Delve",
+  "source": "Drops from Aul, the Crystal King"
+ },
+ {
+  "name": "Crown of Thorns",
+  "base": "Vine Circlet"
+ },
+ {
+  "name": "Crystal Vault",
+  "base": "Latticed Ringmail",
+  "source": "No longer obtainable",
+  "level": 49
+ },
+ {
+  "name": "Crystallised Omniscience",
+  "base": "Onyx Amulet",
+  "source": "Drops from The Searing Exarch (Uber)",
+  "level": 61
+ },
+ {
+  "name": "Curtain Call",
+  "base": "Plague Mask",
+  "level": 20
+ },
+ {
+  "name": "Cybil's Paw",
+  "base": "Thresher Claw"
+ },
+ {
+  "name": "Cyclopean Coil",
+  "base": "Leather Belt",
+  "source": "Drops from The Elder",
+  "level": 68
+ },
+ {
+  "name": "Dance of the Offered",
+  "base": "Shackled Boots",
+  "league": "Incursion",
+  "source": "Opening Thunder Coffer in Conduit of Lightning"
+ },
+ {
+  "name": "Daresso's Courage",
+  "base": "Baroque Round Shield"
+ },
+ {
+  "name": "Daresso's Defiance",
+  "base": "Full Dragonscale"
+ },
+ {
+  "name": "Daresso's Passion",
+  "base": "Estoc"
+ },
+ {
+  "name": "Daresso's Salute",
+  "base": "Citrine Amulet",
+  "league": "Anarchy"
+ },
+ {
+  "name": "Darkness Enthroned",
+  "base": "Stygian Vise",
+  "league": "Abyss",
+  "source": "Drops from Amanamu, Liege of the Lightless or Ulaman, Sovereign of the Well"
+ },
+ {
+  "name": "Darkray Vectors",
+  "base": "Dragonscale Boots"
+ },
+ {
+  "name": "Darkscorn",
+  "base": "Assassin Bow",
+  "league": "Legion"
+ },
+ {
+  "name": "Dawnbreaker",
+  "base": "Colossal Tower Shield",
+  "source": "Drops from The Searing Exarch"
+ },
+ {
+  "name": "Dawnstrider",
+  "base": "Vaal Greaves",
+  "source": "Drops from The Searing Exarch"
+ },
+ {
+  "name": "Dead Reckoning",
+  "base": "Cobalt Jewel"
+ },
+ {
+  "name": "Death Rush",
+  "base": "Amethyst Ring",
+  "league": "Onslaught",
+  "level": 46
+ },
+ {
+  "name": "Death's Door",
+  "base": "Crusader Boots",
+  "source": "Drops in The Eternal Labyrinth"
+ },
+ {
+  "name": "Death's Hand",
+  "base": "Karui Sceptre"
+ },
+ {
+  "name": "Death's Harp",
+  "base": "Death Bow"
+ },
+ {
+  "name": "Death's Oath",
+  "base": "Astral Plate"
+ },
+ {
+  "name": "Death's Opus",
+  "base": "Death Bow",
+  "source": "No longer obtainable",
+  "level": 44
+ },
+ {
+  "name": "Debeon's Dirge",
+  "base": "Despot Axe"
+ },
+ {
+  "name": "Deerstalker",
+  "base": "Deerskin Boots"
+ },
+ {
+  "name": "Defiance of Destiny",
+  "base": "Paua Amulet",
+  "level": 49
+ },
+ {
+  "name": "Deidbell",
+  "base": "Gilded Sallet"
+ },
+ {
+  "name": "Deidbellow",
+  "base": "Gilded Sallet",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Demon Stitcher",
+  "base": "Satin Gloves",
+  "league": "Delve"
+ },
+ {
+  "name": "Dendrobate",
+  "base": "Sentinel Jacket"
+ },
+ {
+  "name": "Destructive Aspiration",
+  "base": "Ghastly Eye Jewel",
+  "league": "Abyss",
+  "source": "Drops from Zorath, Vile Assembled"
+ },
+ {
+  "name": "Devoto's Devotion",
+  "base": "Nightmare Bascinet"
+ },
+ {
+  "name": "Dialla's Malefaction",
+  "base": "Sage's Robe"
+ },
+ {
+  "name": "Disintegrator",
+  "base": "Maelstrom Staff",
+  "source": "Drops from The Elder (Uber)"
+ },
+ {
+  "name": "Dissolution of the Flesh",
+  "base": "Crimson Jewel",
+  "source": "Drops from The Searing Exarch"
+ },
+ {
+  "name": "Divinarius",
+  "base": "Imperial Skean",
+  "league": "Legion"
+ },
+ {
+  "name": "Divination Distillate",
+  "base": "Large Hybrid Flask"
+ },
+ {
+  "name": "Divine Inferno",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Doedre's Damning",
+  "base": "Paua Ring"
+ },
+ {
+  "name": "Doedre's Elixir",
+  "base": "Greater Mana Flask"
+ },
+ {
+  "name": "Doedre's Malevolence",
+  "base": "Velvet Gloves",
+  "source": "No longer obtainable",
+  "level": 64
+ },
+ {
+  "name": "Doedre's Scorn",
+  "base": "Lunaris Circlet"
+ },
+ {
+  "name": "Doedre's Skin",
+  "base": "Widowsilk Robe"
+ },
+ {
+  "name": "Doedre's Tenure",
+  "base": "Velvet Gloves"
+ },
+ {
+  "name": "Doedre's Tongue",
+  "base": "Lapis Amulet",
+  "level": 24
+ },
+ {
+  "name": "Doomfletch",
+  "base": "Royal Bow"
+ },
+ {
+  "name": "Doomfletch's Prism",
+  "base": "Royal Bow",
+  "source": "No longer obtainable",
+  "level": 40
+ },
+ {
+  "name": "Doomsower",
+  "base": "Lion Sword"
+ },
+ {
+  "name": "Doon Cuebiyari",
+  "base": "Vaal Sceptre"
+ },
+ {
+  "name": "Doppelgänger Guise",
+  "base": "Sadist Garb",
+  "league": "Ritual",
+  "source": "Drops from The Maven"
+ },
+ {
+  "name": "Doryani's Catalyst",
+  "base": "Vaal Sceptre",
+  "source": "Drops from Atziri, Queen of the Vaal in The Apex of Sacrifice",
+  "level": 75
+ },
+ {
+  "name": "Doryani's Delusion",
+  "base": "Titan Greaves",
+  "league": "Delve",
+  "source": "Drops from The Apex Assembly in Doryani's Machinarium"
+ },
+ {
+  "name": "Doryani's Fist",
+  "base": "Vaal Gauntlets"
+ },
+ {
+  "name": "Doryani's Invitation",
+  "base": "Heavy Belt",
+  "source": "Drops from Atziri, Queen of the Vaal in The Apex of Sacrifice",
+  "level": 68
+ },
+ {
+  "name": "Doryani's Prototype",
+  "base": "Saint's Hauberk",
+  "league": "Harvest"
+ },
+ {
+  "name": "Dread Captain's Cutlass",
+  "base": "Ghostflame Blade",
+  "source": "Drops from Captainsbane in The Fathomless Depths",
+  "league": "Allflame"
+ },
+ {
+  "name": "Dreadarc",
+  "base": "Cleaver"
+ },
+ {
+  "name": "Dreadbeak",
+  "base": "Rusted Sword",
+  "source": "No longer obtainable",
+  "level": 61
+ },
+ {
+  "name": "Dreadmaidens' Sacrament",
+  "base": "Basalt Flask",
+  "league": "Covens",
+  "source": "Drops from a boss empowered by a Fate that rewards this item",
+  "level": 36
+ },
+ {
+  "name": "Dreadsurge",
+  "base": "Cleaver",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "Dream Fragments",
+  "base": "Sapphire Ring",
+  "level": 24
+ },
+ {
+  "name": "Dreamfeather",
+  "base": "Eternal Sword"
+ },
+ {
+  "name": "Drillneck",
+  "base": "Penetrating Arrow Quiver",
+  "level": 36
+ },
+ {
+  "name": "Duskblight",
+  "base": "Ironscale Boots",
+  "source": "No longer obtainable",
+  "level": 40
+ },
+ {
+  "name": "Duskdawn",
+  "base": "Maelström Staff",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Dusktoe",
+  "base": "Leatherscale Boots"
+ },
+ {
+  "name": "Dyadian Dawn",
+  "base": "Heavy Belt",
+  "level": 52
+ },
+ {
+  "name": "Dyadus",
+  "base": "Infernal Axe"
+ },
+ {
+  "name": "Dying Breath",
+  "base": "Coiled Staff"
+ },
+ {
+  "name": "Dying Sun",
+  "base": "Ruby Flask",
+  "source": "Drops from The Shaper",
+  "level": 68
+ },
+ {
+  "name": "Earendel's Embrace",
+  "base": "Grinning Fetish"
+ },
+ {
+  "name": "Eber's Unification",
+  "base": "Hubris Circlet"
+ },
+ {
+  "name": "Echoes of Creation",
+  "base": "Shaper Item",
+  "source": "Drops from The Shaper (Uber)"
+ },
+ {
+  "name": "Echoforge",
+  "base": "Infernal Sword",
+  "source": "Drops from The Maven"
+ },
+ {
+  "name": "Eclipse Solaris",
+  "base": "Crystal Wand"
+ },
+ {
+  "name": "Edge of Madness",
+  "base": "Etched Greatsword",
+  "league": "Beyond"
+ },
+ {
+  "name": "Efficient Training",
+  "base": "Crimson Jewel",
+  "source": "Use Vaal Orb on Crimson Jewel"
+ },
+ {
+  "name": "El'Abin's Visage",
+  "base": "Fencer Helm",
+  "league": "Crucible",
+  "source": "Drops from Crucible monsters"
+ },
+ {
+  "name": "Eldritch Knowledge",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Elegant Hubris",
+  "base": "Timeless Jewel",
+  "league": "Legion",
+  "source": "Drops from Eternal Legion"
+ },
+ {
+  "name": "Elevore",
+  "base": "Wolf Pelt"
+ },
+ {
+  "name": "Elixir of the Unbroken Circle",
+  "base": "Iron Flask",
+  "league": "Expedition",
+  "source": "Drops from Medved, Feller of Heroes in Expedition Logbook"
+ },
+ {
+  "name": "Emberwake",
+  "base": "Ruby Ring"
+ },
+ {
+  "name": "Emperor's Cunning",
+  "base": "Viridian Jewel",
+  "source": "Drops in The Eternal Labyrinth"
+ },
+ {
+  "name": "Emperor's Mastery",
+  "base": "Prismatic Jewel",
+  "source": "Drops in The Eternal Labyrinth"
+ },
+ {
+  "name": "Emperor's Might",
+  "base": "Crimson Jewel",
+  "source": "Drops in The Eternal Labyrinth"
+ },
+ {
+  "name": "Emperor's Vigilance",
+  "base": "Steel Kite Shield",
+  "league": "Harvest"
+ },
+ {
+  "name": "Emperor's Wit",
+  "base": "Cobalt Jewel",
+  "source": "Drops in The Eternal Labyrinth"
+ },
+ {
+  "name": "Empire's Grasp",
+  "base": "Goliath Gauntlets"
+ },
+ {
+  "name": "Endless Misery",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Energised Armour",
+  "base": "Crimson Jewel",
+  "source": "Use Vaal Orb on Crimson Jewel"
+ },
+ {
+  "name": "Energy From Within",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Enmity's Embrace",
+  "base": "Vermillion Ring",
+  "source": "Drops from Incarnation of Fear in Moment of Trauma"
+ },
+ {
+  "name": "Entropic Devastation",
+  "base": "Assassin's Mitts",
+  "source": "Drops from The Shaper (Uber)"
+ },
+ {
+  "name": "Ephemeral Edge",
+  "base": "Dusk Blade"
+ },
+ {
+  "name": "Esh's Mirror",
+  "base": "Thorium Spirit Shield",
+  "league": "Breach",
+  "source": "Drops in Esh Breach or from Esh, Forked Thought"
+ },
+ {
+  "name": "Esh's Visage",
+  "base": "Vaal Spirit Shield",
+  "league": "Breach",
+  "source": "Upgraded from Esh's Mirror using Blessing of Esh"
+ },
+ {
+  "name": "Essence Worm",
+  "base": "Unset Ring",
+  "level": 38
+ },
+ {
+  "name": "Essentia Sanguis",
+  "base": "Eye Gouger"
+ },
+ {
+  "name": "Eternal Damnation",
+  "base": "Agate Amulet",
+  "league": "Sanctum",
+  "source": "Drops from Lycia, Herald of the Scourge in The Beyond",
+  "level": 52
+ },
+ {
+  "name": "Ewar's Mirage",
+  "base": "Antique Rapier"
+ },
+ {
+  "name": "Expedition's End",
+  "base": "Sentinel Jacket",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Extinguishing Grasp",
+  "base": "Searching Eye Jewel",
+  "league": "Abyss",
+  "source": "Drops from Zorath, Vile Assembled"
+ },
+ {
+  "name": "Extractor Mentis",
+  "base": "Agate Amulet"
+ },
+ {
+  "name": "Eye of Chayula",
+  "base": "Onyx Amulet"
+ },
+ {
+  "name": "Eye of Innocence",
+  "base": "Citrine Amulet",
+  "level": 68
+ },
+ {
+  "name": "Eye of Malice",
+  "base": "Callous Mask"
+ },
+ {
+  "name": "Eyes of the Greatwolf",
+  "base": "Greatwolf Talisman",
+  "level": 52
+ },
+ {
+  "name": "Ezomyte Hold",
+  "base": "Iron Hat",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Ezomyte Peak",
+  "base": "Iron Hat"
+ },
+ {
+  "name": "Facebreaker",
+  "base": "Strapped Mitts"
+ },
+ {
+  "name": "Fairgraves' Tricorne",
+  "base": "Tricorne",
+  "level": 12
+ },
+ {
+  "name": "Faithguard",
+  "base": "Runic Helm",
+  "league": "Expedition",
+  "source": "Drops from Expedition monsters"
+ },
+ {
+  "name": "Faminebind",
+  "base": "Rustic Sash",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "level": 18
+ },
+ {
+  "name": "Farrul's Bite",
+  "base": "Harlequin Mask",
+  "league": "Bestiary",
+  "source": "Drops from Farrul, First of the Plains"
+ },
+ {
+  "name": "Farrul's Chase",
+  "base": "Slink Boots",
+  "league": "Bestiary",
+  "source": "Drops from Farrul, First of the Plains"
+ },
+ {
+  "name": "Farrul's Fur",
+  "base": "Triumphant Lamellar",
+  "league": "Bestiary",
+  "source": "Drops from Farrul, First of the Plains"
+ },
+ {
+  "name": "Farrul's Pounce",
+  "base": "Hydrascale Gauntlets",
+  "league": "Bestiary",
+  "source": "Drops from Farrul, First of the Plains"
+ },
+ {
+  "name": "Fate of the Vaal",
+  "base": "Gemstone Sword",
+  "league": "Incursion",
+  "source": "Upgraded from Story of the Vaal via Vial of Fate"
+ },
+ {
+  "name": "Fated End",
+  "base": "Paua Ring",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 38
+ },
+ {
+  "name": "Feastbind",
+  "base": "Rustic Sash",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "level": 11
+ },
+ {
+  "name": "Femurs of the Saints",
+  "base": "Primordial Staff"
+ },
+ {
+  "name": "Fencoil",
+  "base": "Gnarled Branch"
+ },
+ {
+  "name": "Fenumus' Shroud",
+  "base": "Widowsilk Robe",
+  "league": "Bestiary",
+  "source": "Drops from Fenumus, First of the Night",
+  "level": 67
+ },
+ {
+  "name": "Fenumus' Spinnerets",
+  "base": "Assassin's Boots",
+  "league": "Bestiary",
+  "source": "Drops from Fenumus, First of the Night"
+ },
+ {
+  "name": "Fenumus' Toxins",
+  "base": "Necromancer Circlet",
+  "league": "Bestiary",
+  "source": "Drops from Fenumus, First of the Night",
+  "level": 65
+ },
+ {
+  "name": "Fenumus' Weave",
+  "base": "Carnal Mitts",
+  "league": "Bestiary",
+  "source": "Drops from Fenumus, First of the Night"
+ },
+ {
+  "name": "Fertile Mind",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Festering Resentment",
+  "base": "Demon Dagger",
+  "source": "Drops from Uber Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "Festering Vengeance",
+  "base": "Murderous Eye Jewel",
+  "league": "Abyss",
+  "source": "Drops from Zorath, Vile Assembled"
+ },
+ {
+  "name": "Fevered Mind",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Fidelitas' Spike",
+  "base": "Jagged Foil"
+ },
+ {
+  "name": "Fight for Survival",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Fireborn",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Firesong",
+  "base": "Crimson Jewel"
+ },
+ {
+  "name": "First Snow",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Flamesight",
+  "base": "Solaris Circlet"
+ },
+ {
+  "name": "Flesh and Spirit",
+  "base": "Ironscale Gauntlets",
+  "league": "Rampage"
+ },
+ {
+  "name": "Flesh-Eater",
+  "base": "Dream Mace"
+ },
+ {
+  "name": "Fleshcrafter",
+  "base": "Necromancer Silks",
+  "league": "Harvest"
+ },
+ {
+  "name": "Fleshrender",
+  "base": "Exquisite Blade",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Fluid Motion",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Font of Thunder",
+  "base": "Mirrored Spiked Shield",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Forbidden Taste",
+  "base": "Quartz Flask"
+ },
+ {
+  "name": "Fortified Legion",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Fortress Covenant",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Fox's Fortune",
+  "base": "Wild Leather",
+  "source": "No longer obtainable",
+  "level": 54
+ },
+ {
+  "name": "Foxshade",
+  "base": "Wild Leather"
+ },
+ {
+  "name": "Fractal Thoughts",
+  "base": "Vaal Mask",
+  "league": "Legion"
+ },
+ {
+  "name": "Fragile Bloom",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Fragility",
+  "base": "Crimson Jewel",
+  "source": "Use Vaal Orb on Crimson Jewel"
+ },
+ {
+  "name": "From Dust",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Frostbreath",
+  "base": "Ornate Mace"
+ },
+ {
+  "name": "Frostferno",
+  "base": "Leather Hood",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "Frozen Trail",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Fury Valve",
+  "base": "Turquoise Amulet",
+  "level": 40
+ },
+ {
+  "name": "Galesight",
+  "base": "Solaris Circlet"
+ },
+ {
+  "name": "Gamblesprint",
+  "base": "Hydrascale Boots",
+  "league": "Affliction",
+  "source": "Reward from Ultimatum encounters"
+ },
+ {
+  "name": "Gang's Momentum",
+  "base": "Legion Boots"
+ },
+ {
+  "name": "Garb of the Ephemeral",
+  "base": "Savant's Robe",
+  "league": "Synthesis",
+  "source": "Drops from Synthete Nightmare in The Cortex"
+ },
+ {
+  "name": "Garukhan's Flight",
+  "base": "Stealth Boots"
+ },
+ {
+  "name": "Geofri's Baptism",
+  "base": "Brass Maul"
+ },
+ {
+  "name": "Geofri's Crest",
+  "base": "Great Crown"
+ },
+ {
+  "name": "Geofri's Devotion",
+  "base": "Brass Maul",
+  "source": "No longer obtainable",
+  "level": 61
+ },
+ {
+  "name": "Geofri's Legacy",
+  "base": "Great Crown",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Geofri's Sanctuary",
+  "base": "Elegant Ringmail"
+ },
+ {
+  "name": "Ghostwrithe",
+  "base": "Silken Vest"
+ },
+ {
+  "name": "Giantsbane",
+  "base": "Bronze Gauntlets"
+ },
+ {
+  "name": "Gifts from Above",
+  "base": "Diamond Ring",
+  "league": "Anarchy",
+  "level": 28
+ },
+ {
+  "name": "Glimpse of Chaos",
+  "base": "Vaal Mask",
+  "league": "Ultimatum",
+  "source": "Drops from The Trialmaster"
+ },
+ {
+  "name": "Glitterdisc",
+  "base": "Burnished Spiked Shield",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Gloomfang",
+  "base": "Blue Pearl Amulet"
+ },
+ {
+  "name": "Glorious Vanity",
+  "base": "Timeless Jewel",
+  "league": "Legion",
+  "source": "Drops from Vaal Legion"
+ },
+ {
+  "name": "Gluttony",
+  "base": "Leather Belt",
+  "level": 48
+ },
+ {
+  "name": "Goblinedge",
+  "base": "Ambusher",
+  "league": "Ritual"
+ },
+ {
+  "name": "Goldrim",
+  "base": "Leather Cap"
+ },
+ {
+  "name": "Goldwyrm",
+  "base": "Nubuck Boots"
+ },
+ {
+  "name": "Gorebreaker",
+  "base": "Spiked Club"
+ },
+ {
+  "name": "Goredrill",
+  "base": "Skinning Knife"
+ },
+ {
+  "name": "Gorgon's Gaze",
+  "base": "Source: Drops from unique{Talin, Faithbreaker} in normal{Pillars of Arun}"
+ },
+ {
+  "name": "Grace of the Goddess",
+  "base": "Prophecy Wand",
+  "source": "Drops from The Maven (Uber)"
+ },
+ {
+  "name": "Grand Spectrum",
+  "base": "Cobalt Jewel",
+  "source": "Drops in The Lord's Labyrinth"
+ },
+ {
+  "name": "Grasping Nightshade",
+  "base": "Sporebloom Tincture",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "Grattus Signet",
+  "base": "Diamond Ring",
+  "league": "Necropolis",
+  "source": "Created from 4 different Grattus family corpses in the Necropolis"
+ },
+ {
+  "name": "Gravebind",
+  "base": "Hydrascale Gauntlets"
+ },
+ {
+  "name": "Graven's Secret",
+  "base": "Cloth Belt",
+  "league": "Ritual",
+  "source": "Drops from The Maven",
+  "level": 68
+ },
+ {
+  "name": "Great Old One's Tentacles",
+  "base": "Eelskin Gloves"
+ },
+ {
+  "name": "Great Old One's Ward",
+  "base": "Corrugated Buckler"
+ },
+ {
+  "name": "Greed's Embrace",
+  "base": "Golden Plate"
+ },
+ {
+  "name": "Greedtrap",
+  "base": "Velvet Slippers",
+  "source": "No longer obtainable",
+  "level": 52
+ },
+ {
+  "name": "Grelwood Shank",
+  "base": "Eternal Sword"
+ },
+ {
+  "name": "Grip of the Council",
+  "base": "Arcanist Gloves"
+ },
+ {
+  "name": "Growing Agony",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Gruthkul's Pelt",
+  "base": "Wyrmscale Doublet"
+ },
+ {
+  "name": "Haemophilia",
+  "base": "Serpentscale Gauntlets"
+ },
+ {
+  "name": "Hair Trigger",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Hale Negator",
+  "base": "Mind Cage",
+  "league": "Delve",
+  "source": "Drops from Kurgal, the Blackblooded"
+ },
+ {
+  "name": "Hand of Heresy",
+  "base": "Martyr Gloves",
+  "league": "Mercenaries of Trarthus",
+  "source": "Reward from Mercenary duel"
+ },
+ {
+  "name": "Hand of the Fervent",
+  "base": "Zealot Gloves",
+  "league": "Ritual",
+  "source": "Purchase from Ritual Reward"
+ },
+ {
+  "name": "Hand of the Lords",
+  "base": "Carnal Mitts",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony",
+  "level": 68
+ },
+ {
+  "name": "Hand of Thought and Motion",
+  "base": "Blinder",
+  "league": "Breach",
+  "source": "Drops in Esh Breach or from Esh, Forked Thought"
+ },
+ {
+  "name": "Hand of Wisdom and Action",
+  "base": "Imperial Claw",
+  "league": "Breach",
+  "source": "Upgraded from Hand of Thought and Motion using Blessing of Esh"
+ },
+ {
+  "name": "Hands of the High Templar",
+  "base": "Crusader Gloves",
+  "source": "Drops from Sirus, Awakener of Worlds"
+ },
+ {
+  "name": "Hateforge",
+  "base": "Ancient Gauntlets",
+  "league": "Ultimatum",
+  "source": "Drops from The Trialmaster",
+  "level": 72
+ },
+ {
+  "name": "Haunting Memories",
+  "base": "Turquoise Amulet",
+  "source": "Drops from Uber Incarnation of Neglect in Moment of Loneliness",
+  "level": 64
+ },
+ {
+  "name": "Hazardous Research",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Headhunter",
+  "base": "Leather Belt",
+  "league": "Nemesis",
+  "level": 40
+ },
+ {
+  "name": "Healthy Mind",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Heartbound Loop",
+  "base": "Moonstone Ring"
+ },
+ {
+  "name": "Heartbreaker",
+  "base": "Royal Skean"
+ },
+ {
+  "name": "Heatshiver",
+  "base": "Leather Hood"
+ },
+ {
+  "name": "Hegemony's Era",
+  "base": "Judgement Staff"
+ },
+ {
+  "name": "Heretic's Veil",
+  "base": "Deicide Mask"
+ },
+ {
+  "name": "Heroic Tragedy",
+  "base": "Timeless Jewel",
+  "league": "Legion",
+  "source": "Drops from Legion in Mirage"
+ },
+ {
+  "name": "Hezmana's Bloodlust",
+  "base": "Vaal Axe"
+ },
+ {
+  "name": "Hidden Potential",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Hide of the Vendigo",
+  "base": "Exquisite Leather",
+  "league": "Covens",
+  "source": "Drops from a boss empowered by a Fate that rewards this item"
+ },
+ {
+  "name": "Hiltless",
+  "base": "Reaver Sword"
+ },
+ {
+  "name": "Hinekora's Sight",
+  "base": "Onyx Amulet",
+  "level": 44
+ },
+ {
+  "name": "Honoured Alliance",
+  "base": "Coral Ring",
+  "league": "Ancestor",
+  "source": "No longer obtainable",
+  "level": 49
+ },
+ {
+  "name": "Honourhome",
+  "base": "Soldier Helmet",
+  "league": "Legion"
+ },
+ {
+  "name": "Hopeshredder",
+  "base": "Ranger Bow",
+  "source": "Drops from The Elder"
+ },
+ {
+  "name": "Hotheaded",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Howlcrack",
+  "base": "Ezomyte Burgonet",
+  "source": "Drops from Mercenary after winning a duel",
+  "league": "Mercenaries of Trarthus"
+ },
+ {
+  "name": "Hrimburn",
+  "base": "Goathide Gloves",
+  "source": "No longer obtainable",
+  "level": 24
+ },
+ {
+  "name": "Hrimnor's Dirge",
+  "base": "Sledgehammer",
+  "source": "No longer obtainable",
+  "level": 36
+ },
+ {
+  "name": "Hrimnor's Hymn",
+  "base": "Sledgehammer"
+ },
+ {
+  "name": "Hrimnor's Resolve",
+  "base": "Samnite Helmet"
+ },
+ {
+  "name": "Hrimsorrow",
+  "base": "Goathide Gloves"
+ },
+ {
+  "name": "Hungry Abyss",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Hyaon's Fury",
+  "base": "Legion Sword"
+ },
+ {
+  "name": "Hyperboreus",
+  "base": "Leather Belt",
+  "league": "Betrayal",
+  "source": "Drops from Transportation Leaders in Safehouses",
+  "level": 64
+ },
+ {
+  "name": "Hyrri's Bite",
+  "base": "Sharktooth Arrow Quiver",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Hyrri's Demise",
+  "base": "Sharktooth Arrow Quiver",
+  "source": "No longer obtainable",
+  "level": 45
+ },
+ {
+  "name": "Hyrri's Ire",
+  "base": "Zodiac Leather"
+ },
+ {
+  "name": "Hyrri's Truth",
+  "base": "Jade Amulet",
+  "league": "Synthesis",
+  "level": 64
+ },
+ {
+  "name": "Icefang Orbit",
+  "base": "Iron Ring",
+  "league": "Blight",
+  "level": 49
+ },
+ {
+  "name": "Icetomb",
+  "base": "Latticed Ringmail"
+ },
+ {
+  "name": "Ichimonji",
+  "base": "Corsair Sword"
+ },
+ {
+  "name": "Ikiaho's Promise",
+  "base": "Coral Amulet",
+  "level": 30
+ },
+ {
+  "name": "Immortal Flesh",
+  "base": "Leather Belt",
+  "level": 50
+ },
+ {
+  "name": "Immutable Force",
+  "base": "Crimson Jewel"
+ },
+ {
+  "name": "Impresence",
+  "base": "Onyx Amulet",
+  "source": "Drops from The Elder",
+  "level": 64
+ },
+ {
+  "name": "Incandescent Heart",
+  "base": "Saintly Chainmail"
+ },
+ {
+  "name": "Indigon",
+  "base": "Hubris Circlet",
+  "source": "Drops from The Elder (Uber)"
+ },
+ {
+  "name": "Inertia",
+  "base": "Crimson Jewel",
+  "source": "Use Vaal Orb on Crimson Jewel"
+ },
+ {
+  "name": "Inevitability",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Inextricable Fate",
+  "base": "Fugitive Boots",
+  "source": "Drops from The Eater of Worlds"
+ },
+ {
+  "name": "Infernal Mantle",
+  "base": "Occultist's Vestment"
+ },
+ {
+  "name": "Infractem",
+  "base": "Decimation Bow"
+ },
+ {
+  "name": "Innsbury Edge",
+  "base": "Elder Sword"
+ },
+ {
+  "name": "Inpulsa's Broken Heart",
+  "base": "Sadist Garb"
+ },
+ {
+  "name": "Inspired Learning",
+  "base": "Crimson Jewel"
+ },
+ {
+  "name": "Intuitive Leap",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Invictus Solaris",
+  "base": "Archon Kite Shield",
+  "source": "Drops from Helial, the Day Unending"
+ },
+ {
+  "name": "Inya's Epiphany",
+  "base": "Arcanist Slippers"
+ },
+ {
+  "name": "Iron Commander",
+  "base": "Death Bow"
+ },
+ {
+  "name": "Iron Heart",
+  "base": "Crusader Plate",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Item Class: Jewels",
+  "base": "Rarity: Unique",
+  "league": "Affliction"
+ },
+ {
+  "name": "Ixchel's Temptation",
+  "base": "Gold Ring",
+  "league": "Affliction"
+ },
+ {
+  "name": "Izaro's Dilemma",
+  "base": "Imperial Claw",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Izaro's Turmoil",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Jack, the Axe",
+  "base": "Vaal Hatchet"
+ },
+ {
+  "name": "Jaws of Agony",
+  "base": "Supreme Spiked Shield"
+ },
+ {
+  "name": "Jiquani's Potential",
+  "base": "Imperial Staff",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony"
+ },
+ {
+  "name": "Jorrhast's Blacksteel",
+  "base": "Steelhead",
+  "league": "Tempest"
+ },
+ {
+  "name": "Kahuturoa's Certainty",
+  "base": "Ancient Greaves"
+ },
+ {
+  "name": "Kalandra's Touch",
+  "base": "Ring",
+  "league": "Kalandra"
+ },
+ {
+  "name": "Kalisa's Grace",
+  "base": "Samite Gloves",
+  "level": 55
+ },
+ {
+  "name": "Kaltenhalt",
+  "base": "Painted Buckler"
+ },
+ {
+  "name": "Kaltensoul",
+  "base": "Painted Buckler",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Kaom's Binding",
+  "base": "Heavy Belt",
+  "level": 56
+ },
+ {
+  "name": "Kaom's Command",
+  "base": "Siege Helmet",
+  "league": "Settlers of Kalguur",
+  "source": "Kingsmarch Shipping to Ngakanu or Te Onui"
+ },
+ {
+  "name": "Kaom's Heart",
+  "base": "Glorious Plate"
+ },
+ {
+  "name": "Kaom's Primacy",
+  "base": "Karui Chopper",
+  "league": "Legion"
+ },
+ {
+  "name": "Kaom's Roots",
+  "base": "Titan Greaves"
+ },
+ {
+  "name": "Kaom's Sign",
+  "base": "Coral Ring"
+ },
+ {
+  "name": "Kaom's Spirit",
+  "base": "Titan Gauntlets"
+ },
+ {
+  "name": "Kaom's Way",
+  "base": "Coral Ring",
+  "source": "No longer obtainable",
+  "level": 32
+ },
+ {
+  "name": "Karui Charge",
+  "base": "Jade Amulet",
+  "source": "No longer obtainable",
+  "level": 24
+ },
+ {
+  "name": "Karui Ward",
+  "base": "Jade Amulet"
+ },
+ {
+  "name": "Khatal's Geyser",
+  "base": "Lapis Amulet",
+  "league": "Mirage",
+  "source": "No longer obtainable",
+  "level": 56
+ },
+ {
+  "name": "Khatal's Weeping",
+  "base": "Lapis Amulet",
+  "league": "Mirage",
+  "source": "No longer obtainable",
+  "level": 56
+ },
+ {
+  "name": "Kiara's Determination",
+  "base": "Silver Flask"
+ },
+ {
+  "name": "Kikazaru",
+  "base": "Topaz Ring",
+  "level": 20
+ },
+ {
+  "name": "Kiloava's Bluster",
+  "base": "Ironwood Buckler"
+ },
+ {
+  "name": "Kingmaker",
+  "base": "Despot Axe",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Kingsguard",
+  "base": "Conquest Chainmail"
+ },
+ {
+  "name": "Kintsugi",
+  "base": "Exquisite Leather"
+ },
+ {
+  "name": "Kitava's Feast",
+  "base": "Void Axe"
+ },
+ {
+  "name": "Kitava's Teachings",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "Kitava's Thirst",
+  "base": "Zealot Helmet"
+ },
+ {
+  "name": "Kondo's Pride",
+  "base": "Ezomyte Blade"
+ },
+ {
+  "name": "Kongming's Stratagem",
+  "base": "Ivory Spirit Shield"
+ },
+ {
+  "name": "Kongor's Undying Rage",
+  "base": "Terror Maul"
+ },
+ {
+  "name": "Kurgal's Gaze",
+  "base": "Hypnotic Eye Jewel",
+  "source": "Drops from Abyssal Liches in Abyssal Depths",
+  "level": 40
+ },
+ {
+  "name": "Lakishu's Blade",
+  "base": "Elegant Sword"
+ },
+ {
+  "name": "Last Resort",
+  "base": "Nailed Fist"
+ },
+ {
+  "name": "Lavianga's Spirit",
+  "base": "Sanctified Mana Flask",
+  "league": "Domination, Nemesis"
+ },
+ {
+  "name": "Lavianga's Wisdom",
+  "base": "War Hammer",
+  "league": "Legion"
+ },
+ {
+  "name": "Law of the Wilds",
+  "base": "Hellion's Paw",
+  "league": "Harvest",
+  "source": "Drops from Oshabi, Avatar of the Grove"
+ },
+ {
+  "name": "Le Heup of All",
+  "base": "Iron Ring",
+  "level": 24
+ },
+ {
+  "name": "Leadership's Price",
+  "base": "Onyx Amulet",
+  "league": "Heist",
+  "source": "Drops from Vic Vox and Vinny Vox in Contract: The Twins",
+  "level": 68
+ },
+ {
+  "name": "Leash of Oblation",
+  "base": "Leather Belt",
+  "level": 49
+ },
+ {
+  "name": "Leer Cast",
+  "base": "Festival Mask"
+ },
+ {
+  "name": "Legacy of Fury",
+  "base": "Wyrmscale Boots",
+  "source": "Drops from The Maven",
+  "league": "Ritual",
+  "level": 69
+ },
+ {
+  "name": "Legacy of the Rose",
+  "base": "Judgement Staff",
+  "source": "Drops from Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "Leper's Alms",
+  "base": "Mirrored Spiked Shield"
+ },
+ {
+  "name": "Lethal Pride",
+  "base": "Timeless Jewel",
+  "league": "Legion",
+  "source": "Drops from Karui Legion"
+ },
+ {
+  "name": "Lifesprig",
+  "base": "Driftwood Wand"
+ },
+ {
+  "name": "Light of Lunaris",
+  "base": "Jingling Spirit Shield"
+ },
+ {
+  "name": "Lightbane Raiment",
+  "base": "Ornate Ringmail"
+ },
+ {
+  "name": "Lightning Coil",
+  "base": "Desert Brigandine"
+ },
+ {
+  "name": "Lightpoacher",
+  "base": "Great Crown",
+  "league": "Abyss",
+  "source": "Drops from Amanamu, Liege of the Lightless or Ulaman, Sovereign of the Well"
+ },
+ {
+  "name": "Limbsplit",
+  "base": "Woodsplitter"
+ },
+ {
+  "name": "Lion's Roar",
+  "base": "Granite Flask"
+ },
+ {
+  "name": "Lioneye's Fall",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Lioneye's Glare",
+  "base": "Imperial Bow"
+ },
+ {
+  "name": "Lioneye's Paws",
+  "base": "Bronzescale Boots",
+  "league": "Legion"
+ },
+ {
+  "name": "Lioneye's Remorse",
+  "base": "Pinnacle Tower Shield"
+ },
+ {
+  "name": "Lioneye's Vision",
+  "base": "Crusader Plate"
+ },
+ {
+  "name": "Lochtonial Caress",
+  "base": "Iron Gauntlets"
+ },
+ {
+  "name": "Lord of Steel",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Loreweave",
+  "base": "Elegant Ringmail",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Lori's Lantern",
+  "base": "Prismatic Ring"
+ },
+ {
+  "name": "Lost Unity",
+  "base": "Formless Ring",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony"
+ },
+ {
+  "name": "Lycosidae",
+  "base": "Rawhide Tower Shield"
+ },
+ {
+  "name": "Maata's Teaching",
+  "base": "Karui Sceptre"
+ },
+ {
+  "name": "Machina Mitts",
+  "base": "Murder Mitts",
+  "league": "Blight"
+ },
+ {
+  "name": "Mageblood",
+  "base": "Heavy Belt",
+  "level": 44
+ },
+ {
+  "name": "Magna Eclipsis",
+  "base": "Pinnacle Tower Shield",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Mahuxotl's Machination",
+  "base": "Steel Kite Shield",
+  "league": "Ultimatum",
+  "source": "Drops from The Trialmaster"
+ },
+ {
+  "name": "Malachai's Artifice",
+  "base": "Unset Ring"
+ },
+ {
+  "name": "Malachai's Awakening",
+  "base": "Iron Mask",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "Malachai's Loop",
+  "base": "Harmonic Spirit Shield"
+ },
+ {
+  "name": "Malachai's Mark",
+  "base": "Murder Mitts",
+  "source": "Drops from Nightmare of the Depraved Trinity in Abomination Map"
+ },
+ {
+  "name": "Malachai's Simula",
+  "base": "Iron Mask"
+ },
+ {
+  "name": "Malachai's Vision",
+  "base": "Praetor Crown",
+  "source": "Use Vaal Orb on Voll's Vision"
+ },
+ {
+  "name": "Malicious Intent",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Maligaro's Cruelty",
+  "base": "Turquoise Amulet",
+  "level": 20
+ },
+ {
+  "name": "Maligaro's Lens",
+  "base": "Compound Spiked Shield"
+ },
+ {
+  "name": "Maligaro's Restraint",
+  "base": "Chain Belt",
+  "level": 44
+ },
+ {
+  "name": "Maligaro's Virtuosity",
+  "base": "Deerskin Gloves",
+  "league": "Legion"
+ },
+ {
+  "name": "Maloney's Mechanism",
+  "base": "Ornate Quiver"
+ },
+ {
+  "name": "Maloney's Nightfall",
+  "base": "Blunt Arrow Quiver"
+ },
+ {
+  "name": "Manastorm",
+  "base": "Fossilised Spirit Shield",
+  "source": "Drops from Nightmare of Uhtred in Citadel Map"
+ },
+ {
+  "name": "Mantle of Dreams",
+  "base": "Twilight Regalia",
+  "league": "Covens",
+  "source": "Drops from Incarnation of Dread (Uber)"
+ },
+ {
+  "name": "Mantra of Flames",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "March of the Legion",
+  "base": "Legion Boots",
+  "league": "Synthesis"
+ },
+ {
+  "name": "Mark of Submission",
+  "base": "Unset Ring",
+  "level": 24
+ },
+ {
+  "name": "Mark of the Doubting Knight",
+  "base": "Platinum Kris"
+ },
+ {
+  "name": "Mark of the Elder",
+  "base": "Steel Ring",
+  "source": "Drops from The Elder (Uber)"
+ },
+ {
+  "name": "Mark of the Red Covenant",
+  "base": "Tribal Circlet"
+ },
+ {
+  "name": "Mark of the Shaper",
+  "base": "Opal Ring",
+  "source": "Drops from The Elder (Uber)"
+ },
+ {
+  "name": "Marohi Erqi",
+  "base": "Karui Maul",
+  "league": "Legion"
+ },
+ {
+  "name": "Martial Artistry",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Martyr of Innocence",
+  "base": "Highborn Staff"
+ },
+ {
+  "name": "Martyr's Crown",
+  "base": "Vine Circlet",
+  "source": "No longer obtainable",
+  "level": 52
+ },
+ {
+  "name": "Marylene's Fallacy",
+  "base": "Lapis Amulet",
+  "level": 40
+ },
+ {
+  "name": "Mask of the Spirit Drinker",
+  "base": "Crusader Helmet",
+  "league": "Incursion",
+  "source": "Opening Pools Coffer in Sanctum of Immortality"
+ },
+ {
+  "name": "Mask of the Stitched Demon",
+  "base": "Magistrate Crown",
+  "league": "Incursion",
+  "source": "Upgraded from Mask of the Spirit Drinker via Vial of Summoning"
+ },
+ {
+  "name": "Mask of the Tribunal",
+  "base": "Magistrate Crown",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete"
+ },
+ {
+  "name": "Matua Tupuna",
+  "base": "Tarnished Spirit Shield",
+  "level": 63
+ },
+ {
+  "name": "Maw of Conquest",
+  "base": "Steel Circlet",
+  "league": "Legion"
+ },
+ {
+  "name": "Maw of Mischief",
+  "base": "Bone Helmet",
+  "league": "Heist",
+  "source": "Obtained from divination card Cursed Words"
+ },
+ {
+  "name": "Medved's Challenge",
+  "base": "Runic Gauntlets",
+  "league": "Expedition",
+  "source": "Drops from Expedition monsters"
+ },
+ {
+  "name": "Meginord's Girdle",
+  "base": "Heavy Belt"
+ },
+ {
+  "name": "Meginord's Vise",
+  "base": "Steel Gauntlets"
+ },
+ {
+  "name": "Melding of the Flesh",
+  "base": "Cobalt Jewel",
+  "source": "Drops from The Eater of Worlds"
+ },
+ {
+  "name": "Memory Vault",
+  "base": "Praetor Crown"
+ },
+ {
+  "name": "Mercenary's Lot",
+  "base": "Slink Gloves",
+  "league": "Heist"
+ },
+ {
+  "name": "Midnight Bargain",
+  "base": "Engraved Wand"
+ },
+ {
+  "name": "Might and Influence",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Might in All Forms",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Might of the Meek",
+  "base": "Crimson Jewel"
+ },
+ {
+  "name": "Mightblood Ire",
+  "base": "Ironwood Tincture",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "Mightflay",
+  "base": "Flaying Knife"
+ },
+ {
+  "name": "Militant Faith",
+  "base": "Timeless Jewel",
+  "league": "Legion",
+  "source": "Drops from Templar Legion"
+ },
+ {
+  "name": "Mind of the Council",
+  "base": "Harlequin Mask"
+ },
+ {
+  "name": "Mindspiral",
+  "base": "Aventail Helmet"
+ },
+ {
+  "name": "Ming's Heart",
+  "base": "Amethyst Ring",
+  "level": 69
+ },
+ {
+  "name": "Mirebough",
+  "base": "Gnarled Branch",
+  "source": "No longer obtainable",
+  "level": 32
+ },
+ {
+  "name": "Mistwall",
+  "base": "Lacquered Buckler"
+ },
+ {
+  "name": "Mjölner",
+  "base": "Gavel"
+ },
+ {
+  "name": "Mokou's Embrace",
+  "base": "Ruby Ring"
+ },
+ {
+  "name": "Mon'tregul's Grasp",
+  "base": "Void Sceptre"
+ },
+ {
+  "name": "Moonbender's Wing",
+  "base": "Tomahawk"
+ },
+ {
+  "name": "Moonsorrow",
+  "base": "Imbued Wand"
+ },
+ {
+  "name": "Mortem Morsu",
+  "base": "Fright Claw"
+ },
+ {
+  "name": "Mother's Embrace",
+  "base": "Heavy Belt",
+  "level": 40
+ },
+ {
+  "name": "Mutated Growth",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Mutewind Pennant",
+  "base": "Enameled Buckler",
+  "league": "Warbands",
+  "source": "Drop from Mutewind Mercenary monsters"
+ },
+ {
+  "name": "Mutewind Seal",
+  "base": "Unset Ring",
+  "league": "Warbands",
+  "level": 44
+ },
+ {
+  "name": "Mutewind Whispersteps",
+  "base": "Serpentscale Boots",
+  "league": "Warbands"
+ },
+ {
+  "name": "Mystic Refractor",
+  "base": "Pagan Wand"
+ },
+ {
+  "name": "Nadir Mode",
+  "base": "Cobalt Jewel",
+  "league": "Heist",
+  "source": "Drops from The Unbreakable in Contract: Breaking the Unbreakable"
+ },
+ {
+  "name": "Nametaker",
+  "base": "Graceful Sword",
+  "league": "Affliction"
+ },
+ {
+  "name": "Natural Affinity",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "Natural Hierarchy",
+  "base": "Rotfeather Talisman",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "level": 44
+ },
+ {
+  "name": "Nebulis",
+  "base": "Void Sceptre",
+  "league": "Synthesis",
+  "source": "Drops from Synthete Nightmare in The Cortex (Uber)"
+ },
+ {
+  "name": "Nebuloch",
+  "base": "Nightmare Mace",
+  "source": "Drops from The Elder"
+ },
+ {
+  "name": "Nevalius Inheritance",
+  "base": "Cloth Belt",
+  "league": "Necropolis"
+ },
+ {
+  "name": "Ngamahu Tiki",
+  "base": "Coral Amulet",
+  "source": "No longer obtainable",
+  "level": 36
+ },
+ {
+  "name": "Ngamahu's Flame",
+  "base": "Abyssal Axe"
+ },
+ {
+  "name": "Ngamahu's Sign",
+  "base": "Ruby Ring",
+  "league": "Bloodlines",
+  "level": 29
+ },
+ {
+  "name": "Night's Hold",
+  "base": "Black Maw Talisman",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "level": 12
+ },
+ {
+  "name": "Nightgrip",
+  "base": "Runic Gages",
+  "league": "Expedition",
+  "source": "Drops from Expedition monsters"
+ },
+ {
+  "name": "Nimis",
+  "base": "Topaz Ring",
+  "source": "Drops from The Eater of Worlds (Uber)",
+  "level": 48
+ },
+ {
+  "name": "Nomic's Storm",
+  "base": "Strapped Boots"
+ },
+ {
+  "name": "Null and Void",
+  "base": "Legion Gloves",
+  "league": "Rampage"
+ },
+ {
+  "name": "Null's Inclination",
+  "base": "Ranger Bow"
+ },
+ {
+  "name": "Nuro's Harp",
+  "base": "Harbinger Bow"
+ },
+ {
+  "name": "Nycta's Lantern",
+  "base": "Crystal Sceptre"
+ },
+ {
+  "name": "Obliteration",
+  "base": "Demon's Horn"
+ },
+ {
+  "name": "Obscurantis",
+  "base": "Lion Pelt"
+ },
+ {
+  "name": "Offering to the Serpent",
+  "base": "Legion Gloves",
+  "league": "Synthesis",
+  "source": "Drops from Synthete Nightmare in The Cortex"
+ },
+ {
+  "name": "Olesya's Delight",
+  "base": "Cloth Belt",
+  "league": "Ritual",
+  "source": "Drops from The Maven",
+  "level": 68
+ },
+ {
+  "name": "Olroth's Charge",
+  "base": "Runic Sollerets",
+  "league": "Expedition",
+  "source": "Drops from Expedition monsters"
+ },
+ {
+  "name": "Olroth's Resolve",
+  "base": "Iron Flask",
+  "league": "Expedition",
+  "source": "Drops from Olroth, Origin of the Fall in Expedition Logbook"
+ },
+ {
+  "name": "Omen on the Winds",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Omeyocan",
+  "base": "Carnal Boots",
+  "league": "Incursion",
+  "source": "Upgraded from Dance of the Offered via Vial of the Ritual"
+ },
+ {
+  "name": "Ondar's Clasp",
+  "base": "Wrapped Mitts"
+ },
+ {
+  "name": "One With Nothing",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "Oni-Goroshi",
+  "base": "Charan's Sword",
+  "source": "Drops from Hillock"
+ },
+ {
+  "name": "Orbala's Stand",
+  "base": "Eelskin Boots"
+ },
+ {
+  "name": "Ordered Fate",
+  "base": "Walnut Spirit Shield",
+  "league": "Covens",
+  "source": "Drops from a boss empowered by a Fate that rewards this item",
+  "level": 48
+ },
+ {
+  "name": "Oriath's End",
+  "base": "Bismuth Flask",
+  "source": "Drops from Sirus, Awakener of Worlds (Uber)",
+  "level": 56
+ },
+ {
+  "name": "Original Sin",
+  "base": "Amethyst Ring",
+  "league": "Sanctum",
+  "source": "Drops from Lycia, Herald of the Scourge in The Beyond while The Original Scripture is active in the Relic Altar",
+  "level": 52
+ },
+ {
+  "name": "Ornament of the East",
+  "base": "Gut Ripper"
+ },
+ {
+  "name": "Oro's Sacrifice",
+  "base": "Infernal Sword"
+ },
+ {
+  "name": "Oskarm",
+  "base": "Nubuck Gloves",
+  "level": 52
+ },
+ {
+  "name": "Overwhelming Odds",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Pacifism",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Painseeker",
+  "base": "Shagreen Gloves"
+ },
+ {
+  "name": "Panquetzaliztli",
+  "base": "Jagged Maul",
+  "source": "No longer obtainable",
+  "level": 61
+ },
+ {
+  "name": "Paradoxica",
+  "base": "Vaal Rapier",
+  "league": "Betrayal",
+  "source": "Drops from Intervention Leaders in Safehouses"
+ },
+ {
+  "name": "Perandus Blazon",
+  "base": "Cloth Belt"
+ },
+ {
+  "name": "Perandus Signet",
+  "base": "Paua Ring"
+ },
+ {
+  "name": "Perepiteia",
+  "base": "Ezomyte Spiked Shield",
+  "league": "Synthesis",
+  "source": "Drops from Altered/Augmented/Rewritten/Twisted Synthete"
+ },
+ {
+  "name": "Perfidy",
+  "base": "Glorious Plate",
+  "league": "Delirium"
+ },
+ {
+  "name": "Perquil's Toe",
+  "base": "Gold Amulet",
+  "level": 29
+ },
+ {
+  "name": "Perseverance",
+  "base": "Vanguard Belt"
+ },
+ {
+  "name": "Pillar of the Caged God",
+  "base": "Iron Staff"
+ },
+ {
+  "name": "Piscator's Vigil",
+  "base": "Tornado Wand"
+ },
+ {
+  "name": "Pitch Darkness",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Pledge of Hands",
+  "base": "Judgement Staff",
+  "league": "Legion",
+  "source": "Drops from Atziri, Queen of the Vaal in The Apex of Sacrifice"
+ },
+ {
+  "name": "Plume of Pursuit",
+  "base": "Bone Circlet",
+  "league": "Harvest",
+  "source": "Drops from Janaar, the Omen in The Sacred Grove",
+  "level": 64
+ },
+ {
+  "name": "Poacher's Aim",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Polaric Devastation",
+  "base": "Opal Ring",
+  "source": "Drops from The Black Star"
+ },
+ {
+  "name": "Powerlessness",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Pragmatism",
+  "base": "Colosseum Plate",
+  "league": "Affliction",
+  "source": "The King in the Mists in the Crux of Nothingness"
+ },
+ {
+  "name": "Praxis",
+  "base": "Paua Ring",
+  "level": 22
+ },
+ {
+  "name": "Presence of Chayula",
+  "base": "Onyx Amulet",
+  "league": "Breach",
+  "source": "Upgraded from Eye of Chayula using Blessing of Chayula",
+  "level": 60
+ },
+ {
+  "name": "Primordial Eminence",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Primordial Harmony",
+  "base": "Cobalt Jewel"
+ },
+ {
+  "name": "Primordial Might",
+  "base": "Crimson Jewel"
+ },
+ {
+  "name": "Prism Guardian",
+  "base": "Archon Kite Shield"
+ },
+ {
+  "name": "Prismatic Eclipse",
+  "base": "Twilight Blade"
+ },
+ {
+  "name": "Prismweave",
+  "base": "Rustic Sash",
+  "level": 25
+ },
+ {
+  "name": "Profane Proxy",
+  "base": "Unset Ring",
+  "level": 52
+ },
+ {
+  "name": "Progenesis",
+  "base": "Amethyst Flask",
+  "source": "Drops from The Maven (Uber)",
+  "level": 60
+ },
+ {
+  "name": "Prospero's Protection",
+  "base": "Iron Ring",
+  "level": 32
+ },
+ {
+  "name": "Pugilist",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Pure Talent",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Putembo's Meadow",
+  "base": "Topaz Ring",
+  "league": "Delve",
+  "source": "Drops from Kurgal, the Blackblooded",
+  "level": 49
+ },
+ {
+  "name": "Putembo's Mountain",
+  "base": "Topaz Ring",
+  "league": "Delve",
+  "source": "Drops from Aul, the Crystal King",
+  "level": 49
+ },
+ {
+  "name": "Putembo's Valley",
+  "base": "Topaz Ring",
+  "league": "Delve",
+  "source": "Drops from Ahuatotli, the Blind",
+  "level": 49
+ },
+ {
+  "name": "Putrid Seed",
+  "base": "Mycelium Core",
+  "league": "Covens",
+  "source": "Drops from Effulgent Blightworm in a Mycotic Blight encounter"
+ },
+ {
+  "name": "Pyre",
+  "base": "Sapphire Ring",
+  "level": 11
+ },
+ {
+  "name": "Pyroshock Clasp",
+  "base": "Leather Belt",
+  "league": "Heist",
+  "level": 43
+ },
+ {
+  "name": "Qotra's Regulator",
+  "base": "Sovereign Spiked Shield",
+  "league": "Ritual",
+  "source": "Purchase from Ritual Reward"
+ },
+ {
+  "name": "Quecholli",
+  "base": "Jagged Maul"
+ },
+ {
+  "name": "Queen of the Forest",
+  "base": "Destiny Leather"
+ },
+ {
+  "name": "Queen's Decree",
+  "base": "Ornate Sword"
+ },
+ {
+  "name": "Queen's Escape",
+  "base": "Ornate Sword",
+  "source": "No longer obtainable",
+  "level": 38
+ },
+ {
+  "name": "Quickening Covenant",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Quill Rain",
+  "base": "Short Bow"
+ },
+ {
+  "name": "Rain of Splinters",
+  "base": "Crimson Jewel",
+  "source": "Use Vaal Orb on Crimson Jewel"
+ },
+ {
+  "name": "Rainbowstride",
+  "base": "Conjurer Boots"
+ },
+ {
+  "name": "Rakiata's Dance",
+  "base": "Engraved Greatsword"
+ },
+ {
+  "name": "Ralakesh's Impatience",
+  "base": "Riveted Boots"
+ },
+ {
+  "name": "Rapid Expansion",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Rashkaldor's Patience",
+  "base": "Jade Amulet",
+  "level": 48
+ },
+ {
+  "name": "Rat's Nest",
+  "base": "Ursine Pelt"
+ },
+ {
+  "name": "Rathpith Globe",
+  "base": "Titanium Spirit Shield",
+  "league": "Legion"
+ },
+ {
+  "name": "Rational Doctrine",
+  "base": "Cobalt Jewel",
+  "source": "Drops from Synthete Nightmare in The Cortex (Uber)"
+ },
+ {
+  "name": "Ravenous Passion",
+  "base": "Zealot Helmet",
+  "source": "Drops from The Eater of Worlds (Uber)"
+ },
+ {
+  "name": "Razor of the Seventh Sun",
+  "base": "Midnight Blade"
+ },
+ {
+  "name": "Reach of the Council",
+  "base": "Spine Bow"
+ },
+ {
+  "name": "Realm Ender",
+  "base": "Iron Staff",
+  "source": "No longer obtainable",
+  "level": 40
+ },
+ {
+  "name": "Realmshaper",
+  "base": "Iron Staff"
+ },
+ {
+  "name": "Reaper's Pursuit",
+  "base": "Shadow Axe"
+ },
+ {
+  "name": "Rearguard",
+  "base": "Broadhead Arrow Quiver"
+ },
+ {
+  "name": "Rebuke of the Vaal",
+  "base": "Vaal Blade",
+  "league": "Legion"
+ },
+ {
+  "name": "Reckless Defence",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Reclaimed Malevolence",
+  "base": "Assembled Eye Jewel",
+  "league": "Abyss",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "Redbeak",
+  "base": "Rusted Sword"
+ },
+ {
+  "name": "Redblade Band",
+  "base": "Unset Ring",
+  "league": "Warbands",
+  "level": 44
+ },
+ {
+  "name": "Redblade Banner",
+  "base": "Painted Tower Shield",
+  "league": "Warbands",
+  "source": "Drops from Redblade Mercenary monsters"
+ },
+ {
+  "name": "Redblade Tramplers",
+  "base": "Ancient Greaves",
+  "league": "Warbands",
+  "source": "Drops from Redblade Mercenary monsters"
+ },
+ {
+  "name": "Reefbane",
+  "base": "Fishing Rod"
+ },
+ {
+  "name": "Refuge in Isolation",
+  "base": "Paladin Crown",
+  "source": "Drops from Uber Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "Relentless Fury",
+  "base": "Decorative Axe"
+ },
+ {
+  "name": "Relic of the Pact",
+  "base": "Spiraled Wand",
+  "league": "Ultimatum",
+  "source": "Drops from The Trialmaster"
+ },
+ {
+  "name": "Repentance",
+  "base": "Crusader Gloves"
+ },
+ {
+  "name": "Replica Abyssus",
+  "base": "Ezomyte Burgonet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Advancing Fortress",
+  "base": "Gut Ripper",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Alberon's Warpath",
+  "base": "Soldier Boots",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Allelopathy",
+  "base": "Sorcerer Gloves",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Allure",
+  "base": "Vaal Claw",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Alpha's Howl",
+  "base": "Sinner Tricorne",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Ambu's Charge",
+  "base": "Crusader Chainmail",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Atziri's Acuity",
+  "base": "Vaal Gauntlets",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Atziri's Foible",
+  "base": "Paua Amulet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 16
+ },
+ {
+  "name": "Replica Badge of the Brotherhood",
+  "base": "Turquoise Amulet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 60
+ },
+ {
+  "name": "Replica Bated Breath",
+  "base": "Chain Belt",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 22
+ },
+ {
+  "name": "Replica Bitterdream",
+  "base": "Shadow Sceptre",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Blood Sacrifice",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Blood Thorn",
+  "base": "Gnarled Branch",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Bloodplay",
+  "base": "Stiletto",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Bones of Ullr",
+  "base": "Silk Slippers",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Cheap Construction",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Cold Iron Point",
+  "base": "Ezomyte Dagger",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Conqueror's Efficiency",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Covenant",
+  "base": "Spidersilk Robe",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Doedre's Damning",
+  "base": "Paua Ring",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Dreamfeather",
+  "base": "Eternal Sword",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Duskdawn",
+  "base": "Maelström Staff",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Earendel's Embrace",
+  "base": "Grinning Fetish",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Emberwake",
+  "base": "Ruby Ring",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Eternity Shroud",
+  "base": "Blood Raiment",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Farrul's Fur",
+  "base": "Triumphant Lamellar",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Fencoil",
+  "base": "Gnarled Branch",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Fragile Bloom",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Fragility",
+  "base": "Crimson Jewel",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Frostbreath",
+  "base": "Ornate Mace",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Gifts from Above",
+  "base": "League: Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 28
+ },
+ {
+  "name": "Replica Grip of the Council",
+  "base": "Arcanist Gloves",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Harvest",
+  "base": "Jasper Chopper",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Headhunter",
+  "base": "Leather Belt",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 40
+ },
+ {
+  "name": "Replica Heartbreaker",
+  "base": "Royal Skean",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Heatshiver",
+  "base": "Leather Hood",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Hinekora's Sight",
+  "base": "Onyx Amulet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 44
+ },
+ {
+  "name": "Replica Hotheaded",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Hyrri's Ire",
+  "base": "Zodiac Leather",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Hyrri's Truth",
+  "base": "Jade Amulet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 64
+ },
+ {
+  "name": "Replica Infractem",
+  "base": "Decimation Bow",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Innsbury Edge",
+  "base": "Elder Sword",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Inya's Epiphany",
+  "base": "Arcanist Slippers",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Iron Commander",
+  "base": "Death Bow",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Kalisa's Grace",
+  "base": "Samite Gloves",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 55
+ },
+ {
+  "name": "Replica Kaom's Heart",
+  "base": "Glorious Plate",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Karui Ward",
+  "base": "Jade Amulet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Kongor's Undying Rage",
+  "base": "Terror Maul",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Last Resort",
+  "base": "Nailed Fist",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Lavianga's Spirit",
+  "base": "Sanctified Mana Flask",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Leer Cast",
+  "base": "Festival Mask",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Lioneye's Paws",
+  "base": "Bronzescale Boots",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Loreweave",
+  "base": "Elegant Ringmail",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Maata's Teaching",
+  "base": "Karui Sceptre"
+ },
+ {
+  "name": "Replica Malachai's Artifice",
+  "base": "Unset Ring",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Maloney's Mechanism",
+  "base": "Ornate Quiver",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Midnight Bargain",
+  "base": "Engraved Wand",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Mistwall",
+  "base": "Lacquered Buckler",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Nebulis",
+  "base": "Void Sceptre",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Oro's Sacrifice",
+  "base": "Infernal Sword",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Pacifism",
+  "base": "Viridian Jewel",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Paradoxica",
+  "base": "Vaal Rapier",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Perfect Form",
+  "base": "Zodiac Leather",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Powerlessness",
+  "base": "Cobalt Jewel",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Primordial Might",
+  "base": "Crimson Jewel",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Prismweave",
+  "base": "Rustic Sash",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 25
+ },
+ {
+  "name": "Replica Pure Talent",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Quill Rain",
+  "base": "Short Bow",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Reckless Defence",
+  "base": "Cobalt Jewel",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Red Trail",
+  "base": "Titan Greaves",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Restless Ward",
+  "base": "Carnal Armour",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Rumi's Concoction",
+  "base": "Granite Flask",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 68
+ },
+ {
+  "name": "Replica Shroud of the Lightless",
+  "base": "Carnal Armour",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Siegebreaker",
+  "base": "Heavy Belt",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 44
+ },
+ {
+  "name": "Replica Sorrow of the Divine",
+  "base": "Sulphur Flask",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Soul Strike",
+  "base": "Spike-Point Arrow Quiver",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 64
+ },
+ {
+  "name": "Replica Soul Taker",
+  "base": "Siege Axe",
+  "league": "Heist",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Replica Soul Tether",
+  "base": "Cloth Belt",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 48
+ },
+ {
+  "name": "Replica Stampede",
+  "base": "Assassin's Boots",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Tasalio's Sign",
+  "base": "Sapphire Ring",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 20
+ },
+ {
+  "name": "Replica Tempestuous Steel",
+  "base": "War Sword",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Three-step Assault",
+  "base": "Shagreen Boots",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Trypanon",
+  "base": "Great Mallet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Tukohama's Fortress",
+  "base": "Ebony Tower Shield",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Tulfall",
+  "base": "Tornado Wand",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Twyzel",
+  "base": "Sage Wand",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Ungil's Gauche",
+  "base": "Boot Knife",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Unstable Payload",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable",
+  "league": "Heist"
+ },
+ {
+  "name": "Replica Veil of the Night",
+  "base": "Great Helmet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Victario's Charity",
+  "base": "Laminated Kite Shield",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Voideye",
+  "base": "Unset Ring",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 45
+ },
+ {
+  "name": "Replica Voidwalker",
+  "base": "Murder Boots",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Volkuur's Guidance",
+  "base": "Zealot Gloves",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Windripper",
+  "base": "Imperial Bow",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Wings of Entropy",
+  "base": "Ezomyte Axe",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Replica Winterheart",
+  "base": "Gold Amulet",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 42
+ },
+ {
+  "name": "Replica Witchfire Brew",
+  "base": "Stibnite Flask",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist",
+  "level": 48
+ },
+ {
+  "name": "Retaliation Charm",
+  "base": "Citrine Amulet",
+  "level": 30
+ },
+ {
+  "name": "Reverberation Rod",
+  "base": "Spiraled Wand"
+ },
+ {
+  "name": "Rigwald's Charge",
+  "base": "Highland Blade"
+ },
+ {
+  "name": "Rigwald's Command",
+  "base": "Midnight Blade",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "source": "Drops from Rigwald, the Wolven King (Level 75+)"
+ },
+ {
+  "name": "Rigwald's Crest",
+  "base": "Two-Stone Ring",
+  "league": "Talisman",
+  "source": "Drops from Rigwald, the Wolven King (Level 60+)"
+ },
+ {
+  "name": "Rigwald's Curse",
+  "base": "Wereclaw Talisman",
+  "league": "Talisman Standard",
+  "level": 28
+ },
+ {
+  "name": "Rigwald's Hunt",
+  "base": "General's Brigandine"
+ },
+ {
+  "name": "Rigwald's Quills",
+  "base": "Two-Point Arrow Quiver",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "source": "Drops from Rigwald, The Wolven King (Level 70+)",
+  "level": 56
+ },
+ {
+  "name": "Rigwald's Savagery",
+  "base": "Royal Axe",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "source": "Drops from Rigwald, the Wolven King (Level 75+)"
+ },
+ {
+  "name": "Rime Gaze",
+  "base": "Mind Cage"
+ },
+ {
+  "name": "Ring of Blades",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Rise of the Phoenix",
+  "base": "Mosaic Kite Shield"
+ },
+ {
+  "name": "Rive",
+  "base": "Terror Claw"
+ },
+ {
+  "name": "Rolling Flames",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Romira's Banquet",
+  "base": "Diamond Ring",
+  "level": 60
+ },
+ {
+  "name": "Rotblood Promise",
+  "base": "Unset Ring",
+  "league": "Ritual",
+  "source": "Purchase from Ritual Reward",
+  "level": 56
+ },
+ {
+  "name": "Rotgut",
+  "base": "Quicksilver Flask",
+  "level": 40
+ },
+ {
+  "name": "Roth's Reach",
+  "base": "Recurve Bow"
+ },
+ {
+  "name": "Rotmother's Mutiny",
+  "base": "Pearlescent Amulet",
+  "league": "Allflame",
+  "source": "Drops from Treasure Clam chests in The Fathomless Depths",
+  "level": 28
+ },
+ {
+  "name": "Rotting Legion",
+  "base": "Loricated Ringmail",
+  "source": "No longer obtainable",
+  "league": "Blight"
+ },
+ {
+  "name": "Rumi's Concoction",
+  "base": "Granite Flask",
+  "level": 68
+ },
+ {
+  "name": "Ryslatha's Coil",
+  "base": "Studded Belt",
+  "level": 32
+ },
+ {
+  "name": "Sacrificial Harvest",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Sacrificial Heart",
+  "base": "Paua Amulet",
+  "league": "Incursion",
+  "source": "Drops from The Vaal Omnitect",
+  "level": 32
+ },
+ {
+  "name": "Sadima's Touch",
+  "base": "Wool Gloves",
+  "level": 11
+ },
+ {
+  "name": "Saemus' Gift",
+  "base": "Spike-Point Arrow Quiver",
+  "level": 45
+ },
+ {
+  "name": "Saffell's Frame",
+  "base": "Branded Kite Shield"
+ },
+ {
+  "name": "Sandstorm Visage",
+  "base": "Necromancer Circlet",
+  "league": "Sanctum",
+  "source": "Drops from Lycia, Herald of the Scourge in The Beyond"
+ },
+ {
+  "name": "Sanguine Gambol",
+  "base": "Skinning Knife",
+  "source": "No longer obtainable",
+  "level": 59
+ },
+ {
+  "name": "Sap of the Seasons",
+  "base": "Prismatic Tincture",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "Saqawal's Flock",
+  "base": "Silken Hood",
+  "league": "Bestiary",
+  "source": "Drops from Saqawal, First of the Sky"
+ },
+ {
+  "name": "Saqawal's Nest",
+  "base": "Blood Raiment",
+  "league": "Bestiary",
+  "source": "Drops from Saqawal, First of the Sky"
+ },
+ {
+  "name": "Saqawal's Talons",
+  "base": "Hydrascale Boots",
+  "league": "Bestiary",
+  "source": "Drops from Saqawal, First of the Sky"
+ },
+ {
+  "name": "Saqawal's Winds",
+  "base": "Soldier Gloves",
+  "league": "Bestiary",
+  "source": "Drops from Saqawal, First of the Sky",
+  "level": 64
+ },
+ {
+  "name": "Saresh's Darkness",
+  "base": "Chain Belt",
+  "league": "Mirage",
+  "source": "No longer obtainable",
+  "level": 24
+ },
+ {
+  "name": "Scaeva",
+  "base": "Gladius"
+ },
+ {
+  "name": "Scold's Bridle",
+  "base": "Mind Cage",
+  "league": "Torment"
+ },
+ {
+  "name": "Scornflux",
+  "base": "Satin Slippers",
+  "source": "Drops from Mercenary after winning a duel",
+  "league": "Mercenaries of Trarthus",
+  "level": 54
+ },
+ {
+  "name": "Scorpion's Call",
+  "base": "Broadhead Arrow Quiver",
+  "league": "Harvest"
+ },
+ {
+  "name": "Screams of the Desiccated",
+  "base": "Leather Belt",
+  "league": "Mirage",
+  "source": "Drops from Saresh, of the Weeping Black",
+  "level": 56
+ },
+ {
+  "name": "Seablister",
+  "base": "Spiny Round Shield",
+  "league": "Allflame",
+  "source": "Drops from Velka, the Tide Witch"
+ },
+ {
+  "name": "Seething Fury",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel",
+  "league": "Legion"
+ },
+ {
+  "name": "Self-Flagellation",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "Sentari's Answer",
+  "base": "Brass Spirit Shield"
+ },
+ {
+  "name": "Serle's Masterwork",
+  "base": "Phantom Mace",
+  "source": "No longer obtainable",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "Servant of Decay",
+  "base": "Torturer Garb",
+  "source": "Drops from Incarnation of Fear in Moment of Trauma"
+ },
+ {
+  "name": "Seven Teachings",
+  "base": "Waxed Garb",
+  "source": "Drops from Incarnation of Dread in Moment of Reverence",
+  "level": 77
+ },
+ {
+  "name": "Seven-League Step",
+  "base": "Rawhide Boots",
+  "league": "Perandus"
+ },
+ {
+  "name": "Severed in Sleep",
+  "base": "Cutlass",
+  "source": "Drops in Chayula Breach or from Chayula, Who Dreamt",
+  "league": "Breach",
+  "level": 69
+ },
+ {
+  "name": "Shackles of the Wretched",
+  "base": "Chain Gloves"
+ },
+ {
+  "name": "Shade of Solaris",
+  "base": "Sage Wand"
+ },
+ {
+  "name": "Shadows and Dust",
+  "base": "Clasped Mitts",
+  "league": "Rampage"
+ },
+ {
+  "name": "Shadowstitch",
+  "base": "Sacrificial Garb",
+  "league": "Incursion",
+  "source": "Double Corrupting Sacrificial Garb"
+ },
+ {
+  "name": "Shaper's Seed",
+  "base": "Agate Amulet"
+ },
+ {
+  "name": "Shaper's Touch",
+  "base": "Crusader Gloves",
+  "source": "Drops from The Shaper"
+ },
+ {
+  "name": "Shattered Chains",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Shattershard",
+  "base": "Crimson Round Shield",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "Shavronne's Gambit",
+  "base": "Scholar Boots",
+  "source": "No longer obtainable",
+  "level": 36
+ },
+ {
+  "name": "Shavronne's Pace",
+  "base": "Scholar Boots"
+ },
+ {
+  "name": "Shavronne's Revelation",
+  "base": "Moonstone Ring",
+  "league": "Anarchy, Onslaught",
+  "level": 30
+ },
+ {
+  "name": "Shavronne's Wrappings",
+  "base": "Occultist's Vestment"
+ },
+ {
+  "name": "Shimmeron",
+  "base": "Tornado Wand",
+  "source": "Drops from The Elder"
+ },
+ {
+  "name": "Shiversting",
+  "base": "Bastard Sword",
+  "level": 14
+ },
+ {
+  "name": "Shroud of the Lightless",
+  "base": "Carnal Armour",
+  "league": "Abyss",
+  "source": "Drops from Amanamu, Liege of the Lightless or Ulaman, Sovereign of the Well"
+ },
+ {
+  "name": "Sibyl's Lament",
+  "base": "Coral Ring",
+  "level": 45
+ },
+ {
+  "name": "Sidhebreath",
+  "base": "Paua Amulet"
+ },
+ {
+  "name": "Siegebreaker",
+  "base": "Heavy Belt",
+  "level": 44
+ },
+ {
+  "name": "Sign of the Sin Eater",
+  "base": "Tyrant's Sekhem",
+  "league": "Legion"
+ },
+ {
+  "name": "Silverbough",
+  "base": "Crude Bow",
+  "source": "No longer obtainable",
+  "level": 36
+ },
+ {
+  "name": "Silverbranch",
+  "base": "Crude Bow"
+ },
+ {
+  "name": "Sin Trek",
+  "base": "Stealth Boots"
+ },
+ {
+  "name": "Sin's Rebirth",
+  "base": "Stibnite Flask"
+ },
+ {
+  "name": "Singularity",
+  "base": "Platinum Sceptre"
+ },
+ {
+  "name": "Sinvicta's Mettle",
+  "base": "Ezomyte Axe"
+ },
+ {
+  "name": "Sire of Shards",
+  "base": "Serpentine Staff"
+ },
+ {
+  "name": "Skin of the Loyal",
+  "base": "Simple Robe",
+  "league": "Breach",
+  "source": "Drops in Chayula Breach or from Chayula, Who Dreamt"
+ },
+ {
+  "name": "Skirmish",
+  "base": "Two-Point Arrow Quiver"
+ },
+ {
+  "name": "Skullhead",
+  "base": "Secutor Helm"
+ },
+ {
+  "name": "Skyforth",
+  "base": "Sorcerer Boots"
+ },
+ {
+  "name": "Skysunder",
+  "base": "Exquisite Blade",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Slavedriver's Hand",
+  "base": "Ambush Mitts",
+  "league": "Incursion",
+  "source": "Upgraded from Architect's Hand via Vial of Dominance"
+ },
+ {
+  "name": "Slitherpinch",
+  "base": "Bronzescale Gauntlets"
+ },
+ {
+  "name": "Slivertongue",
+  "base": "Harbinger Bow"
+ },
+ {
+  "name": "Snakebite",
+  "base": "Assassin's Mitts"
+ },
+ {
+  "name": "Snakepit",
+  "base": "Sapphire Ring",
+  "level": 68
+ },
+ {
+  "name": "Solaris Lorica",
+  "base": "Copper Plate"
+ },
+ {
+  "name": "Solerai's Radiance",
+  "base": "Chain Belt",
+  "league": "Mirage",
+  "source": "No longer obtainable",
+  "level": 24
+ },
+ {
+  "name": "Solstice Vigil",
+  "base": "Onyx Amulet",
+  "source": "Drops from The Shaper",
+  "level": 64
+ },
+ {
+  "name": "Song of the Sirens",
+  "base": "Fishing Rod",
+  "source": "Fishing"
+ },
+ {
+  "name": "Soul Ascension",
+  "base": "Carnal Mitts",
+  "source": "Drops from The Elder (Uber Uber)"
+ },
+ {
+  "name": "Soul Catcher",
+  "base": "Quartz Flask",
+  "league": "Incursion",
+  "source": "Drops from The Vaal Omnitect"
+ },
+ {
+  "name": "Soul Mantle",
+  "base": "Spidersilk Robe"
+ },
+ {
+  "name": "Soul Ripper",
+  "base": "Quartz Flask",
+  "league": "Incursion",
+  "source": "Upgraded from Soul Catcher via Vial of the Ghost"
+ },
+ {
+  "name": "Soul Strike",
+  "base": "Spike-Point Arrow Quiver",
+  "level": 64
+ },
+ {
+  "name": "Soul Taker",
+  "base": "Siege Axe"
+ },
+ {
+  "name": "Soul Tether",
+  "base": "Cloth Belt",
+  "level": 48
+ },
+ {
+  "name": "Soul's Wick",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Soulbound",
+  "base": "Paua Ring",
+  "level": 44
+ },
+ {
+  "name": "Soulthirst",
+  "base": "Cloth Belt",
+  "level": 45
+ },
+ {
+  "name": "Soulwrest",
+  "base": "Ezomyte Staff",
+  "league": "Delve"
+ },
+ {
+  "name": "Southbound",
+  "base": "Soldier Gloves"
+ },
+ {
+  "name": "Speaker's Wreath",
+  "base": "Prophet Crown"
+ },
+ {
+  "name": "Spine of the First Claimant",
+  "base": "Iron Sceptre",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Spinehail",
+  "base": "Vile Arrow Quiver",
+  "source": "Drops from Catarina in Mastermind's Lair"
+ },
+ {
+  "name": "Spinesnatch",
+  "base": "Fleshripper",
+  "league": "Allflame",
+  "source": "Drops from Zorath"
+ },
+ {
+  "name": "Spire of Stone",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Spirit Guards",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Spirited Response",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Split Personality",
+  "base": "Crimson Jewel",
+  "league": "Delirium",
+  "source": "Drops from the Simulacrum Encounter"
+ },
+ {
+  "name": "Sporeguard",
+  "base": "Saint's Hauberk",
+  "league": "Blight",
+  "source": "Drops in Blighted Maps"
+ },
+ {
+  "name": "Spreading Rot",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Springleaf",
+  "base": "Plank Kite Shield"
+ },
+ {
+  "name": "Squirming Terror",
+  "base": "Unset Ring",
+  "level": 32
+ },
+ {
+  "name": "Star of Wraeclast",
+  "base": "Ruby Amulet",
+  "source": "Vendor Recipe",
+  "level": 28
+ },
+ {
+  "name": "Starcaller",
+  "base": "Abyssal Axe",
+  "source": "Drops from Incarnation of Fear in Moment of Trauma",
+  "level": 68
+ },
+ {
+  "name": "Starforge",
+  "base": "Infernal Sword",
+  "source": "Drops from The Shaper (Uber)"
+ },
+ {
+  "name": "Starkonja's Head",
+  "base": "Silken Hood"
+ },
+ {
+  "name": "Starlight Chalice",
+  "base": "Iron Flask",
+  "league": "Expedition",
+  "source": "Drops from Uhtred, Covetous Traitor in Expedition Logbook"
+ },
+ {
+  "name": "Stasis Prison",
+  "base": "Carnal Armour",
+  "source": "Drops in Unrelenting Domain of Timeless Conflict"
+ },
+ {
+  "name": "Static Electricity",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Steel Spirit",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Steelworm",
+  "base": "Broadhead Arrow Quiver",
+  "source": "Labyrinth",
+  "level": 52
+ },
+ {
+  "name": "Steppan Eard",
+  "base": "Sorcerer Boots",
+  "league": "Warbands",
+  "source": "Drops from Renegade Warband monsters"
+ },
+ {
+  "name": "Stone of Lazhwar",
+  "base": "Lapis Amulet"
+ },
+ {
+  "name": "Storm Cloud",
+  "base": "Long Bow"
+ },
+ {
+  "name": "Storm Prison",
+  "base": "Carved Wand"
+ },
+ {
+  "name": "Storm Secret",
+  "base": "Topaz Ring",
+  "league": "Harvest",
+  "level": 56
+ },
+ {
+  "name": "Storm's Gift",
+  "base": "Assassin's Mitts",
+  "league": "Synthesis"
+ },
+ {
+  "name": "Stormblood",
+  "base": "Sapphire Flask",
+  "league": "Allflame",
+  "source": "Drops from Velka, the Tide Witch",
+  "level": 36
+ },
+ {
+  "name": "Stormcharger",
+  "base": "Plated Greaves"
+ },
+ {
+  "name": "Stormfire",
+  "base": "Opal Ring"
+ },
+ {
+  "name": "Stormseeker",
+  "base": "Ambush Mitts"
+ },
+ {
+  "name": "Stormshroud",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Story of the Vaal",
+  "base": "Variscite Blade",
+  "league": "Incursion",
+  "source": "Opening Fireproof Chest in Crucible of Flame"
+ },
+ {
+  "name": "Stranglegasp",
+  "base": "Onyx Amulet",
+  "source": "Drops in Blight-ravaged Maps",
+  "level": 52
+ },
+ {
+  "name": "String of Servitude",
+  "base": "Heavy Belt",
+  "league": "Incursion",
+  "source": "Drops from The Vaal Omnitect",
+  "level": 68
+ },
+ {
+  "name": "Subsume the Source",
+  "base": "Faithful Helmet",
+  "league": "Allflame",
+  "source": "Drops from Zorath"
+ },
+ {
+  "name": "Sudden Dawn",
+  "base": "Steel Circlet",
+  "source": "Drops from The Black Star"
+ },
+ {
+  "name": "Sudden Ignition",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Sunblast",
+  "base": "Cloth Belt",
+  "level": 37
+ },
+ {
+  "name": "Sundance",
+  "base": "Clasped Boots"
+ },
+ {
+  "name": "Sunspite",
+  "base": "Clasped Boots",
+  "source": "No longer obtainable",
+  "level": 59
+ },
+ {
+  "name": "Surgebinders",
+  "base": "Dragonscale Gauntlets"
+ },
+ {
+  "name": "Survival Instincts",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Survival Secrets",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Survival Skills",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Survivor's Guilt",
+  "base": "Heavy Belt",
+  "league": "Ritual",
+  "source": "Purchase from Ritual Reward",
+  "level": 52
+ },
+ {
+  "name": "Svalinn",
+  "base": "Girded Tower Shield",
+  "league": "Settlers of Kalguur",
+  "source": "Drops from The Black Knight in a Starfall Crater"
+ },
+ {
+  "name": "Tabula Rasa",
+  "base": "Simple Robe"
+ },
+ {
+  "name": "Tainted Pact",
+  "base": "Coral Amulet",
+  "level": 42
+ },
+ {
+  "name": "Tanu Ahi",
+  "base": "Wyrmscale Gauntlets"
+ },
+ {
+  "name": "Taproot",
+  "base": "Ambusher"
+ },
+ {
+  "name": "Taryn's Shiver",
+  "base": "Maelström Staff"
+ },
+ {
+  "name": "Tasalio's Sign",
+  "base": "Sapphire Ring",
+  "league": "Bloodlines",
+  "level": 20
+ },
+ {
+  "name": "Taste of Hate",
+  "base": "Sapphire Flask"
+ },
+ {
+  "name": "Tavukai",
+  "base": "Coral Amulet",
+  "league": "Legion",
+  "level": 54
+ },
+ {
+  "name": "Tawhanuku's Timing",
+  "base": "Moonstone Ring",
+  "level": 44
+ },
+ {
+  "name": "Tawhoa's Felling",
+  "base": "Piledriver",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "Tear of Purity",
+  "base": "Lapis Amulet"
+ },
+ {
+  "name": "Tecrod's Gaze",
+  "base": "Murderous Eye Jewel",
+  "source": "Drops from Abyssal Liches in Abyssal Depths",
+  "level": 40
+ },
+ {
+  "name": "Tempered Flesh",
+  "base": "Crimson Jewel",
+  "league": "Incursion",
+  "source": "Drops from The Vaal Omnitect"
+ },
+ {
+  "name": "Tempered Mind",
+  "base": "Cobalt Jewel",
+  "league": "Incursion",
+  "source": "Drops from The Vaal Omnitect"
+ },
+ {
+  "name": "Tempered Spirit",
+  "base": "Viridian Jewel",
+  "league": "Incursion",
+  "source": "Drops from The Vaal Omnitect"
+ },
+ {
+  "name": "Temptation Step",
+  "base": "Shagreen Boots",
+  "league": "Ultimatum",
+  "source": "Drops from The Trialmaster"
+ },
+ {
+  "name": "Terminus Est",
+  "base": "Tiger Sword"
+ },
+ {
+  "name": "The Admiral",
+  "base": "Varnished Coat",
+  "league": "Heist",
+  "source": "Drops from Admiral Darnaw in Contract: Death to Darnaw"
+ },
+ {
+  "name": "The Adorned",
+  "base": "Crimson Jewel",
+  "league": "Affliction",
+  "source": "Vaal Aspect Combination"
+ },
+ {
+  "name": "The Anima Stone",
+  "base": "Prismatic Jewel",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "The Annihilating Light",
+  "base": "Quarterstaff",
+  "source": "Drops from The Searing Exarch (Uber)",
+  "level": 68
+ },
+ {
+  "name": "The Anticipation",
+  "base": "Ezomyte Tower Shield",
+  "league": "Breach",
+  "source": "Drops in Uul-Netol Breach or from Uul-Netol, Unburdened Flesh"
+ },
+ {
+  "name": "The Anvil",
+  "base": "Amber Amulet",
+  "level": 45
+ },
+ {
+  "name": "The Apostate",
+  "base": "Cabalist Regalia",
+  "source": "Drops from Synthete Nightmare in The Cortex (Uber)"
+ },
+ {
+  "name": "The Arkhon's Tools",
+  "base": "Cloth Belt",
+  "source": "Drops from Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "The Ascetic",
+  "base": "Gold Amulet",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Aylardex",
+  "base": "Agate Amulet",
+  "level": 32
+ },
+ {
+  "name": "The Bandit Lord's Band",
+  "base": "Gold Ring",
+  "league": "Settlers",
+  "source": "Drops from Sasan, the Bandit Lord",
+  "level": 44
+ },
+ {
+  "name": "The Bane of Hope",
+  "base": "Maraketh Bow",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Baron",
+  "base": "Close Helmet"
+ },
+ {
+  "name": "The Battle Within",
+  "base": "Oakbranch Tincture",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "The Beast Fur Shawl",
+  "base": "Vaal Regalia"
+ },
+ {
+  "name": "The Black Cane",
+  "base": "Royal Sceptre"
+ },
+ {
+  "name": "The Blood Dance",
+  "base": "Sharkskin Boots"
+ },
+ {
+  "name": "The Blood Reaper",
+  "base": "Headsman Axe"
+ },
+ {
+  "name": "The Blood Thorn",
+  "base": "Gnarled Branch"
+ },
+ {
+  "name": "The Blue Dream",
+  "base": "Cobalt Jewel",
+  "league": "Breach",
+  "source": "Drops in Chayula Breach or from Chayula, Who Dreamt"
+ },
+ {
+  "name": "The Blue Nightmare",
+  "base": "Cobalt Jewel",
+  "league": "Breach",
+  "source": "Upgraded from The Blue Dream using Blessing of Chayula"
+ },
+ {
+  "name": "The Brass Dome",
+  "base": "Gladiator Plate"
+ },
+ {
+  "name": "The Brine Crown",
+  "base": "Prophet Crown"
+ },
+ {
+  "name": "The Bringer of Rain",
+  "base": "Nightmare Bascinet"
+ },
+ {
+  "name": "The Broken Crown",
+  "base": "Prophet Crown"
+ },
+ {
+  "name": "The Broken Elegy",
+  "base": "Foul Staff",
+  "league": "Mirage",
+  "source": "No longer obtainable",
+  "level": 64
+ },
+ {
+  "name": "The Burden of Shadows",
+  "base": "Primordial Staff",
+  "league": "Affliction"
+ },
+ {
+  "name": "The Burden of Truth",
+  "base": "Crystal Belt",
+  "source": "Drops from Sirus, Awakener of Worlds"
+ },
+ {
+  "name": "The Caged Mammoth",
+  "base": "Antique Gauntlets",
+  "source": "Drops from Uber Incarnation of Fear in Moment of Trauma",
+  "level": 64
+ },
+ {
+  "name": "The Cauteriser",
+  "base": "Woodsplitter",
+  "source": "No longer obtainable",
+  "level": 40
+ },
+ {
+  "name": "The Celestial Brace",
+  "base": "Goliath Gauntlets",
+  "source": "Drops from The Searing Exarch (Uber)"
+ },
+ {
+  "name": "The Coming Calamity",
+  "base": "Destroyer Regalia"
+ },
+ {
+  "name": "The Consuming Dark",
+  "base": "Fiend Dagger"
+ },
+ {
+  "name": "The Covenant",
+  "base": "Spidersilk Robe"
+ },
+ {
+  "name": "The Covetous Dark",
+  "base": "Eye Gouger",
+  "league": "Covens",
+  "source": "Drops from The Coven Queen"
+ },
+ {
+  "name": "The Crimson Storm",
+  "base": "Steelwood Bow",
+  "league": "Betrayal",
+  "source": "Drops from Fortification Leaders in Safehouses"
+ },
+ {
+  "name": "The Crustacean's Call",
+  "base": "Primordial Staff",
+  "league": "Allflame",
+  "source": "Drops from Velka, the Tide Witch"
+ },
+ {
+  "name": "The Dancing Dervish",
+  "base": "Reaver Sword"
+ },
+ {
+  "name": "The Dancing Duo",
+  "base": "Reaver Sword",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Dark Monarch",
+  "base": "Lich's Circlet",
+  "source": "Drops from Incarnation of Dread in Moment of Reverence"
+ },
+ {
+  "name": "The Dark Seer",
+  "base": "Shadow Sceptre",
+  "league": "Beyond"
+ },
+ {
+  "name": "The Deep One's Hide",
+  "base": "Studded Round Shield"
+ },
+ {
+  "name": "The Desecrated Chalice",
+  "base": "Coronal Maul",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Devourer of Minds",
+  "base": "Pig-Faced Bascinet",
+  "source": "Drops from The Elder (Uber Uber)"
+ },
+ {
+  "name": "The Devouring Diadem",
+  "base": "Necromancer Circlet",
+  "league": "Betrayal",
+  "source": "Drops from Catarina, Master of Undeath"
+ },
+ {
+  "name": "The Draugur's Lantern",
+  "base": "Ancient Spirit Shield",
+  "league": "Allflame",
+  "source": "Drops from Filthscrabble in The Fathomless Depths"
+ },
+ {
+  "name": "The Druggery",
+  "base": "Cloth Belt",
+  "league": "Heist",
+  "level": 48
+ },
+ {
+  "name": "The Effigon",
+  "base": "Gold Amulet",
+  "source": "No longer obtainable",
+  "level": 57
+ },
+ {
+  "name": "The Embalmer",
+  "base": "Carnal Mitts"
+ },
+ {
+  "name": "The Enmity Divine",
+  "base": "Imperial Staff",
+  "league": "Harbinger",
+  "source": "Created from item parts obtained from Boss in The Beachhead"
+ },
+ {
+  "name": "The Ephemeral Bond",
+  "base": "Lapis Amulet",
+  "league": "Heist",
+  "level": 68
+ },
+ {
+  "name": "The Eternal Apple",
+  "base": "Chiming Spirit Shield"
+ },
+ {
+  "name": "The Eternal Struggle",
+  "base": "Onyx Amulet",
+  "source": "Drops from The Black Star or The Infinite Hunger",
+  "level": 61
+ },
+ {
+  "name": "The Eternity Shroud",
+  "base": "Blood Raiment",
+  "source": "Drops from The Elder (Uber)"
+ },
+ {
+  "name": "The Felbog Fang",
+  "base": "Citrine Amulet",
+  "league": "Harvest",
+  "source": "Drops from Namharim, Born of Night in The Sacred Grove",
+  "level": 61
+ },
+ {
+  "name": "The Flame of Hope",
+  "base": "Maraketh Bow",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Flawed Refuge",
+  "base": "Maple Round Shield",
+  "league": "Affliction",
+  "source": "Drops from Viridian Wildwood and Ritual monsters"
+ },
+ {
+  "name": "The Fledgling",
+  "base": "Lacquered Helmet",
+  "league": "Heist",
+  "source": "Drops from Nashta, The Usurper in Contract: Heart of Glory"
+ },
+ {
+  "name": "The Flow Untethered",
+  "base": "Cloth Belt",
+  "league": "Harbinger",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "The Formless Flame",
+  "base": "Siege Helmet",
+  "league": "Breach",
+  "source": "Drops in Xoph Breach or from Xoph, Dark Embers"
+ },
+ {
+  "name": "The Formless Inferno",
+  "base": "Royal Burgonet",
+  "league": "Breach",
+  "source": "Upgraded from The Formless Flame using Blessing of Xoph"
+ },
+ {
+  "name": "The Fourth Vow",
+  "base": "Devout Chainmail"
+ },
+ {
+  "name": "The Fracturing Spinner",
+  "base": "Blunt Arrow Quiver",
+  "league": "Harbinger",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "The Front Line",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "The Fulcrum",
+  "base": "Ezomyte Staff",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "The Geomantic Gyre",
+  "base": "Highborn Staff",
+  "league": "Crucible",
+  "source": "Drops from Crucible monsters"
+ },
+ {
+  "name": "The Ghastly Theatre",
+  "base": "Teak Round Shield",
+  "league": "Heist",
+  "source": "Reward from Mercenary duel"
+ },
+ {
+  "name": "The Gluttonous Tide",
+  "base": "Citadel Bow",
+  "source": "Drops from The Eater of Worlds"
+ },
+ {
+  "name": "The Goddess Bound",
+  "base": "Whalebone Rapier"
+ },
+ {
+  "name": "The Goddess Scorned",
+  "base": "Elegant Sword",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "The Goddess Unleashed",
+  "base": "Eternal Sword",
+  "source": "No longer obtainable",
+  "level": 51
+ },
+ {
+  "name": "The Golden Charlatan",
+  "base": "Lion Sword",
+  "source": "Drops from Uber Incarnation of Dread in Moment of Reverence"
+ },
+ {
+  "name": "The Golden Rule",
+  "base": "Viridian Jewel",
+  "source": "Use Vaal Orb on Viridian Jewel"
+ },
+ {
+  "name": "The Green Dream",
+  "base": "Viridian Jewel",
+  "league": "Breach",
+  "source": "Drops in Chayula Breach or from Chayula, Who Dreamt"
+ },
+ {
+  "name": "The Green Nightmare",
+  "base": "Viridian Jewel",
+  "league": "Breach",
+  "source": "Upgraded from The Green Dream using Blessing of Chayula"
+ },
+ {
+  "name": "The Grey Spire",
+  "base": "Judgement Staff"
+ },
+ {
+  "name": "The Grey Wind",
+  "base": "Spectral Axe",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony"
+ },
+ {
+  "name": "The Gryphon",
+  "base": "Jade Hatchet",
+  "source": "No longer obtainable",
+  "level": 32
+ },
+ {
+  "name": "The Gull",
+  "base": "Raven Mask",
+  "league": "Domination"
+ },
+ {
+  "name": "The Halcyon",
+  "base": "Jade Amulet",
+  "league": "Breach",
+  "source": "Drops in Tul Breach or from Tul, Creeping Avalanche",
+  "level": 35
+ },
+ {
+  "name": "The Hallowed Monarch",
+  "base": "Faithful Helmet",
+  "source": "Drops from Uber Incarnation of Dread in Moment of Reverence"
+ },
+ {
+  "name": "The Hand of Phrecia",
+  "base": "Mesh Gloves",
+  "league": "Necropolis"
+ },
+ {
+  "name": "The Harvest",
+  "base": "Jasper Chopper",
+  "league": "Beyond"
+ },
+ {
+  "name": "The Hateful Accuser",
+  "base": "Nameless Ring",
+  "league": "Settlers of Kalguur",
+  "level": 50
+ },
+ {
+  "name": "The Hidden Blade",
+  "base": "Ambusher",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "The Highwayman",
+  "base": "Gold Ring",
+  "league": "Heist",
+  "level": 44
+ },
+ {
+  "name": "The Hungry Loop",
+  "base": "Unset Ring",
+  "level": 70
+ },
+ {
+  "name": "The Ignomon",
+  "base": "Gold Amulet"
+ },
+ {
+  "name": "The Immortal Will",
+  "base": "Archon Kite Shield",
+  "league": "Harvest",
+  "source": "Upgraded from The Unshattered Will via Specularity Scroll"
+ },
+ {
+  "name": "The Infinite Pursuit",
+  "base": "Goliath Greaves",
+  "league": "Breach",
+  "source": "Drops in Uul-Netol Breach or from Uul-Netol, Unburdened Flesh"
+ },
+ {
+  "name": "The Interrogation",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "The Iron Fortress",
+  "base": "Crusader Plate"
+ },
+ {
+  "name": "The Iron Mass",
+  "base": "Gladius",
+  "league": "Heist",
+  "source": "Steal from a Curio Display during a Grand Heist"
+ },
+ {
+  "name": "The Ivory Tower",
+  "base": "Saint's Hauberk"
+ },
+ {
+  "name": "The Jinxed Juju",
+  "base": "Citrine Amulet",
+  "level": 48
+ },
+ {
+  "name": "The Light of Meaning",
+  "base": "Prismatic Jewel",
+  "source": "King of The Mists"
+ },
+ {
+  "name": "The Living Blade",
+  "base": "Ezomyte Blade",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "The Long Winter",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Magnate",
+  "base": "Studded Belt"
+ },
+ {
+  "name": "The Monastery Bell",
+  "base": "Dream Mace"
+ },
+ {
+  "name": "The Nomad",
+  "base": "Studded Belt",
+  "source": "No longer obtainable",
+  "level": 48
+ },
+ {
+  "name": "The Oak",
+  "base": "Plank Kite Shield",
+  "source": "No longer obtainable",
+  "level": 40
+ },
+ {
+  "name": "The Oppressor",
+  "base": "Elegant Round Shield"
+ },
+ {
+  "name": "The Overflowing Chalice",
+  "base": "Sulphur Flask"
+ },
+ {
+  "name": "The Pandemonius",
+  "base": "Jade Amulet",
+  "league": "Breach",
+  "source": "Upgraded from The Halcyon using Blessing of Tul",
+  "level": 64
+ },
+ {
+  "name": "The Pariah",
+  "base": "Unset Ring",
+  "league": "Warbands",
+  "level": 60
+ },
+ {
+  "name": "The Perandus Pact",
+  "base": "Prismatic Jewel",
+  "league": "Necropolis",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Peregrine",
+  "base": "Visored Sallet",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Perfect Form",
+  "base": "Zodiac Leather",
+  "league": "Breach",
+  "source": "Upgraded from The Snowblind Grace using Blessing of Tul"
+ },
+ {
+  "name": "The Poet's Pen",
+  "base": "Carved Wand"
+ },
+ {
+  "name": "The Poised Prism",
+  "base": "Primal Arrow Quiver"
+ },
+ {
+  "name": "The Primordial Chain",
+  "base": "Coral Amulet",
+  "league": "Delve",
+  "level": 34
+ },
+ {
+  "name": "The Princess",
+  "base": "Sabre"
+ },
+ {
+  "name": "The Queen's Hunger",
+  "base": "Vaal Regalia",
+  "league": "Betrayal",
+  "source": "Drops from Catarina, Master of Undeath"
+ },
+ {
+  "name": "The Queller of Minds",
+  "base": "Nameless Ring",
+  "league": "Settlers of Kalguur",
+  "level": 50
+ },
+ {
+  "name": "The Rat Cage",
+  "base": "Sharkskin Tunic",
+  "league": "Torment"
+ },
+ {
+  "name": "The Red Dream",
+  "base": "Crimson Jewel",
+  "league": "Breach",
+  "source": "Drops in Chayula Breach or from Chayula, Who Dreamt"
+ },
+ {
+  "name": "The Red Nightmare",
+  "base": "Crimson Jewel",
+  "league": "Breach",
+  "source": "Upgraded from The Red Dream using Blessing of Chayula"
+ },
+ {
+  "name": "The Red Trail",
+  "base": "Titan Greaves",
+  "league": "Breach",
+  "source": "Upgraded from The Infinite Pursuit using Blessing of Uul-Netol"
+ },
+ {
+  "name": "The Redblade",
+  "base": "Gladius",
+  "league": "Crucible",
+  "source": "Drops from Crucible monsters"
+ },
+ {
+  "name": "The Restless Ward",
+  "base": "Carnal Armour"
+ },
+ {
+  "name": "The Retch",
+  "base": "Rustic Sash",
+  "league": "Talisman Standard, Talisman Hardcore",
+  "source": "Vendor Recipe",
+  "level": 44
+ },
+ {
+  "name": "The Rippling Thoughts",
+  "base": "Legion Sword",
+  "league": "Harbinger",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Sacred Chalice",
+  "base": "Coronal Maul",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Sands of Time",
+  "base": "Tyrant's Sekhem",
+  "league": "Mirage",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Saviour",
+  "base": "Legion Sword",
+  "source": "Drops from Sirus, Awakener of Worlds (Uber)"
+ },
+ {
+  "name": "The Scales of Justice",
+  "base": "Chiming Spirit Shield",
+  "source": "Labyrinth"
+ },
+ {
+  "name": "The Scourge",
+  "base": "Terror Claw"
+ },
+ {
+  "name": "The Screaming Eagle",
+  "base": "Jade Hatchet"
+ },
+ {
+  "name": "The Searing Touch",
+  "base": "Long Staff"
+ },
+ {
+  "name": "The Selfish Shepherd",
+  "base": "Nameless Ring",
+  "league": "Settlers of Kalguur",
+  "level": 50
+ },
+ {
+  "name": "The Shattered Divinity",
+  "base": "Blunt Arrow Quiver",
+  "level": 60
+ },
+ {
+  "name": "The Siege",
+  "base": "Small Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from unique Delirium bosses in maps"
+ },
+ {
+  "name": "The Signal Fire",
+  "base": "Cured Quiver",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Snowblind Grace",
+  "base": "Coronal Leather",
+  "league": "Breach",
+  "source": "Drops in Tul Breach or from Tul, Creeping Avalanche"
+ },
+ {
+  "name": "The Sorrow of the Divine",
+  "base": "Sulphur Flask",
+  "league": "Legion"
+ },
+ {
+  "name": "The Squire",
+  "base": "Elegant Round Shield"
+ },
+ {
+  "name": "The Stampede",
+  "base": "Assassin's Boots",
+  "league": "Blight",
+  "source": "Drops in Blighted Maps"
+ },
+ {
+  "name": "The Stormheart",
+  "base": "Royal Staff"
+ },
+ {
+  "name": "The Stormwall",
+  "base": "Royal Staff",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "The Sundered Will",
+  "base": "Fugitive Ring",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony",
+  "level": 42
+ },
+ {
+  "name": "The Supreme Truth",
+  "base": "Crystal Sceptre"
+ },
+ {
+  "name": "The Surging Thoughts",
+  "base": "Legion Sword"
+ },
+ {
+  "name": "The Surrender",
+  "base": "Ezomyte Tower Shield",
+  "league": "Breach",
+  "source": "Upgraded from The Anticipation using Blessing of Uul-Netol"
+ },
+ {
+  "name": "The Sword of Ages",
+  "base": "Exquisite Blade",
+  "league": "Covens"
+ },
+ {
+  "name": "The Tactician",
+  "base": "Studded Belt",
+  "source": "No longer obtainable",
+  "level": 48
+ },
+ {
+  "name": "The Taming",
+  "base": "Prismatic Ring",
+  "league": "Domination, Nemesis",
+  "source": "Vendor Recipe"
+ },
+ {
+  "name": "The Tempest",
+  "base": "Long Bow",
+  "source": "No longer obtainable",
+  "level": 32
+ },
+ {
+  "name": "The Tempest Rising",
+  "base": "Goliath Greaves",
+  "source": "Drops from Sirus, Awakener of Worlds (Uber)"
+ },
+ {
+  "name": "The Tempest's Binding",
+  "base": "Callous Mask",
+  "league": "Harbinger",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Tempest's Liberation",
+  "base": "Callous Mask",
+  "level": 60
+ },
+ {
+  "name": "The Tempestuous Steel",
+  "base": "War Sword"
+ },
+ {
+  "name": "The Three Dragons",
+  "base": "Golden Mask"
+ },
+ {
+  "name": "The Tides of Time",
+  "base": "Vanguard Belt",
+  "source": "Drops from The Shaper (Uber)"
+ },
+ {
+  "name": "The Torrent's Reclamation",
+  "base": "Cloth Belt",
+  "level": 60
+ },
+ {
+  "name": "The Trickster's Smile",
+  "base": "Visored Sallet",
+  "league": "Affliction",
+  "source": "Drops from Viridian Wildwood and Ritual monsters"
+ },
+ {
+  "name": "The Unblinking Eye",
+  "base": "Harlequin Mask",
+  "source": "Drops from The Shaper (Uber)"
+ },
+ {
+  "name": "The Unseen Hue",
+  "base": "Opal Ring",
+  "source": "Drops from Incarnation of Dread in Moment of Reverence"
+ },
+ {
+  "name": "The Unshattered Will",
+  "base": "Archon Kite Shield",
+  "league": "Harbinger",
+  "source": "Created from item parts obtained from Boss in The Beachhead"
+ },
+ {
+  "name": "The Untouched Soul",
+  "base": "Gold Amulet",
+  "league": "Affliction",
+  "level": 48
+ },
+ {
+  "name": "The Utmost",
+  "base": "Gold Amulet",
+  "source": "Created from Primordial Fragments obtained from Uber bosses",
+  "level": 40
+ },
+ {
+  "name": "The Vertex",
+  "base": "Vaal Mask",
+  "source": "Drops from Atziri, Queen of the Vaal in The Alluring Abyss"
+ },
+ {
+  "name": "The Vigil",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "The Warden's Brand",
+  "base": "Iron Ring",
+  "level": 30
+ },
+ {
+  "name": "The Wasp Nest",
+  "base": "Throat Stabber"
+ },
+ {
+  "name": "The Whispering Ice",
+  "base": "Vile Staff"
+ },
+ {
+  "name": "The Will of Esh",
+  "base": "Synaptic Ring",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony",
+  "level": 42
+ },
+ {
+  "name": "The Will of Tul",
+  "base": "Cryonic Ring",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony",
+  "level": 42
+ },
+ {
+  "name": "The Will of Uul-Netol",
+  "base": "Organic Ring",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony",
+  "level": 42
+ },
+ {
+  "name": "The Will of Xoph",
+  "base": "Enthalpic Ring",
+  "source": "Drops from It That Was Esh and It That Was Tul in Hive Colony",
+  "level": 42
+ },
+ {
+  "name": "The Winds of Fate",
+  "base": "Foul Staff",
+  "league": "Sanctum",
+  "source": "Drops from Lycia, Herald of the Scourge in The Beyond"
+ },
+ {
+  "name": "The Wise Oak",
+  "base": "Bismuth Flask"
+ },
+ {
+  "name": "The Writhing Jar",
+  "base": "Hallowed Hybrid Flask"
+ },
+ {
+  "name": "The Yielding Mortality",
+  "base": "Imperial Staff",
+  "league": "Harvest",
+  "source": "Upgraded from The Enmity Divine via Haemocombustion Scroll"
+ },
+ {
+  "name": "Thief's Torment",
+  "base": "Prismatic Ring"
+ },
+ {
+  "name": "Thirst for Horrors",
+  "base": "War Buckler",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Thousand Ribbons",
+  "base": "Simple Robe"
+ },
+ {
+  "name": "Thousand Teeth Temu",
+  "base": "Vaal Buckler"
+ },
+ {
+  "name": "Thread of Hope",
+  "base": "Crimson Jewel",
+  "source": "Drops from Sirus, Awakener of Worlds"
+ },
+ {
+  "name": "Three-step Assault",
+  "base": "Shagreen Boots"
+ },
+ {
+  "name": "Thrillsteel",
+  "base": "Barbute Helmet"
+ },
+ {
+  "name": "Thunderfist",
+  "base": "Murder Mitts"
+ },
+ {
+  "name": "Thundersight",
+  "base": "Solaris Circlet"
+ },
+ {
+  "name": "Tidebreaker",
+  "base": "Imperial Maul"
+ },
+ {
+  "name": "Timeclasp",
+  "base": "Moonstone Ring",
+  "level": 25
+ },
+ {
+  "name": "Timetwist",
+  "base": "Moonstone Ring",
+  "source": "No longer obtainable",
+  "level": 25
+ },
+ {
+  "name": "Tinkerskin",
+  "base": "Sadist Garb"
+ },
+ {
+  "name": "Titucius' Span",
+  "base": "Reinforced Tower Shield"
+ },
+ {
+  "name": "To Dust",
+  "base": "Cobalt Jewel",
+  "source": "Use Vaal Orb on Cobalt Jewel"
+ },
+ {
+  "name": "Tombfist",
+  "base": "Steelscale Gauntlets",
+  "league": "Abyss",
+  "source": "Drops from Amanamu, Liege of the Lightless or Ulaman, Sovereign of the Well"
+ },
+ {
+  "name": "Torchoak Step",
+  "base": "Antique Greaves"
+ },
+ {
+  "name": "Touch of Anguish",
+  "base": "Imperial Claw"
+ },
+ {
+  "name": "Transcendent Flesh",
+  "base": "Crimson Jewel",
+  "league": "Incursion",
+  "source": "Upgraded from Tempered Flesh via Vial of Transcendence"
+ },
+ {
+  "name": "Transcendent Mind",
+  "base": "Cobalt Jewel",
+  "league": "Incursion",
+  "source": "Upgraded from Tempered Mind via Vial of Transcendence"
+ },
+ {
+  "name": "Transcendent Spirit",
+  "base": "Viridian Jewel",
+  "league": "Incursion",
+  "source": "Upgraded from Tempered Spirit via Vial of Transcendence"
+ },
+ {
+  "name": "Tremor Rod",
+  "base": "Military Staff"
+ },
+ {
+  "name": "Triad Grip",
+  "base": "Mesh Gloves"
+ },
+ {
+  "name": "Triumvirate Authority",
+  "base": "Unset Ring",
+  "source": "Drops from Atziri, Queen of the Vaal in The Apex of Sacrifice (3 stats) or in The Alluring Abyss (4 stats)",
+  "level": 64
+ },
+ {
+  "name": "Trolltimber Spire",
+  "base": "Cedar Tower Shield",
+  "league": "Tempest"
+ },
+ {
+  "name": "Trypanon",
+  "base": "Great Mallet",
+  "league": "Perandus"
+ },
+ {
+  "name": "Tukohama's Fortress",
+  "base": "Ebony Tower Shield"
+ },
+ {
+  "name": "Tulborn",
+  "base": "Spiraled Wand",
+  "league": "Breach",
+  "source": "Drops in Tul Breach or from Tul, Creeping Avalanche"
+ },
+ {
+  "name": "Tulfall",
+  "base": "Tornado Wand",
+  "league": "Breach",
+  "source": "Upgraded from Tulborn using Blessing of Tul"
+ },
+ {
+  "name": "Twyzel",
+  "base": "Sage Wand"
+ },
+ {
+  "name": "Ulaman's Gaze",
+  "base": "Searching Eye Jewel",
+  "source": "Drops from Abyssal Liches in Abyssal Depths",
+  "level": 40
+ },
+ {
+  "name": "Umbilicus Immortalis",
+  "base": "Leather Belt",
+  "league": "Perandus",
+  "level": 30
+ },
+ {
+  "name": "Unending Hunger",
+  "base": "Cobalt Jewel"
+ },
+ {
+  "name": "Ungil's Gauche",
+  "base": "Boot Knife"
+ },
+ {
+  "name": "Ungil's Harmony",
+  "base": "Turquoise Amulet",
+  "level": 23
+ },
+ {
+  "name": "Unholy Accomplice",
+  "base": "Cloth Belt",
+  "source": "Drops from K'Tash, the Hate Shepherd and Lycia, Herald of the Scourge",
+  "level": 50
+ },
+ {
+  "name": "United in Dream",
+  "base": "Cutlass",
+  "source": "Upgraded from Severed in Sleep using Blessing of Chayula",
+  "league": "Breach",
+  "level": 69
+ },
+ {
+  "name": "Unlight Extant",
+  "base": "Sage Wand"
+ },
+ {
+  "name": "Unnatural Instinct",
+  "base": "Viridian Jewel"
+ },
+ {
+  "name": "Unstable Payload",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Unwilling Embrace",
+  "base": "Bone Ring",
+  "level": 52
+ },
+ {
+  "name": "Unyielding Flame",
+  "base": "Archon Kite Shield",
+  "source": "Drops in The Lord's Labyrinth"
+ },
+ {
+  "name": "Usurper's Penance",
+  "base": "Eternal Burgonet",
+  "league": "Expedition"
+ },
+ {
+  "name": "Utula's Hunger",
+  "base": "Majestic Plate"
+ },
+ {
+  "name": "Uul-Netol's Embrace",
+  "base": "Vaal Axe",
+  "league": "Breach",
+  "source": "Upgraded from Uul-Netol's Kiss using Blessing of Uul-Netol"
+ },
+ {
+  "name": "Uul-Netol's Kiss",
+  "base": "Labrys",
+  "league": "Breach",
+  "source": "Drops in Uul-Netol Breach or from Uul-Netol, Unburdened Flesh"
+ },
+ {
+  "name": "Uul-Netol's Vow",
+  "base": "Unset Amulet",
+  "source": "Drops from Breachlord in a Flawless Breachstone",
+  "level": 72
+ },
+ {
+  "name": "Uzaza's Meadow",
+  "base": "Sapphire Ring",
+  "league": "Delve",
+  "source": "Drops from Ahuatotli, the Blind",
+  "level": 49
+ },
+ {
+  "name": "Uzaza's Mountain",
+  "base": "Sapphire Ring",
+  "league": "Delve",
+  "source": "Drops from Kurgal, the Blackblooded",
+  "level": 49
+ },
+ {
+  "name": "Uzaza's Valley",
+  "base": "Sapphire Ring",
+  "league": "Delve",
+  "source": "Drops from Aul, the Crystal King",
+  "level": 49
+ },
+ {
+  "name": "Vaal Caress",
+  "base": "Bronzescale Gauntlets",
+  "league": "Ambush, Invasion"
+ },
+ {
+  "name": "Vaal Sentencing",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Valako's Sign",
+  "base": "Topaz Ring",
+  "league": "Bloodlines",
+  "level": 38
+ },
+ {
+  "name": "Valyrium",
+  "base": "Moonstone Ring",
+  "level": 38
+ },
+ {
+  "name": "Varunastra",
+  "base": "Vaal Blade",
+  "league": "Perandus"
+ },
+ {
+  "name": "Veil of Flesh",
+  "base": "Callous Mask",
+  "league": "Covens",
+  "source": "Drops from The Coven Queen",
+  "level": 56
+ },
+ {
+  "name": "Veil of the Night",
+  "base": "Great Helmet"
+ },
+ {
+  "name": "Venarius' Astrolabe",
+  "base": "Astrolabe Amulet",
+  "source": "Drops from Incarnation of Neglect in Moment of Loneliness"
+ },
+ {
+  "name": "Venopuncture",
+  "base": "Iron Ring",
+  "league": "Blight",
+  "level": 49
+ },
+ {
+  "name": "Ventor's Gamble",
+  "base": "Gold Ring",
+  "level": 65
+ },
+ {
+  "name": "Veruso's Ambition",
+  "base": "Shackled Boots",
+  "league": "Necropolis"
+ },
+ {
+  "name": "Veruso's Battering Rams",
+  "base": "Titan Gauntlets"
+ },
+ {
+  "name": "Vessel of Vinktar",
+  "base": "Topaz Flask",
+  "source": "Drops from Avatar of Thunder in The Vinktar Square",
+  "level": 68
+ },
+ {
+  "name": "Victario's Acuity",
+  "base": "Turquoise Amulet",
+  "league": "Onslaught"
+ },
+ {
+  "name": "Victario's Charity",
+  "base": "Laminated Kite Shield"
+ },
+ {
+  "name": "Victario's Flight",
+  "base": "Goathide Boots"
+ },
+ {
+  "name": "Victario's Influence",
+  "base": "Lacquered Garb"
+ },
+ {
+  "name": "Violent Dead",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Viper's Scales",
+  "base": "Full Scale Armour",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Viridi's Veil",
+  "base": "Praetor Crown",
+  "league": "Ritual",
+  "source": "Drops from The Maven (Uber)"
+ },
+ {
+  "name": "Vis Mortis",
+  "base": "Necromancer Silks"
+ },
+ {
+  "name": "Vivinsect",
+  "base": "Unset Ring",
+  "league": "Betrayal",
+  "source": "Drops from Research Leaders in Safehouses",
+  "level": 48
+ },
+ {
+  "name": "Vix Lunaris",
+  "base": "Cardinal Round Shield",
+  "source": "Drops from Selenia, the Endless Night in The Twilight Temple"
+ },
+ {
+  "name": "Vixen's Entrapment",
+  "base": "Embroidered Gloves"
+ },
+ {
+  "name": "Voice of the Storm",
+  "base": "Lapis Amulet",
+  "league": "Breach",
+  "source": "Drops in Esh Breach or from Esh, Forked Thought",
+  "level": 69
+ },
+ {
+  "name": "Voices",
+  "base": "Large Cluster Jewel",
+  "league": "Delirium",
+  "source": "Drops from the Simulacrum Encounter"
+ },
+ {
+  "name": "Void Battery",
+  "base": "Prophecy Wand"
+ },
+ {
+  "name": "Voidbringer",
+  "base": "Conjurer Gloves"
+ },
+ {
+  "name": "Voideye",
+  "base": "Unset Ring",
+  "league": "Ambush, Invasion",
+  "level": 45
+ },
+ {
+  "name": "Voidfletcher",
+  "base": "Penetrating Arrow Quiver",
+  "source": "Drops from The Elder (Uber)"
+ },
+ {
+  "name": "Voidforge",
+  "base": "Infernal Sword",
+  "source": "Drops from The Elder (Uber Uber)"
+ },
+ {
+  "name": "Voidheart",
+  "base": "Iron Ring",
+  "source": "No longer obtainable",
+  "level": 48
+ },
+ {
+  "name": "Voidhome",
+  "base": "Dread Maul"
+ },
+ {
+  "name": "Voidwalker",
+  "base": "Murder Boots",
+  "source": "Drops from The Shaper"
+ },
+ {
+  "name": "Volkuur's Guidance",
+  "base": "Zealot Gloves"
+ },
+ {
+  "name": "Voll's Devotion",
+  "base": "Agate Amulet",
+  "league": "Anarchy, Onslaught",
+  "level": 32
+ },
+ {
+  "name": "Voll's Protector",
+  "base": "Holy Chainmail",
+  "league": "Legion"
+ },
+ {
+  "name": "Voll's Vision",
+  "base": "Praetor Crown"
+ },
+ {
+  "name": "Volley Fire",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Voltaxic Rift",
+  "base": "Spine Bow"
+ },
+ {
+  "name": "Vorana's Preparation",
+  "base": "Iron Flask",
+  "league": "Expedition",
+  "source": "Drops from Vorana, Last to Fall in Expedition Logbook"
+ },
+ {
+  "name": "Vulconus",
+  "base": "Demon Dagger"
+ },
+ {
+  "name": "Wake of Destruction",
+  "base": "Mesh Boots"
+ },
+ {
+  "name": "Wall of Brambles",
+  "base": "Plate Vest",
+  "source": "No longer obtainable",
+  "level": 30
+ },
+ {
+  "name": "Wanderlust",
+  "base": "Wool Shoes"
+ },
+ {
+  "name": "Warlord's Reach",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Warped Timepiece",
+  "base": "Turquoise Amulet",
+  "level": 50
+ },
+ {
+  "name": "Warrior's Legacy",
+  "base": "Ruby Ring",
+  "level": 40
+ },
+ {
+  "name": "Warrior's Tale",
+  "base": "Crimson Jewel",
+  "league": "Ancestor",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Waxen Soul",
+  "base": "Saint's Hauberk",
+  "league": "Ritual",
+  "source": "Reward from Nameless Ritual, and rarely a regular Ritual"
+ },
+ {
+  "name": "Weight of Sin",
+  "base": "Viridian Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Weight of the Empire",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Wellwater Phylactery",
+  "base": "Colossal Mana Flask",
+  "source": "Drops from Uber Incarnation of Dread in Moment of Reverence",
+  "level": 64
+ },
+ {
+  "name": "Whakatutuki o Matua",
+  "base": "Tarnished Spirit Shield",
+  "source": "No longer obtainable",
+  "level": 63
+ },
+ {
+  "name": "Wheel of the Stormsail",
+  "base": "Rotted Round Shield"
+ },
+ {
+  "name": "Whispers of Infinity",
+  "base": "Seaglass Amulet",
+  "source": "Drops from Incarnation of Dread in Moment of Reverence"
+ },
+ {
+  "name": "White Wind",
+  "base": "Imperial Skean"
+ },
+ {
+  "name": "Wideswing",
+  "base": "Poleaxe"
+ },
+ {
+  "name": "Widowhail",
+  "base": "Crude Bow"
+ },
+ {
+  "name": "Widowmaker",
+  "base": "Boot Blade"
+ },
+ {
+  "name": "Wildfire",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Wildfire Phloem",
+  "base": "Ashbark Tincture",
+  "league": "Settlers of Kalguur"
+ },
+ {
+  "name": "Wildslash",
+  "base": "Awl"
+ },
+ {
+  "name": "Wildwrap",
+  "base": "Strapped Leather",
+  "source": "No longer obtainable",
+  "level": 57
+ },
+ {
+  "name": "Willclash",
+  "base": "Golden Mask",
+  "league": "Heist"
+ },
+ {
+  "name": "Willowgift",
+  "base": "Jade Amulet",
+  "level": 52
+ },
+ {
+  "name": "Wilma's Requital",
+  "base": "Solaris Circlet"
+ },
+ {
+  "name": "Windripper",
+  "base": "Imperial Bow"
+ },
+ {
+  "name": "Winds of Change",
+  "base": "Ancient Gauntlets",
+  "source": "Drops in The Lord's Labyrinth"
+ },
+ {
+  "name": "Windscream",
+  "base": "Reinforced Greaves"
+ },
+ {
+  "name": "Windshriek",
+  "base": "Reinforced Greaves",
+  "source": "No longer obtainable",
+  "level": 60
+ },
+ {
+  "name": "Wine of the Prophet",
+  "base": "Gold Flask",
+  "source": "Drops from Incarnation of Dread in Moment of Reverence",
+  "level": 33
+ },
+ {
+  "name": "Wing of the Wyvern",
+  "base": "Imperial Bow",
+  "source": "Drops from Uber Incarnation of Fear in Moment of Trauma"
+ },
+ {
+  "name": "Wings of Entropy",
+  "base": "Sundering Axe"
+ },
+ {
+  "name": "Winter Burial",
+  "base": "Crimson Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Winter's Bounty",
+  "base": "Cobalt Jewel",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Winterheart",
+  "base": "Gold Amulet",
+  "level": 42
+ },
+ {
+  "name": "Winterweave",
+  "base": "Coral Ring",
+  "level": 24
+ },
+ {
+  "name": "Witchbane",
+  "base": "Cobalt Jewel"
+ },
+ {
+  "name": "Witchfire Brew",
+  "base": "Stibnite Flask",
+  "level": 48
+ },
+ {
+  "name": "Witchhunter's Judgment",
+  "base": "Highborn Staff",
+  "league": "Harvest",
+  "source": "Drops from Oshabi, Avatar of the Grove",
+  "level": 68
+ },
+ {
+  "name": "Woespike",
+  "base": "Steel Ring",
+  "source": "Drops from Uber Incarnation of Fear in Moment of Trauma"
+ },
+ {
+  "name": "Wondertrap",
+  "base": "Velvet Slippers"
+ },
+ {
+  "name": "Worldcarver",
+  "base": "Dragonscale Gauntlets",
+  "source": "No longer obtainable"
+ },
+ {
+  "name": "Wraithlord",
+  "base": "Bone Circlet",
+  "source": "Drops from Nightmare of Catarina in Ziggurat Map"
+ },
+ {
+  "name": "Wreath of Phrecia",
+  "base": "Iron Circlet",
+  "league": "Legion"
+ },
+ {
+  "name": "Wurm's Molt",
+  "base": "Leather Belt",
+  "level": 41
+ },
+ {
+  "name": "Wyrmsign",
+  "base": "Wyrmscale Gauntlets"
+ },
+ {
+  "name": "Xirgil's Crank",
+  "base": "Coiled Staff",
+  "source": "Drops in The Lord's Labyrinth",
+  "level": 28
+ },
+ {
+  "name": "Xoph's Blood",
+  "base": "Amber Amulet",
+  "league": "Breach",
+  "source": "Upgraded from Xoph's Heart using Blessing of Xoph",
+  "level": 64
+ },
+ {
+  "name": "Xoph's Heart",
+  "base": "Amber Amulet",
+  "league": "Breach",
+  "source": "Drops in Xoph Breach or from Xoph, Dark Embers",
+  "level": 35
+ },
+ {
+  "name": "Xoph's Inception",
+  "base": "Bone Bow",
+  "league": "Breach",
+  "source": "Drops in Xoph Breach or from Xoph, Dark Embers"
+ },
+ {
+  "name": "Xoph's Nurture",
+  "base": "Citadel Bow",
+  "league": "Breach",
+  "source": "Upgraded from Xoph's Inception using Blessing of Xoph",
+  "level": 64
+ },
+ {
+  "name": "Yaomac's Accord",
+  "base": "Vaal Sceptre",
+  "league": "Ultimatum",
+  "source": "Drops from The Trialmaster"
+ },
+ {
+  "name": "Ylfeban's Trickery",
+  "base": "Hubris Circlet",
+  "league": "Tempest"
+ },
+ {
+  "name": "Ynda's Stand",
+  "base": "Studded Belt",
+  "league": "Settlers of Kalguur",
+  "level": 52
+ },
+ {
+  "name": "Yoke of Suffering",
+  "base": "Onyx Amulet",
+  "level": 70
+ },
+ {
+  "name": "Yriel's Fostering",
+  "base": "Exquisite Leather"
+ },
+ {
+  "name": "Zahndethus' Cassock",
+  "base": "Sage's Robe"
+ },
+ {
+  "name": "Zana's Ingenuity",
+  "base": "Prismatic Ring",
+  "source": "Drops from The Shaper (Uber)",
+  "level": 64
+ },
+ {
+  "name": "Zeel's Amplifier",
+  "base": "Polished Spiked Shield"
+ },
+ {
+  "name": "Zerphi's Heart",
+  "base": "Paua Amulet",
+  "league": "Incursion",
+  "source": "Upgraded from Sacrificial Heart via Vial of Sacrifice",
+  "level": 70
+ },
+ {
+  "name": "Zerphi's Last Breath",
+  "base": "Grand Mana Flask",
+  "league": "Perandus"
+ }
+]

@@ -1,4 +1,5 @@
 import type { GemSource, PlanView, PobGem } from '@shared/plan'
+import { SourcingView } from './SourcingView'
 
 function sourceText(gem: PobGem, source: GemSource | undefined, setSelected: boolean): { text: string; bad: boolean } {
   if (!gem.id) return { text: 'нет в моих данных об игре — смотри гайд', bad: true }
@@ -117,50 +118,29 @@ export function ItemsView({ plan }: { plan: PlanView }) {
   const sets = plan.pob?.itemSets ?? []
   if (!sets.length) return <p className="empty">В билде нет предметов.</p>
 
-  const uniques = new Map<string, string[]>()
-  for (const set of sets) {
-    for (const item of set.items) {
-      if (item.rarity !== 'UNIQUE' && item.rarity !== 'RELIC') continue
-      const where = uniques.get(item.name) ?? []
-      if (!where.includes(set.title)) where.push(set.title)
-      uniques.set(item.name, where)
-    }
-  }
-
   return (
     <div className="pob-view">
-      {uniques.size > 0 ? (
-        <section>
-          <h4>Уники в билде</h4>
-          <ul className="spec-list">
-            {[...uniques].map(([name, where]) => (
-              <li key={name}>
-                <span className="unique">{name}</span>
-                <span className="muted"> · {where.join(', ')}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="hint">Где фармить каждый из них в SSF — этого слоя пока нет, смотри гайд.</p>
-        </section>
-      ) : (
-        <p className="hint">Уников в билде нет.</p>
-      )}
-      {sets.map((set, i) => (
-        <section key={i}>
-          <h4>{set.title}</h4>
-          <table className="items">
-            <tbody>
-              {set.items.map((item, n) => (
-                <tr key={n}>
-                  <td className="muted">{item.slot}</td>
-                  <td className={item.rarity === 'UNIQUE' || item.rarity === 'RELIC' ? 'unique' : ''}>{item.name}</td>
-                  <td className="muted">{item.base ?? ''}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      ))}
+      <SourcingView plan={plan} />
+      <section>
+        <h4>Наборы предметов из билда</h4>
+        {sets.map((set, i) => (
+          <details key={i} className="method">
+            <summary>{set.title}</summary>
+            <table className="items">
+              <tbody>
+                {set.items.map((item, n) => (
+                  <tr key={n}>
+                    <td className="muted">{item.slot}</td>
+                    <td className={item.rarity === 'UNIQUE' || item.rarity === 'RELIC' ? 'unique' : ''}>{item.name}</td>
+                    <td className="muted">{item.base ?? ''}</td>
+                    <td className="muted">{item.links >= 5 ? `${item.links}L` : ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </details>
+        ))}
+      </section>
     </div>
   )
 }

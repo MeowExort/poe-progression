@@ -984,3 +984,100 @@ button.step:hover:not(:disabled) {
   white-space: pre-wrap;
   line-height: 1.5;
 }
+
+/* ── Item sourcing ─────────────────────────────────────────── */
+
+.pob-view section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sourcing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 10px;
+}
+
+.sourcing-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.sourcing-item h5 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.sourcing-item h5 small {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.sourcing-item p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.source-notes {
+  list-style: none;
+  margin: 2px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.source-notes li {
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
+}
+
+.source-notes .tone-good {
+  border-left-color: var(--ok);
+}
+
+.source-notes .tone-bad {
+  border-left-color: var(--bad);
+  color: #e0a79f;
+}
+
+.ref {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.method {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.method summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.method p {
+  margin: 8px 0 0;
+}
+
+.method blockquote {
+  margin: 8px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.method .items {
+  margin-top: 8px;
+}
