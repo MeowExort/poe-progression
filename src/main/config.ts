@@ -1,11 +1,14 @@
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, win32 } from 'node:path'
-import type { AppConfig } from '@shared/api'
+import type { AppConfig, Bounds } from '@shared/api'
 
 export const DEFAULT_CONFIG: AppConfig = {
   logPath: '',
   logPathAuto: true,
-  overlayHotkey: 'Shift+F'
+  overlayHotkey: 'Shift+F',
+  overlayPanelEnabled: true,
+  overlayPanelBounds: null,
+  overlayBarBounds: null
 }
 
 export function loadConfig(file: string): AppConfig {
@@ -18,11 +21,23 @@ export function loadConfig(file: string): AppConfig {
       overlayHotkey:
         typeof stored.overlayHotkey === 'string' && stored.overlayHotkey
           ? stored.overlayHotkey
-          : DEFAULT_CONFIG.overlayHotkey
+          : DEFAULT_CONFIG.overlayHotkey,
+      overlayPanelEnabled: stored.overlayPanelEnabled !== false,
+      overlayPanelBounds: readBounds(stored.overlayPanelBounds),
+      overlayBarBounds: readBounds(stored.overlayBarBounds)
     }
   } catch {
     return { ...DEFAULT_CONFIG }
   }
+}
+
+/** Accepts a stored rectangle only if all four numbers are there and it has a size. */
+export function readBounds(value: unknown): Bounds | null {
+  const { x, y, width, height } = (value ?? {}) as Record<string, unknown>
+  const numbers = [x, y, width, height]
+  if (!numbers.every((n) => typeof n === 'number' && Number.isFinite(n))) return null
+  if ((width as number) <= 0 || (height as number) <= 0) return null
+  return { x: Math.round(x as number), y: Math.round(y as number), width: Math.round(width as number), height: Math.round(height as number) }
 }
 
 export function saveConfig(file: string, config: AppConfig): void {

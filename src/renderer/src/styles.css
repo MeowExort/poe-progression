@@ -1213,3 +1213,408 @@ button.step:hover:not(:disabled) {
   padding: 2px 10px;
   line-height: 1.5;
 }
+
+/* ── Overlay root and edit mode ────────────────────────────── */
+
+.overlay-root {
+  position: relative;
+  height: 100%;
+}
+
+.edit-frame {
+  position: absolute;
+  inset: 0;
+  border: 2px dashed var(--accent);
+  border-radius: 6px;
+  background: rgba(200, 162, 90, 0.08);
+  cursor: move;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  user-select: none;
+  touch-action: none;
+}
+
+.edit-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 6px 14px;
+  padding: 5px 10px;
+  background: rgba(14, 11, 8, 0.92);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: default;
+}
+
+.edit-hint button {
+  padding: 2px 10px;
+  font-size: 12px;
+}
+
+.grip {
+  position: absolute;
+  background: var(--accent);
+  touch-action: none;
+}
+
+.grip-n,
+.grip-s {
+  left: 14px;
+  right: 14px;
+  height: 6px;
+  cursor: ns-resize;
+  opacity: 0.35;
+}
+
+.grip-e,
+.grip-w {
+  top: 14px;
+  bottom: 14px;
+  width: 6px;
+  cursor: ew-resize;
+  opacity: 0.35;
+}
+
+.grip-n { top: 0; }
+.grip-s { bottom: 0; }
+.grip-e { right: 0; }
+.grip-w { left: 0; }
+
+.grip-ne,
+.grip-nw,
+.grip-se,
+.grip-sw {
+  width: 14px;
+  height: 14px;
+}
+
+.grip-ne { top: 0; right: 0; cursor: nesw-resize; }
+.grip-nw { top: 0; left: 0; cursor: nwse-resize; }
+.grip-se { bottom: 0; right: 0; cursor: nwse-resize; }
+.grip-sw { bottom: 0; left: 0; cursor: nesw-resize; }
+
+/* ── Sanctum bar ───────────────────────────────────────────── */
+
+.sbar-wrap {
+  height: 100%;
+  overflow: hidden;
+}
+
+.sbar {
+  --gold: #c8a25a;
+  --ok: #86b56f;
+  --muted: #a69b89;
+  --line: #4a3f31;
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  padding: 6px 16px 7px;
+  background: linear-gradient(rgba(14,11,8,.9),rgba(14,11,8,.82));
+  border-top: 1px solid rgba(200,162,90,.55);
+  border-bottom: 1px solid rgba(0,0,0,.6);
+  font: 13px 'Segoe UI',system-ui,sans-serif;
+  color: #ded4c4;
+  font-variant-numeric: tabular-nums;
+}
+
+.sbar .side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 92px;
+}
+
+.sbar .side.right {
+  align-items: flex-end;
+  text-align: right;
+  min-width: 190px;
+}
+
+.sbar .big {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: #f1e6cf;
+}
+
+.sbar .big.small {
+  font-size: 20px;
+}
+
+.sbar .cap {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.sbar .counts {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+.sbar .main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sbar .lootrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 26px;
+}
+
+.sbar .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sbar .chip img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 1px 2px #000);
+}
+
+.sbar .chip b {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f1e6cf;
+}
+
+.sbar .chip.zero {
+  opacity: .38;
+}
+
+.sbar .value {
+  margin-left: auto;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.sbar .floors {
+  display: flex;
+  gap: 14px;
+}
+
+.sbar .floor {
+  flex: 1;
+  min-width: 0;
+}
+
+.sbar .rooms {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+
+.sbar .room {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.sbar .room .t {
+  font-size: 10px;
+  line-height: 11px;
+  height: 11px;
+  color: var(--muted);
+}
+
+.sbar .room i {
+  display: block;
+  width: 100%;
+  height: 9px;
+  border-radius: 2px;
+  background: #2b241c;
+  border: 1px solid var(--line);
+  box-sizing: border-box;
+}
+
+.sbar .room.boss i {
+  height: 13px;
+  border-color: #7a5a3a;
+}
+
+.sbar .room.done i {
+  background: linear-gradient(#e0bd72,#a98233);
+  border-color: #e0bd72;
+}
+
+.sbar .floor.done .room.done i {
+  background: linear-gradient(#9fca86,#5e8f49);
+  border-color: #9fca86;
+}
+
+.sbar .room.now i {
+  background: linear-gradient(90deg,#f4e3b6 0 55%,#2b241c 55%);
+  border-color: #fff3cf;
+  box-shadow: 0 0 8px rgba(255,236,170,.8);
+}
+
+.sbar .room.now .t {
+  color: #fff3cf;
+  font-weight: 600;
+}
+
+.sbar .foot {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--muted);
+}
+
+.sbar .foot b {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.sbar .floor.done .foot .ft {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.sbar .floor.now .foot b,
+.sbar .floor.now .foot .ft {
+  color: #f1e6cf;
+  font-weight: 600;
+}
+
+.sbar .foot .fl {
+  color: var(--gold);
+}
+
+.sbar {
+  box-sizing: border-box;
+  height: 87px;
+}
+
+.sbar .noicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 10px;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* The rooms measure themselves against the middle column, in the bar's own scaled pixels. */
+.sbar .main {
+  container-type: inline-size;
+}
+
+/* On a narrow bar the room times would collide: keep the floors only. */
+@container (max-width: 1000px) {
+  .sbar .room .t {
+    display: none;
+  }
+}
+
+/* ── Tracked currency ──────────────────────────────────────── */
+
+.stat-tile dt img,
+.items.loot td img,
+.tracked-list img,
+.tracked-suggest img {
+  width: 18px;
+  height: 18px;
+  vertical-align: -4px;
+  margin-right: 5px;
+}
+
+.tracked-list,
+.tracked-suggest {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.tracked-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 0;
+}
+
+.tracked-list li span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tracked-list button {
+  padding: 0 7px;
+  line-height: 1.6;
+}
+
+.tracked-list .noicon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.tracked-editor .field-row input {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+
+.tracked-suggest button {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 3px 4px;
+}
+
+.tracked-suggest button:hover {
+  background: var(--panel-2);
+}
+
+.tracked-editor .check {
+  margin-top: 8px;
+}
+
+/* A checkbox inside a settings field must not be styled as a text input. */
+.field .check input {
+  flex: none;
+  width: auto;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.field .check span {
+  font-weight: 400;
+}

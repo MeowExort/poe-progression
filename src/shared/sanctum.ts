@@ -2,6 +2,10 @@
 export interface LootLine {
   name: string
   count: number
+  /** Picture of the item from the game's CDN, when known. */
+  icon: string | null
+  /** True for currency items (orbs, shards and the like). */
+  currency: boolean
   /** Value of the whole line in Chaos Orbs; null when there is no price for the item. */
   chaos: number | null
 }
@@ -37,6 +41,8 @@ export interface FloorView {
   floor: number
   /** Distinct rooms entered, out of eight. */
   rooms: number
+  /** Time spent in each room, in the order they were entered. */
+  roomMs: number[]
   ms: number
   /** True once the floor is behind: the next one was reached or the run was won. */
   done: boolean
@@ -77,9 +83,14 @@ export interface SanctumTotals {
   chaos: number
   divine: number | null
   gold: number
-  /** Chaos Orbs and Divine Orbs actually picked up. */
-  chaosOrbs: number
-  divineOrbs: number
+  /** How many of each currency item were picked up, by name. */
+  currency: Record<string, number>
+}
+
+/** An item the player chose to keep an eye on. */
+export interface TrackedItem {
+  name: string
+  icon: string | null
 }
 
 export interface SanctumView {
@@ -99,11 +110,22 @@ export interface SanctumView {
   lastLoot: LootValue | null
   prices: PricesInfo | null
   pricesError: string | null
+  /** The currency shown in the overlay and the statistics, in the player's order. */
+  tracked: TrackedItem[]
+  /** True when every currency that drops is shown, after the tracked ones. */
+  trackAll: boolean
   sessionStartedAt: number
+  /** Runs started, including one in progress. */
+  runCounts: { session: number; today: number }
   /** Finished runs, newest first. */
   runs: RunView[]
-  /** The run in progress. `floor` is where the clock is running since `since`; null in the lobby or outside. */
-  active: { run: RunView; floor: number | null; inSanctum: boolean; since: number } | null
+  /**
+   * The run in progress. `floor` and `room` say where the clock is running since `since`:
+   * `floor` is null in the lobby or outside, `room` (an index) is null at a floor's entrance.
+   */
+  active: { run: RunView; floor: number | null; room: number | null; inSanctum: boolean; since: number } | null
+  /** The run that just ended, while the player is still in the Sanctum lobby; null otherwise. */
+  finished: RunView | null
   stats: { session: SanctumTotals; allTime: SanctumTotals }
 }
 
@@ -124,6 +146,10 @@ export interface SanctumApi {
   clearCookie(): Promise<void>
   /** Takes an inventory snapshot and compares it with the previous one. */
   snapshot(): Promise<void>
+  /** Sets which currency is tracked, in order, and whether all other currency is shown too. */
+  setTracked(names: string[], trackAll: boolean): Promise<void>
+  /** Every currency item known to poe.ninja, for choosing what to track. */
+  getCatalog(): Promise<TrackedItem[]>
   /** Starts counting session statistics from now. */
   newSession(): Promise<void>
   /** Closes the run in progress as failed: the log has no line for losing all Resolve. */
@@ -143,5 +169,7 @@ export const SANCTUM_IPC = {
   newSession: 'sanctum:new-session',
   failActive: 'sanctum:fail-active',
   setOutcome: 'sanctum:set-outcome',
-  dumpSiteAnswer: 'sanctum:dump-site-answer'
+  dumpSiteAnswer: 'sanctum:dump-site-answer',
+  setTracked: 'sanctum:set-tracked',
+  getCatalog: 'sanctum:get-catalog'
 } as const

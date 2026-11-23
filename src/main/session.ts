@@ -27,7 +27,7 @@ export class Session {
     this.state = {
       log: { path: '', found: false, size: null, modifiedAt: null, liveLines: 0, lastLineAt: null },
       hotkey: { accelerator: '', registered: false },
-      overlayVisible: false,
+      overlay: { layout: 'panel', visible: false, editing: false, bounds: { x: 0, y: 0, width: 0, height: 0 } },
       startedAt: this.now(),
       character: null,
       area: null,
@@ -44,7 +44,7 @@ export class Session {
   }
 
   /** Merges app-level status (log file, hotkey, overlay) into the state. */
-  patch(patch: Partial<Pick<SessionState, 'log' | 'hotkey' | 'overlayVisible'>>): void {
+  patch(patch: Partial<Pick<SessionState, 'log' | 'hotkey' | 'overlay'>>): void {
     this.state = { ...this.state, ...patch }
     this.onChange?.(this.state)
   }

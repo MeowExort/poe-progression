@@ -71,8 +71,20 @@ describe('a real completed run', () => {
     expect(total).toBe(run.endedAt! - run.startedAt)
   })
 
-  it('asks for the inventory at the start and at the end of every floor', () => {
-    expect(boundaries.map((boundary) => `${boundary.kind} ${boundary.floor}`)).toEqual([
+  it('times every room', () => {
+    expect(run.floors.map((floor) => floor.roomMs.map((ms) => ms / 1000))).toEqual([
+      [18, 15, 18, 22, 16, 18, 14, 13],
+      [22, 23, 18, 16, 15, 23, 13, 17],
+      [21, 16, 15, 27, 12, 25, 21, 20],
+      [25, 24, 20, 20, 27, 30, 25, 53]
+    ])
+    // A floor is its rooms plus the few seconds at its entrance.
+    expect(run.floors.map((floor) => (floor.ms - floor.roomMs.reduce((sum, ms) => sum + ms, 0)) / 1000)).toEqual([5, 8, 7, 6])
+  })
+
+  it('asks for the inventory at the start and at the end of every floor, no matter what', () => {
+    const required = boundaries.filter((boundary) => boundary.required)
+    expect(required.map((boundary) => `${boundary.kind} ${boundary.floor}`)).toEqual([
       'baseline 1',
       'collect 1',
       'collect 2',
@@ -80,6 +92,14 @@ describe('a real completed run', () => {
       'collect 4'
     ])
     expect(new Set(boundaries.map((boundary) => boundary.runId))).toEqual(new Set([run.id]))
+  })
+
+  it('also offers a reading after every room change, which may be skipped', () => {
+    const optional = boundaries.filter((boundary) => !boundary.required)
+    // Seven room changes on each of the four floors.
+    expect(optional).toHaveLength(28)
+    expect(optional.every((boundary) => boundary.kind === 'collect')).toBe(true)
+    expect(optional.filter((boundary) => boundary.floor === 3)).toHaveLength(7)
   })
 })
 
@@ -115,7 +135,9 @@ describe('SanctumTracker', () => {
     enter(tracker, '10:02:10', 'SanctumFoyer_1_2', 'run-b')
     expect(finished).toHaveLength(1)
     expect(finished[0]).toMatchObject({ outcome: 'failed', endedAt: at('10:02:10') })
-    expect(finished[0].floors).toEqual([{ floor: 1, rooms: 3, ms: 45_000, done: false }])
+    expect(finished[0].floors).toEqual([
+      { floor: 1, rooms: 3, roomMs: [10_000, 10_000, 15_000], ms: 45_000, done: false }
+    ])
     expect(tracker.active?.run.id).toBe(at('10:02:10'))
   })
 
@@ -143,14 +165,16 @@ describe('SanctumTracker', () => {
     expect(run.floors[0]).toMatchObject({ rooms: 3, ms: 40_000 })
     expect(run.transitMs).toBe(10_000)
     // Loot is collected on the way out, and a fresh baseline is taken on the way back in.
-    expect(boundaries.map((boundary) => boundary.kind)).toEqual(['baseline', 'collect', 'baseline'])
+    const required = boundaries.filter((boundary) => boundary.required)
+    expect(required.map((boundary) => boundary.kind)).toEqual(['baseline', 'collect', 'baseline'])
   })
 
   it('does not count re-entering the same room twice', () => {
     const { tracker } = track()
     floorOne(tracker, 1)
     enter(tracker, '10:00:20', 'SanctumCellar', 'run-a-room-0')
-    expect(tracker.active!.run.floors[0].rooms).toBe(1)
+    enter(tracker, '10:00:35', 'SanctumCellar', 'run-a-room-1')
+    expect(tracker.active!.run.floors[0]).toMatchObject({ rooms: 2, roomMs: [25_000, 0] })
   })
 
   it('only takes the final boss dying on the last floor as a win', () => {
@@ -173,9 +197,22 @@ describe('SanctumTracker', () => {
     expect(tracker.active).toBeNull()
   })
 
+  it('already knows the new place when it reports a room change', () => {
+    const seen: (number | null)[] = []
+    const tracker: SanctumTracker = new SanctumTracker({
+      onRun: () => {
+        const where = tracker.active?.where
+        seen.push(where?.kind === 'floor' ? where.room : null)
+      }
+    })
+    floorOne(tracker, 3)
+    // Entrance, then rooms 0, 1 and 2 — never one step behind.
+    expect(seen).toEqual([null, 0, 1, 2])
+  })
+
   it('reports where the clock is running for live timers', () => {
     const { tracker } = track()
     floorOne(tracker, 2)
-    expect(tracker.active).toMatchObject({ where: { kind: 'floor', floor: 1 }, since: at('10:00:20') })
+    expect(tracker.active).toMatchObject({ where: { kind: 'floor', floor: 1, room: 1 }, since: at('10:00:20') })
   })
 })

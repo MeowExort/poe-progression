@@ -29,6 +29,7 @@ export class PoeSite {
   private readonly sleep: (ms: number) => Promise<void>
   private lastRequestAt = 0
   private blockedUntil = 0
+  private requestTimes: number[] = []
 
   constructor(options: SiteOptions = {}) {
     this.fetch = options.fetch ?? fetch
@@ -46,6 +47,13 @@ export class PoeSite {
     return this.get('get-characters', { accountName: account, realm: 'pc' }, cookie)
   }
 
+  /** How many requests were made in the last `ms`: the site allows 100 in half an hour. */
+  requestsWithin(ms: number): number {
+    const since = this.now() - ms
+    this.requestTimes = this.requestTimes.filter((time) => time >= since)
+    return this.requestTimes.length
+  }
+
   private async get(endpoint: string, params: Record<string, string>, cookie: string): Promise<unknown> {
     const wait = Math.ceil((this.blockedUntil - this.now()) / 1000)
     if (wait > 0) throw new SiteError('rate-limit', `Сайт просит подождать с запросами ещё ${wait} с.`)
@@ -53,6 +61,7 @@ export class PoeSite {
     const gap = this.lastRequestAt + MIN_GAP_MS - this.now()
     if (gap > 0) await this.sleep(gap)
     this.lastRequestAt = this.now()
+    this.requestTimes.push(this.lastRequestAt)
 
     const url = new URL(`https://www.pathofexile.com/character-window/${endpoint}`)
     for (const [name, value] of Object.entries(params)) url.searchParams.set(name, value)

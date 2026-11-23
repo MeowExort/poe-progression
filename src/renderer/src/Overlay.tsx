@@ -1,11 +1,11 @@
 import { currentGroup } from '@core/route/groups'
 import type { SessionState } from '@shared/api'
 import type { PlanView } from '@shared/plan'
-import type { SanctumView } from '@shared/sanctum'
 import { Feed } from './Feed'
 import { formatDuration } from './format'
 import { useNow, usePlan, useSanctum, useSession } from './hooks'
-import { lootSummary } from './SanctumTab'
+import { OverlayEdit } from './OverlayEdit'
+import { SanctumBar } from './SanctumBar'
 import { StepLine } from './StepLine'
 
 function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState }) {
@@ -47,45 +47,6 @@ function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState })
   )
 }
 
-function SanctumRun({ active, now }: { active: NonNullable<SanctumView['active']>; now: number }) {
-  const live = active.inSanctum ? Math.max(0, now - active.since) : 0
-  const floor = active.run.floors.find((entry) => entry.floor === active.floor)
-  return (
-    <section className="overlay-sanctum">
-      <div className="overlay-nav">
-        <span>
-          Sanctum · {floor ? `этаж ${floor.floor} · комната ${floor.rooms}/8` : active.inSanctum ? 'между этажами' : 'пауза'}
-        </span>
-        <button onClick={() => void window.poe.sanctum.failActive()} title="Resolve закончился">
-          Провал
-        </button>
-      </div>
-      <dl className="overlay-stats">
-        <div>
-          <dt>Этаж</dt>
-          <dd>{floor ? formatDuration(floor.ms + live) : '—'}</dd>
-        </div>
-        <div>
-          <dt>Забег</dt>
-          <dd>{formatDuration(active.run.durationMs + live)}</dd>
-        </div>
-        <div>
-          <dt>Лут</dt>
-          <dd>{lootSummary(active.run.loot)}</dd>
-        </div>
-      </dl>
-      <ul className="floor-times">
-        {active.run.floors.map((entry) => (
-          <li key={entry.floor} className={entry.done ? 'done' : ''}>
-            <span className="muted">{entry.floor}</span>
-            <strong>{formatDuration(entry.ms + (entry.floor === active.floor ? live : 0))}</strong>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
-}
-
 export function Overlay() {
   const session = useSession()
   const plan = usePlan()
@@ -94,49 +55,62 @@ export function Overlay() {
   if (!session || !plan || !sanctum) return null
 
   const { area, character, log } = session
+  const { layout, editing, bounds } = session.overlay
+
+  // During a Sanctum run the horizontal bar takes the side panel's place.
+  if (layout === 'bar') {
+    return (
+      <div className="overlay-root">
+        <SanctumBar view={sanctum} now={now} demo={editing} />
+        {editing && <OverlayEdit layout="bar" bounds={bounds} />}
+      </div>
+    )
+  }
+
   return (
-    <div className="overlay">
-      <header className="overlay-head">
-        <div className="overlay-area">
-          <strong>{area?.name ?? 'Зона неизвестна'}</strong>
-          {area?.level != null && <span className="badge">ур. {area.level}</span>}
-        </div>
-        <span className="overlay-timer">{area ? formatDuration(now - area.enteredAt) : '—'}</span>
-      </header>
+    <div className="overlay-root">
+      <div className="overlay">
+        <header className="overlay-head">
+          <div className="overlay-area">
+            <strong>{area?.name ?? 'Зона неизвестна'}</strong>
+            {area?.level != null && <span className="badge">ур. {area.level}</span>}
+          </div>
+          <span className="overlay-timer">{area ? formatDuration(now - area.enteredAt) : '—'}</span>
+        </header>
 
-      <dl className="overlay-stats">
-        <div>
-          <dt>Персонаж</dt>
-          <dd>{character ? `${character.level} ур. · ${character.class}` : '—'}</dd>
-        </div>
-        <div>
-          <dt>Смертей</dt>
-          <dd>{session.deaths}</dd>
-        </div>
-        <div>
-          <dt>Сессия</dt>
-          <dd>{formatDuration(now - session.startedAt)}</dd>
-        </div>
-      </dl>
+        <dl className="overlay-stats">
+          <div>
+            <dt>Персонаж</dt>
+            <dd>{character ? `${character.level} ур. · ${character.class}` : '—'}</dd>
+          </div>
+          <div>
+            <dt>Смертей</dt>
+            <dd>{session.deaths}</dd>
+          </div>
+          <div>
+            <dt>Сессия</dt>
+            <dd>{formatDuration(now - session.startedAt)}</dd>
+          </div>
+        </dl>
 
-      {!log.found && <p className="warning">Client.txt не найден — укажи путь в настройках.</p>}
+        {!log.found && <p className="warning">Client.txt не найден — укажи путь в настройках.</p>}
 
-      {sanctum.active ? (
-        <SanctumRun active={sanctum.active} now={now} />
-      ) : plan.steps.length > 0 ? (
-        <PlanSteps plan={plan} session={session} />
-      ) : (
-        <>
-          <p className="off-route">Плана пока нет: пройди опросник и выбери билд в главном окне.</p>
-          <Feed
-            entries={session.feed.filter((entry) => entry.type !== 'dialogue')}
-            limit={5}
-            empty="Событий пока нет."
-          />
-        </>
-      )}
+        {plan.steps.length > 0 ? (
+          <PlanSteps plan={plan} session={session} />
+        ) : (
+          <>
+            <p className="off-route">Плана пока нет: пройди опросник и выбери билд в главном окне.</p>
+            <Feed
+              entries={session.feed.filter((entry) => entry.type !== 'dialogue')}
+              limit={5}
+              empty="Событий пока нет."
+            />
+          </>
+        )}
 
-      <footer className="overlay-foot">{session.hotkey.accelerator} — скрыть</footer>
+        <footer className="overlay-foot">{session.hotkey.accelerator} — скрыть</footer>
+      </div>
+      {editing && <OverlayEdit layout="panel" bounds={bounds} />}
     </div>
   )
 }

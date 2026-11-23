@@ -1,9 +1,9 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { diffSnapshots, lastPlayedCharacter, toSnapshot } from '../src/core/sanctum/inventory'
-import { parseCurrencyOverview, valueLoot } from '../src/core/sanctum/prices'
+import { combinePrices, parseExchangeOverview, valueLoot } from '../src/core/sanctum/prices'
 import { normalizeCookie, PoeSite, SiteError } from '../src/main/poe-site'
 import { PriceBook } from '../src/main/prices'
 import { SanctumService } from '../src/main/sanctum'
@@ -24,22 +24,56 @@ function siteAnswer(inventory: Record<string, unknown>[], gold = 100) {
   }
 }
 
-const stack = (typeLine: string, stackSize: number, id = `${typeLine}-${stackSize}`) => ({ id, typeLine, stackSize, maxStackSize: 20 })
+const stack = (typeLine: string, stackSize: number, id = `${typeLine}-${stackSize}`) => ({
+  id,
+  typeLine,
+  stackSize,
+  maxStackSize: 20,
+  frameType: 5,
+  icon: `https://web.poecdn.com/inventory/${typeLine.replace(/ /g, '')}.png`
+})
 const single = (id: string, typeLine: string, name = '') => ({ id, typeLine, name })
 
+/** An answer shaped like poe.ninja's exchange overview for the "Currency" category. */
 const ninjaAnswer = {
+  core: {
+    primary: 'chaos',
+    secondary: 'divine',
+    items: [
+      { id: 'chaos', name: 'Chaos Orb', image: '/gen/image/chaos.png' },
+      { id: 'divine', name: 'Divine Orb', image: '/gen/image/divine.png' }
+    ]
+  },
   lines: [
-    { currencyTypeName: 'Divine Orb', chaosEquivalent: 120 },
-    { currencyTypeName: 'Orb of Annulment', chaosEquivalent: 6, pay: null },
-    // Cheap currency: listed at the 1-chaos floor, really 12 of them to the chaos.
-    { currencyTypeName: 'Orb of Fusing', chaosEquivalent: 1, pay: { value: 12 } },
-    // At the floor with nothing to correct it by: price unknown.
-    { currencyTypeName: 'Scroll of Wisdom', chaosEquivalent: 1, pay: null },
-    // A stray reverse listing must not override a price that is clearly above the floor.
-    { currencyTypeName: 'Exalted Orb', chaosEquivalent: 3, pay: { value: 4 } },
-    { currencyTypeName: 'Broken Thing', chaosEquivalent: 0 }
+    { id: 'divine', primaryValue: 120 },
+    { id: 'annul', primaryValue: 6 },
+    { id: 'fusing', primaryValue: 0.125 },
+    { id: 'volatile', primaryValue: 600 },
+    { id: 'worthless', primaryValue: 0 },
+    { id: 'unknown-item', primaryValue: 5 }
+  ],
+  items: [
+    { id: 'divine', name: 'Divine Orb', image: '/gen/image/divine.png' },
+    { id: 'annul', name: 'Orb of Annulment', image: '/gen/image/annul.png' },
+    { id: 'fusing', name: 'Orb of Fusing', image: '/gen/image/fusing.png' },
+    { id: 'volatile', name: 'Volatile Vaal Orb', image: '/gen/image/volatile.png' },
+    { id: 'worthless', name: 'Broken Thing', image: '/gen/image/broken.png' }
   ]
 }
+/** A second category, to check that categories are merged. */
+const fragmentAnswer = {
+  core: { primary: 'chaos', items: [] },
+  lines: [{ id: 'crest', primaryValue: 40 }],
+  items: [{ id: 'crest', name: "Baran's Crest", image: '/gen/image/crest.png' }]
+}
+/** Answers a poe.ninja request by category: currency, fragments, and nothing else. */
+const ninjaFetch = (onRequest: () => void = () => {}) =>
+  (async (url: URL) => {
+    onRequest()
+    const type = url.searchParams.get('type')
+    return respond(type === 'Currency' ? ninjaAnswer : type === 'Fragment' ? fragmentAnswer : { core: { primary: 'chaos' }, lines: [], items: [] })
+  }) as unknown as typeof fetch
+const CATEGORY_COUNT = 15
 
 describe('toSnapshot', () => {
   it('keeps only the main inventory, summing stacks and keeping single items by id', () => {
@@ -108,31 +142,50 @@ describe('diffSnapshots', () => {
 })
 
 describe('prices', () => {
-  const prices = parseCurrencyOverview(ninjaAnswer, 'Covens', 5)!
+  const prices = combinePrices([parseExchangeOverview(ninjaAnswer)!, parseExchangeOverview(fragmentAnswer)!], 'Covens', 5)
 
-  it('reads prices, adds Chaos Orb as the unit and skips worthless lines', () => {
+  it('reads prices in chaos with fractions, adds Chaos Orb as the unit and skips worthless lines', () => {
     expect(prices).toMatchObject({ league: 'Covens', fetchedAt: 5, divineChaos: 120 })
     expect(prices.chaosByName).toEqual({
       'Chaos Orb': 1,
       'Divine Orb': 120,
       'Orb of Annulment': 6,
-      'Orb of Fusing': 1 / 12,
-      'Exalted Orb': 3
+      'Orb of Fusing': 0.125,
+      'Volatile Vaal Orb': 600,
+      "Baran's Crest": 40
     })
-    expect(parseCurrencyOverview({ nope: true }, 'Covens', 0)).toBeNull()
   })
 
+  it('collects pictures for every listed item, as full addresses', () => {
+    expect(prices.icons['Volatile Vaal Orb']).toBe('https://web.poecdn.com/gen/image/volatile.png')
+    expect(prices.icons['Chaos Orb']).toBe('https://web.poecdn.com/gen/image/chaos.png')
+    expect(Object.keys(prices.icons)).toHaveLength(7)
+  })
+
+  it('rejects answers of another shape or priced in another currency', () => {
+    expect(parseExchangeOverview({ nope: true })).toBeNull()
+    expect(parseExchangeOverview({ ...ninjaAnswer, core: { primary: 'divine' } })).toBeNull()
+  })
+
+  const line = (name: string, count: number, currency = true) => ({ name, count, icon: null, currency })
+
   it('values loot in chaos and divines, leaving unknown items out of the sum', () => {
-    const value = valueLoot(
-      { gold: 7, lines: [{ name: 'Chaos Orb', count: 30 }, { name: 'Divine Orb', count: 2 }, { name: 'Urn Relic', count: 1 }] },
-      prices
-    )
-    expect(value).toMatchObject({ gold: 7, chaos: 270, divine: 2.25, unpriced: 1 })
-    expect(value.lines.map((line) => [line.name, line.chaos])).toEqual([['Divine Orb', 240], ['Chaos Orb', 30], ['Urn Relic', null]])
+    const value = valueLoot({ gold: 7, lines: [line('Chaos Orb', 30), line('Volatile Vaal Orb', 3), line('Urn Relic', 1, false)] }, prices)
+    expect(value).toMatchObject({ gold: 7, chaos: 1830, divine: 15.25, unpriced: 1 })
+    expect(value.lines.map((entry) => [entry.name, entry.chaos])).toEqual([
+      ['Volatile Vaal Orb', 1800],
+      ['Chaos Orb', 30],
+      ['Urn Relic', null]
+    ])
+  })
+
+  it('fills in a missing picture from the price list and keeps the currency flag', () => {
+    const [orb] = valueLoot({ gold: 0, lines: [line('Divine Orb', 1)] }, prices).lines
+    expect(orb).toMatchObject({ icon: 'https://web.poecdn.com/gen/image/divine.png', currency: true })
   })
 
   it('still lists the loot when there are no prices at all', () => {
-    const value = valueLoot({ gold: 0, lines: [{ name: 'Divine Orb', count: 1 }] }, null)
+    const value = valueLoot({ gold: 0, lines: [line('Divine Orb', 1)] }, null)
     expect(value).toMatchObject({ chaos: 0, divine: null, unpriced: 1 })
   })
 })
@@ -250,34 +303,58 @@ describe('PoeSite', () => {
 })
 
 describe('PriceBook', () => {
-  it('fetches once, reuses the cache for an hour and survives a restart', async () => {
+  const quick = { sleep: async () => {} }
+
+  it('downloads every category once, reuses the cache for an hour and survives a restart', async () => {
     let now = 0
     let requests = 0
-    const fetcher = (async () => {
-      requests++
-      return respond(ninjaAnswer)
-    }) as unknown as typeof fetch
+    const fetcher = ninjaFetch(() => requests++)
     const file = join(dir, 'prices.json')
-    const book = new PriceBook(file, fetcher, () => now)
-    expect((await book.get('Covens')).divineChaos).toBe(120)
+    const book = new PriceBook(file, { fetch: fetcher, now: () => now, ...quick })
+    const prices = await book.get('Covens')
+    expect(prices.divineChaos).toBe(120)
+    expect(prices.chaosByName["Baran's Crest"]).toBe(40)
+    expect(requests).toBe(CATEGORY_COUNT)
     now = 30 * 60 * 1000
-    await new PriceBook(file, fetcher, () => now).get('Covens')
-    expect(requests).toBe(1)
+    await new PriceBook(file, { fetch: fetcher, now: () => now, ...quick }).get('Covens')
+    expect(requests).toBe(CATEGORY_COUNT)
     now = 61 * 60 * 1000
     await book.get('Covens')
-    expect(requests).toBe(2)
+    expect(requests).toBe(2 * CATEGORY_COUNT)
   })
 
-  it('falls back to stale prices when poe.ninja is down, and fails only with none', async () => {
+  it('shares one download between callers that ask at the same time', async () => {
+    let requests = 0
+    const book = new PriceBook(join(dir, 'prices.json'), { fetch: ninjaFetch(() => requests++), ...quick })
+    await Promise.all([book.get('Covens'), book.get('Covens')])
+    expect(requests).toBe(CATEGORY_COUNT)
+  })
+
+  it('gets by without the extra categories but not without currency', async () => {
+    const onlyCurrency = (async (url: URL) =>
+      url.searchParams.get('type') === 'Currency' ? respond(ninjaAnswer) : respond({}, 404)) as unknown as typeof fetch
+    const prices = await new PriceBook(join(dir, 'a.json'), { fetch: onlyCurrency, ...quick }).get('Covens')
+    expect(prices.divineChaos).toBe(120)
+
+    const noCurrency = (async () => respond({}, 500)) as unknown as typeof fetch
+    await expect(new PriceBook(join(dir, 'b.json'), { fetch: noCurrency, ...quick }).get('Covens')).rejects.toThrow(/500/)
+  })
+
+  it('falls back to stale prices when poe.ninja is down', async () => {
     let now = 0
     let down = false
-    const fetcher = (async () => (down ? respond({}, 500) : respond(ninjaAnswer))) as unknown as typeof fetch
-    const book = new PriceBook(join(dir, 'prices.json'), fetcher, () => now)
+    const fetcher = (async (url: URL) => (down ? respond({}, 500) : ninjaFetch()(url))) as unknown as typeof fetch
+    const book = new PriceBook(join(dir, 'prices.json'), { fetch: fetcher, now: () => now, ...quick })
     await book.get('Covens')
     down = true
     now = 2 * 60 * 60 * 1000
     expect((await book.get('Covens')).divineChaos).toBe(120)
-    await expect(book.get('Standard')).rejects.toThrow(/500/)
+  })
+
+  it('ignores a cache written by an earlier build', async () => {
+    const file = join(dir, 'prices.json')
+    writeFileSync(file, JSON.stringify({ league: 'Covens', fetchedAt: 0, chaosByName: { 'Scroll of Wisdom': 1 }, divineChaos: 1 }))
+    expect(new PriceBook(file, quick).peek('Covens')).toBeNull()
   })
 })
 
@@ -302,7 +379,7 @@ describe('SanctumService', () => {
       sleep: async () => {},
       site,
       secrets: new SecretStore(join(dir, 'secrets.json'), cipher(options.encryption ?? true)),
-      prices: new PriceBook(join(dir, 'prices.json'), (async () => respond(ninjaAnswer)) as unknown as typeof fetch),
+      prices: new PriceBook(join(dir, 'prices.json'), { fetch: ninjaFetch(), sleep: async () => {} }),
       onChange: (view) => views.push(view.busy)
     })
     return { service, views, asked }
@@ -483,8 +560,7 @@ describe('SanctumService', () => {
       chaos: 480,
       divine: 4,
       gold: 400,
-      chaosOrbs: 0,
-      divineOrbs: 4
+      currency: { 'Divine Orb': 4 }
     })
 
     // The history survives a restart; a new session starts its own statistics.
@@ -533,5 +609,108 @@ describe('SanctumService', () => {
     service.newSession()
     expect(service.view().stats.session.runs).toBe(0)
     expect(service.view().stats.allTime.runs).toBe(1)
+  })
+
+  // ── Readings after every room, tracked currency, counters ──
+
+  it('reads the inventory after a room change, so loot shows before the floor ends', async () => {
+    const { service, asked } = setup([siteAnswer([]), siteAnswer([], 0), siteAnswer([stack('Chaos Orb', 4)], 0)])
+    await service.saveAccess(access)
+    asked.length = 0
+    service.onArea(sec(0), 'SanctumFoyer_1_1', 'entrance')
+    service.onArea(sec(5), 'SanctumCellar', 'room-0')
+    await service.settled()
+    service.onArea(sec(20), 'SanctumCellar', 'room-1')
+    await service.settled()
+    expect(asked).toEqual(['get-items Tester', 'get-items Tester'])
+    expect(service.view().active?.run.floors[0].loot).toMatchObject({ chaos: 4 })
+  })
+
+  it('skips a room reading when a newer one is already waiting', async () => {
+    const { service, asked } = setup([siteAnswer([]), siteAnswer([], 0), siteAnswer([stack('Chaos Orb', 9)], 0)])
+    await service.saveAccess(access)
+    asked.length = 0
+    // Four rooms in a row with no time for the site in between: one baseline, then only the last reading.
+    service.onArea(sec(0), 'SanctumFoyer_1_1', 'entrance')
+    for (let i = 0; i < 4; i++) service.onArea(sec(5 + i), 'SanctumCellar', `room-${i}`)
+    await service.settled()
+    expect(asked).toHaveLength(2)
+    expect(service.view().active?.run.loot).toMatchObject({ chaos: 9 })
+  })
+
+  it('stops room readings near the half-hour limit but still reads at the end of the floor', async () => {
+    const answers = [siteAnswer([]), ...Array.from({ length: 80 }, () => siteAnswer([], 0)), siteAnswer([stack('Divine Orb', 1)], 0)]
+    const { service, asked } = setup(answers)
+    await service.saveAccess(access)
+    service.onArea(sec(0), 'SanctumFoyer_1_1', 'entrance')
+    // Far more room changes than the allowance; each one waits for the previous reading.
+    for (let i = 0; i < 90; i++) {
+      service.onArea(sec(5 + i), 'SanctumCellar', `room-${i}`)
+      await service.settled()
+    }
+    const afterRooms = asked.length
+    expect(afterRooms).toBe(70)
+    service.onArea(sec(200), 'SanctumFoyer_Fellshrine', 'lobby')
+    await service.settled()
+    expect(asked.length).toBe(afterRooms + 1)
+  })
+
+  it('counts runs started in the session and today, including the one in progress', async () => {
+    const { service } = setup([])
+    playFloor(service, 1, 0)
+    service.failActive()
+    service.onArea(Date.now(), 'SanctumFoyer_1_1', 'another')
+    // The first run is dated in the past (the fixture clock), the second one now.
+    expect(service.view().runCounts.session).toBe(2)
+    expect(service.view().runCounts.today).toBeGreaterThanOrEqual(1)
+    service.newSession()
+    expect(service.view().runCounts.session).toBe(0)
+  })
+
+  it('keeps the finished run on screen until the player leaves the lobby', async () => {
+    const { service } = setup([])
+    let t = 0
+    for (const floor of [1, 2, 3, 4]) t = playFloor(service, floor, t)
+    service.onDialogue(sec(t - 1), 'Lycia, Herald of the Scourge', '*laughter*')
+    service.onArea(sec(t), 'SanctumFoyer_Fellshrine', 'lobby')
+    expect(service.view()).toMatchObject({ active: null, finished: { outcome: 'completed' } })
+    service.onArea(sec(t + 30), 'HideoutSpace', '1')
+    expect(service.view().finished).toBeNull()
+  })
+
+  it('remembers which currency to track and offers the price source as a catalog', async () => {
+    const { service } = setup([])
+    expect(service.view().tracked.map((item) => item.name)).toEqual(['Divine Orb', 'Chaos Orb'])
+    service.setTracked([' Volatile Vaal Orb ', 'Chaos Orb', 'Chaos Orb', ''], true)
+    expect(service.view()).toMatchObject({ trackAll: true })
+    expect(service.view().tracked.map((item) => item.name)).toEqual(['Volatile Vaal Orb', 'Chaos Orb'])
+
+    const catalog = await service.getCatalog()
+    expect(catalog.map((item) => item.name)).toContain('Volatile Vaal Orb')
+    // Once prices are loaded, tracked items get their pictures.
+    expect(service.view().tracked[0].icon).toBe('https://web.poecdn.com/gen/image/volatile.png')
+
+    const reopened = setup([]).service.view()
+    expect(reopened.tracked.map((item) => item.name)).toEqual(['Volatile Vaal Orb', 'Chaos Orb'])
+    expect(reopened.trackAll).toBe(true)
+  })
+
+  it('counts every currency picked up, for the statistics of tracked items', async () => {
+    const { service } = setup([
+      siteAnswer([]),
+      siteAnswer([], 0),
+      siteAnswer([stack('Volatile Vaal Orb', 3), stack('Chaos Orb', 12), single('relic', 'Urn Relic')], 0)
+    ])
+    await service.saveAccess(access)
+    playFloor(service, 1, 0)
+    service.failActive()
+    await service.settled()
+    const { stats, runs } = service.view()
+    expect(stats.session.currency).toEqual({ 'Volatile Vaal Orb': 3, 'Chaos Orb': 12 })
+    expect(stats.session.chaos).toBe(1812)
+    expect(runs[0].loot.lines.find((line) => line.name === 'Volatile Vaal Orb')).toMatchObject({
+      currency: true,
+      icon: expect.stringContaining('VolatileVaalOrb')
+    })
   })
 })

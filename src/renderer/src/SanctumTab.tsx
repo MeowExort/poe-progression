@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { SessionState } from '@shared/api'
-import type { LootValue, RunView, SanctumTotals, SanctumView } from '@shared/sanctum'
+import type { LootValue, RunView, SanctumTotals, SanctumView, TrackedItem } from '@shared/sanctum'
 import { formatClock, formatDateTime, formatDuration } from './format'
 import { useNow } from './hooks'
 
@@ -95,6 +95,95 @@ function Access({ view, session }: { view: SanctumView; session: SessionState })
   )
 }
 
+/** Lets the player choose which currency the overlay and the statistics show, and in what order. */
+function TrackedEditor({ view }: { view: SanctumView }) {
+  const [catalog, setCatalog] = useState<TrackedItem[] | null>(null)
+  const [query, setQuery] = useState('')
+  const names = view.tracked.map((item) => item.name)
+  const save = (next: string[], trackAll = view.trackAll): void => void window.poe.sanctum.setTracked(next, trackAll)
+
+  const move = (index: number, by: number): void => {
+    const next = [...names]
+    const [name] = next.splice(index, 1)
+    next.splice(index + by, 0, name)
+    save(next)
+  }
+  const add = (name: string): void => {
+    const clean = name.trim()
+    if (clean && !names.includes(clean)) save([...names, clean])
+    setQuery('')
+  }
+
+  const wanted = query.trim().toLowerCase()
+  const matches = wanted
+    ? (catalog ?? []).filter((item) => item.name.toLowerCase().includes(wanted) && !names.includes(item.name)).slice(0, 8)
+    : []
+
+  return (
+    <details
+      className="method tracked-editor"
+      onToggle={(e) => {
+        // The catalog is a few hundred entries from the price source: fetch it only when needed.
+        if ((e.currentTarget as HTMLDetailsElement).open && !catalog) void window.poe.sanctum.getCatalog().then(setCatalog)
+      }}
+    >
+      <summary>Отслеживаемая валюта · {names.length}</summary>
+      <p className="hint">Эти предметы показываются на полоске и в статистике, в этом порядке.</p>
+      <ul className="tracked-list">
+        {view.tracked.map((item, index) => (
+          <li key={item.name}>
+            {item.icon ? <img src={item.icon} alt="" /> : <i className="noicon" />}
+            <span>{item.name}</span>
+            <button disabled={index === 0} onClick={() => move(index, -1)} title="Выше">
+              ↑
+            </button>
+            <button disabled={index === names.length - 1} onClick={() => move(index, 1)} title="Ниже">
+              ↓
+            </button>
+            <button onClick={() => save(names.filter((name) => name !== item.name))} title="Убрать">
+              ✕
+            </button>
+          </li>
+        ))}
+      </ul>
+      <form
+        className="field-row"
+        onSubmit={(e) => {
+          e.preventDefault()
+          // Enter takes the first suggestion; a name the price source does not know is accepted as typed.
+          add(matches[0]?.name ?? query)
+        }}
+      >
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={catalog ? 'Найти: Volatile Vaal Orb…' : 'Загружаю список…'}
+          spellCheck={false}
+        />
+        <button type="submit" disabled={!query.trim()}>
+          Добавить
+        </button>
+      </form>
+      {matches.length > 0 && (
+        <ul className="tracked-suggest">
+          {matches.map((item) => (
+            <li key={item.name}>
+              <button type="button" onClick={() => add(item.name)}>
+                {item.icon && <img src={item.icon} alt="" />}
+                {item.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <label className="check">
+        <input type="checkbox" checked={view.trackAll} onChange={(e) => save(names, e.target.checked)} />
+        <span>Показывать и всю остальную валюту, которая выпала</span>
+      </label>
+    </details>
+  )
+}
+
 export function LootTable({ loot }: { loot: LootValue }) {
   if (!loot.lines.length && !loot.gold) return <p className="empty">Ничего не прибавилось.</p>
   return (
@@ -113,7 +202,10 @@ export function LootTable({ loot }: { loot: LootValue }) {
         <tbody>
           {loot.lines.map((line) => (
             <tr key={line.name}>
-              <td>{line.name}</td>
+              <td>
+                {line.icon && <img src={line.icon} alt="" />}
+                {line.name}
+              </td>
               <td className="num">×{number(line.count)}</td>
               <td className="num muted">{line.chaos != null ? `${number(line.chaos, 1)} c` : 'без цены'}</td>
             </tr>
@@ -121,7 +213,10 @@ export function LootTable({ loot }: { loot: LootValue }) {
         </tbody>
       </table>
       {loot.unpriced > 0 && (
-        <p className="hint">Позиций без цены: {loot.unpriced}. В суммы они не входят — пока оцениваю только валюту.</p>
+        <p className="hint">
+          Позиций без цены: {loot.unpriced}. В суммы они не входят: цены есть только у того, что продаётся на бирже
+          валюты.
+        </p>
       )}
     </>
   )
@@ -139,10 +234,33 @@ export function lootSummary(loot: LootValue): string {
   return `${number(loot.chaos, 1)} c${divine}`
 }
 
-function Tile({ label, value, note }: { label: string; value: string; note?: string }) {
+/** The tracked currency, then (when everything is tracked) whatever else dropped, most common first. */
+function trackedTiles(view: SanctumView, totals: SanctumTotals): (TrackedItem & { count: number })[] {
+  const tiles = view.tracked.map((item) => ({ ...item, count: totals.currency[item.name] ?? 0 }))
+  if (view.trackAll) {
+    const rest = Object.entries(totals.currency)
+      .filter(([name]) => !view.tracked.some((item) => item.name === name))
+      .sort(([, a], [, b]) => b - a)
+    for (const [name, count] of rest) tiles.push({ name, icon: iconFromRuns(view, name), count })
+  }
+  return tiles
+}
+
+function iconFromRuns(view: SanctumView, name: string): string | null {
+  for (const run of view.runs) {
+    const line = run.loot.lines.find((entry) => entry.name === name)
+    if (line?.icon) return line.icon
+  }
+  return null
+}
+
+function Tile({ label, value, note, icon }: { label: string; value: string; note?: string; icon?: string | null }) {
   return (
     <div className="stat-tile">
-      <dt>{label}</dt>
+      <dt>
+        {icon && <img src={icon} alt="" />}
+        {label}
+      </dt>
       <dd>{value}</dd>
       {note && <small>{note}</small>}
     </div>
@@ -192,16 +310,15 @@ function Stats({ view }: { view: SanctumView }) {
             note={totals.divine != null ? `${show(perHour(totals.divine, sessionMs), 2)} div` : undefined}
           />
         )}
-        <Tile
-          label="Divine Orb, штук"
-          value={String(totals.divineOrbs)}
-          note={`${show(perRun(totals.divineOrbs, totals.runs), 2)} за забег · ${show(perHour(totals.divineOrbs, totals.sanctumMs), 2)} в час`}
-        />
-        <Tile
-          label="Chaos Orb, штук"
-          value={String(totals.chaosOrbs)}
-          note={`${show(perRun(totals.chaosOrbs, totals.runs))} за забег · ${show(perHour(totals.chaosOrbs, totals.sanctumMs))} в час`}
-        />
+        {trackedTiles(view, totals).map((item) => (
+          <Tile
+            key={item.name}
+            icon={item.icon}
+            label={item.name}
+            value={number(item.count)}
+            note={`${show(perRun(item.count, totals.runs), 2)} за забег · ${show(perHour(item.count, totals.sanctumMs), 2)} в час`}
+          />
+        ))}
         <Tile label="Золото" value={number(totals.gold)} note={`в Sanctum: ${time(totals.sanctumMs)}`} />
       </dl>
     </section>
@@ -282,6 +399,7 @@ export function SanctumTab({ view, session }: { view: SanctumView; session: Sess
     <div className="plan">
       <aside className="plan-side">
         <Access view={view} session={session} />
+        <TrackedEditor view={view} />
         <details className="method">
           <summary>Ручная проверка подсчёта</summary>
           <p className="hint">

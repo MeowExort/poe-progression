@@ -2,32 +2,63 @@ import type { LootValue } from '@shared/sanctum'
 import type { RawLoot } from './inventory'
 
 export interface Prices {
+  /** Format of this structure; raised when prices from an older build must not be reused. */
+  version: 2
   league: string
   fetchedAt: number
   /** Item name → price of one in Chaos Orbs. */
   chaosByName: Record<string, number>
   divineChaos: number | null
+  /** Item name → picture, for every item the price source lists. */
+  icons: Record<string, string>
 }
 
-/** Reads poe.ninja's currency overview: every line is a currency with its price in Chaos Orbs. */
-export function parseCurrencyOverview(body: unknown, league: string, fetchedAt: number): Prices | null {
-  const lines = (body as { lines?: unknown } | null)?.lines
-  if (!Array.isArray(lines)) return null
-  // Chaos is the unit everything else is priced in, so the overview does not list it.
-  const chaosByName: Record<string, number> = { 'Chaos Orb': 1 }
-  for (const line of lines as { currencyTypeName?: unknown; chaosEquivalent?: unknown; pay?: { value?: unknown } | null }[]) {
-    if (typeof line?.currencyTypeName !== 'string' || typeof line.chaosEquivalent !== 'number') continue
-    let price: number | null = line.chaosEquivalent
-    if (price <= 1) {
-      // Listings cannot say "less than one Chaos Orb per item", so every cheap currency shows as
-      // exactly 1. The opposite direction — how many of it buy one Chaos Orb — gives the real
-      // price; without it the price is unknown rather than 1.
-      const perChaos = line.pay?.value
-      price = typeof perChaos === 'number' && perChaos > 1 ? 1 / perChaos : null
-    }
-    if (price !== null && price > 0) chaosByName[line.currencyTypeName] = price
+const ICON_HOST = 'https://web.poecdn.com'
+
+/**
+ * Reads one category of poe.ninja's exchange overview: prices taken from the in-game currency
+ * exchange, in Chaos Orbs, with fractions for items cheaper than one. Returns null when the
+ * answer has another shape or is not priced in Chaos Orbs.
+ */
+export function parseExchangeOverview(
+  body: unknown
+): Pick<Prices, 'chaosByName' | 'icons'> | null {
+  const { core, lines, items } = (body ?? {}) as {
+    core?: { primary?: unknown; items?: unknown }
+    lines?: unknown
+    items?: unknown
   }
-  return { league, fetchedAt, chaosByName, divineChaos: chaosByName['Divine Orb'] ?? null }
+  if (!Array.isArray(lines) || !Array.isArray(items) || core?.primary !== 'chaos') return null
+
+  const chaosByName: Record<string, number> = {}
+  const icons: Record<string, string> = {}
+  const nameById = new Map<string, string>()
+  type Item = { id?: unknown; name?: unknown; image?: unknown }
+  for (const item of [...(items as Item[]), ...(Array.isArray(core.items) ? (core.items as Item[]) : [])]) {
+    if (typeof item?.id !== 'string' || typeof item.name !== 'string') continue
+    nameById.set(item.id, item.name)
+    if (typeof item.image === 'string' && item.image) {
+      icons[item.name] = item.image.startsWith('http') ? item.image : ICON_HOST + item.image
+    }
+  }
+  for (const line of lines as { id?: unknown; primaryValue?: unknown }[]) {
+    const name = typeof line?.id === 'string' ? nameById.get(line.id) : undefined
+    if (name && typeof line.primaryValue === 'number' && line.primaryValue > 0) chaosByName[name] = line.primaryValue
+  }
+  // Chaos is the unit everything is priced in.
+  if (nameById.has('chaos')) chaosByName['Chaos Orb'] = 1
+  return { chaosByName, icons }
+}
+
+/** Joins the categories into one price list. */
+export function combinePrices(
+  parts: Pick<Prices, 'chaosByName' | 'icons'>[],
+  league: string,
+  fetchedAt: number
+): Prices {
+  const chaosByName = Object.assign({}, ...parts.map((part) => part.chaosByName)) as Record<string, number>
+  const icons = Object.assign({}, ...parts.map((part) => part.icons)) as Record<string, string>
+  return { version: 2, league, fetchedAt, chaosByName, divineChaos: chaosByName['Divine Orb'] ?? null, icons }
 }
 
 /** Prices the loot. Without prices, or for items without one, lines stay unpriced and out of the sums. */
@@ -36,13 +67,14 @@ export function valueLoot(loot: RawLoot, prices: Prices | null): LootValue {
   let unpriced = 0
   const lines = loot.lines
     .map((line) => {
+      const icon = line.icon ?? prices?.icons[line.name] ?? null
       const each = prices?.chaosByName[line.name]
       if (each === undefined) {
         unpriced++
-        return { ...line, chaos: null }
+        return { ...line, icon, chaos: null }
       }
       chaos += each * line.count
-      return { ...line, chaos: each * line.count }
+      return { ...line, icon, chaos: each * line.count }
     })
     // Most valuable first; unpriced items after the priced ones, by name.
     .sort((a, b) => (b.chaos ?? -1) - (a.chaos ?? -1) || a.name.localeCompare(b.name))

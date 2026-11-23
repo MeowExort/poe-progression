@@ -10,12 +10,22 @@ export interface InventorySnapshot {
   stacks: Record<string, number>
   /** Everything else: item id → display name. The id survives moving the item around. */
   singles: Record<string, string>
+  /** What is known about each item name seen: its picture and whether it is a currency item. */
+  info: Record<string, ItemInfo>
+}
+
+export interface ItemInfo {
+  icon: string | null
+  currency: boolean
 }
 
 export interface RawLoot {
   gold: number
-  lines: { name: string; count: number }[]
+  lines: ({ name: string; count: number } & ItemInfo)[]
 }
+
+/** The site's "frame type" of currency items. */
+const CURRENCY_FRAME = 5
 
 interface SiteItem {
   id?: unknown
@@ -24,6 +34,8 @@ interface SiteItem {
   typeLine?: unknown
   stackSize?: unknown
   maxStackSize?: unknown
+  icon?: unknown
+  frameType?: unknown
 }
 
 const text = (value: unknown): string => (typeof value === 'string' ? value : '')
@@ -43,10 +55,12 @@ export function toSnapshot(body: unknown, takenAt: number): InventorySnapshot | 
 
   const stacks: Record<string, number> = {}
   const singles: Record<string, string> = {}
+  const info: Record<string, ItemInfo> = {}
   for (const item of items as SiteItem[]) {
     if (!item || item.inventoryId !== 'MainInventory') continue
     const name = [text(item.name), text(item.typeLine)].filter(Boolean).join(' ')
     if (!name) continue
+    info[name] = { icon: text(item.icon) || null, currency: item.frameType === CURRENCY_FRAME }
     if (typeof item.maxStackSize === 'number' || typeof item.stackSize === 'number') {
       stacks[name] = (stacks[name] ?? 0) + (typeof item.stackSize === 'number' ? item.stackSize : 1)
     } else if (typeof item.id === 'string') {
@@ -61,7 +75,8 @@ export function toSnapshot(body: unknown, takenAt: number): InventorySnapshot | 
     level: typeof character?.level === 'number' ? character.level : null,
     gold: typeof inventory?.gold === 'number' ? inventory.gold : null,
     stacks,
-    singles
+    singles,
+    info
   }
 }
 
@@ -77,7 +92,12 @@ export function diffSnapshots(before: InventorySnapshot, after: InventorySnapsho
   }
   return {
     gold: before.gold != null && after.gold != null ? Math.max(0, after.gold - before.gold) : 0,
-    lines: [...gained].map(([name, count]) => ({ name, count }))
+    lines: [...gained].map(([name, count]) => ({
+      name,
+      count,
+      icon: after.info[name]?.icon ?? null,
+      currency: after.info[name]?.currency ?? false
+    }))
   }
 }
 

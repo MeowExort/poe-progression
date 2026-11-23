@@ -2,9 +2,9 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { diffSnapshots, entryCount, lastPlayedCharacter, toSnapshot, type InventorySnapshot } from '@core/sanctum/inventory'
 import { valueLoot } from '@core/sanctum/prices'
-import { SanctumTracker, type Boundary, type TrackedRun } from '@core/sanctum/runs'
+import { classifyArea, SanctumTracker, type Boundary, type TrackedRun } from '@core/sanctum/runs'
 import { computeTotals, EMPTY_LOOT, mergeLoot } from '@core/sanctum/stats'
-import type { LootValue, RunView, SanctumAccess, SanctumView } from '@shared/sanctum'
+import type { LootValue, RunView, SanctumAccess, SanctumView, TrackedItem } from '@shared/sanctum'
 import { normalizeCookie, SiteError, type PoeSite } from './poe-site'
 import type { PriceBook } from './prices'
 import type { SecretStore } from './secrets'
@@ -14,6 +14,15 @@ const SNAPSHOTS_KEPT = 20
 const RUNS_SHOWN = 100
 /** The site learns about the inventory when the character changes area; give it a moment to catch up. */
 const BOUNDARY_DELAY_MS = 3000
+const HALF_HOUR_MS = 30 * 60 * 1000
+/**
+ * The site allows 100 item requests in half an hour and blocks for ten minutes beyond that.
+ * Readings after ordinary room changes stop at this many, leaving room for the ones that matter.
+ */
+const OPTIONAL_BUDGET = 70
+const DEFAULT_TRACKED = ['Divine Orb', 'Chaos Orb']
+/** Used for the catalog of currency before any character has been read. */
+const FALLBACK_LEAGUE = 'Standard'
 
 /** A run as kept on disk: what the tracker saw, plus the loot counted for each floor. */
 interface StoredRun extends TrackedRun {
@@ -60,12 +69,19 @@ export class SanctumService {
   private runSnapshot: InventorySnapshot | null = null
   /** Inventory readings for run boundaries, done one after another. */
   private pending: Promise<void> = Promise.resolve()
+  /** Counts boundaries as they are queued, so a waiting one can tell whether a newer one exists. */
+  private boundarySeq = 0
   private readonly tracker = new SanctumTracker({
     onRun: (run) => this.recordRun(run),
     onBoundary: (boundary) => {
-      this.pending = this.pending.then(() => this.readBoundary(boundary)).catch(() => {})
+      const seq = ++this.boundarySeq
+      this.pending = this.pending.then(() => this.readBoundary(boundary, seq)).catch(() => {})
     }
   })
+  private tracked: string[] = [...DEFAULT_TRACKED]
+  private trackAll = false
+  /** The run that just ended, kept on screen while the player is still in the Sanctum lobby. */
+  private finishedRunId: number | null = null
 
   constructor(private readonly deps: SanctumDeps) {
     this.now = deps.now ?? Date.now
@@ -92,10 +108,18 @@ export class SanctumService {
           account?: unknown
           character?: unknown
           autoCharacter?: unknown
+          league?: unknown
+          tracked?: unknown
+          trackAll?: unknown
         }
         if (typeof stored.account === 'string') this.account = stored.account
         if (typeof stored.character === 'string') this.character = stored.character
         if (typeof stored.autoCharacter === 'boolean') this.autoCharacter = stored.autoCharacter
+        if (typeof stored.league === 'string') this.league = stored.league
+        if (Array.isArray(stored.tracked)) this.tracked = cleanNames(stored.tracked)
+        if (typeof stored.trackAll === 'boolean') this.trackAll = stored.trackAll
+        // Load prices ahead of the first run, so the tracked currency has its pictures from the start.
+        if (this.league) void this.pricesFor(this.league).then(() => this.emit())
       } catch {
         // No saved settings yet.
       }
@@ -120,15 +144,58 @@ export class SanctumService {
       lastLoot: this.lastLoot,
       prices: prices ? { league: prices.league, fetchedAt: prices.fetchedAt, divineChaos: prices.divineChaos } : null,
       pricesError: this.pricesError,
+      tracked: this.tracked.map((name) => ({ name, icon: this.iconOf(name) })),
+      trackAll: this.trackAll,
       ...this.runsView()
     }
+  }
+
+  // ── Tracked currency ──
+
+  setTracked(names: string[], trackAll: boolean): void {
+    this.tracked = cleanNames(names)
+    this.trackAll = trackAll === true
+    this.saveAccount()
+    this.emit()
+  }
+
+  /** Every item the price source knows, with pictures: what the player can choose to track. */
+  async getCatalog(): Promise<TrackedItem[]> {
+    const prices = await this.pricesFor(this.league ?? FALLBACK_LEAGUE)
+    this.emit()
+    return Object.entries(prices?.icons ?? {})
+      .map(([name, icon]) => ({ name, icon }))
+      .sort((a, b) => a.name.localeCompare(b.name))
+  }
+
+  /** A picture for the item: from the price source, or from the loot it was seen in. */
+  private iconOf(name: string): string | null {
+    const prices = this.deps.prices.peek(this.league ?? FALLBACK_LEAGUE)
+    if (prices?.icons[name]) return prices.icons[name]
+    for (let i = this.runs.length - 1; i >= 0; i--) {
+      for (const loot of Object.values(this.runs[i].loot)) {
+        const line = loot.lines.find((entry) => entry.name === name)
+        if (line?.icon) return line.icon
+      }
+    }
+    return null
   }
 
   // ── Runs ──
 
   /** Call for every area the player enters, as seen in the game log. */
   onArea(ts: number, areaId: string, seed: string): void {
+    const wasActive = this.tracker.active?.run.id ?? null
     this.tracker.area(ts, areaId, seed)
+    const kind = classifyArea(areaId).kind
+    if (wasActive !== null && !this.tracker.active && kind === 'lobby') {
+      // The run just ended in the lobby: keep showing it until the player moves on.
+      this.finishedRunId = wasActive
+      this.emit()
+    } else if (this.finishedRunId !== null && kind !== 'lobby') {
+      this.finishedRunId = null
+      this.emit()
+    }
   }
 
   /** Call for every "Speaker: text" line of the game log. */
@@ -161,23 +228,30 @@ export class SanctumService {
     return this.pending
   }
 
-  private runsView(): Pick<SanctumView, 'sessionStartedAt' | 'runs' | 'active' | 'stats'> {
+  private runsView(): Pick<SanctumView, 'sessionStartedAt' | 'runCounts' | 'runs' | 'active' | 'finished' | 'stats'> {
     const views = this.runs.map(toRunView)
     const ended = views.filter((run) => run.outcome !== 'active')
     const live = this.tracker.active
     const activeRun = live ? views.find((run) => run.id === live.run.id) : undefined
+    const midnight = new Date(this.now()).setHours(0, 0, 0, 0)
     return {
       sessionStartedAt: this.sessionId,
+      runCounts: {
+        session: views.filter((run) => run.sessionId === this.sessionId).length,
+        today: views.filter((run) => run.startedAt >= midnight).length
+      },
       runs: ended.slice(-RUNS_SHOWN).reverse(),
       active:
         live && activeRun
           ? {
               run: activeRun,
               floor: live.where.kind === 'floor' ? live.where.floor : null,
+              room: live.where.kind === 'floor' ? live.where.room : null,
               inSanctum: live.where.kind !== 'outside',
               since: live.since
             }
           : null,
+      finished: views.find((run) => run.id === this.finishedRunId) ?? null,
       stats: {
         session: computeTotals(ended.filter((run) => run.sessionId === this.sessionId)),
         allTime: computeTotals(ended)
@@ -199,8 +273,14 @@ export class SanctumService {
   }
 
   /** Reads the inventory at a run boundary and books what was gained to the floor it belongs to. */
-  private async readBoundary(boundary: Boundary): Promise<void> {
+  private async readBoundary(boundary: Boundary, seq: number): Promise<void> {
     const run = (): StoredRun | undefined => this.runs.find((entry) => entry.id === boundary.runId)
+    // A reading after an ordinary room change is dropped when a newer one is already queued
+    // (it will find the same items) or when the half-hour allowance is nearly used up.
+    const skip = (): boolean =>
+      !boundary.required &&
+      (seq !== this.boundarySeq || this.deps.site.requestsWithin(HALF_HOUR_MS) >= OPTIONAL_BUDGET)
+    if (skip()) return
     const ready = this.account && this.deps.secrets.has(COOKIE) && (this.character || this.autoCharacter)
     if (!ready) {
       const stored = run()
@@ -209,6 +289,7 @@ export class SanctumService {
     }
 
     await this.sleep(BOUNDARY_DELAY_MS)
+    if (skip()) return
     // The player may have switched characters since the last run: look once per run.
     if (this.autoCharacter && this.characterCheckedFor !== boundary.runId) {
       this.characterCheckedFor = boundary.runId
@@ -328,7 +409,18 @@ export class SanctumService {
     mkdirSync(dirname(this.deps.file), { recursive: true })
     writeFileSync(
       this.deps.file,
-      JSON.stringify({ account: this.account, character: this.character, autoCharacter: this.autoCharacter }, null, 2)
+      JSON.stringify(
+        {
+          account: this.account,
+          character: this.character,
+          autoCharacter: this.autoCharacter,
+          league: this.league,
+          tracked: this.tracked,
+          trackAll: this.trackAll
+        },
+        null,
+        2
+      )
     )
   }
 
@@ -401,7 +493,11 @@ export class SanctumService {
       this.fail(problem)
       return null
     }
-    this.league = snapshot.league
+    if (snapshot.league && snapshot.league !== this.league) {
+      this.league = snapshot.league
+      this.saveAccount()
+      void this.pricesFor(this.league).then(() => this.emit())
+    }
     return snapshot
   }
 
@@ -424,8 +520,14 @@ function durationOf(run: TrackedRun): number {
   return run.floors.reduce((sum, floor) => sum + floor.ms, 0) + run.transitMs
 }
 
+function cleanNames(names: unknown[]): string[] {
+  const clean = names.filter((name): name is string => typeof name === 'string').map((name) => name.trim())
+  return [...new Set(clean.filter(Boolean))].slice(0, 40)
+}
+
 function toRunView(run: StoredRun): RunView {
-  const floors = run.floors.map((floor) => ({ ...floor, loot: run.loot[floor.floor] ?? null }))
+  // Runs saved before room times were recorded have none.
+  const floors = run.floors.map((floor) => ({ ...floor, roomMs: floor.roomMs ?? [], loot: run.loot[floor.floor] ?? null }))
   return {
     id: run.id,
     sessionId: run.sessionId,

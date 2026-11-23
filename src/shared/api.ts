@@ -9,6 +9,30 @@ export interface AppConfig {
   logPathAuto: boolean
   /** Electron accelerator, e.g. "Shift+F". */
   overlayHotkey: string
+  /** False when the player only wants the Sanctum bar and no side panel. */
+  overlayPanelEnabled: boolean
+  /** Where the player put each overlay layout; null means the default place. */
+  overlayPanelBounds: Bounds | null
+  overlayBarBounds: Bounds | null
+}
+
+/** A rectangle on the screen, in pixels. */
+export interface Bounds {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
+/** The side panel (plan, events) or the horizontal Sanctum bar. */
+export type OverlayLayout = 'panel' | 'bar'
+
+export interface OverlayState {
+  layout: OverlayLayout
+  visible: boolean
+  /** True while the player is moving and resizing the overlay. */
+  editing: boolean
+  bounds: Bounds
 }
 
 export interface CharacterState {
@@ -43,7 +67,7 @@ export interface SessionState {
     /** False when the OS refused the shortcut (taken by another app or invalid). */
     registered: boolean
   }
-  overlayVisible: boolean
+  overlay: OverlayState
   startedAt: number
   character: CharacterState | null
   area: AreaState | null
@@ -69,6 +93,12 @@ export interface PoeApi {
   /** Switches back to automatic detection of Client.txt and returns the resulting config. */
   detectLog(): Promise<AppConfig>
   toggleOverlay(): Promise<void>
+  /** Starts moving and resizing the given overlay layout, or ends it with null. */
+  editOverlay(layout: OverlayLayout | null): Promise<void>
+  /** Moves and resizes the overlay being edited. */
+  setOverlayBounds(bounds: Bounds): Promise<void>
+  /** Puts the layout back to its default place and size. */
+  resetOverlay(layout: OverlayLayout): Promise<void>
   plan: PlanApi
   sanctum: SanctumApi
 }
@@ -80,5 +110,8 @@ export const IPC = {
   setConfig: 'config:set',
   pickLogFile: 'config:pick-log',
   detectLog: 'config:detect-log',
-  toggleOverlay: 'overlay:toggle'
+  toggleOverlay: 'overlay:toggle',
+  editOverlay: 'overlay:edit',
+  setOverlayBounds: 'overlay:set-bounds',
+  resetOverlay: 'overlay:reset'
 } as const

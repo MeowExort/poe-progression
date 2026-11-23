@@ -28,7 +28,6 @@ export function mergeLoot(a: LootValue | null, b: LootValue): LootValue {
 const average = (values: number[]): number | null =>
   values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null
 
-const countOf = (loot: LootValue, name: string): number => loot.lines.find((line) => line.name === name)?.count ?? 0
 
 /** Statistics over finished runs; a run still in progress is left out. */
 export function computeTotals(runs: RunView[]): SanctumTotals {
@@ -50,7 +49,13 @@ export function computeTotals(runs: RunView[]): SanctumTotals {
     chaos: loot.chaos,
     divine: loot.divine,
     gold: loot.gold,
-    chaosOrbs: countOf(loot, 'Chaos Orb'),
-    divineOrbs: countOf(loot, 'Divine Orb')
+    currency: currencyCounts(loot)
   }
+}
+
+/** How many of each currency item the loot holds, by name. */
+export function currencyCounts(loot: LootValue): Record<string, number> {
+  const counts: Record<string, number> = {}
+  for (const line of loot.lines) if (line.currency) counts[line.name] = line.count
+  return counts
 }

@@ -33,7 +33,7 @@ export function Dashboard() {
           {log.found ? 'Лог подключён' : log.path ? 'Client.txt не найден' : 'Путь к логу не задан'}
         </span>
         <button onClick={() => void window.poe.toggleOverlay()}>
-          {session.overlayVisible ? 'Скрыть оверлей' : 'Показать оверлей'}
+          {session.overlay.visible ? 'Скрыть оверлей' : 'Показать оверлей'}
           <kbd>{session.hotkey.accelerator}</kbd>
         </button>
       </header>

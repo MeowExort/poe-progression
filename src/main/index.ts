@@ -1,11 +1,11 @@
 import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { app, BrowserWindow, dialog, ipcMain, safeStorage, shell } from 'electron'
-import { IPC, type AppConfig, type SessionState } from '@shared/api'
+import { IPC, type AppConfig, type Bounds, type OverlayLayout, type SessionState } from '@shared/api'
 import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
 import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
-import { detectLogPath, loadConfig, saveConfig } from './config'
+import { detectLogPath, loadConfig, readBounds, saveConfig } from './config'
 import { parseLine } from './log/parser'
 import { LogTailer } from './log/tailer'
 import { Overlay } from './overlay'
@@ -30,6 +30,7 @@ let overlay: Overlay | null = null
 let tailer: LogTailer | null = null
 let plan: PlanStore | null = null
 let sanctum: SanctumService | null = null
+let boundsSaveTimer: NodeJS.Timeout | null = null
 
 const session = new Session({
   onChange: broadcast,
@@ -137,16 +138,20 @@ function registerIpc(): void {
     const logPath = typeof patch.logPath === 'string' ? patch.logPath.trim() : config.logPath
     const logChanged = logPath !== config.logPath
     const next: AppConfig = {
+      ...config,
       logPath,
       // A path the user typed or picked stays put; only "detect" switches back to automatic.
       logPathAuto: logChanged ? false : config.logPathAuto,
-      overlayHotkey: typeof patch.overlayHotkey === 'string' ? patch.overlayHotkey.trim() : config.overlayHotkey
+      overlayHotkey: typeof patch.overlayHotkey === 'string' ? patch.overlayHotkey.trim() : config.overlayHotkey,
+      overlayPanelEnabled:
+        typeof patch.overlayPanelEnabled === 'boolean' ? patch.overlayPanelEnabled : config.overlayPanelEnabled
     }
     const hotkeyChanged = next.overlayHotkey !== config.overlayHotkey
     config = next
     saveConfig(configFile, config)
     if (logChanged) followLog(config.logPath)
     if (hotkeyChanged) applyHotkey()
+    overlay?.refresh()
     return config
   })
   ipcMain.handle(IPC.detectLog, () => {
@@ -169,6 +174,16 @@ function registerIpc(): void {
     return result.canceled ? null : (result.filePaths[0] ?? null)
   })
   ipcMain.handle(IPC.toggleOverlay, () => overlay?.toggle())
+  ipcMain.handle(IPC.editOverlay, (_event, layout: OverlayLayout | null) =>
+    overlay?.edit(layout === 'panel' || layout === 'bar' ? layout : null)
+  )
+  ipcMain.handle(IPC.setOverlayBounds, (_event, bounds: Bounds) => {
+    const clean = readBounds(bounds)
+    if (clean) overlay?.setBounds(clean)
+  })
+  ipcMain.handle(IPC.resetOverlay, (_event, layout: OverlayLayout) => {
+    if (layout === 'panel' || layout === 'bar') overlay?.reset(layout)
+  })
 
   ipcMain.handle(PLAN_IPC.get, () => plan?.view())
   ipcMain.handle(PLAN_IPC.setAnswers, (_event, answers: Answers | null) => plan?.setAnswers(answers))
@@ -186,6 +201,10 @@ function registerIpc(): void {
   ipcMain.handle(SANCTUM_IPC.saveAccess, (_event, access: SanctumAccess) => sanctum?.saveAccess(access ?? {}))
   ipcMain.handle(SANCTUM_IPC.clearCookie, () => sanctum?.clearCookie())
   ipcMain.handle(SANCTUM_IPC.snapshot, () => sanctum?.snapshot())
+  ipcMain.handle(SANCTUM_IPC.setTracked, (_event, names: string[], trackAll: boolean) =>
+    sanctum?.setTracked(Array.isArray(names) ? names : [], trackAll)
+  )
+  ipcMain.handle(SANCTUM_IPC.getCatalog, () => sanctum?.getCatalog() ?? [])
   ipcMain.handle(SANCTUM_IPC.newSession, () => sanctum?.newSession())
   ipcMain.handle(SANCTUM_IPC.failActive, () => sanctum?.failActive())
   ipcMain.handle(SANCTUM_IPC.dumpSiteAnswer, async () => {
@@ -230,7 +249,11 @@ if (!app.requestSingleInstanceLock()) {
       site: new PoeSite(),
       secrets: new SecretStore(join(userData, 'secrets.json'), safeStorage),
       prices: new PriceBook(join(userData, 'prices.json')),
-      onChange: (view) => send(SANCTUM_IPC.state, view)
+      onChange: (view) => {
+        send(SANCTUM_IPC.state, view)
+        // The bar replaces the side panel for as long as a run is on screen.
+        overlay?.setInRun(view.active !== null || view.finished !== null)
+      }
     })
 
     registerIpc()
@@ -238,7 +261,15 @@ if (!app.requestSingleInstanceLock()) {
     overlay = new Overlay({
       preload,
       load: (window) => loadView(window, 'overlay'),
-      onVisibility: (overlayVisible) => session.patch({ overlayVisible })
+      onState: (state) => session.patch({ overlay: state }),
+      storedBounds: (layout) => (layout === 'panel' ? config.overlayPanelBounds : config.overlayBarBounds),
+      saveBounds: (layout, bounds) => {
+        config = layout === 'panel' ? { ...config, overlayPanelBounds: bounds } : { ...config, overlayBarBounds: bounds }
+        // Dragging reports dozens of positions a second: write the file once it settles.
+        if (boundsSaveTimer) clearTimeout(boundsSaveTimer)
+        boundsSaveTimer = setTimeout(() => saveConfig(configFile, config), 300)
+      },
+      panelEnabled: () => config.overlayPanelEnabled
     })
     overlay.create()
     applyHotkey()

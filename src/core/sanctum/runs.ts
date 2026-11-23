@@ -16,6 +16,8 @@ export interface TrackedFloor {
   floor: number
   /** Distinct rooms entered. */
   rooms: number
+  /** Time spent in each room, in the order they were entered. */
+  roomMs: number[]
   /** Time spent on the floor: its entrance and rooms. */
   ms: number
   /** True once the floor is behind: the next floor was reached or the run was won. */
@@ -33,8 +35,8 @@ export interface TrackedRun {
   transitMs: number
 }
 
-/** Where the clock is running right now. */
-export type Where = { kind: 'floor'; floor: number } | { kind: 'lobby' } | { kind: 'outside' }
+/** Where the clock is running right now. `room` is an index into the floor's rooms; null at its entrance. */
+export type Where = { kind: 'floor'; floor: number; room: number | null } | { kind: 'lobby' } | { kind: 'outside' }
 
 /** A moment at which the character's inventory should be read to count loot. */
 export interface Boundary {
@@ -43,6 +45,11 @@ export interface Boundary {
   floor: number
   /** "baseline": remember the inventory. "collect": what was gained since the last reading is loot. */
   kind: 'baseline' | 'collect'
+  /**
+   * False for the reading after an ordinary room change: it only makes the loot show up sooner
+   * and may be skipped, because the next reading will find the same items.
+   */
+  required: boolean
 }
 
 export interface TrackerOptions {
@@ -113,18 +120,27 @@ export class SanctumTracker {
         this.returnFromAway(area.floor)
       }
       this.enterFloor(area.floor)
-      return this.move({ kind: 'floor', floor: area.floor }, ts)
+      this.move({ kind: 'floor', floor: area.floor, room: null }, ts)
+      return this.emit()
     }
 
     if (!this.run) return this.move({ kind: 'outside' }, ts)
 
     if (area.kind === 'room') {
+      // Coming from another room of this floor: the loot picked up there is in the inventory now.
+      // Reading it is optional — it only shows the loot a room earlier.
+      const from = this.where
+      if (from.kind === 'floor' && from.room !== null) this.boundary(from.floor, 'collect', false)
       this.returnFromAway(area.floor)
       const floor = this.enterFloor(area.floor)
-      if (seed !== this.lastRoomSeed) floor.rooms++
+      if (seed !== this.lastRoomSeed) {
+        floor.rooms++
+        floor.roomMs.push(0)
+      }
       this.lastRoomSeed = seed
-      this.emit()
-      return this.move({ kind: 'floor', floor: area.floor }, ts)
+      // Move first, report second: whoever hears about the run must see where the clock is now.
+      this.move({ kind: 'floor', floor: area.floor, room: floor.roomMs.length - 1 }, ts)
+      return this.emit()
     }
 
     // Leaving the floors: to the lobby or out of the Sanctum altogether.
@@ -188,9 +204,12 @@ export class SanctumTracker {
     if (run) {
       const elapsed = Math.max(0, ts - this.since)
       if (this.where.kind === 'floor') {
-        const current = this.where.floor
+        const { floor: current, room } = this.where
         const floor = run.floors.find((entry) => entry.floor === current)
-        if (floor) floor.ms += elapsed
+        if (floor) {
+          floor.ms += elapsed
+          if (room !== null && room < floor.roomMs.length) floor.roomMs[room] += elapsed
+        }
       } else if (this.where.kind === 'lobby') {
         run.transitMs += elapsed
       }
@@ -212,15 +231,14 @@ export class SanctumTracker {
     let floor = run.floors.find((entry) => entry.floor === number)
     if (!floor) {
       for (const earlier of run.floors) earlier.done = true
-      floor = { floor: number, rooms: 0, ms: 0, done: false }
+      floor = { floor: number, rooms: 0, roomMs: [], ms: 0, done: false }
       run.floors.push(floor)
-      this.emit()
     }
     return floor
   }
 
-  private boundary(floor: number, kind: Boundary['kind']): void {
-    if (this.run) this.options.onBoundary?.({ runId: this.run.id, floor, kind })
+  private boundary(floor: number, kind: Boundary['kind'], required = true): void {
+    if (this.run) this.options.onBoundary?.({ runId: this.run.id, floor, kind, required })
   }
 
   private emit(): void {

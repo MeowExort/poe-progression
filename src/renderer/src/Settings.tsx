@@ -88,9 +88,41 @@ export function Settings({ session }: { session: SessionState }) {
         </small>
       </label>
 
-      <p className="hint">
-        Оверлей виден только если игра в режиме <b>Windowed Fullscreen</b> (Options → Graphics → Display Mode).
-      </p>
+      <section className="field">
+        <span>Оверлей</span>
+        <label className="check">
+          <input
+            type="checkbox"
+            checked={saved.overlayPanelEnabled}
+            onChange={(e) => void window.poe.setConfig({ overlayPanelEnabled: e.target.checked }).then(setSaved)}
+          />
+          <span>Показывать боковую панель (план актов, события). Полоска Sanctum работает и без неё.</span>
+        </label>
+        <div className="actions">
+          {session.overlay.editing ? (
+            <button type="button" className="primary" onClick={() => void window.poe.editOverlay(null)}>
+              Готово — закончить настройку
+            </button>
+          ) : (
+            <>
+              <button type="button" onClick={() => void window.poe.editOverlay('panel')}>
+                Подвинуть боковую панель
+              </button>
+              <button type="button" onClick={() => void window.poe.editOverlay('bar')}>
+                Подвинуть полоску Sanctum
+              </button>
+            </>
+          )}
+        </div>
+        <small>
+          В режиме настройки оверлей появляется поверх игры с рамкой: тяни за середину, чтобы подвинуть, за края —
+          чтобы изменить размер. Полоска при этом показывает пример забега. Кнопка «Сбросить» на рамке возвращает
+          место по умолчанию.
+        </small>
+        <small>
+          Оверлей виден только если игра в режиме <b>Windowed Fullscreen</b> (Options → Graphics → Display Mode).
+        </small>
+      </section>
 
       <div className="actions">
         <button type="submit" className="primary" disabled={!dirty}>
