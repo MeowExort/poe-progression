@@ -160,12 +160,20 @@ function sameGemName(dataName: string, pobName: string): boolean {
 }
 
 function parseSpec(spec: Node, i: number): PobTreeSpec {
-  const nodes = (str(spec.nodes) ?? '').split(',').filter((node) => node.trim().length > 0).length
+  const nodeIds = (str(spec.nodes) ?? '')
+    .split(',')
+    .map((node) => Number.parseInt(node, 10))
+    .filter((id) => Number.isInteger(id))
+  // Written as "{mastery node,effect},{mastery node,effect}".
+  const masteries: Record<number, number> = {}
+  for (const [, node, effect] of (str(spec.masteryEffects) ?? '').matchAll(/\{(\d+),(\d+)\}/g)) masteries[+node] = +effect
   const url = text(spec.URL).trim()
   return {
     title: cleanText(str(spec.title) ?? '').trim() || `Дерево ${i + 1}`,
     url: /^https:\/\//.test(url) ? url : null,
-    nodes
+    nodes: nodeIds.length,
+    nodeIds,
+    masteries
   }
 }
 

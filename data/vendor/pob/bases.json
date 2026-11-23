@@ -81,307 +81,383 @@
  },
  "Black Maw Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Bonespire Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Ashscale Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Lone Antler Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Deep One Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Breakrib Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Deadhand Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Undying Flesh Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Rot Head Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Mandible Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Chrysalis Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Writhing Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Hexclaw Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Primal Skull Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Wereclaw Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Splitnewt Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Clutching Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Avian Twins Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Fangjaw Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Horned Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Spinefuse Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Three Rat Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Monkey Twins Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Longtooth Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Rotfeather Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Monkey Paw Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Three Hands Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Greatwolf Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Chieftain Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Gargantuan Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Goliath Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Rhoa Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Blood Viper Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Chimeral Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Squid Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Sand Spitter Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Shield Crab Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Goatman Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Devourer Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Plagued Arachnid Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Watcher Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Savage Crab Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Flame Hellion Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Frost Hellion Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Lynx Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Ape Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Wolf Alpha Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Magma Hound Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Pitbull Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Ursa Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Taurus Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Retch Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Cobra Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Carrion Queen Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Scrabbler Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Black Widow Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Scorpion Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Tiger Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Vulture Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Rhex Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Hybrid Arachnid Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Octopus Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Spider Crab Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Great Maw Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Croaker Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Craicic Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Fenumal Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Saqawine Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Farric Talisman": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Avian Twins Talisman (Fire-To-Cold)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Avian Twins Talisman (Fire-To-Lightning)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Avian Twins Talisman (Cold-To-Lightning)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Avian Twins Talisman (Cold-To-Fire)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Avian Twins Talisman (Lightning-To-Cold)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Monkey Paw Talisman (Power)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Monkey Paw Talisman (Frenzy)": {
   "type": "Amulet",
-  "level": 1
+  "level": 1,
+  "sub": "Talisman"
  },
  "Rusted Hatchet": {
   "type": "One Handed Axe",
@@ -653,815 +729,1018 @@
  },
  "Plate Vest": {
   "type": "Body Armour",
-  "level": 1
+  "level": 1,
+  "sub": "Armour"
  },
  "Chestplate": {
   "type": "Body Armour",
-  "level": 6
+  "level": 6,
+  "sub": "Armour"
  },
  "Copper Plate": {
   "type": "Body Armour",
-  "level": 17
+  "level": 17,
+  "sub": "Armour"
  },
  "War Plate": {
   "type": "Body Armour",
-  "level": 21
+  "level": 21,
+  "sub": "Armour"
  },
  "Full Plate": {
   "type": "Body Armour",
-  "level": 28
+  "level": 28,
+  "sub": "Armour"
  },
  "Arena Plate": {
   "type": "Body Armour",
-  "level": 32
+  "level": 32,
+  "sub": "Armour"
  },
  "Lordly Plate": {
   "type": "Body Armour",
-  "level": 35
+  "level": 35,
+  "sub": "Armour"
  },
  "Bronze Plate": {
   "type": "Body Armour",
-  "level": 37
+  "level": 37,
+  "sub": "Armour"
  },
  "Battle Plate": {
   "type": "Body Armour",
-  "level": 41
+  "level": 41,
+  "sub": "Armour"
  },
  "Sun Plate": {
   "type": "Body Armour",
-  "level": 45
+  "level": 45,
+  "sub": "Armour"
  },
  "Colosseum Plate": {
   "type": "Body Armour",
-  "level": 49
+  "level": 49,
+  "sub": "Armour"
  },
  "Majestic Plate": {
   "type": "Body Armour",
-  "level": 53
+  "level": 53,
+  "sub": "Armour"
  },
  "Golden Plate": {
   "type": "Body Armour",
-  "level": 56
+  "level": 56,
+  "sub": "Armour"
  },
  "Crusader Plate": {
   "type": "Body Armour",
-  "level": 59
+  "level": 59,
+  "sub": "Armour"
  },
  "Astral Plate": {
   "type": "Body Armour",
-  "level": 62
+  "level": 62,
+  "sub": "Armour"
  },
  "Gladiator Plate": {
   "type": "Body Armour",
-  "level": 65
+  "level": 65,
+  "sub": "Armour"
  },
  "Glorious Plate": {
   "type": "Body Armour",
-  "level": 68
+  "level": 68,
+  "sub": "Armour"
  },
  "Titan Plate": {
   "type": "Body Armour",
-  "level": 73
+  "level": 73,
+  "sub": "Armour"
  },
  "Legion Plate": {
   "type": "Body Armour",
-  "level": 78
+  "level": 78,
+  "sub": "Armour"
  },
  "Royal Plate": {
   "type": "Body Armour",
-  "level": 84
+  "level": 84,
+  "sub": "Armour"
  },
  "Shabby Jerkin": {
   "type": "Body Armour",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion"
  },
  "Strapped Leather": {
   "type": "Body Armour",
-  "level": 9
+  "level": 9,
+  "sub": "Evasion"
  },
  "Buckskin Tunic": {
   "type": "Body Armour",
-  "level": 17
+  "level": 17,
+  "sub": "Evasion"
  },
  "Wild Leather": {
   "type": "Body Armour",
-  "level": 25
+  "level": 25,
+  "sub": "Evasion"
  },
  "Full Leather": {
   "type": "Body Armour",
-  "level": 28
+  "level": 28,
+  "sub": "Evasion"
  },
  "Sun Leather": {
   "type": "Body Armour",
-  "level": 32
+  "level": 32,
+  "sub": "Evasion"
  },
  "Thief's Garb": {
   "type": "Body Armour",
-  "level": 35
+  "level": 35,
+  "sub": "Evasion"
  },
  "Eelskin Tunic": {
   "type": "Body Armour",
-  "level": 37
+  "level": 37,
+  "sub": "Evasion"
  },
  "Frontier Leather": {
   "type": "Body Armour",
-  "level": 41
+  "level": 41,
+  "sub": "Evasion"
  },
  "Glorious Leather": {
   "type": "Body Armour",
-  "level": 45
+  "level": 45,
+  "sub": "Evasion"
  },
  "Coronal Leather": {
   "type": "Body Armour",
-  "level": 49
+  "level": 49,
+  "sub": "Evasion"
  },
  "Cutthroat's Garb": {
   "type": "Body Armour",
-  "level": 53
+  "level": 53,
+  "sub": "Evasion"
  },
  "Sharkskin Tunic": {
   "type": "Body Armour",
-  "level": 56
+  "level": 56,
+  "sub": "Evasion"
  },
  "Destiny Leather": {
   "type": "Body Armour",
-  "level": 59
+  "level": 59,
+  "sub": "Evasion"
  },
  "Exquisite Leather": {
   "type": "Body Armour",
-  "level": 62
+  "level": 62,
+  "sub": "Evasion"
  },
  "Zodiac Leather": {
   "type": "Body Armour",
-  "level": 65
+  "level": 65,
+  "sub": "Evasion"
  },
  "Assassin's Garb": {
   "type": "Body Armour",
-  "level": 68
+  "level": 68,
+  "sub": "Evasion"
  },
  "Supreme Leather": {
   "type": "Body Armour",
-  "level": 73
+  "level": 73,
+  "sub": "Evasion"
  },
  "Astral Leather": {
   "type": "Body Armour",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion"
  },
  "Syndicate's Garb": {
   "type": "Body Armour",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion"
  },
  "Simple Robe": {
   "type": "Body Armour",
-  "level": 1
+  "level": 1,
+  "sub": "Energy Shield"
  },
  "Silken Vest": {
   "type": "Body Armour",
-  "level": 11
+  "level": 11,
+  "sub": "Energy Shield"
  },
  "Scholar's Robe": {
   "type": "Body Armour",
-  "level": 18
+  "level": 18,
+  "sub": "Energy Shield"
  },
  "Silken Garb": {
   "type": "Body Armour",
-  "level": 25
+  "level": 25,
+  "sub": "Energy Shield"
  },
  "Mage's Vestment": {
   "type": "Body Armour",
-  "level": 28
+  "level": 28,
+  "sub": "Energy Shield"
  },
  "Silk Robe": {
   "type": "Body Armour",
-  "level": 32
+  "level": 32,
+  "sub": "Energy Shield"
  },
  "Cabalist Regalia": {
   "type": "Body Armour",
-  "level": 35
+  "level": 35,
+  "sub": "Energy Shield"
  },
  "Sage's Robe": {
   "type": "Body Armour",
-  "level": 37
+  "level": 37,
+  "sub": "Energy Shield"
  },
  "Silken Wrap": {
   "type": "Body Armour",
-  "level": 41
+  "level": 41,
+  "sub": "Energy Shield"
  },
  "Conjurer's Vestment": {
   "type": "Body Armour",
-  "level": 45
+  "level": 45,
+  "sub": "Energy Shield"
  },
  "Spidersilk Robe": {
   "type": "Body Armour",
-  "level": 49
+  "level": 49,
+  "sub": "Energy Shield"
  },
  "Destroyer Regalia": {
   "type": "Body Armour",
-  "level": 53
+  "level": 53,
+  "sub": "Energy Shield"
  },
  "Savant's Robe": {
   "type": "Body Armour",
-  "level": 56
+  "level": 56,
+  "sub": "Energy Shield"
  },
  "Necromancer Silks": {
   "type": "Body Armour",
-  "level": 59
+  "level": 59,
+  "sub": "Energy Shield"
  },
  "Occultist's Vestment": {
   "type": "Body Armour",
-  "level": 62
+  "level": 62,
+  "sub": "Energy Shield"
  },
  "Widowsilk Robe": {
   "type": "Body Armour",
-  "level": 65
+  "level": 65,
+  "sub": "Energy Shield"
  },
  "Vaal Regalia": {
   "type": "Body Armour",
-  "level": 68
+  "level": 68,
+  "sub": "Energy Shield"
  },
  "Arcane Vestment": {
   "type": "Body Armour",
-  "level": 73
+  "level": 73,
+  "sub": "Energy Shield"
  },
  "Nightweave Robe": {
   "type": "Body Armour",
-  "level": 78
+  "level": 78,
+  "sub": "Energy Shield"
  },
  "Twilight Regalia": {
   "type": "Body Armour",
-  "level": 84
+  "level": 84,
+  "sub": "Energy Shield"
  },
  "Scale Vest": {
   "type": "Body Armour",
-  "level": 1
+  "level": 1,
+  "sub": "Armour/Evasion"
  },
  "Light Brigandine": {
   "type": "Body Armour",
-  "level": 8
+  "level": 8,
+  "sub": "Armour/Evasion"
  },
  "Scale Doublet": {
   "type": "Body Armour",
-  "level": 17
+  "level": 17,
+  "sub": "Armour/Evasion"
  },
  "Infantry Brigandine": {
   "type": "Body Armour",
-  "level": 21
+  "level": 21,
+  "sub": "Armour/Evasion"
  },
  "Full Scale Armour": {
   "type": "Body Armour",
-  "level": 28
+  "level": 28,
+  "sub": "Armour/Evasion"
  },
  "Soldier's Brigandine": {
   "type": "Body Armour",
-  "level": 32
+  "level": 32,
+  "sub": "Armour/Evasion"
  },
  "Field Lamellar": {
   "type": "Body Armour",
-  "level": 35
+  "level": 35,
+  "sub": "Armour/Evasion"
  },
  "Wyrmscale Doublet": {
   "type": "Body Armour",
-  "level": 38
+  "level": 38,
+  "sub": "Armour/Evasion"
  },
  "Hussar Brigandine": {
   "type": "Body Armour",
-  "level": 42
+  "level": 42,
+  "sub": "Armour/Evasion"
  },
  "Full Wyrmscale": {
   "type": "Body Armour",
-  "level": 46
+  "level": 46,
+  "sub": "Armour/Evasion"
  },
  "Commander's Brigandine": {
   "type": "Body Armour",
-  "level": 50
+  "level": 50,
+  "sub": "Armour/Evasion"
  },
  "Battle Lamellar": {
   "type": "Body Armour",
-  "level": 54
+  "level": 54,
+  "sub": "Armour/Evasion"
  },
  "Dragonscale Doublet": {
   "type": "Body Armour",
-  "level": 57
+  "level": 57,
+  "sub": "Armour/Evasion"
  },
  "Desert Brigandine": {
   "type": "Body Armour",
-  "level": 60
+  "level": 60,
+  "sub": "Armour/Evasion"
  },
  "Full Dragonscale": {
   "type": "Body Armour",
-  "level": 63
+  "level": 63,
+  "sub": "Armour/Evasion"
  },
  "General's Brigandine": {
   "type": "Body Armour",
-  "level": 66
+  "level": 66,
+  "sub": "Armour/Evasion"
  },
  "Triumphant Lamellar": {
   "type": "Body Armour",
-  "level": 69
+  "level": 69,
+  "sub": "Armour/Evasion"
  },
  "Full Wyvernscale": {
   "type": "Body Armour",
-  "level": 73
+  "level": 73,
+  "sub": "Armour/Evasion"
  },
  "Marshall's Brigandine": {
   "type": "Body Armour",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Evasion"
  },
  "Conquest Lamellar": {
   "type": "Body Armour",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Evasion"
  },
  "Chainmail Vest": {
   "type": "Body Armour",
-  "level": 1
+  "level": 1,
+  "sub": "Armour/Energy Shield"
  },
  "Chainmail Tunic": {
   "type": "Body Armour",
-  "level": 8
+  "level": 8,
+  "sub": "Armour/Energy Shield"
  },
  "Ringmail Coat": {
   "type": "Body Armour",
-  "level": 17
+  "level": 17,
+  "sub": "Armour/Energy Shield"
  },
  "Chainmail Doublet": {
   "type": "Body Armour",
-  "level": 21
+  "level": 21,
+  "sub": "Armour/Energy Shield"
  },
  "Full Ringmail": {
   "type": "Body Armour",
-  "level": 28
+  "level": 28,
+  "sub": "Armour/Energy Shield"
  },
  "Full Chainmail": {
   "type": "Body Armour",
-  "level": 32
+  "level": 32,
+  "sub": "Armour/Energy Shield"
  },
  "Holy Chainmail": {
   "type": "Body Armour",
-  "level": 35
+  "level": 35,
+  "sub": "Armour/Energy Shield"
  },
  "Latticed Ringmail": {
   "type": "Body Armour",
-  "level": 39
+  "level": 39,
+  "sub": "Armour/Energy Shield"
  },
  "Crusader Chainmail": {
   "type": "Body Armour",
-  "level": 43
+  "level": 43,
+  "sub": "Armour/Energy Shield"
  },
  "Ornate Ringmail": {
   "type": "Body Armour",
-  "level": 47
+  "level": 47,
+  "sub": "Armour/Energy Shield"
  },
  "Chain Hauberk": {
   "type": "Body Armour",
-  "level": 51
+  "level": 51,
+  "sub": "Armour/Energy Shield"
  },
  "Devout Chainmail": {
   "type": "Body Armour",
-  "level": 55
+  "level": 55,
+  "sub": "Armour/Energy Shield"
  },
  "Loricated Ringmail": {
   "type": "Body Armour",
-  "level": 58
+  "level": 58,
+  "sub": "Armour/Energy Shield"
  },
  "Conquest Chainmail": {
   "type": "Body Armour",
-  "level": 61
+  "level": 61,
+  "sub": "Armour/Energy Shield"
  },
  "Elegant Ringmail": {
   "type": "Body Armour",
-  "level": 64
+  "level": 64,
+  "sub": "Armour/Energy Shield"
  },
  "Saint's Hauberk": {
   "type": "Body Armour",
-  "level": 67
+  "level": 67,
+  "sub": "Armour/Energy Shield"
  },
  "Saintly Chainmail": {
   "type": "Body Armour",
-  "level": 70
+  "level": 70,
+  "sub": "Armour/Energy Shield"
  },
  "Grand Ringmail": {
   "type": "Body Armour",
-  "level": 73
+  "level": 73,
+  "sub": "Armour/Energy Shield"
  },
  "Paladin's Hauberk": {
   "type": "Body Armour",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Energy Shield"
  },
  "Sacred Chainmail": {
   "type": "Body Armour",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Energy Shield"
  },
  "Padded Vest": {
   "type": "Body Armour",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion/Energy Shield"
  },
  "Oiled Vest": {
   "type": "Body Armour",
-  "level": 9
+  "level": 9,
+  "sub": "Evasion/Energy Shield"
  },
  "Padded Jacket": {
   "type": "Body Armour",
-  "level": 18
+  "level": 18,
+  "sub": "Evasion/Energy Shield"
  },
  "Oiled Coat": {
   "type": "Body Armour",
-  "level": 22
+  "level": 22,
+  "sub": "Evasion/Energy Shield"
  },
  "Scarlet Raiment": {
   "type": "Body Armour",
-  "level": 28
+  "level": 28,
+  "sub": "Evasion/Energy Shield"
  },
  "Waxed Garb": {
   "type": "Body Armour",
-  "level": 32
+  "level": 32,
+  "sub": "Evasion/Energy Shield"
  },
  "Bone Armour": {
   "type": "Body Armour",
-  "level": 35
+  "level": 35,
+  "sub": "Evasion/Energy Shield"
  },
  "Quilted Jacket": {
   "type": "Body Armour",
-  "level": 40
+  "level": 40,
+  "sub": "Evasion/Energy Shield"
  },
  "Sleek Coat": {
   "type": "Body Armour",
-  "level": 44
+  "level": 44,
+  "sub": "Evasion/Energy Shield"
  },
  "Crimson Raiment": {
   "type": "Body Armour",
-  "level": 48
+  "level": 48,
+  "sub": "Evasion/Energy Shield"
  },
  "Lacquered Garb": {
   "type": "Body Armour",
-  "level": 52
+  "level": 52,
+  "sub": "Evasion/Energy Shield"
  },
  "Crypt Armour": {
   "type": "Body Armour",
-  "level": 56
+  "level": 56,
+  "sub": "Evasion/Energy Shield"
  },
  "Sentinel Jacket": {
   "type": "Body Armour",
-  "level": 59
+  "level": 59,
+  "sub": "Evasion/Energy Shield"
  },
  "Varnished Coat": {
   "type": "Body Armour",
-  "level": 62
+  "level": 62,
+  "sub": "Evasion/Energy Shield"
  },
  "Blood Raiment": {
   "type": "Body Armour",
-  "level": 65
+  "level": 65,
+  "sub": "Evasion/Energy Shield"
  },
  "Sadist Garb": {
   "type": "Body Armour",
-  "level": 68
+  "level": 68,
+  "sub": "Evasion/Energy Shield"
  },
  "Carnal Armour": {
   "type": "Body Armour",
-  "level": 71
+  "level": 71,
+  "sub": "Evasion/Energy Shield"
  },
  "Sanguine Raiment": {
   "type": "Body Armour",
-  "level": 73
+  "level": 73,
+  "sub": "Evasion/Energy Shield"
  },
  "Torturer Garb": {
   "type": "Body Armour",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion/Energy Shield"
  },
  "Necrotic Armour": {
   "type": "Body Armour",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion/Energy Shield"
  },
  "Sacrificial Garb": {
   "type": "Body Armour",
-  "level": 72
+  "level": 72,
+  "sub": "Armour/Evasion/Energy Shield"
  },
  "Grasping Mail": {
   "type": "Body Armour",
-  "level": 70
+  "level": 70,
+  "sub": "Armour/Evasion/Energy Shield"
  },
  "Golden Mantle": {
   "type": "Body Armour",
-  "level": 20
+  "level": 20,
+  "sub": "Armour/Evasion/Energy Shield"
  },
  "Iron Greaves": {
   "type": "Boots",
-  "level": 1
+  "level": 1,
+  "sub": "Armour"
  },
  "Steel Greaves": {
   "type": "Boots",
-  "level": 9
+  "level": 9,
+  "sub": "Armour"
  },
  "Plated Greaves": {
   "type": "Boots",
-  "level": 23
+  "level": 23,
+  "sub": "Armour"
  },
  "Reinforced Greaves": {
   "type": "Boots",
-  "level": 33
+  "level": 33,
+  "sub": "Armour"
  },
  "Antique Greaves": {
   "type": "Boots",
-  "level": 37
+  "level": 37,
+  "sub": "Armour"
  },
  "Ancient Greaves": {
   "type": "Boots",
-  "level": 46
+  "level": 46,
+  "sub": "Armour"
  },
  "Goliath Greaves": {
   "type": "Boots",
-  "level": 54
+  "level": 54,
+  "sub": "Armour"
  },
  "Vaal Greaves": {
   "type": "Boots",
-  "level": 62
+  "level": 62,
+  "sub": "Armour"
  },
  "Titan Greaves": {
   "type": "Boots",
-  "level": 68
+  "level": 68,
+  "sub": "Armour"
  },
  "Precursor Greaves": {
   "type": "Boots",
-  "level": 78
+  "level": 78,
+  "sub": "Armour"
  },
  "Leviathan Greaves": {
   "type": "Boots",
-  "level": 84
+  "level": 84,
+  "sub": "Armour"
  },
  "Basemetal Treads": {
   "type": "Boots",
-  "level": 20
+  "level": 20,
+  "sub": "Armour"
  },
  "Darksteel Treads": {
   "type": "Boots",
-  "level": 50
+  "level": 50,
+  "sub": "Armour"
  },
  "Brimstone Treads": {
   "type": "Boots",
-  "level": 80
+  "level": 80,
+  "sub": "Armour"
  },
  "Rawhide Boots": {
   "type": "Boots",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion"
  },
  "Goathide Boots": {
   "type": "Boots",
-  "level": 12
+  "level": 12,
+  "sub": "Evasion"
  },
  "Deerskin Boots": {
   "type": "Boots",
-  "level": 22
+  "level": 22,
+  "sub": "Evasion"
  },
  "Nubuck Boots": {
   "type": "Boots",
-  "level": 34
+  "level": 34,
+  "sub": "Evasion"
  },
  "Eelskin Boots": {
   "type": "Boots",
-  "level": 39
+  "level": 39,
+  "sub": "Evasion"
  },
  "Sharkskin Boots": {
   "type": "Boots",
-  "level": 44
+  "level": 44,
+  "sub": "Evasion"
  },
  "Shagreen Boots": {
   "type": "Boots",
-  "level": 55
+  "level": 55,
+  "sub": "Evasion"
  },
  "Stealth Boots": {
   "type": "Boots",
-  "level": 62
+  "level": 62,
+  "sub": "Evasion"
  },
  "Slink Boots": {
   "type": "Boots",
-  "level": 69
+  "level": 69,
+  "sub": "Evasion"
  },
  "Harpyskin Boots": {
   "type": "Boots",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion"
  },
  "Velour Boots": {
   "type": "Boots",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion"
  },
  "Cloudwhisper Boots": {
   "type": "Boots",
-  "level": 20
+  "level": 20,
+  "sub": "Evasion"
  },
  "Windbreak Boots": {
   "type": "Boots",
-  "level": 50
+  "level": 50,
+  "sub": "Evasion"
  },
  "Stormrider Boots": {
   "type": "Boots",
-  "level": 80
+  "level": 80,
+  "sub": "Evasion"
  },
  "Wool Shoes": {
   "type": "Boots",
-  "level": 1
+  "level": 1,
+  "sub": "Energy Shield"
  },
  "Velvet Slippers": {
   "type": "Boots",
-  "level": 9
+  "level": 9,
+  "sub": "Energy Shield"
  },
  "Silk Slippers": {
   "type": "Boots",
-  "level": 22
+  "level": 22,
+  "sub": "Energy Shield"
  },
  "Scholar Boots": {
   "type": "Boots",
-  "level": 32
+  "level": 32,
+  "sub": "Energy Shield"
  },
  "Satin Slippers": {
   "type": "Boots",
-  "level": 38
+  "level": 38,
+  "sub": "Energy Shield"
  },
  "Samite Slippers": {
   "type": "Boots",
-  "level": 44
+  "level": 44,
+  "sub": "Energy Shield"
  },
  "Conjurer Boots": {
   "type": "Boots",
-  "level": 53
+  "level": 53,
+  "sub": "Energy Shield"
  },
  "Arcanist Slippers": {
   "type": "Boots",
-  "level": 61
+  "level": 61,
+  "sub": "Energy Shield"
  },
  "Sorcerer Boots": {
   "type": "Boots",
-  "level": 67
+  "level": 67,
+  "sub": "Energy Shield"
  },
  "Sage Slippers": {
   "type": "Boots",
-  "level": 78
+  "level": 78,
+  "sub": "Energy Shield"
  },
  "Warlock Boots": {
   "type": "Boots",
-  "level": 84
+  "level": 84,
+  "sub": "Energy Shield"
  },
  "Duskwalk Slippers": {
   "type": "Boots",
-  "level": 20
+  "level": 20,
+  "sub": "Energy Shield"
  },
  "Nightwind Slippers": {
   "type": "Boots",
-  "level": 50
+  "level": 50,
+  "sub": "Energy Shield"
  },
  "Dreamquest Slippers": {
   "type": "Boots",
-  "level": 80
+  "level": 80,
+  "sub": "Energy Shield"
  },
  "Leatherscale Boots": {
   "type": "Boots",
-  "level": 6
+  "level": 6,
+  "sub": "Armour/Evasion"
  },
  "Ironscale Boots": {
   "type": "Boots",
-  "level": 18
+  "level": 18,
+  "sub": "Armour/Evasion"
  },
  "Bronzescale Boots": {
   "type": "Boots",
-  "level": 30
+  "level": 30,
+  "sub": "Armour/Evasion"
  },
  "Steelscale Boots": {
   "type": "Boots",
-  "level": 36
+  "level": 36,
+  "sub": "Armour/Evasion"
  },
  "Serpentscale Boots": {
   "type": "Boots",
-  "level": 42
+  "level": 42,
+  "sub": "Armour/Evasion"
  },
  "Wyrmscale Boots": {
   "type": "Boots",
-  "level": 51
+  "level": 51,
+  "sub": "Armour/Evasion"
  },
  "Hydrascale Boots": {
   "type": "Boots",
-  "level": 59
+  "level": 59,
+  "sub": "Armour/Evasion"
  },
  "Dragonscale Boots": {
   "type": "Boots",
-  "level": 65
+  "level": 65,
+  "sub": "Armour/Evasion"
  },
  "Chimerascale Boots": {
   "type": "Boots",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Evasion"
  },
  "Wyvernscale Boots": {
   "type": "Boots",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Evasion"
  },
  "Two-Toned Boots (Armour/Evasion)": {
   "type": "Boots",
-  "level": 70
+  "level": 70,
+  "sub": "Armour/Evasion"
  },
  "Chain Boots": {
   "type": "Boots",
-  "level": 5
+  "level": 5,
+  "sub": "Armour/Energy Shield"
  },
  "Ringmail Boots": {
   "type": "Boots",
-  "level": 13
+  "level": 13,
+  "sub": "Armour/Energy Shield"
  },
  "Mesh Boots": {
   "type": "Boots",
-  "level": 28
+  "level": 28,
+  "sub": "Armour/Energy Shield"
  },
  "Riveted Boots": {
   "type": "Boots",
-  "level": 36
+  "level": 36,
+  "sub": "Armour/Energy Shield"
  },
  "Zealot Boots": {
   "type": "Boots",
-  "level": 40
+  "level": 40,
+  "sub": "Armour/Energy Shield"
  },
  "Soldier Boots": {
   "type": "Boots",
-  "level": 49
+  "level": 49,
+  "sub": "Armour/Energy Shield"
  },
  "Legion Boots": {
   "type": "Boots",
-  "level": 58
+  "level": 58,
+  "sub": "Armour/Energy Shield"
  },
  "Crusader Boots": {
   "type": "Boots",
-  "level": 64
+  "level": 64,
+  "sub": "Armour/Energy Shield"
  },
  "Martyr Boots": {
   "type": "Boots",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Energy Shield"
  },
  "Paladin Boots": {
   "type": "Boots",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Energy Shield"
  },
  "Two-Toned Boots (Armour/Energy Shield)": {
   "type": "Boots",
-  "level": 70
+  "level": 70,
+  "sub": "Armour/Energy Shield"
  },
  "Wrapped Boots": {
   "type": "Boots",
-  "level": 6
+  "level": 6,
+  "sub": "Evasion/Energy Shield"
  },
  "Strapped Boots": {
   "type": "Boots",
-  "level": 16
+  "level": 16,
+  "sub": "Evasion/Energy Shield"
  },
  "Clasped Boots": {
   "type": "Boots",
-  "level": 27
+  "level": 27,
+  "sub": "Evasion/Energy Shield"
  },
  "Shackled Boots": {
   "type": "Boots",
-  "level": 34
+  "level": 34,
+  "sub": "Evasion/Energy Shield"
  },
  "Trapper Boots": {
   "type": "Boots",
-  "level": 41
+  "level": 41,
+  "sub": "Evasion/Energy Shield"
  },
  "Ambush Boots": {
   "type": "Boots",
-  "level": 47
+  "level": 47,
+  "sub": "Evasion/Energy Shield"
  },
  "Carnal Boots": {
   "type": "Boots",
-  "level": 55
+  "level": 55,
+  "sub": "Evasion/Energy Shield"
  },
  "Assassin's Boots": {
   "type": "Boots",
-  "level": 63
+  "level": 63,
+  "sub": "Evasion/Energy Shield"
  },
  "Murder Boots": {
   "type": "Boots",
-  "level": 69
+  "level": 69,
+  "sub": "Evasion/Energy Shield"
  },
  "Infiltrator Boots": {
   "type": "Boots",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion/Energy Shield"
  },
  "Phantom Boots": {
   "type": "Boots",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion/Energy Shield"
  },
  "Fugitive Boots": {
   "type": "Boots",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion/Energy Shield"
  },
  "Two-Toned Boots (Evasion/Energy Shield)": {
   "type": "Boots",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion/Energy Shield"
  },
  "Runic Greaves": {
   "type": "Boots",
-  "level": 24
+  "level": 24,
+  "sub": "Ward"
  },
  "Runic Sollerets": {
   "type": "Boots",
-  "level": 48
+  "level": 48,
+  "sub": "Ward"
  },
  "Runic Sabatons": {
   "type": "Boots",
-  "level": 69
+  "level": 69,
+  "sub": "Ward"
  },
  "Golden Caligae": {
   "type": "Boots",
@@ -1753,75 +2032,93 @@
  },
  "Carving Knife": {
   "type": "Dagger",
-  "level": 10
+  "level": 10,
+  "sub": "Rune Dagger"
  },
  "Boot Knife": {
   "type": "Dagger",
-  "level": 20
+  "level": 20,
+  "sub": "Rune Dagger"
  },
  "Copper Kris": {
   "type": "Dagger",
-  "level": 24
+  "level": 24,
+  "sub": "Rune Dagger"
  },
  "Skean": {
   "type": "Dagger",
-  "level": 28
+  "level": 28,
+  "sub": "Rune Dagger"
  },
  "Imp Dagger": {
   "type": "Dagger",
-  "level": 32
+  "level": 32,
+  "sub": "Rune Dagger"
  },
  "Butcher Knife": {
   "type": "Dagger",
-  "level": 38
+  "level": 38,
+  "sub": "Rune Dagger"
  },
  "Boot Blade": {
   "type": "Dagger",
-  "level": 44
+  "level": 44,
+  "sub": "Rune Dagger"
  },
  "Golden Kris": {
   "type": "Dagger",
-  "level": 47
+  "level": 47,
+  "sub": "Rune Dagger"
  },
  "Royal Skean": {
   "type": "Dagger",
-  "level": 50
+  "level": 50,
+  "sub": "Rune Dagger"
  },
  "Fiend Dagger": {
   "type": "Dagger",
-  "level": 53
+  "level": 53,
+  "sub": "Rune Dagger"
  },
  "Slaughter Knife": {
   "type": "Dagger",
-  "level": 58
+  "level": 58,
+  "sub": "Rune Dagger"
  },
  "Ezomyte Dagger": {
   "type": "Dagger",
-  "level": 62
+  "level": 62,
+  "sub": "Rune Dagger"
  },
  "Platinum Kris": {
   "type": "Dagger",
-  "level": 64
+  "level": 64,
+  "sub": "Rune Dagger"
  },
  "Imperial Skean": {
   "type": "Dagger",
-  "level": 66
+  "level": 66,
+  "sub": "Rune Dagger"
  },
  "Demon Dagger": {
   "type": "Dagger",
-  "level": 68
+  "level": 68,
+  "sub": "Rune Dagger"
  },
  "Flickerflame Blade": {
   "type": "Dagger",
-  "level": 30
+  "level": 30,
+  "sub": "Rune Dagger"
  },
  "Flashfire Blade": {
   "type": "Dagger",
-  "level": 50
+  "level": 50,
+  "sub": "Rune Dagger"
  },
  "Infernal Blade": {
   "type": "Dagger",
-  "level": 70
+  "level": 70,
+  "sub": "Rune Dagger"
  },
  "Fishing Rod": {
   "type": "Fishing Rod",
@@ -1829,511 +2126,638 @@
  },
  "Small Life Flask": {
   "type": "Flask",
-  "level": 1
+  "level": 1,
+  "sub": "Life"
  },
  "Medium Life Flask": {
   "type": "Flask",
-  "level": 3
+  "level": 3,
+  "sub": "Life"
  },
  "Large Life Flask": {
   "type": "Flask",
-  "level": 6
+  "level": 6,
+  "sub": "Life"
  },
  "Greater Life Flask": {
   "type": "Flask",
-  "level": 12
+  "level": 12,
+  "sub": "Life"
  },
  "Grand Life Flask": {
   "type": "Flask",
-  "level": 18
+  "level": 18,
+  "sub": "Life"
  },
  "Giant Life Flask": {
   "type": "Flask",
-  "level": 24
+  "level": 24,
+  "sub": "Life"
  },
  "Colossal Life Flask": {
   "type": "Flask",
-  "level": 30
+  "level": 30,
+  "sub": "Life"
  },
  "Sacred Life Flask": {
   "type": "Flask",
-  "level": 36
+  "level": 36,
+  "sub": "Life"
  },
  "Hallowed Life Flask": {
   "type": "Flask",
-  "level": 42
+  "level": 42,
+  "sub": "Life"
  },
  "Sanctified Life Flask": {
   "type": "Flask",
-  "level": 50
+  "level": 50,
+  "sub": "Life"
  },
  "Divine Life Flask": {
   "type": "Flask",
-  "level": 60
+  "level": 60,
+  "sub": "Life"
  },
  "Eternal Life Flask": {
   "type": "Flask",
-  "level": 65
+  "level": 65,
+  "sub": "Life"
  },
  "Small Mana Flask": {
   "type": "Flask",
-  "level": 1
+  "level": 1,
+  "sub": "Mana"
  },
  "Medium Mana Flask": {
   "type": "Flask",
-  "level": 3
+  "level": 3,
+  "sub": "Mana"
  },
  "Large Mana Flask": {
   "type": "Flask",
-  "level": 6
+  "level": 6,
+  "sub": "Mana"
  },
  "Greater Mana Flask": {
   "type": "Flask",
-  "level": 12
+  "level": 12,
+  "sub": "Mana"
  },
  "Grand Mana Flask": {
   "type": "Flask",
-  "level": 18
+  "level": 18,
+  "sub": "Mana"
  },
  "Giant Mana Flask": {
   "type": "Flask",
-  "level": 24
+  "level": 24,
+  "sub": "Mana"
  },
  "Colossal Mana Flask": {
   "type": "Flask",
-  "level": 30
+  "level": 30,
+  "sub": "Mana"
  },
  "Sacred Mana Flask": {
   "type": "Flask",
-  "level": 36
+  "level": 36,
+  "sub": "Mana"
  },
  "Hallowed Mana Flask": {
   "type": "Flask",
-  "level": 42
+  "level": 42,
+  "sub": "Mana"
  },
  "Sanctified Mana Flask": {
   "type": "Flask",
-  "level": 50
+  "level": 50,
+  "sub": "Mana"
  },
  "Divine Mana Flask": {
   "type": "Flask",
-  "level": 60
+  "level": 60,
+  "sub": "Mana"
  },
  "Eternal Mana Flask": {
   "type": "Flask",
-  "level": 65
+  "level": 65,
+  "sub": "Mana"
  },
  "Small Hybrid Flask": {
   "type": "Flask",
-  "level": 10
+  "level": 10,
+  "sub": "Hybrid"
  },
  "Medium Hybrid Flask": {
   "type": "Flask",
-  "level": 20
+  "level": 20,
+  "sub": "Hybrid"
  },
  "Large Hybrid Flask": {
   "type": "Flask",
-  "level": 30
+  "level": 30,
+  "sub": "Hybrid"
  },
  "Colossal Hybrid Flask": {
   "type": "Flask",
-  "level": 40
+  "level": 40,
+  "sub": "Hybrid"
  },
  "Sacred Hybrid Flask": {
   "type": "Flask",
-  "level": 50
+  "level": 50,
+  "sub": "Hybrid"
  },
  "Hallowed Hybrid Flask": {
   "type": "Flask",
-  "level": 60
+  "level": 60,
+  "sub": "Hybrid"
  },
  "Diamond Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Ruby Flask": {
   "type": "Flask",
-  "level": 18
+  "level": 18,
+  "sub": "Utility"
  },
  "Sapphire Flask": {
   "type": "Flask",
-  "level": 18
+  "level": 18,
+  "sub": "Utility"
  },
  "Topaz Flask": {
   "type": "Flask",
-  "level": 18
+  "level": 18,
+  "sub": "Utility"
  },
  "Granite Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Quicksilver Flask": {
   "type": "Flask",
-  "level": 4
+  "level": 4,
+  "sub": "Utility"
  },
  "Amethyst Flask": {
   "type": "Flask",
-  "level": 18
+  "level": 18,
+  "sub": "Utility"
  },
  "Quartz Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Jade Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Basalt Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Aquamarine Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Stibnite Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Sulphur Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Silver Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Bismuth Flask": {
   "type": "Flask",
-  "level": 8
+  "level": 8,
+  "sub": "Utility"
  },
  "Gold Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Corundum Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Iron Flask": {
   "type": "Flask",
-  "level": 27
+  "level": 27,
+  "sub": "Utility"
  },
  "Iron Gauntlets": {
   "type": "Gloves",
-  "level": 1
+  "level": 1,
+  "sub": "Armour"
  },
  "Plated Gauntlets": {
   "type": "Gloves",
-  "level": 11
+  "level": 11,
+  "sub": "Armour"
  },
  "Bronze Gauntlets": {
   "type": "Gloves",
-  "level": 23
+  "level": 23,
+  "sub": "Armour"
  },
  "Steel Gauntlets": {
   "type": "Gloves",
-  "level": 35
+  "level": 35,
+  "sub": "Armour"
  },
  "Antique Gauntlets": {
   "type": "Gloves",
-  "level": 39
+  "level": 39,
+  "sub": "Armour"
  },
  "Ancient Gauntlets": {
   "type": "Gloves",
-  "level": 47
+  "level": 47,
+  "sub": "Armour"
  },
  "Goliath Gauntlets": {
   "type": "Gloves",
-  "level": 53
+  "level": 53,
+  "sub": "Armour"
  },
  "Vaal Gauntlets": {
   "type": "Gloves",
-  "level": 63
+  "level": 63,
+  "sub": "Armour"
  },
  "Titan Gauntlets": {
   "type": "Gloves",
-  "level": 69
+  "level": 69,
+  "sub": "Armour"
  },
  "Precursor Gauntlets": {
   "type": "Gloves",
-  "level": 78
+  "level": 78,
+  "sub": "Armour"
  },
  "Leviathan Gauntlets": {
   "type": "Gloves",
-  "level": 84
+  "level": 84,
+  "sub": "Armour"
  },
  "Preserving Gauntlets": {
   "type": "Gloves",
-  "level": 16
+  "level": 16,
+  "sub": "Armour"
  },
  "Guarding Gauntlets": {
   "type": "Gloves",
-  "level": 40
+  "level": 40,
+  "sub": "Armour"
  },
  "Thwarting Gauntlets": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Armour"
  },
  "Spiked Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Armour"
  },
  "Rawhide Gloves": {
   "type": "Gloves",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion"
  },
  "Goathide Gloves": {
   "type": "Gloves",
-  "level": 9
+  "level": 9,
+  "sub": "Evasion"
  },
  "Deerskin Gloves": {
   "type": "Gloves",
-  "level": 21
+  "level": 21,
+  "sub": "Evasion"
  },
  "Nubuck Gloves": {
   "type": "Gloves",
-  "level": 33
+  "level": 33,
+  "sub": "Evasion"
  },
  "Eelskin Gloves": {
   "type": "Gloves",
-  "level": 38
+  "level": 38,
+  "sub": "Evasion"
  },
  "Sharkskin Gloves": {
   "type": "Gloves",
-  "level": 45
+  "level": 45,
+  "sub": "Evasion"
  },
  "Shagreen Gloves": {
   "type": "Gloves",
-  "level": 54
+  "level": 54,
+  "sub": "Evasion"
  },
  "Stealth Gloves": {
   "type": "Gloves",
-  "level": 62
+  "level": 62,
+  "sub": "Evasion"
  },
  "Slink Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion"
  },
  "Harpyskin Gloves": {
   "type": "Gloves",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion"
  },
  "Velour Gloves": {
   "type": "Gloves",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion"
  },
  "Tinker Gloves": {
   "type": "Gloves",
-  "level": 10
+  "level": 10,
+  "sub": "Evasion"
  },
  "Apprentice Gloves": {
   "type": "Gloves",
-  "level": 40
+  "level": 40,
+  "sub": "Evasion"
  },
  "Trapsetter Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion"
  },
  "Gripped Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion"
  },
  "Wool Gloves": {
   "type": "Gloves",
-  "level": 1
+  "level": 1,
+  "sub": "Energy Shield"
  },
  "Velvet Gloves": {
   "type": "Gloves",
-  "level": 12
+  "level": 12,
+  "sub": "Energy Shield"
  },
  "Silk Gloves": {
   "type": "Gloves",
-  "level": 25
+  "level": 25,
+  "sub": "Energy Shield"
  },
  "Embroidered Gloves": {
   "type": "Gloves",
-  "level": 36
+  "level": 36,
+  "sub": "Energy Shield"
  },
  "Satin Gloves": {
   "type": "Gloves",
-  "level": 41
+  "level": 41,
+  "sub": "Energy Shield"
  },
  "Samite Gloves": {
   "type": "Gloves",
-  "level": 47
+  "level": 47,
+  "sub": "Energy Shield"
  },
  "Conjurer Gloves": {
   "type": "Gloves",
-  "level": 55
+  "level": 55,
+  "sub": "Energy Shield"
  },
  "Arcanist Gloves": {
   "type": "Gloves",
-  "level": 60
+  "level": 60,
+  "sub": "Energy Shield"
  },
  "Sorcerer Gloves": {
   "type": "Gloves",
-  "level": 69
+  "level": 69,
+  "sub": "Energy Shield"
  },
  "Sage Gloves": {
   "type": "Gloves",
-  "level": 78
+  "level": 78,
+  "sub": "Energy Shield"
  },
  "Warlock Gloves": {
   "type": "Gloves",
-  "level": 84
+  "level": 84,
+  "sub": "Energy Shield"
  },
  "Leyline Gloves": {
   "type": "Gloves",
-  "level": 10
+  "level": 10,
+  "sub": "Energy Shield"
  },
  "Aetherwind Gloves": {
   "type": "Gloves",
-  "level": 40
+  "level": 40,
+  "sub": "Energy Shield"
  },
  "Nexus Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Energy Shield"
  },
  "Fingerless Silk Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Energy Shield"
  },
  "Fishscale Gauntlets": {
   "type": "Gloves",
-  "level": 1
+  "level": 1,
+  "sub": "Armour/Evasion"
  },
  "Ironscale Gauntlets": {
   "type": "Gloves",
-  "level": 15
+  "level": 15,
+  "sub": "Armour/Evasion"
  },
  "Bronzescale Gauntlets": {
   "type": "Gloves",
-  "level": 27
+  "level": 27,
+  "sub": "Armour/Evasion"
  },
  "Steelscale Gauntlets": {
   "type": "Gloves",
-  "level": 36
+  "level": 36,
+  "sub": "Armour/Evasion"
  },
  "Serpentscale Gauntlets": {
   "type": "Gloves",
-  "level": 43
+  "level": 43,
+  "sub": "Armour/Evasion"
  },
  "Wyrmscale Gauntlets": {
   "type": "Gloves",
-  "level": 49
+  "level": 49,
+  "sub": "Armour/Evasion"
  },
  "Hydrascale Gauntlets": {
   "type": "Gloves",
-  "level": 59
+  "level": 59,
+  "sub": "Armour/Evasion"
  },
  "Dragonscale Gauntlets": {
   "type": "Gloves",
-  "level": 67
+  "level": 67,
+  "sub": "Armour/Evasion"
  },
  "Chimerascale Gauntlets": {
   "type": "Gloves",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Evasion"
  },
  "Wyvernscale Gauntlets": {
   "type": "Gloves",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Evasion"
  },
  "Chain Gloves": {
   "type": "Gloves",
-  "level": 7
+  "level": 7,
+  "sub": "Armour/Energy Shield"
  },
  "Ringmail Gloves": {
   "type": "Gloves",
-  "level": 19
+  "level": 19,
+  "sub": "Armour/Energy Shield"
  },
  "Mesh Gloves": {
   "type": "Gloves",
-  "level": 32
+  "level": 32,
+  "sub": "Armour/Energy Shield"
  },
  "Riveted Gloves": {
   "type": "Gloves",
-  "level": 37
+  "level": 37,
+  "sub": "Armour/Energy Shield"
  },
  "Zealot Gloves": {
   "type": "Gloves",
-  "level": 43
+  "level": 43,
+  "sub": "Armour/Energy Shield"
  },
  "Soldier Gloves": {
   "type": "Gloves",
-  "level": 51
+  "level": 51,
+  "sub": "Armour/Energy Shield"
  },
  "Legion Gloves": {
   "type": "Gloves",
-  "level": 57
+  "level": 57,
+  "sub": "Armour/Energy Shield"
  },
  "Crusader Gloves": {
   "type": "Gloves",
-  "level": 66
+  "level": 66,
+  "sub": "Armour/Energy Shield"
  },
  "Martyr Gloves": {
   "type": "Gloves",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Energy Shield"
  },
  "Paladin Gloves": {
   "type": "Gloves",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Energy Shield"
  },
  "Apothecary's Gloves": {
   "type": "Gloves",
-  "level": 70
+  "level": 70,
+  "sub": "Armour/Energy Shield"
  },
  "Wrapped Mitts": {
   "type": "Gloves",
-  "level": 5
+  "level": 5,
+  "sub": "Evasion/Energy Shield"
  },
  "Strapped Mitts": {
   "type": "Gloves",
-  "level": 16
+  "level": 16,
+  "sub": "Evasion/Energy Shield"
  },
  "Clasped Mitts": {
   "type": "Gloves",
-  "level": 31
+  "level": 31,
+  "sub": "Evasion/Energy Shield"
  },
  "Trapper Mitts": {
   "type": "Gloves",
-  "level": 36
+  "level": 36,
+  "sub": "Evasion/Energy Shield"
  },
  "Ambush Mitts": {
   "type": "Gloves",
-  "level": 45
+  "level": 45,
+  "sub": "Evasion/Energy Shield"
  },
  "Carnal Mitts": {
   "type": "Gloves",
-  "level": 50
+  "level": 50,
+  "sub": "Evasion/Energy Shield"
  },
  "Assassin's Mitts": {
   "type": "Gloves",
-  "level": 58
+  "level": 58,
+  "sub": "Evasion/Energy Shield"
  },
  "Murder Mitts": {
   "type": "Gloves",
-  "level": 67
+  "level": 67,
+  "sub": "Evasion/Energy Shield"
  },
  "Infiltrator Mitts": {
   "type": "Gloves",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion/Energy Shield"
  },
  "Phantom Mitts": {
   "type": "Gloves",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion/Energy Shield"
  },
  "Runic Gloves": {
   "type": "Gloves",
-  "level": 24
+  "level": 24,
+  "sub": "Ward"
  },
  "Runic Gages": {
   "type": "Gloves",
-  "level": 48
+  "level": 48,
+  "sub": "Ward"
  },
  "Runic Gauntlets": {
   "type": "Gloves",
-  "level": 69
+  "level": 69,
+  "sub": "Ward"
  },
  "Golden Bracers": {
   "type": "Gloves",
@@ -2405,379 +2829,473 @@
  },
  "Iron Hat": {
   "type": "Helmet",
-  "level": 1
+  "level": 1,
+  "sub": "Armour"
  },
  "Cone Helmet": {
   "type": "Helmet",
-  "level": 7
+  "level": 7,
+  "sub": "Armour"
  },
  "Barbute Helmet": {
   "type": "Helmet",
-  "level": 18
+  "level": 18,
+  "sub": "Armour"
  },
  "Close Helmet": {
   "type": "Helmet",
-  "level": 26
+  "level": 26,
+  "sub": "Armour"
  },
  "Gladiator Helmet": {
   "type": "Helmet",
-  "level": 35
+  "level": 35,
+  "sub": "Armour"
  },
  "Reaver Helmet": {
   "type": "Helmet",
-  "level": 40
+  "level": 40,
+  "sub": "Armour"
  },
  "Siege Helmet": {
   "type": "Helmet",
-  "level": 48
+  "level": 48,
+  "sub": "Armour"
  },
  "Samnite Helmet": {
   "type": "Helmet",
-  "level": 55
+  "level": 55,
+  "sub": "Armour"
  },
  "Ezomyte Burgonet": {
   "type": "Helmet",
-  "level": 60
+  "level": 60,
+  "sub": "Armour"
  },
  "Royal Burgonet": {
   "type": "Helmet",
-  "level": 65
+  "level": 65,
+  "sub": "Armour"
  },
  "Eternal Burgonet": {
   "type": "Helmet",
-  "level": 69
+  "level": 69,
+  "sub": "Armour"
  },
  "General's Helmet": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Armour"
  },
  "Conqueror's Helmet": {
   "type": "Helmet",
-  "level": 78
+  "level": 78,
+  "sub": "Armour"
  },
  "Giantslayer Helmet": {
   "type": "Helmet",
-  "level": 84
+  "level": 84,
+  "sub": "Armour"
  },
  "Leather Cap": {
   "type": "Helmet",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion"
  },
  "Tricorne": {
   "type": "Helmet",
-  "level": 10
+  "level": 10,
+  "sub": "Evasion"
  },
  "Leather Hood": {
   "type": "Helmet",
-  "level": 20
+  "level": 20,
+  "sub": "Evasion"
  },
  "Wolf Pelt": {
   "type": "Helmet",
-  "level": 30
+  "level": 30,
+  "sub": "Evasion"
  },
  "Hunter Hood": {
   "type": "Helmet",
-  "level": 41
+  "level": 41,
+  "sub": "Evasion"
  },
  "Noble Tricorne": {
   "type": "Helmet",
-  "level": 47
+  "level": 47,
+  "sub": "Evasion"
  },
  "Ursine Pelt": {
   "type": "Helmet",
-  "level": 55
+  "level": 55,
+  "sub": "Evasion"
  },
  "Silken Hood": {
   "type": "Helmet",
-  "level": 60
+  "level": 60,
+  "sub": "Evasion"
  },
  "Sinner Tricorne": {
   "type": "Helmet",
-  "level": 64
+  "level": 64,
+  "sub": "Evasion"
  },
  "Lion Pelt": {
   "type": "Helmet",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion"
  },
  "Dire Pelt": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Evasion"
  },
  "Grizzly Pelt": {
   "type": "Helmet",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion"
  },
  "Majestic Pelt": {
   "type": "Helmet",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion"
  },
  "Vine Circlet": {
   "type": "Helmet",
-  "level": 1
+  "level": 1,
+  "sub": "Energy Shield"
  },
  "Iron Circlet": {
   "type": "Helmet",
-  "level": 8
+  "level": 8,
+  "sub": "Energy Shield"
  },
  "Torture Cage": {
   "type": "Helmet",
-  "level": 17
+  "level": 17,
+  "sub": "Energy Shield"
  },
  "Tribal Circlet": {
   "type": "Helmet",
-  "level": 26
+  "level": 26,
+  "sub": "Energy Shield"
  },
  "Bone Circlet": {
   "type": "Helmet",
-  "level": 34
+  "level": 34,
+  "sub": "Energy Shield"
  },
  "Lunaris Circlet": {
   "type": "Helmet",
-  "level": 39
+  "level": 39,
+  "sub": "Energy Shield"
  },
  "Steel Circlet": {
   "type": "Helmet",
-  "level": 48
+  "level": 48,
+  "sub": "Energy Shield"
  },
  "Necromancer Circlet": {
   "type": "Helmet",
-  "level": 54
+  "level": 54,
+  "sub": "Energy Shield"
  },
  "Solaris Circlet": {
   "type": "Helmet",
-  "level": 59
+  "level": 59,
+  "sub": "Energy Shield"
  },
  "Mind Cage": {
   "type": "Helmet",
-  "level": 65
+  "level": 65,
+  "sub": "Energy Shield"
  },
  "Hubris Circlet": {
   "type": "Helmet",
-  "level": 69
+  "level": 69,
+  "sub": "Energy Shield"
  },
  "Moonlit Circlet": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Energy Shield"
  },
  "Sunfire Circlet": {
   "type": "Helmet",
-  "level": 78
+  "level": 78,
+  "sub": "Energy Shield"
  },
  "Lich's Circlet": {
   "type": "Helmet",
-  "level": 84
+  "level": 84,
+  "sub": "Energy Shield"
  },
  "Battered Helm": {
   "type": "Helmet",
-  "level": 1
+  "level": 1,
+  "sub": "Armour/Evasion"
  },
  "Sallet": {
   "type": "Helmet",
-  "level": 13
+  "level": 13,
+  "sub": "Armour/Evasion"
  },
  "Visored Sallet": {
   "type": "Helmet",
-  "level": 23
+  "level": 23,
+  "sub": "Armour/Evasion"
  },
  "Gilded Sallet": {
   "type": "Helmet",
-  "level": 33
+  "level": 33,
+  "sub": "Armour/Evasion"
  },
  "Secutor Helm": {
   "type": "Helmet",
-  "level": 36
+  "level": 36,
+  "sub": "Armour/Evasion"
  },
  "Fencer Helm": {
   "type": "Helmet",
-  "level": 43
+  "level": 43,
+  "sub": "Armour/Evasion"
  },
  "Lacquered Helmet": {
   "type": "Helmet",
-  "level": 51
+  "level": 51,
+  "sub": "Armour/Evasion"
  },
  "Fluted Bascinet": {
   "type": "Helmet",
-  "level": 58
+  "level": 58,
+  "sub": "Armour/Evasion"
  },
  "Pig-Faced Bascinet": {
   "type": "Helmet",
-  "level": 63
+  "level": 63,
+  "sub": "Armour/Evasion"
  },
  "Nightmare Bascinet": {
   "type": "Helmet",
-  "level": 67
+  "level": 67,
+  "sub": "Armour/Evasion"
  },
  "Knight Helm": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Armour/Evasion"
  },
  "Conquest Helmet": {
   "type": "Helmet",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Evasion"
  },
  "Haunted Bascinet": {
   "type": "Helmet",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Evasion"
  },
  "Sorrow Mask": {
   "type": "Helmet",
-  "level": 15
+  "level": 15,
+  "sub": "Armour/Evasion"
  },
  "Atonement Mask": {
   "type": "Helmet",
-  "level": 45
+  "level": 45,
+  "sub": "Armour/Evasion"
  },
  "Penitent Mask": {
   "type": "Helmet",
-  "level": 75
+  "level": 75,
+  "sub": "Armour/Evasion"
  },
  "Rusted Coif": {
   "type": "Helmet",
-  "level": 5
+  "level": 5,
+  "sub": "Armour/Energy Shield"
  },
  "Soldier Helmet": {
   "type": "Helmet",
-  "level": 12
+  "level": 12,
+  "sub": "Armour/Energy Shield"
  },
  "Great Helmet": {
   "type": "Helmet",
-  "level": 22
+  "level": 22,
+  "sub": "Armour/Energy Shield"
  },
  "Crusader Helmet": {
   "type": "Helmet",
-  "level": 31
+  "level": 31,
+  "sub": "Armour/Energy Shield"
  },
  "Aventail Helmet": {
   "type": "Helmet",
-  "level": 37
+  "level": 37,
+  "sub": "Armour/Energy Shield"
  },
  "Zealot Helmet": {
   "type": "Helmet",
-  "level": 44
+  "level": 44,
+  "sub": "Armour/Energy Shield"
  },
  "Great Crown": {
   "type": "Helmet",
-  "level": 53
+  "level": 53,
+  "sub": "Armour/Energy Shield"
  },
  "Magistrate Crown": {
   "type": "Helmet",
-  "level": 58
+  "level": 58,
+  "sub": "Armour/Energy Shield"
  },
  "Prophet Crown": {
   "type": "Helmet",
-  "level": 63
+  "level": 63,
+  "sub": "Armour/Energy Shield"
  },
  "Praetor Crown": {
   "type": "Helmet",
-  "level": 68
+  "level": 68,
+  "sub": "Armour/Energy Shield"
  },
  "Faithful Helmet": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Armour/Energy Shield"
  },
  "Paladin Crown": {
   "type": "Helmet",
-  "level": 78
+  "level": 78,
+  "sub": "Armour/Energy Shield"
  },
  "Divine Crown": {
   "type": "Helmet",
-  "level": 84
+  "level": 84,
+  "sub": "Armour/Energy Shield"
  },
  "Imp Crown": {
   "type": "Helmet",
-  "level": 15
+  "level": 15,
+  "sub": "Armour/Energy Shield"
  },
  "Demon Crown": {
   "type": "Helmet",
-  "level": 45
+  "level": 45,
+  "sub": "Armour/Energy Shield"
  },
  "Archdemon Crown": {
   "type": "Helmet",
-  "level": 75
+  "level": 75,
+  "sub": "Armour/Energy Shield"
  },
  "Bone Helmet": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Armour/Energy Shield"
  },
  "Scare Mask": {
   "type": "Helmet",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion/Energy Shield"
  },
  "Plague Mask": {
   "type": "Helmet",
-  "level": 10
+  "level": 10,
+  "sub": "Evasion/Energy Shield"
  },
  "Iron Mask": {
   "type": "Helmet",
-  "level": 17
+  "level": 17,
+  "sub": "Evasion/Energy Shield"
  },
  "Festival Mask": {
   "type": "Helmet",
-  "level": 28
+  "level": 28,
+  "sub": "Evasion/Energy Shield"
  },
  "Golden Mask": {
   "type": "Helmet",
-  "level": 35
+  "level": 35,
+  "sub": "Evasion/Energy Shield"
  },
  "Raven Mask": {
   "type": "Helmet",
-  "level": 38
+  "level": 38,
+  "sub": "Evasion/Energy Shield"
  },
  "Callous Mask": {
   "type": "Helmet",
-  "level": 45
+  "level": 45,
+  "sub": "Evasion/Energy Shield"
  },
  "Regicide Mask": {
   "type": "Helmet",
-  "level": 52
+  "level": 52,
+  "sub": "Evasion/Energy Shield"
  },
  "Harlequin Mask": {
   "type": "Helmet",
-  "level": 57
+  "level": 57,
+  "sub": "Evasion/Energy Shield"
  },
  "Vaal Mask": {
   "type": "Helmet",
-  "level": 62
+  "level": 62,
+  "sub": "Evasion/Energy Shield"
  },
  "Deicide Mask": {
   "type": "Helmet",
-  "level": 67
+  "level": 67,
+  "sub": "Evasion/Energy Shield"
  },
  "Jester Mask": {
   "type": "Helmet",
-  "level": 73
+  "level": 73,
+  "sub": "Evasion/Energy Shield"
  },
  "Ancient Mask": {
   "type": "Helmet",
-  "level": 78
+  "level": 78,
+  "sub": "Evasion/Energy Shield"
  },
  "Torturer's Mask": {
   "type": "Helmet",
-  "level": 84
+  "level": 84,
+  "sub": "Evasion/Energy Shield"
  },
  "Gale Crown": {
   "type": "Helmet",
-  "level": 15
+  "level": 15,
+  "sub": "Evasion/Energy Shield"
  },
  "Winter Crown": {
   "type": "Helmet",
-  "level": 45
+  "level": 45,
+  "sub": "Evasion/Energy Shield"
  },
  "Blizzard Crown": {
   "type": "Helmet",
-  "level": 75
+  "level": 75,
+  "sub": "Evasion/Energy Shield"
  },
  "Runic Helm": {
   "type": "Helmet",
-  "level": 25
+  "level": 25,
+  "sub": "Ward"
  },
  "Runic Crest": {
   "type": "Helmet",
-  "level": 49
+  "level": 49,
+  "sub": "Ward"
  },
  "Runic Crown": {
   "type": "Helmet",
-  "level": 68
+  "level": 68,
+  "sub": "Ward"
  },
  "Golden Wreath": {
   "type": "Helmet",
@@ -2801,55 +3319,68 @@
  },
  "Ghastly Eye Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Abyss"
  },
  "Hypnotic Eye Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Abyss"
  },
  "Murderous Eye Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Abyss"
  },
  "Searching Eye Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Abyss"
  },
  "Assembled Eye Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Abyss"
  },
  "Large Cluster Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Cluster"
  },
  "Medium Cluster Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Cluster"
  },
  "Small Cluster Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Cluster"
  },
  "Timeless Jewel": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Timeless"
  },
  "Mycelium Core": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Blightcore"
  },
  "Ursine Charm": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Charm"
  },
  "Lupine Charm": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Charm"
  },
  "Corvine Charm": {
   "type": "Jewel",
-  "level": 1
+  "level": 1,
+  "sub": "Charm"
  },
  "Driftwood Club": {
   "type": "One Handed Mace",
@@ -3433,391 +3964,488 @@
  },
  "Splintered Tower Shield": {
   "type": "Shield",
-  "level": 1
+  "level": 1,
+  "sub": "Armour"
  },
  "Corroded Tower Shield": {
   "type": "Shield",
-  "level": 5
+  "level": 5,
+  "sub": "Armour"
  },
  "Rawhide Tower Shield": {
   "type": "Shield",
-  "level": 11
+  "level": 11,
+  "sub": "Armour"
  },
  "Cedar Tower Shield": {
   "type": "Shield",
-  "level": 17
+  "level": 17,
+  "sub": "Armour"
  },
  "Copper Tower Shield": {
   "type": "Shield",
-  "level": 24
+  "level": 24,
+  "sub": "Armour"
  },
  "Reinforced Tower Shield": {
   "type": "Shield",
-  "level": 30
+  "level": 30,
+  "sub": "Armour"
  },
  "Painted Tower Shield": {
   "type": "Shield",
-  "level": 35
+  "level": 35,
+  "sub": "Armour"
  },
  "Buckskin Tower Shield": {
   "type": "Shield",
-  "level": 39
+  "level": 39,
+  "sub": "Armour"
  },
  "Mahogany Tower Shield": {
   "type": "Shield",
-  "level": 43
+  "level": 43,
+  "sub": "Armour"
  },
  "Bronze Tower Shield": {
   "type": "Shield",
-  "level": 47
+  "level": 47,
+  "sub": "Armour"
  },
  "Girded Tower Shield": {
   "type": "Shield",
-  "level": 51
+  "level": 51,
+  "sub": "Armour"
  },
  "Crested Tower Shield": {
   "type": "Shield",
-  "level": 55
+  "level": 55,
+  "sub": "Armour"
  },
  "Shagreen Tower Shield": {
   "type": "Shield",
-  "level": 58
+  "level": 58,
+  "sub": "Armour"
  },
  "Ebony Tower Shield": {
   "type": "Shield",
-  "level": 61
+  "level": 61,
+  "sub": "Armour"
  },
  "Ezomyte Tower Shield": {
   "type": "Shield",
-  "level": 64
+  "level": 64,
+  "sub": "Armour"
  },
  "Colossal Tower Shield": {
   "type": "Shield",
-  "level": 67
+  "level": 67,
+  "sub": "Armour"
  },
  "Pinnacle Tower Shield": {
   "type": "Shield",
-  "level": 70
+  "level": 70,
+  "sub": "Armour"
  },
  "Exothermic Tower Shield": {
   "type": "Shield",
-  "level": 30
+  "level": 30,
+  "sub": "Armour"
  },
  "Magmatic Tower Shield": {
   "type": "Shield",
-  "level": 50
+  "level": 50,
+  "sub": "Armour"
  },
  "Heat-attuned Tower Shield": {
   "type": "Shield",
-  "level": 70
+  "level": 70,
+  "sub": "Armour"
  },
  "Goathide Buckler": {
   "type": "Shield",
-  "level": 1
+  "level": 1,
+  "sub": "Evasion"
  },
  "Pine Buckler": {
   "type": "Shield",
-  "level": 8
+  "level": 8,
+  "sub": "Evasion"
  },
  "Painted Buckler": {
   "type": "Shield",
-  "level": 16
+  "level": 16,
+  "sub": "Evasion"
  },
  "Hammered Buckler": {
   "type": "Shield",
-  "level": 23
+  "level": 23,
+  "sub": "Evasion"
  },
  "War Buckler": {
   "type": "Shield",
-  "level": 29
+  "level": 29,
+  "sub": "Evasion"
  },
  "Gilded Buckler": {
   "type": "Shield",
-  "level": 34
+  "level": 34,
+  "sub": "Evasion"
  },
  "Oak Buckler": {
   "type": "Shield",
-  "level": 38
+  "level": 38,
+  "sub": "Evasion"
  },
  "Enameled Buckler": {
   "type": "Shield",
-  "level": 42
+  "level": 42,
+  "sub": "Evasion"
  },
  "Corrugated Buckler": {
   "type": "Shield",
-  "level": 46
+  "level": 46,
+  "sub": "Evasion"
  },
  "Battle Buckler": {
   "type": "Shield",
-  "level": 50
+  "level": 50,
+  "sub": "Evasion"
  },
  "Golden Buckler": {
   "type": "Shield",
-  "level": 54
+  "level": 54,
+  "sub": "Evasion"
  },
  "Ironwood Buckler": {
   "type": "Shield",
-  "level": 57
+  "level": 57,
+  "sub": "Evasion"
  },
  "Lacquered Buckler": {
   "type": "Shield",
-  "level": 60
+  "level": 60,
+  "sub": "Evasion"
  },
  "Vaal Buckler": {
   "type": "Shield",
-  "level": 63
+  "level": 63,
+  "sub": "Evasion"
  },
  "Crusader Buckler": {
   "type": "Shield",
-  "level": 66
+  "level": 66,
+  "sub": "Evasion"
  },
  "Imperial Buckler": {
   "type": "Shield",
-  "level": 69
+  "level": 69,
+  "sub": "Evasion"
  },
  "Endothermic Buckler": {
   "type": "Shield",
-  "level": 30
+  "level": 30,
+  "sub": "Evasion"
  },
  "Polar Buckler": {
   "type": "Shield",
-  "level": 50
+  "level": 50,
+  "sub": "Evasion"
  },
  "Cold-attuned Buckler": {
   "type": "Shield",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion"
  },
  "Twig Spirit Shield": {
   "type": "Shield",
-  "level": 1
+  "level": 1,
+  "sub": "Energy Shield"
  },
  "Yew Spirit Shield": {
   "type": "Shield",
-  "level": 9
+  "level": 9,
+  "sub": "Energy Shield"
  },
  "Bone Spirit Shield": {
   "type": "Shield",
-  "level": 15
+  "level": 15,
+  "sub": "Energy Shield"
  },
  "Tarnished Spirit Shield": {
   "type": "Shield",
-  "level": 23
+  "level": 23,
+  "sub": "Energy Shield"
  },
  "Jingling Spirit Shield": {
   "type": "Shield",
-  "level": 28
+  "level": 28,
+  "sub": "Energy Shield"
  },
  "Brass Spirit Shield": {
   "type": "Shield",
-  "level": 33
+  "level": 33,
+  "sub": "Energy Shield"
  },
  "Walnut Spirit Shield": {
   "type": "Shield",
-  "level": 37
+  "level": 37,
+  "sub": "Energy Shield"
  },
  "Ivory Spirit Shield": {
   "type": "Shield",
-  "level": 41
+  "level": 41,
+  "sub": "Energy Shield"
  },
  "Ancient Spirit Shield": {
   "type": "Shield",
-  "level": 45
+  "level": 45,
+  "sub": "Energy Shield"
  },
  "Chiming Spirit Shield": {
   "type": "Shield",
-  "level": 49
+  "level": 49,
+  "sub": "Energy Shield"
  },
  "Thorium Spirit Shield": {
   "type": "Shield",
-  "level": 53
+  "level": 53,
+  "sub": "Energy Shield"
  },
  "Lacewood Spirit Shield": {
   "type": "Shield",
-  "level": 56
+  "level": 56,
+  "sub": "Energy Shield"
  },
  "Fossilised Spirit Shield": {
   "type": "Shield",
-  "level": 59
+  "level": 59,
+  "sub": "Energy Shield"
  },
  "Vaal Spirit Shield": {
   "type": "Shield",
-  "level": 62
+  "level": 62,
+  "sub": "Energy Shield"
  },
  "Harmonic Spirit Shield": {
   "type": "Shield",
-  "level": 65
+  "level": 65,
+  "sub": "Energy Shield"
  },
  "Titanium Spirit Shield": {
   "type": "Shield",
-  "level": 68
+  "level": 68,
+  "sub": "Energy Shield"
  },
  "Exhausting Spirit Shield": {
   "type": "Shield",
-  "level": 30
+  "level": 30,
+  "sub": "Energy Shield"
  },
  "Subsuming Spirit Shield": {
   "type": "Shield",
-  "level": 50
+  "level": 50,
+  "sub": "Energy Shield"
  },
  "Transfer-attuned Spirit Shield": {
   "type": "Shield",
-  "level": 70
+  "level": 70,
+  "sub": "Energy Shield"
  },
  "Rotted Round Shield": {
   "type": "Shield",
-  "level": 5
+  "level": 5,
+  "sub": "Armour/Evasion"
  },
  "Fir Round Shield": {
   "type": "Shield",
-  "level": 12
+  "level": 12,
+  "sub": "Armour/Evasion"
  },
  "Studded Round Shield": {
   "type": "Shield",
-  "level": 20
+  "level": 20,
+  "sub": "Armour/Evasion"
  },
  "Scarlet Round Shield": {
   "type": "Shield",
-  "level": 27
+  "level": 27,
+  "sub": "Armour/Evasion"
  },
  "Splendid Round Shield": {
   "type": "Shield",
-  "level": 33
+  "level": 33,
+  "sub": "Armour/Evasion"
  },
  "Maple Round Shield": {
   "type": "Shield",
-  "level": 39
+  "level": 39,
+  "sub": "Armour/Evasion"
  },
  "Spiked Round Shield": {
   "type": "Shield",
-  "level": 45
+  "level": 45,
+  "sub": "Armour/Evasion"
  },
  "Crimson Round Shield": {
   "type": "Shield",
-  "level": 49
+  "level": 49,
+  "sub": "Armour/Evasion"
  },
  "Baroque Round Shield": {
   "type": "Shield",
-  "level": 54
+  "level": 54,
+  "sub": "Armour/Evasion"
  },
  "Teak Round Shield": {
   "type": "Shield",
-  "level": 58
+  "level": 58,
+  "sub": "Armour/Evasion"
  },
  "Spiny Round Shield": {
   "type": "Shield",
-  "level": 62
+  "level": 62,
+  "sub": "Armour/Evasion"
  },
  "Cardinal Round Shield": {
   "type": "Shield",
-  "level": 66
+  "level": 66,
+  "sub": "Armour/Evasion"
  },
  "Elegant Round Shield": {
   "type": "Shield",
-  "level": 70
+  "level": 70,
+  "sub": "Armour/Evasion"
  },
  "Plank Kite Shield": {
   "type": "Shield",
-  "level": 7
+  "level": 7,
+  "sub": "Armour/Energy Shield"
  },
  "Linden Kite Shield": {
   "type": "Shield",
-  "level": 13
+  "level": 13,
+  "sub": "Armour/Energy Shield"
  },
  "Reinforced Kite Shield": {
   "type": "Shield",
-  "level": 20
+  "level": 20,
+  "sub": "Armour/Energy Shield"
  },
  "Layered Kite Shield": {
   "type": "Shield",
-  "level": 27
+  "level": 27,
+  "sub": "Armour/Energy Shield"
  },
  "Ceremonial Kite Shield": {
   "type": "Shield",
-  "level": 34
+  "level": 34,
+  "sub": "Armour/Energy Shield"
  },
  "Etched Kite Shield": {
   "type": "Shield",
-  "level": 40
+  "level": 40,
+  "sub": "Armour/Energy Shield"
  },
  "Steel Kite Shield": {
   "type": "Shield",
-  "level": 46
+  "level": 46,
+  "sub": "Armour/Energy Shield"
  },
  "Laminated Kite Shield": {
   "type": "Shield",
-  "level": 50
+  "level": 50,
+  "sub": "Armour/Energy Shield"
  },
  "Angelic Kite Shield": {
   "type": "Shield",
-  "level": 55
+  "level": 55,
+  "sub": "Armour/Energy Shield"
  },
  "Branded Kite Shield": {
   "type": "Shield",
-  "level": 59
+  "level": 59,
+  "sub": "Armour/Energy Shield"
  },
  "Champion Kite Shield": {
   "type": "Shield",
-  "level": 62
+  "level": 62,
+  "sub": "Armour/Energy Shield"
  },
  "Mosaic Kite Shield": {
   "type": "Shield",
-  "level": 65
+  "level": 65,
+  "sub": "Armour/Energy Shield"
  },
  "Archon Kite Shield": {
   "type": "Shield",
-  "level": 68
+  "level": 68,
+  "sub": "Armour/Energy Shield"
  },
  "Spiked Bundle": {
   "type": "Shield",
-  "level": 5
+  "level": 5,
+  "sub": "Evasion/Energy Shield"
  },
  "Driftwood Spiked Shield": {
   "type": "Shield",
-  "level": 12
+  "level": 12,
+  "sub": "Evasion/Energy Shield"
  },
  "Alloyed Spiked Shield": {
   "type": "Shield",
-  "level": 20
+  "level": 20,
+  "sub": "Evasion/Energy Shield"
  },
  "Burnished Spiked Shield": {
   "type": "Shield",
-  "level": 27
+  "level": 27,
+  "sub": "Evasion/Energy Shield"
  },
  "Ornate Spiked Shield": {
   "type": "Shield",
-  "level": 33
+  "level": 33,
+  "sub": "Evasion/Energy Shield"
  },
  "Redwood Spiked Shield": {
   "type": "Shield",
-  "level": 39
+  "level": 39,
+  "sub": "Evasion/Energy Shield"
  },
  "Compound Spiked Shield": {
   "type": "Shield",
-  "level": 45
+  "level": 45,
+  "sub": "Evasion/Energy Shield"
  },
  "Polished Spiked Shield": {
   "type": "Shield",
-  "level": 49
+  "level": 49,
+  "sub": "Evasion/Energy Shield"
  },
  "Sovereign Spiked Shield": {
   "type": "Shield",
-  "level": 54
+  "level": 54,
+  "sub": "Evasion/Energy Shield"
  },
  "Alder Spiked Shield": {
   "type": "Shield",
-  "level": 58
+  "level": 58,
+  "sub": "Evasion/Energy Shield"
  },
  "Ezomyte Spiked Shield": {
   "type": "Shield",
-  "level": 62
+  "level": 62,
+  "sub": "Evasion/Energy Shield"
  },
  "Mirrored Spiked Shield": {
   "type": "Shield",
-  "level": 66
+  "level": 66,
+  "sub": "Evasion/Energy Shield"
  },
  "Supreme Spiked Shield": {
   "type": "Shield",
-  "level": 70
+  "level": 70,
+  "sub": "Evasion/Energy Shield"
  },
  "Golden Flame": {
   "type": "Shield",
@@ -3889,51 +4517,63 @@
  },
  "Iron Staff": {
   "type": "Staff",
-  "level": 13
+  "level": 13,
+  "sub": "Warstaff"
  },
  "Coiled Staff": {
   "type": "Staff",
-  "level": 23
+  "level": 23,
+  "sub": "Warstaff"
  },
  "Vile Staff": {
   "type": "Staff",
-  "level": 33
+  "level": 33,
+  "sub": "Warstaff"
  },
  "Military Staff": {
   "type": "Staff",
-  "level": 41
+  "level": 41,
+  "sub": "Warstaff"
  },
  "Serpentine Staff": {
   "type": "Staff",
-  "level": 49
+  "level": 49,
+  "sub": "Warstaff"
  },
  "Foul Staff": {
   "type": "Staff",
-  "level": 55
+  "level": 55,
+  "sub": "Warstaff"
  },
  "Ezomyte Staff": {
   "type": "Staff",
-  "level": 60
+  "level": 60,
+  "sub": "Warstaff"
  },
  "Maelstrom Staff": {
   "type": "Staff",
-  "level": 64
+  "level": 64,
+  "sub": "Warstaff"
  },
  "Judgement Staff": {
   "type": "Staff",
-  "level": 68
+  "level": 68,
+  "sub": "Warstaff"
  },
  "Capacity Rod": {
   "type": "Staff",
-  "level": 30
+  "level": 30,
+  "sub": "Warstaff"
  },
  "Potentiality Rod": {
   "type": "Staff",
-  "level": 50
+  "level": 50,
+  "sub": "Warstaff"
  },
  "Eventuality Rod": {
   "type": "Staff",
-  "level": 70
+  "level": 70,
+  "sub": "Warstaff"
  },
  "Rusted Sword": {
   "type": "One Handed Sword",
@@ -4065,103 +4705,128 @@
  },
  "Rusted Spike": {
   "type": "One Handed Sword",
-  "level": 1
+  "level": 1,
+  "sub": "Thrusting"
  },
  "Whalebone Rapier": {
   "type": "One Handed Sword",
-  "level": 7
+  "level": 7,
+  "sub": "Thrusting"
  },
  "Battered Foil": {
   "type": "One Handed Sword",
-  "level": 12
+  "level": 12,
+  "sub": "Thrusting"
  },
  "Basket Rapier": {
   "type": "One Handed Sword",
-  "level": 17
+  "level": 17,
+  "sub": "Thrusting"
  },
  "Jagged Foil": {
   "type": "One Handed Sword",
-  "level": 22
+  "level": 22,
+  "sub": "Thrusting"
  },
  "Antique Rapier": {
   "type": "One Handed Sword",
-  "level": 26
+  "level": 26,
+  "sub": "Thrusting"
  },
  "Elegant Foil": {
   "type": "One Handed Sword",
-  "level": 30
+  "level": 30,
+  "sub": "Thrusting"
  },
  "Thorn Rapier": {
   "type": "One Handed Sword",
-  "level": 34
+  "level": 34,
+  "sub": "Thrusting"
  },
  "Smallsword": {
   "type": "One Handed Sword",
-  "level": 36
+  "level": 36,
+  "sub": "Thrusting"
  },
  "Wyrmbone Rapier": {
   "type": "One Handed Sword",
-  "level": 37
+  "level": 37,
+  "sub": "Thrusting"
  },
  "Burnished Foil": {
   "type": "One Handed Sword",
-  "level": 40
+  "level": 40,
+  "sub": "Thrusting"
  },
  "Estoc": {
   "type": "One Handed Sword",
-  "level": 43
+  "level": 43,
+  "sub": "Thrusting"
  },
  "Serrated Foil": {
   "type": "One Handed Sword",
-  "level": 46
+  "level": 46,
+  "sub": "Thrusting"
  },
  "Primeval Rapier": {
   "type": "One Handed Sword",
-  "level": 49
+  "level": 49,
+  "sub": "Thrusting"
  },
  "Fancy Foil": {
   "type": "One Handed Sword",
-  "level": 52
+  "level": 52,
+  "sub": "Thrusting"
  },
  "Apex Rapier": {
   "type": "One Handed Sword",
-  "level": 55
+  "level": 55,
+  "sub": "Thrusting"
  },
  "Courtesan Sword": {
   "type": "One Handed Sword",
-  "level": 57
+  "level": 57,
+  "sub": "Thrusting"
  },
  "Dragonbone Rapier": {
   "type": "One Handed Sword",
-  "level": 58
+  "level": 58,
+  "sub": "Thrusting"
  },
  "Tempered Foil": {
   "type": "One Handed Sword",
-  "level": 60
+  "level": 60,
+  "sub": "Thrusting"
  },
  "Pecoraro": {
   "type": "One Handed Sword",
-  "level": 62
+  "level": 62,
+  "sub": "Thrusting"
  },
  "Spiraled Foil": {
   "type": "One Handed Sword",
-  "level": 64
+  "level": 64,
+  "sub": "Thrusting"
  },
  "Vaal Rapier": {
   "type": "One Handed Sword",
-  "level": 66
+  "level": 66,
+  "sub": "Thrusting"
  },
  "Jewelled Foil": {
   "type": "One Handed Sword",
-  "level": 68
+  "level": 68,
+  "sub": "Thrusting"
  },
  "Harpy Rapier": {
   "type": "One Handed Sword",
-  "level": 70
+  "level": 70,
+  "sub": "Thrusting"
  },
  "Dragoon Sword": {
   "type": "One Handed Sword",
-  "level": 72
+  "level": 72,
+  "sub": "Thrusting"
  },
  "Keyblade": {
   "type": "Two Handed Sword",

@@ -1,4 +1,4 @@
-import type { Fragment, GemSource, RouteOptions, RouteStep } from '@shared/plan'
+import type { Fragment, GemSource, LabAdvice, RouteOptions, RouteStep } from '@shared/plan'
 import { AREAS, QUESTS, ROUTE_SOURCES, START_AREA, START_TOWN, type Area } from './data'
 import { GemCollector, type GemPlan } from './gems'
 import { translateParts } from './ru'
@@ -46,7 +46,8 @@ export function buildRoute(options: RouteOptions, sources: string[] = ROUTE_SOUR
 export function buildPlanRoute(
   options: RouteOptions,
   gemPlan: GemPlan | null,
-  sources: string[] = ROUTE_SOURCES
+  sources: string[] = ROUTE_SOURCES,
+  labs: LabAdvice[] = []
 ): BuiltRoute {
   const definitions = routeDefinitions(options)
   const state: WalkState = { areaId: START_AREA, townId: START_TOWN, portalAreaId: null, handIns: [] }
@@ -102,6 +103,9 @@ export function buildPlanRoute(
         arrivesAt: state.areaId !== before ? state.areaId : null
       })
 
+      const lab = parts.find((part) => part.type === 'ascend')
+      if (lab?.type === 'ascend') steps[steps.length - 1].subSteps.push(...labHints(lab.lab, labs))
+
       for (const handIn of state.handIns) {
         for (const gem of collector?.collect(handIn.questId, handIn.offerIds, act, steps.length) ?? []) {
           steps.push({
@@ -121,6 +125,25 @@ export function buildPlanRoute(
 }
 
 /** Splits a line into text and `{fragment}` pieces; a `#` outside braces starts a comment. */
+/** A level at which each Labyrinth is comfortable: a rule of thumb, not something the game sets. */
+const LAB_LEVEL: Record<string, number> = { normal: 33, cruel: 55, merciless: 68 }
+
+function labHints(lab: string, labs: LabAdvice[]): Fragment[][] {
+  const hints: Fragment[][] = []
+  const nodes = labs.find((entry) => entry.lab === lab)?.nodes ?? []
+  if (nodes.length) {
+    const hint: Fragment[] = [{ type: 'text', text: 'Очки возвышения: ' }]
+    nodes.forEach((node, i) => {
+      if (i > 0) hint.push({ type: 'text', text: ' и ' })
+      hint.push({ type: 'generic', text: node.name })
+    })
+    hints.push(hint)
+  }
+  const level = LAB_LEVEL[lab]
+  if (level) hints.push([{ type: 'text', text: `Рекомендуемый уровень: ${level}+` }])
+  return hints
+}
+
 function parseFragments(line: string, state: WalkState): Fragment[] {
   const parts: Fragment[] = []
   const pattern = /\{([^}]+)\}|#.*$|[^{#]+/g

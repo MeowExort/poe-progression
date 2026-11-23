@@ -137,6 +137,64 @@ export interface PobTreeSpec {
   url: string | null
   /** Allocated nodes, including the class start and ascendancy nodes. */
   nodes: number
+  /** Ids of those nodes. */
+  nodeIds: number[]
+  /** The effect chosen on each allocated mastery: node id → effect id. */
+  masteries: Record<number, number>
+}
+
+/** One passive point: a node of the tree, with what it gives. */
+export interface TreePoint {
+  id: number
+  name: string
+  kind: 'small' | 'notable' | 'keystone' | 'mastery' | 'jewel'
+  /** For a mastery: the effect the build takes. */
+  stats: string[]
+}
+
+/** What to put passive points into next. */
+export interface TreeAdvice {
+  /** The tree of the build being followed (an index into `pob.treeSpecs`). */
+  specIndex: number
+  specTitle: string
+  /** The build's trees from the smallest to the largest, as indexes into `pob.treeSpecs`. */
+  stages: number[]
+  /** Points of that tree the character has, and how many it has in all (ascendancy apart). */
+  taken: number
+  total: number
+  /** The next points, in the order to take them. */
+  next: TreePoint[]
+  /** How many more follow after `next`. */
+  more: number
+  /** Nodes of the tree that cannot be reached from what the character has. */
+  unreachable: number
+  /** Nodes the character has that no tree of the build contains. */
+  extra: TreePoint[]
+  /** False while the character's tree has not been read: the order then starts at the class start. */
+  known: boolean
+}
+
+/** Which ascendancy points to take after one Labyrinth. */
+export interface LabAdvice {
+  lab: 'normal' | 'cruel' | 'merciless' | 'eternal'
+  nodes: TreePoint[]
+}
+
+/** A string to paste into a vendor's search box. */
+export interface VendorSearch {
+  label: string
+  pattern: string
+  note: string | null
+}
+
+/** How reading the character's passive tree from the site went. */
+export interface TreeReading {
+  character: string | null
+  /** When the tree was last read (epoch ms); null if never. */
+  readAt: number | null
+  busy: boolean
+  /** Why the last attempt failed, ready to show. */
+  error: string | null
 }
 
 export interface PobItem {
@@ -241,6 +299,15 @@ export interface PlanView {
   steps: RouteStep[]
   /** Index of the first step that is not done yet; equals steps.length when the campaign is finished. */
   position: number
+  /** What to put passive points into next; null without a PoB build with a tree. */
+  tree: TreeAdvice | null
+  /** The tree to follow, as an index into `pob.treeSpecs`; null picks the first unfinished one. */
+  treeTarget: number | null
+  treeReading: TreeReading
+  /** Which ascendancy points each Labyrinth is for. */
+  labs: LabAdvice[]
+  /** Strings for a vendor's search box, for the character's level. */
+  vendorSearches: VendorSearch[]
 }
 
 export interface PlanApi {
@@ -250,6 +317,10 @@ export interface PlanApi {
   chooseBuild(buildId: string | null): Promise<void>
   /** Imports a Path of Building code. Resolves to an error message, or null on success. */
   importPob(code: string): Promise<string | null>
+  /** Reads the character's passive tree from the site again. */
+  refreshTree(): Promise<void>
+  /** Follows the given tree of the build; null goes back to picking the first unfinished one. */
+  setTreeTarget(index: number | null): Promise<void>
   clearPob(): Promise<void>
   setPobSets(indexes: number[]): Promise<void>
   setOptions(patch: Partial<RouteOptions>): Promise<void>
@@ -265,6 +336,8 @@ export const PLAN_IPC = {
   setAnswers: 'plan:set-answers',
   chooseBuild: 'plan:choose-build',
   importPob: 'plan:import-pob',
+  refreshTree: 'plan:refresh-tree',
+  setTreeTarget: 'plan:set-tree-target',
   clearPob: 'plan:clear-pob',
   setPobSets: 'plan:set-pob-sets',
   setOptions: 'plan:set-options',

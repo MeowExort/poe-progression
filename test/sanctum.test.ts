@@ -641,6 +641,17 @@ describe('SanctumService', () => {
     expect(service.view().runs[0].floors[0].done).toBe(false)
   })
 
+  it('reads the passive tree of a character with the same access', async () => {
+    const { service, asked } = setup([siteAnswer([]), { hashes: [11, 22, 'x', 33], hashes_ex: [] }, { nothing: true }])
+    expect(await service.readPassives('Leveler')).toEqual({ error: expect.stringMatching(/Нужен доступ/) })
+    await service.saveAccess(access)
+    // The character of the game log is preferred to the one the tracker follows.
+    expect(await service.readPassives('Leveler')).toEqual({ character: 'Leveler', hashes: [11, 22, 33] })
+    expect(asked.at(-1)).toBe('get-passive-skills Leveler')
+    expect(await service.readPassives(null)).toEqual({ error: 'Сайт не вернул дерево персонажа.' })
+    expect(asked.at(-1)).toBe('get-passive-skills Tester')
+  })
+
   it('deletes a finished run from the history and the statistics, for good', async () => {
     const { service } = setup([])
     playFloor(service, 1, 0)

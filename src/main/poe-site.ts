@@ -47,6 +47,11 @@ export class PoeSite {
     return this.get('get-characters', { accountName: account, realm: 'pc' }, cookie)
   }
 
+  /** The passive tree of a character: the ids of the nodes it has. */
+  getPassiveSkills(account: string, character: string, cookie: string): Promise<unknown> {
+    return this.get('get-passive-skills', { accountName: account, character, realm: 'pc' }, cookie)
+  }
+
   /** How many requests were made in the last `ms`: the site allows 100 in half an hour. */
   requestsWithin(ms: number): number {
     const since = this.now() - ms

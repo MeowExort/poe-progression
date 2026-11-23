@@ -4,7 +4,10 @@ import { findBuild, rankBuilds } from '@core/builds'
 import { parsePobCode, PobError } from '@core/pob/parse'
 import { buildPlanRoute } from '@core/route/build'
 import { requiredGems } from '@core/route/gems'
+import { AREAS } from '@core/route/data'
 import { buildSourcing } from '@core/sources'
+import { labAdvice, treeAdvice } from '@core/tree/advice'
+import { vendorSearches } from '@core/vendor'
 import { groupEnd, previousGroupStart } from '@core/route/groups'
 import { advance } from '@core/route/tracker'
 import {
@@ -13,6 +16,7 @@ import {
   type Answers,
   type CharacterClass,
   type GemSource,
+  type LabAdvice,
   type PlanView,
   type PobBuild,
   type Sourcing,
@@ -30,6 +34,10 @@ interface StoredPlan {
   pobSets: number[] | null
   options: RouteOptions
   position: number
+  /** The tree of the build to follow; null picks the first unfinished one. */
+  treeTarget: number | null
+  /** The character's passive tree as last read from the site. */
+  allocated: { character: string; hashes: number[]; readAt: number } | null
 }
 
 const DEFAULT_OPTIONS: RouteOptions = { bandit: 'kill', leagueStart: true, library: false }
@@ -42,6 +50,10 @@ export class PlanStore {
   private gemSources: Record<string, GemSource> = {}
   private libraryOnlyGems: string[] = []
   private sourcing: Sourcing | null = null
+  private labs: LabAdvice[] = []
+  /** The character's level as the game log shows it; null until a level-up is seen. */
+  private level: number | null = null
+  private reading: { busy: boolean; error: string | null } = { busy: false, error: null }
 
   constructor(
     private readonly file: string | null,
@@ -73,8 +85,54 @@ export class PlanStore {
       characterClass: this.characterClass(),
       options,
       steps: this.steps,
-      position
+      position,
+      tree: this.pob ? treeAdvice(this.pob, this.characterClass(), this.stored.allocated, this.stored.treeTarget) : null,
+      treeTarget: this.stored.treeTarget,
+      treeReading: {
+        character: this.stored.allocated?.character ?? null,
+        readAt: this.stored.allocated?.readAt ?? null,
+        ...this.reading
+      },
+      labs: this.labs,
+      vendorSearches: this.pob ? vendorSearches(this.pob, this.selectedSets(), this.currentLevel()) : []
     }
+  }
+
+  /** True when there is a build whose tree the character's own could be compared with. */
+  get followsTree(): boolean {
+    return (this.pob?.treeSpecs.length ?? 0) > 0
+  }
+
+  /** The character's level, from the game log. */
+  setLevel(level: number): void {
+    if (level === this.level) return
+    this.level = level
+    this.onChange(this.view())
+  }
+
+  setTreeReading(reading: { busy: boolean; error: string | null }): void {
+    this.reading = reading
+    this.onChange(this.view())
+  }
+
+  /** The character's passive tree, freshly read from the site. */
+  setAllocated(character: string, hashes: number[], readAt: number): void {
+    this.stored.allocated = { character, hashes, readAt }
+    this.reading = { busy: false, error: null }
+    this.commit()
+  }
+
+  setTreeTarget(index: number | null): void {
+    const valid = index !== null && Number.isInteger(index) && index >= 0 && index < (this.pob?.treeSpecs.length ?? 0)
+    this.stored.treeTarget = valid ? index : null
+    this.commit()
+  }
+
+  /** The level to pick vendor searches for: the character's, else that of the area the route is in. */
+  private currentLevel(): number {
+    if (this.level !== null) return this.level
+    const step = this.steps[Math.min(this.stored.position, this.steps.length - 1)]
+    return (step && AREAS[step.areaId]?.level) || 1
   }
 
   /** Imports a Path of Building code. Returns an error message for the player, or null on success. */
@@ -91,6 +149,8 @@ export class PlanStore {
     this.pob = pob
     this.stored.pobCode = code.replace(/\s+/g, '')
     this.stored.pobSets = null
+    this.stored.treeTarget = null
+    if (!sameCharacter) this.stored.allocated = null
     this.stored.options = { ...this.stored.options, bandit: pob.bandit }
     this.relocate(() => this.rebuild(), sameCharacter)
     this.commit()
@@ -102,6 +162,7 @@ export class PlanStore {
     this.pob = null
     this.stored.pobCode = null
     this.stored.pobSets = null
+    this.stored.treeTarget = null
     this.relocate(() => this.rebuild(), true)
     this.commit()
   }
@@ -128,6 +189,8 @@ export class PlanStore {
     this.pob = null
     this.stored.pobCode = null
     this.stored.pobSets = null
+    this.stored.treeTarget = null
+    this.stored.allocated = null
     this.stored.position = 0
     this.rebuild()
     this.commit()
@@ -182,19 +245,20 @@ export class PlanStore {
     const characterClass = this.characterClass()
     this.libraryOnlyGems = []
     this.sourcing = this.pob ? buildSourcing(this.pob) : null
+    this.labs = this.pob ? labAdvice(this.pob) : []
     if (!characterClass) {
       this.steps = []
       this.gemSources = {}
       return
     }
     const gemPlan = this.pob ? { characterClass, required: requiredGems(this.pob, this.selectedSets()) } : null
-    const route = buildPlanRoute(this.stored.options, gemPlan)
+    const route = buildPlanRoute(this.stored.options, gemPlan, undefined, this.labs)
     this.steps = route.steps
     this.gemSources = route.gemSources
 
     if (gemPlan && !this.stored.options.library) {
       // Some gems are sold to this class by Siosa alone: find them by trying the route with the detour.
-      const withLibrary = buildPlanRoute({ ...this.stored.options, library: true }, gemPlan).gemSources
+      const withLibrary = buildPlanRoute({ ...this.stored.options, library: true }, gemPlan, undefined, this.labs).gemSources
       this.libraryOnlyGems = gemPlan.required
         .filter((gem) => !route.gemSources[gem.id] && withLibrary[gem.id])
         .map((gem) => gem.name)
@@ -235,7 +299,16 @@ export class PlanStore {
 }
 
 function emptyPlan(): StoredPlan {
-  return { answers: null, buildId: null, pobCode: null, pobSets: null, options: { ...DEFAULT_OPTIONS }, position: 0 }
+  return {
+    answers: null,
+    buildId: null,
+    pobCode: null,
+    pobSets: null,
+    options: { ...DEFAULT_OPTIONS },
+    position: 0,
+    treeTarget: null,
+    allocated: null
+  }
 }
 
 function clamp(position: number, length: number): number {
@@ -251,10 +324,22 @@ function load(file: string): StoredPlan {
       pobCode: typeof raw.pobCode === 'string' ? raw.pobCode : null,
       pobSets: Array.isArray(raw.pobSets) ? raw.pobSets.filter((i) => Number.isInteger(i)) : null,
       options: { ...DEFAULT_OPTIONS, ...raw.options },
-      position: typeof raw.position === 'number' ? raw.position : 0
+      position: typeof raw.position === 'number' ? raw.position : 0,
+      treeTarget: Number.isInteger(raw.treeTarget) ? (raw.treeTarget as number) : null,
+      allocated: readAllocated(raw.allocated)
     }
   } catch {
     return emptyPlan()
+  }
+}
+
+function readAllocated(raw: unknown): StoredPlan['allocated'] {
+  const value = raw as { character?: unknown; hashes?: unknown; readAt?: unknown } | null | undefined
+  if (!value || typeof value.character !== 'string' || !Array.isArray(value.hashes)) return null
+  return {
+    character: value.character,
+    hashes: value.hashes.filter((id): id is number => Number.isInteger(id)),
+    readAt: typeof value.readAt === 'number' ? value.readAt : 0
   }
 }
 

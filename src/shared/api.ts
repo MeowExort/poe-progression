@@ -100,6 +100,8 @@ export interface PoeApi {
   setOverlayBounds(bounds: Bounds): Promise<void>
   /** Puts the layout back to its default place and size. */
   resetOverlay(layout: OverlayLayout): Promise<void>
+  /** Puts text on the clipboard: the overlay never has the focus the browser way needs. */
+  copyText(text: string): Promise<void>
   plan: PlanApi
   sanctum: SanctumApi
   update: UpdateApi
@@ -115,5 +117,6 @@ export const IPC = {
   toggleOverlay: 'overlay:toggle',
   editOverlay: 'overlay:edit',
   setOverlayBounds: 'overlay:set-bounds',
-  resetOverlay: 'overlay:reset'
+  resetOverlay: 'overlay:reset',
+  copyText: 'app:copy-text'
 } as const

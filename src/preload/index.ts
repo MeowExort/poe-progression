@@ -21,6 +21,7 @@ const api: PoeApi = {
   editOverlay: (layout) => ipcRenderer.invoke(IPC.editOverlay, layout),
   setOverlayBounds: (bounds) => ipcRenderer.invoke(IPC.setOverlayBounds, bounds),
   resetOverlay: (layout) => ipcRenderer.invoke(IPC.resetOverlay, layout),
+  copyText: (text) => ipcRenderer.invoke(IPC.copyText, text),
   plan: {
     get: () => ipcRenderer.invoke(PLAN_IPC.get),
     onChange: (listener) => {
@@ -33,6 +34,8 @@ const api: PoeApi = {
     setAnswers: (answers) => ipcRenderer.invoke(PLAN_IPC.setAnswers, answers),
     chooseBuild: (buildId) => ipcRenderer.invoke(PLAN_IPC.chooseBuild, buildId),
     importPob: (code) => ipcRenderer.invoke(PLAN_IPC.importPob, code),
+    refreshTree: () => ipcRenderer.invoke(PLAN_IPC.refreshTree),
+    setTreeTarget: (index) => ipcRenderer.invoke(PLAN_IPC.setTreeTarget, index),
     clearPob: () => ipcRenderer.invoke(PLAN_IPC.clearPob),
     setPobSets: (indexes) => ipcRenderer.invoke(PLAN_IPC.setPobSets, indexes),
     setOptions: (patch) => ipcRenderer.invoke(PLAN_IPC.setOptions, patch),

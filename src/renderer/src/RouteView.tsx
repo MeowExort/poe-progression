@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { PlanView } from '@shared/plan'
 import { StepLine } from './StepLine'
+import { VendorSearches } from './TreeAdvice'
 
 /** The whole campaign route, one act at a time; click a step to move the position there. */
 export function RouteView({ plan }: { plan: PlanView }) {
@@ -30,6 +31,16 @@ export function RouteView({ plan }: { plan: PlanView }) {
           </button>
         ))}
       </nav>
+      {plan.vendorSearches.length > 0 && (
+        <details className="method vendor-block">
+          <summary>Поиск у торговца: строки под твой билд и уровень</summary>
+          <p className="hint">
+            Скопируй строку и вставь в поле поиска в окне торговца — игра подсветит подходящие вещи. Строки меняются с
+            уровнем персонажа: до 25-го ищем связки из трёх, дальше из четырёх.
+          </p>
+          <VendorSearches searches={plan.vendorSearches} />
+        </details>
+      )}
       <ol className="steps">
         {shown.map((step, i) => {
           const state = step.index < position ? 'done' : step.index === position ? 'current' : 'todo'

@@ -47,7 +47,9 @@ for (const file of luaFiles(basesDir)) {
     const type = /\btype = "([^"]+)"/.exec(body)?.[1]
     if (!type) continue
     const level = /\breq = \{[^}]*\blevel = (\d+)/.exec(body)?.[1]
-    bases[name] = { type, level: level ? +level : 1 }
+    // For armour pieces: which defences the base has, e.g. "Armour/Evasion".
+    const sub = /\bsubType = "([^"]+)"/.exec(body)?.[1]
+    bases[name] = { type, level: level ? +level : 1, ...(sub ? { sub } : {}) }
   }
 }
 

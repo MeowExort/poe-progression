@@ -1,5 +1,6 @@
 import type { GemSource, PlanView, PobGem } from '@shared/plan'
 import { SourcingView } from './SourcingView'
+import { TreeAdviceView } from './TreeAdvice'
 
 function sourceText(gem: PobGem, source: GemSource | undefined, setSelected: boolean): { text: string; bad: boolean } {
   if (!gem.id) return { text: 'нет в моих данных об игре — смотри гайд', bad: true }
@@ -88,6 +89,8 @@ export function TreeView({ plan }: { plan: PlanView }) {
   if (!specs.length) return <p className="empty">В билде нет деревьев.</p>
   return (
     <div className="pob-view">
+      <TreeAdviceView plan={plan} />
+      <h4>Деревья из билда</h4>
       <p className="hint">
         Деревья из билда по этапам. Ссылка открывает дерево на pathofexile.com; число узлов включает стартовый узел
         класса и асцендант.

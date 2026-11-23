@@ -339,6 +339,25 @@ export class SanctumService {
     this.emit()
   }
 
+  /**
+   * The passive tree of a character, read with the same access as the inventory. `character`
+   * is the one the game log shows; without it, the one the tracker follows.
+   */
+  async readPassives(character: string | null): Promise<{ character: string; hashes: number[] } | { error: string }> {
+    const cookie = this.deps.secrets.get(COOKIE)
+    if (!this.account || !cookie) return { error: 'Нужен доступ к сайту: аккаунт и cookie во вкладке Sanctum.' }
+    if (!character && !this.character && this.autoCharacter) await this.detectCharacter()
+    const name = character || this.character
+    if (!name) return { error: 'Не знаю, какого персонажа читать: зайди им в игру или укажи его во вкладке Sanctum.' }
+    try {
+      const body = (await this.deps.site.getPassiveSkills(this.account, name, cookie)) as { hashes?: unknown } | null
+      if (!body || !Array.isArray(body.hashes)) return { error: 'Сайт не вернул дерево персонажа.' }
+      return { character: name, hashes: body.hashes.filter((id): id is number => Number.isInteger(id)) }
+    } catch (error) {
+      return { error: error instanceof SiteError ? error.message : 'Запрос к сайту не удался.' }
+    }
+  }
+
   /** Resolves when every inventory reading asked for so far is done. For tests and shutdown. */
   settled(): Promise<void> {
     return this.pending

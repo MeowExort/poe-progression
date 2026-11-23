@@ -1741,3 +1741,131 @@ button.danger {
   border-color: var(--bad);
   color: var(--bad);
 }
+
+/* ── Passive tree advice and vendor searches ───────────────── */
+
+.tree-advice {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tree-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.tree-head select {
+  max-width: 320px;
+}
+
+.hint.bad {
+  color: var(--bad);
+}
+
+.tree-next {
+  margin: 0;
+  padding-left: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.tree-next small {
+  display: block;
+  font-size: 12px;
+}
+
+.tree-point i {
+  font-style: normal;
+}
+
+.tree-point.k-notable,
+.tree-point.k-keystone {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.tree-point.k-mastery {
+  color: var(--level);
+}
+
+.tree-point.k-jewel {
+  color: var(--ok);
+}
+
+.vendor-searches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vendor-searches li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2px 10px;
+  font-size: 13px;
+}
+
+.vendor-searches .vendor-label {
+  grid-column: 1 / -1;
+}
+
+.vendor-searches code {
+  overflow-wrap: anywhere;
+  padding: 3px 6px;
+  background: var(--panel-2);
+  border-radius: 4px;
+}
+
+.vendor-searches small {
+  grid-column: 1 / -1;
+}
+
+.vendor-block {
+  margin-bottom: 10px;
+}
+
+.overlay-tree {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.overlay-tree h5 {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.overlay-tree p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.vendor-searches.compact {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  gap: 6px;
+}
+
+.vendor-searches.compact li {
+  font-size: 12px;
+}
+
+.vendor-searches.compact button {
+  padding: 2px 8px;
+  font-size: 11px;
+}

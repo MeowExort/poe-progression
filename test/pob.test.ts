@@ -3,6 +3,10 @@ import { describe, expect, it } from 'vitest'
 import { decodePobCode, parsePobCode, PobError } from '../src/core/pob/parse'
 import { buildPlanRoute } from '../src/core/route/build'
 import { requiredGems } from '../src/core/route/gems'
+import { mkdtempSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { TREE } from '../src/core/tree/data'
 import { PlanStore } from '../src/main/plan'
 import type { Fragment, RouteOptions } from '../src/shared/plan'
 
@@ -44,7 +48,7 @@ export const SAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
     </SkillSet>
   </Skills>
   <Tree activeSpec="2">
-    <Spec title="Level 30" treeVersion="3_30" nodes="1,2,3,4,5">
+    <Spec title="Level 30" treeVersion="3_30" nodes="1,2,3,4,5" masteryEffects="{4,100},{5,200}">
       <URL>
         https://www.pathofexile.com/passive-skill-tree/AAAABgIA
       </URL>
@@ -137,8 +141,14 @@ describe('parsePobCode', () => {
 
   it('reads tree specs', () => {
     expect(pob.treeSpecs).toEqual([
-      { title: 'Level 30', url: 'https://www.pathofexile.com/passive-skill-tree/AAAABgIA', nodes: 5 },
-      { title: 'Endgame', url: null, nodes: 3 }
+      {
+        title: 'Level 30',
+        url: 'https://www.pathofexile.com/passive-skill-tree/AAAABgIA',
+        nodes: 5,
+        nodeIds: [1, 2, 3, 4, 5],
+        masteries: { 4: 100, 5: 200 }
+      },
+      { title: 'Endgame', url: null, nodes: 3, nodeIds: [1, 2, 3], masteries: {} }
     ])
   })
 
@@ -294,6 +304,61 @@ describe('PlanStore with a PoB build', () => {
     expect(view.options.bandit).toBe('alira')
     expect(view.steps.some((step) => step.parts.some((part) => part.type === 'gem'))).toBe(true)
     expect(Object.keys(view.gemSources)).toHaveLength(4)
+  })
+
+  it('advises on the passive tree and remembers what the character has', () => {
+    const start = TREE.classes.find((entry) => entry.name === 'Ranger')!.start
+    const [first] = TREE.nodes[start].links.filter((id) => !TREE.nodes[id].ascendancy)
+    const [second] = TREE.nodes[first].links.filter((id) => id !== start)
+    const xml = SAMPLE_XML.replace('nodes="1,2,3,4,5"', `nodes="${start},${first},${second}"`)
+    const dir = mkdtempSync(join(tmpdir(), 'poe-plan-tree-'))
+    const file = join(dir, 'plan.json')
+    const changes: (number | undefined)[] = []
+    const plan = new PlanStore(file, (view) => changes.push(view.tree?.taken))
+    expect(plan.followsTree).toBe(false)
+    expect(plan.importPob(encode(xml))).toBeNull()
+    expect(plan.followsTree).toBe(true)
+
+    expect(plan.view().tree).toMatchObject({ specTitle: 'Level 30', taken: 0, total: 2, known: false })
+    expect(plan.view().tree?.next.map((point) => point.id)).toEqual([first, second])
+    expect(plan.view().treeReading).toEqual({ character: null, readAt: null, busy: false, error: null })
+
+    plan.setTreeReading({ busy: true, error: null })
+    expect(plan.view().treeReading.busy).toBe(true)
+    plan.setAllocated('Tester', [first], 5000)
+    expect(plan.view().tree).toMatchObject({ taken: 1, known: true })
+    expect(plan.view().treeReading).toEqual({ character: 'Tester', readAt: 5000, busy: false, error: null })
+    expect(changes.at(-1)).toBe(1)
+
+    // What was read survives a restart; a failed reading keeps it and says why.
+    const reopened = new PlanStore(file)
+    expect(reopened.view().tree).toMatchObject({ taken: 1, known: true })
+    reopened.setTreeReading({ busy: false, error: 'сайт не ответил' })
+    expect(reopened.view().treeReading).toMatchObject({ character: 'Tester', error: 'сайт не ответил' })
+    expect(reopened.view().tree?.taken).toBe(1)
+
+    // Another build is another character: its tree is not this one's.
+    reopened.chooseBuild(reopened.view().ranked[0]?.build.id ?? 'none')
+    reopened.clearPob()
+    expect(reopened.view().tree).toBeNull()
+  })
+
+  it('offers vendor searches for the level the character is at', () => {
+    const plan = new PlanStore(null)
+    plan.importPob(CODE)
+    // At the very start no gem group of the build is usable yet.
+    expect(plan.view().vendorSearches.map((search) => search.pattern)).toEqual(['"movement speed"'])
+    plan.setLevel(13)
+    const early = plan.view().vendorSearches
+    expect(early.at(-1)?.pattern).toBe('"movement speed"')
+    expect(early[0].label).toMatch(/^Связка под Toxic Rain: G-G/)
+    let emitted = 0
+    const watched = new PlanStore(null, () => emitted++)
+    watched.importPob(CODE)
+    emitted = 0
+    watched.setLevel(30)
+    watched.setLevel(30)
+    expect(emitted).toBe(1)
   })
 
   it('reports a readable error and changes nothing on a bad code', () => {

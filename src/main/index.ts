@@ -1,13 +1,14 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
-import { app, BrowserWindow, dialog, ipcMain, safeStorage, session as electronSession, shell } from 'electron'
+import { app, BrowserWindow, clipboard, dialog, ipcMain, safeStorage, session as electronSession, shell } from 'electron'
 import { IPC, type AppConfig, type Bounds, type OverlayLayout, type SessionState } from '@shared/api'
 import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
 import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
 import { UPDATE_IPC } from '@shared/update'
 import { autoUpdater } from 'electron-updater'
+import { AREAS } from '@core/route/data'
 import { detectLogPath, loadConfig, readBounds, saveConfig } from './config'
 import { parseLine } from './log/parser'
 import { LogTailer } from './log/tailer'
@@ -168,6 +169,12 @@ function followLog(path: string): void {
         plan?.enterArea(event.areaId)
         sanctum?.onArea(event.ts, event.areaId, event.seed)
         tracked = true
+        // Points are usually spent in town: a good moment to look at the tree again.
+        if (AREAS[event.areaId]?.is_town_area) scheduleTreeRead()
+      } else if (event.type === 'level_up') {
+        const character = session.getState().character
+        if (character) plan?.setLevel(character.level)
+        scheduleTreeRead()
       } else if (event.type === 'dialogue') {
         sanctum?.onDialogue(event.ts, event.speaker, event.text)
         tracked = true
@@ -179,6 +186,29 @@ function followLog(path: string): void {
   })
   tailer = current
   current.start()
+}
+
+/** The character's passive tree is read again at most this often, unless the player asks. */
+const TREE_READ_GAP_MS = 60_000
+/** The site learns of a level-up or a spent point a moment after the game does. */
+const TREE_READ_DELAY_MS = 4000
+let treeReadAt = 0
+let treeReadTimer: NodeJS.Timeout | null = null
+
+/** Reads the character's passive tree from the site and hands it to the plan. */
+async function readTree(force: boolean): Promise<void> {
+  if (!plan?.followsTree || !sanctum) return
+  if (!force && Date.now() - treeReadAt < TREE_READ_GAP_MS) return
+  treeReadAt = Date.now()
+  plan.setTreeReading({ busy: true, error: null })
+  const result = await sanctum.readPassives(session.getState().character?.name ?? null)
+  if ('error' in result) plan.setTreeReading({ busy: false, error: result.error })
+  else plan.setAllocated(result.character, result.hashes, Date.now())
+}
+
+function scheduleTreeRead(): void {
+  if (treeReadTimer) clearTimeout(treeReadTimer)
+  treeReadTimer = setTimeout(() => void readTree(false), TREE_READ_DELAY_MS)
 }
 
 function applyHotkey(): void {
@@ -243,14 +273,23 @@ function registerIpc(): void {
   ipcMain.handle(PLAN_IPC.get, () => plan?.view())
   ipcMain.handle(PLAN_IPC.setAnswers, (_event, answers: Answers | null) => plan?.setAnswers(answers))
   ipcMain.handle(PLAN_IPC.chooseBuild, (_event, buildId: string | null) => plan?.chooseBuild(buildId))
-  ipcMain.handle(PLAN_IPC.importPob, (_event, code: string) =>
-    typeof code === 'string' ? (plan?.importPob(code) ?? null) : 'Пустой код.'
-  )
+  ipcMain.handle(PLAN_IPC.importPob, (_event, code: string) => {
+    if (typeof code !== 'string') return 'Пустой код.'
+    const problem = plan?.importPob(code) ?? null
+    if (!problem) void readTree(true)
+    return problem
+  })
   ipcMain.handle(PLAN_IPC.clearPob, () => plan?.clearPob())
   ipcMain.handle(PLAN_IPC.setPobSets, (_event, indexes: number[]) => plan?.setPobSets(Array.isArray(indexes) ? indexes : []))
   ipcMain.handle(PLAN_IPC.setOptions, (_event, patch: Partial<RouteOptions>) => plan?.setOptions(patch ?? {}))
   ipcMain.handle(PLAN_IPC.setPosition, (_event, position: number) => plan?.setPosition(position))
   ipcMain.handle(PLAN_IPC.moveGroup, (_event, delta: number) => plan?.moveGroup(delta))
+
+  ipcMain.handle(IPC.copyText, (_event, text: string) => {
+    if (typeof text === 'string') clipboard.writeText(text.slice(0, 2000))
+  })
+  ipcMain.handle(PLAN_IPC.refreshTree, () => readTree(true))
+  ipcMain.handle(PLAN_IPC.setTreeTarget, (_event, index: number | null) => plan?.setTreeTarget(index))
 
   ipcMain.handle(UPDATE_IPC.get, () => updater?.view())
   ipcMain.handle(UPDATE_IPC.check, () => updater?.check())
@@ -369,6 +408,12 @@ if (!app.requestSingleInstanceLock()) {
     overlay.create()
     applyHotkey()
     followLog(config.logPath)
+    // Once the end of the log is read the character is known: look at its tree.
+    setTimeout(() => {
+      const character = session.getState().character
+      if (character) plan?.setLevel(character.level)
+      void readTree(true)
+    }, TREE_READ_DELAY_MS)
   })
 
   app.on('will-quit', () => {

@@ -7,6 +7,7 @@ import { useNow, usePlan, useSanctum, useSession } from './hooks'
 import { OverlayEdit } from './OverlayEdit'
 import { SanctumBar } from './SanctumBar'
 import { StepLine } from './StepLine'
+import { TreeLine, VendorSearches } from './TreeAdvice'
 
 function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState }) {
   const { steps, position } = plan
@@ -43,6 +44,9 @@ function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState })
           </li>
         ))}
       </ol>
+      <TreeLine plan={plan} />
+      {/* Vendors are in towns: that is where the search strings are of use. */}
+      {actual?.areaId?.endsWith('_town') && <VendorSearches searches={plan.vendorSearches} compact />}
     </section>
   )
 }
