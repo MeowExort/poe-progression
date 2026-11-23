@@ -46,7 +46,11 @@ const api: PoeApi = {
     },
     saveAccess: (access) => ipcRenderer.invoke(SANCTUM_IPC.saveAccess, access),
     clearCookie: () => ipcRenderer.invoke(SANCTUM_IPC.clearCookie),
-    snapshot: () => ipcRenderer.invoke(SANCTUM_IPC.snapshot)
+    snapshot: () => ipcRenderer.invoke(SANCTUM_IPC.snapshot),
+    newSession: () => ipcRenderer.invoke(SANCTUM_IPC.newSession),
+    failActive: () => ipcRenderer.invoke(SANCTUM_IPC.failActive),
+    dumpSiteAnswer: () => ipcRenderer.invoke(SANCTUM_IPC.dumpSiteAnswer),
+    setOutcome: (runId, outcome) => ipcRenderer.invoke(SANCTUM_IPC.setOutcome, runId, outcome)
   }
 }
 

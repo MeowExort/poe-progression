@@ -1107,3 +1107,109 @@ button.step:hover:not(:disabled) {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+
+/* ── Sanctum runs ──────────────────────────────────────────── */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.stat-tile dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.stat-tile dd {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-tile small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.active-run {
+  border-color: var(--accent);
+}
+
+.active-run .list-head {
+  align-items: center;
+}
+
+.floor-times {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.floor-times li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.floor-times li.done strong {
+  color: var(--ok);
+}
+
+.run summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.run summary strong {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+.run .floor-times,
+.run .actions,
+.floor-loot {
+  margin-top: 10px;
+}
+
+.floor-loot h5 {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.overlay-sanctum {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overlay-sanctum .overlay-nav button {
+  font-size: 12px;
+  padding: 2px 10px;
+  line-height: 1.5;
+}

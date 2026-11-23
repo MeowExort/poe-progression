@@ -109,7 +109,12 @@ function followLog(path: string): void {
     const events = parseLines(lines)
     session.apply(events, true)
     for (const event of events) {
-      if (event.type === 'area_generated') plan?.enterArea(event.areaId)
+      if (event.type === 'area_generated') {
+        plan?.enterArea(event.areaId)
+        sanctum?.onArea(event.ts, event.areaId, event.seed)
+      } else if (event.type === 'dialogue') {
+        sanctum?.onDialogue(event.ts, event.speaker, event.text)
+      }
     }
   })
   current.start()
@@ -177,6 +182,16 @@ function registerIpc(): void {
   ipcMain.handle(SANCTUM_IPC.saveAccess, (_event, access: SanctumAccess) => sanctum?.saveAccess(access ?? {}))
   ipcMain.handle(SANCTUM_IPC.clearCookie, () => sanctum?.clearCookie())
   ipcMain.handle(SANCTUM_IPC.snapshot, () => sanctum?.snapshot())
+  ipcMain.handle(SANCTUM_IPC.newSession, () => sanctum?.newSession())
+  ipcMain.handle(SANCTUM_IPC.failActive, () => sanctum?.failActive())
+  ipcMain.handle(SANCTUM_IPC.dumpSiteAnswer, async () => {
+    const file = await sanctum?.dumpSiteAnswer()
+    if (file) shell.showItemInFolder(file)
+    return file ?? null
+  })
+  ipcMain.handle(SANCTUM_IPC.setOutcome, (_event, runId: number, outcome: 'completed' | 'failed') => {
+    if (outcome === 'completed' || outcome === 'failed') sanctum?.setOutcome(runId, outcome)
+  })
 }
 
 if (!app.requestSingleInstanceLock()) {
@@ -206,6 +221,8 @@ if (!app.requestSingleInstanceLock()) {
     plan = new PlanStore(join(userData, 'plan.json'), broadcastPlan)
     sanctum = new SanctumService({
       file: join(userData, 'account.json'),
+      runsFile: join(userData, 'sanctum-runs.json'),
+      debugDir: join(userData, 'debug'),
       site: new PoeSite(),
       secrets: new SecretStore(join(userData, 'secrets.json'), safeStorage),
       prices: new PriceBook(join(userData, 'prices.json')),

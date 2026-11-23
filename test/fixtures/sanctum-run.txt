@@ -1,0 +1,100 @@
+2026/11/23 13:34:15 100000000 abcdef12 [DEBUG Client 1000] Generating level 69 area "2_11_endgame_town" with seed 1
+2026/11/23 13:34:25 100000000 abcdef12 [INFO Client 1000] : You have entered Karui Shores.
+2026/11/23 13:34:43 100000000 abcdef12 [DEBUG Client 1000] Generating level 60 area "HideoutSpace" with seed 1
+2026/11/23 13:34:44 100000000 abcdef12 [INFO Client 1000] : You have entered Some Hideout.
+2026/11/23 13:35:15 100000000 abcdef12 [DEBUG Client 1000] Generating level 1 area "SanctumFoyer_Fellshrine" with seed 2990781327
+2026/11/23 13:35:16 100000000 abcdef12 [INFO Client 1000] : You have entered The Forbidden Sanctum.
+2026/11/23 13:35:32 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumFoyer_1_1" with seed 2040027694
+2026/11/23 13:35:33 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:35:37 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 3724742868
+2026/11/23 13:35:38 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:35:55 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 3851128952
+2026/11/23 13:35:56 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:36:10 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 840066330
+2026/11/23 13:36:11 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:36:28 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 620796077
+2026/11/23 13:36:29 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:36:50 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 1894137017
+2026/11/23 13:36:50 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:37:06 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 1820908078
+2026/11/23 13:37:07 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:37:24 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 983845521
+2026/11/23 13:37:25 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:37:38 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCellar" with seed 1763070991
+2026/11/23 13:37:39 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Archives.
+2026/11/23 13:37:39 100000000 abcdef12 [INFO Client 1000] Lycia: Varakath, slay them!
+2026/11/23 13:37:51 100000000 abcdef12 [DEBUG Client 1000] Generating level 1 area "SanctumFoyer_Fellshrine" with seed 2990781327
+2026/11/23 13:37:52 100000000 abcdef12 [INFO Client 1000] : You have entered The Forbidden Sanctum.
+2026/11/23 13:37:56 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumFoyer_2_3" with seed 2074075649
+2026/11/23 13:37:57 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:38:04 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 3566419808
+2026/11/23 13:38:05 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:38:26 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 3329277628
+2026/11/23 13:38:27 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:38:49 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 523260627
+2026/11/23 13:38:50 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:38:59 100000000 abcdef12 [INFO Client 1000] Lycia: Another human tempted by power? A mortal after my own heart.
+2026/11/23 13:39:07 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 596015310
+2026/11/23 13:39:08 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:39:23 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 3192760895
+2026/11/23 13:39:24 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:39:38 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 589795613
+2026/11/23 13:39:39 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:40:01 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 536361342
+2026/11/23 13:40:02 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:40:14 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumVaults" with seed 1230409856
+2026/11/23 13:40:15 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Vaults.
+2026/11/23 13:40:16 100000000 abcdef12 [INFO Client 1000] Lycia: Bow to my sycophants.
+2026/11/23 13:40:20 100000000 abcdef12 [INFO Client 1000] Lycia: These are flesh vessels... Just like you.
+2026/11/23 13:40:31 100000000 abcdef12 [DEBUG Client 1000] Generating level 1 area "SanctumFoyer_Fellshrine" with seed 2990781327
+2026/11/23 13:40:32 100000000 abcdef12 [INFO Client 1000] : You have entered The Forbidden Sanctum.
+2026/11/23 13:40:35 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumFoyer_3_3" with seed 948963354
+2026/11/23 13:40:36 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:40:42 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 634797407
+2026/11/23 13:40:44 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:41:03 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 691837507
+2026/11/23 13:41:04 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:41:19 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 690899822
+2026/11/23 13:41:20 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:41:34 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 4206179200
+2026/11/23 13:41:35 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:42:01 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 1554764598
+2026/11/23 13:42:02 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:42:13 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 1054104580
+2026/11/23 13:42:14 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:42:38 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 2622607996
+2026/11/23 13:42:39 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:42:59 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumNave" with seed 2257413460
+2026/11/23 13:43:00 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Cathedral.
+2026/11/23 13:43:01 100000000 abcdef12 [INFO Client 1000] Lycia: You have invoked the wrath of a powerful entity. Perish!
+2026/11/23 13:43:08 100000000 abcdef12 [INFO Client 1000] Lycia: You have challenged my legion, but you will succumb.
+2026/11/23 13:43:19 100000000 abcdef12 [DEBUG Client 1000] Generating level 1 area "SanctumFoyer_Fellshrine" with seed 2990781327
+2026/11/23 13:43:20 100000000 abcdef12 [INFO Client 1000] : You have entered The Forbidden Sanctum.
+2026/11/23 13:43:23 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumFoyer_4_3" with seed 1110838918
+2026/11/23 13:43:24 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Mausoleum.
+2026/11/23 13:43:29 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 2322642590
+2026/11/23 13:43:30 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:43:45 100000000 abcdef12 [INFO Client 1000] Lycia: Feed the beast all that it desires...
+2026/11/23 13:43:54 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 1996765546
+2026/11/23 13:43:55 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:44:18 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 1310021292
+2026/11/23 13:44:19 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:44:38 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 4192966349
+2026/11/23 13:44:39 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:44:58 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 4221601301
+2026/11/23 13:44:59 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:45:25 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 1492250903
+2026/11/23 13:45:26 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:45:55 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 315637813
+2026/11/23 13:45:56 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:46:14 100000000 abcdef12 [INFO Client 1000] Lycia: Another human tempted by power? A mortal after my own heart.
+2026/11/23 13:46:20 100000000 abcdef12 [DEBUG Client 1000] Generating level 83 area "SanctumCrypt" with seed 2285143981
+2026/11/23 13:46:21 100000000 abcdef12 [INFO Client 1000] : You have entered Sanctum Necropolis.
+2026/11/23 13:46:23 100000000 abcdef12 [INFO Client 1000] Lycia, Unholy Heretic: I have an eternity. You are only wasting your own meagre time.
+2026/11/23 13:46:32 100000000 abcdef12 [INFO Client 1000] Lycia: Playing with fire will get you burned...
+2026/11/23 13:46:36 100000000 abcdef12 [INFO Client 1000] Lycia, Unholy Heretic: I do so enjoy torturing you.
+2026/11/23 13:46:40 100000000 abcdef12 [INFO Client 1000] Lycia, Unholy Heretic: You cannot escape Beidat's gaze!
+2026/11/23 13:46:43 100000000 abcdef12 [INFO Client 1000] Lycia, Unholy Heretic: The Scourge will consume this world of sinners!
+2026/11/23 13:46:56 100000000 abcdef12 [INFO Client 1000] Lycia, Herald of the Scourge: *laughter*
+2026/11/23 13:47:13 100000000 abcdef12 [DEBUG Client 1000] Generating level 1 area "SanctumFoyer_Fellshrine" with seed 2990781327
+2026/11/23 13:47:14 100000000 abcdef12 [INFO Client 1000] : You have entered The Forbidden Sanctum.

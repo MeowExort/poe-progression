@@ -283,6 +283,8 @@ describe('SanctumService', () => {
     const views: boolean[] = []
     const service = new SanctumService({
       file: join(dir, 'account.json'),
+      runsFile: join(dir, 'runs.json'),
+      sleep: async () => {},
       site,
       secrets: new SecretStore(join(dir, 'secrets.json'), cipher(options.encryption ?? true)),
       prices: new PriceBook(join(dir, 'prices.json'), (async () => respond(ninjaAnswer)) as unknown as typeof fetch),
@@ -345,5 +347,128 @@ describe('SanctumService', () => {
     expect(second.service.view()).toMatchObject({ account: 'Name#1234', character: 'Tester', cookieStored: true })
     second.service.clearCookie()
     expect(second.service.view().cookieStored).toBe(false)
+  })
+
+  // ── Runs ──
+
+  const T0 = new Date(2026, 10, 23, 10, 0, 0).getTime()
+  const sec = (seconds: number): number => T0 + seconds * 1000
+
+  /** Plays a whole floor: entrance, eight rooms ten seconds apart, then the lobby. Returns the time after it. */
+  function playFloor(service: SanctumService, floor: number, start: number, run = 'a'): number {
+    const room = ['SanctumCellar', 'SanctumVaults', 'SanctumNave', 'SanctumCrypt'][floor - 1]
+    service.onArea(sec(start), `SanctumFoyer_${floor}_1`, `${run}-entrance-${floor}`)
+    for (let i = 0; i < 8; i++) service.onArea(sec(start + 10 + i * 10), room, `${run}-${floor}-${i}`)
+    return start + 90
+  }
+
+  it('books the loot of each floor from the inventory read at its end', async () => {
+    const { service } = setup([
+      siteAnswer([]), // access check
+      siteAnswer([stack('Chaos Orb', 5)], 100), // baseline at the start of the run
+      siteAnswer([stack('Chaos Orb', 15)], 300), // after floor 1
+      siteAnswer([stack('Chaos Orb', 15), stack('Divine Orb', 2)], 300) // after floor 2
+    ])
+    await service.saveAccess(access)
+
+    let t = playFloor(service, 1, 0)
+    service.onArea(sec(t), 'SanctumFoyer_Fellshrine', 'lobby')
+    t = playFloor(service, 2, t + 5)
+    service.onArea(sec(t), 'SanctumFoyer_Fellshrine', 'lobby')
+    await service.settled()
+
+    const { active } = service.view()
+    expect(active?.run.floors.map((floor) => [floor.floor, floor.rooms, floor.ms, floor.done])).toEqual([
+      [1, 8, 90_000, true],
+      [2, 8, 90_000, false]
+    ])
+    expect(active?.run.floors[0].loot).toMatchObject({ gold: 200, chaos: 10 })
+    expect(active?.run.floors[1].loot).toMatchObject({ gold: 0, chaos: 240, divine: 2 })
+    expect(active?.run.loot).toMatchObject({ gold: 200, chaos: 250 })
+    expect(active).toMatchObject({ floor: null, inSanctum: true })
+  })
+
+  it('finishes a won run, keeps it in history and counts it in the statistics', async () => {
+    const { service } = setup([
+      siteAnswer([]),
+      siteAnswer([], 0),
+      ...[1, 2, 3, 4].map((floor) => siteAnswer([stack('Divine Orb', floor)], floor * 100))
+    ])
+    await service.saveAccess(access)
+    let t = 0
+    for (const floor of [1, 2, 3, 4]) {
+      t = playFloor(service, floor, t)
+      if (floor === 4) service.onDialogue(sec(t - 5), 'Lycia, Herald of the Scourge', '*laughter*')
+      service.onArea(sec(t), 'SanctumFoyer_Fellshrine', 'lobby')
+      t += 5
+    }
+    await service.settled()
+
+    const view = service.view()
+    expect(view.active).toBeNull()
+    expect(view.runs).toHaveLength(1)
+    expect(view.runs[0]).toMatchObject({ outcome: 'completed', durationMs: 4 * 90_000 + 3 * 5_000, lootNote: null })
+    expect(view.runs[0].loot).toMatchObject({ gold: 400, chaos: 480, divine: 4 })
+    expect(view.stats.session).toMatchObject({
+      runs: 1,
+      completed: 1,
+      failed: 0,
+      avgRunMs: 375_000,
+      avgFloorMs: 90_000,
+      avgFloorMsByFloor: [90_000, 90_000, 90_000, 90_000],
+      sanctumMs: 375_000,
+      chaos: 480,
+      divine: 4,
+      gold: 400,
+      chaosOrbs: 0,
+      divineOrbs: 4
+    })
+
+    // The history survives a restart; a new session starts its own statistics.
+    const reopened = setup([]).service.view()
+    expect(reopened.runs).toHaveLength(1)
+    expect(reopened.stats.allTime.runs).toBe(1)
+    expect(reopened.stats.session.runs).toBe(0)
+  })
+
+  it('tracks runs without loot when access is not set up, and says so', async () => {
+    const { service } = setup([])
+    playFloor(service, 1, 0)
+    service.failActive()
+    await service.settled()
+    const [run] = service.view().runs
+    expect(run).toMatchObject({ outcome: 'failed', lootNote: expect.stringMatching(/не настроен доступ/) })
+    expect(run.loot).toMatchObject({ chaos: 0, lines: [] })
+    expect(service.view().stats.session).toMatchObject({ runs: 1, completed: 0, failed: 1, avgRunMs: null, avgFloorMs: null })
+  })
+
+  it('lets the player correct how a run ended', async () => {
+    const { service } = setup([])
+    playFloor(service, 1, 0)
+    service.failActive()
+    const [run] = service.view().runs
+    service.setOutcome(run.id, 'completed')
+    expect(service.view().runs[0]).toMatchObject({ outcome: 'completed' })
+    expect(service.view().runs[0].floors[0].done).toBe(true)
+    expect(service.view().stats.session).toMatchObject({ completed: 1, failed: 0 })
+    service.setOutcome(run.id, 'failed')
+    expect(service.view().runs[0].floors[0].done).toBe(false)
+  })
+
+  it('closes a run left in progress by the previous launch as failed', async () => {
+    const first = setup([])
+    playFloor(first.service, 1, 0)
+    const reopened = setup([]).service.view()
+    expect(reopened.active).toBeNull()
+    expect(reopened.runs[0]).toMatchObject({ outcome: 'failed', durationMs: 80_000 })
+  })
+
+  it('starts session statistics over on request', async () => {
+    const { service } = setup([])
+    playFloor(service, 1, 0)
+    service.failActive()
+    service.newSession()
+    expect(service.view().stats.session.runs).toBe(0)
+    expect(service.view().stats.allTime.runs).toBe(1)
   })
 })

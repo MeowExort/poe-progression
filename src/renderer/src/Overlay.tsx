@@ -1,9 +1,11 @@
 import { currentGroup } from '@core/route/groups'
 import type { SessionState } from '@shared/api'
 import type { PlanView } from '@shared/plan'
+import type { SanctumView } from '@shared/sanctum'
 import { Feed } from './Feed'
 import { formatDuration } from './format'
-import { useNow, usePlan, useSession } from './hooks'
+import { useNow, usePlan, useSanctum, useSession } from './hooks'
+import { lootSummary } from './SanctumTab'
 import { StepLine } from './StepLine'
 
 function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState }) {
@@ -45,11 +47,51 @@ function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState })
   )
 }
 
+function SanctumRun({ active, now }: { active: NonNullable<SanctumView['active']>; now: number }) {
+  const live = active.inSanctum ? Math.max(0, now - active.since) : 0
+  const floor = active.run.floors.find((entry) => entry.floor === active.floor)
+  return (
+    <section className="overlay-sanctum">
+      <div className="overlay-nav">
+        <span>
+          Sanctum · {floor ? `этаж ${floor.floor} · комната ${floor.rooms}/8` : active.inSanctum ? 'между этажами' : 'пауза'}
+        </span>
+        <button onClick={() => void window.poe.sanctum.failActive()} title="Resolve закончился">
+          Провал
+        </button>
+      </div>
+      <dl className="overlay-stats">
+        <div>
+          <dt>Этаж</dt>
+          <dd>{floor ? formatDuration(floor.ms + live) : '—'}</dd>
+        </div>
+        <div>
+          <dt>Забег</dt>
+          <dd>{formatDuration(active.run.durationMs + live)}</dd>
+        </div>
+        <div>
+          <dt>Лут</dt>
+          <dd>{lootSummary(active.run.loot)}</dd>
+        </div>
+      </dl>
+      <ul className="floor-times">
+        {active.run.floors.map((entry) => (
+          <li key={entry.floor} className={entry.done ? 'done' : ''}>
+            <span className="muted">{entry.floor}</span>
+            <strong>{formatDuration(entry.ms + (entry.floor === active.floor ? live : 0))}</strong>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 export function Overlay() {
   const session = useSession()
   const plan = usePlan()
+  const sanctum = useSanctum()
   const now = useNow()
-  if (!session || !plan) return null
+  if (!session || !plan || !sanctum) return null
 
   const { area, character, log } = session
   return (
@@ -79,7 +121,9 @@ export function Overlay() {
 
       {!log.found && <p className="warning">Client.txt не найден — укажи путь в настройках.</p>}
 
-      {plan.steps.length > 0 ? (
+      {sanctum.active ? (
+        <SanctumRun active={sanctum.active} now={now} />
+      ) : plan.steps.length > 0 ? (
         <PlanSteps plan={plan} session={session} />
       ) : (
         <>
