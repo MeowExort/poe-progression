@@ -176,8 +176,13 @@ export function SanctumBar({ view, now, demo }: { view: SanctumView; now: number
           <div className="side right">
             <div className="big small">{formatDuration(Math.max(0, now - view.sessionStartedAt))}</div>
             <div className="cap">сессия</div>
-            <div className="counts">
-              заходов: {view.runCounts.session} за сессию · {view.runCounts.today} сегодня
+            <div className="counts" title="Заходов в Sanctum">
+              <span>
+                за сессию <b>{view.runCounts.session}</b>
+              </span>
+              <span>
+                сегодня <b>{view.runCounts.today}</b>
+              </span>
             </div>
           </div>
         </div>

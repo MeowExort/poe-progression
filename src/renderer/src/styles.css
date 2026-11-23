@@ -1331,7 +1331,8 @@ button.step:hover:not(:disabled) {
 .sbar .side.right {
   align-items: flex-end;
   text-align: right;
-  min-width: 190px;
+  /* Only as wide as the session clock: every pixel here is taken from the orbs and the rooms. */
+  min-width: 0;
 }
 
 .sbar .big {
@@ -1353,11 +1354,21 @@ button.step:hover:not(:disabled) {
   margin-top: 3px;
 }
 
+/* Two short lines under the clock, so the run counts do not widen the block. */
 .sbar .counts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 4px;
   font-size: 11px;
+  line-height: 13px;
   color: var(--muted);
-  margin-top: 5px;
   white-space: nowrap;
+}
+
+.sbar .counts b {
+  font-weight: 600;
+  color: #f1e6cf;
 }
 
 .sbar .main {
