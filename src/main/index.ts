@@ -6,6 +6,8 @@ import { IPC, type AppConfig, type Bounds, type OverlayLayout, type SessionState
 import { PLAN_IPC, type Answers, type PlanView, type RouteOptions } from '@shared/plan'
 import type { LogEvent } from '@shared/events'
 import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
+import { UPDATE_IPC } from '@shared/update'
+import { autoUpdater } from 'electron-updater'
 import { detectLogPath, loadConfig, readBounds, saveConfig } from './config'
 import { parseLine } from './log/parser'
 import { LogTailer } from './log/tailer'
@@ -18,6 +20,7 @@ import { SanctumService } from './sanctum'
 import { SecretStore } from './secrets'
 import { Session } from './session'
 import { TradeClient } from './trade'
+import { Updater } from './updater'
 
 const preload = join(__dirname, '../preload/index.js')
 
@@ -34,6 +37,10 @@ let tailer: LogTailer | null = null
 let plan: PlanStore | null = null
 let sanctum: SanctumService | null = null
 let boundsSaveTimer: NodeJS.Timeout | null = null
+let updater: Updater | null = null
+/** Updates are looked for shortly after startup and then every few hours. */
+const UPDATE_FIRST_CHECK_MS = 15_000
+const UPDATE_INTERVAL_MS = 4 * 60 * 60 * 1000
 /** Where reading of the game log stopped, saved so the next launch can pick up from there. */
 let positionFile: string
 let positionSavedAt = 0
@@ -245,6 +252,11 @@ function registerIpc(): void {
   ipcMain.handle(PLAN_IPC.setPosition, (_event, position: number) => plan?.setPosition(position))
   ipcMain.handle(PLAN_IPC.moveGroup, (_event, delta: number) => plan?.moveGroup(delta))
 
+  ipcMain.handle(UPDATE_IPC.get, () => updater?.view())
+  ipcMain.handle(UPDATE_IPC.check, () => updater?.check())
+  ipcMain.handle(UPDATE_IPC.install, () => updater?.install())
+  ipcMain.handle(UPDATE_IPC.dismissWhatsNew, () => updater?.dismissWhatsNew())
+
   ipcMain.handle(SANCTUM_IPC.get, () => sanctum?.view())
   ipcMain.handle(SANCTUM_IPC.saveAccess, (_event, access: SanctumAccess) => sanctum?.saveAccess(access ?? {}))
   ipcMain.handle(SANCTUM_IPC.clearCookie, () => sanctum?.clearCookie())
@@ -324,6 +336,17 @@ if (!app.requestSingleInstanceLock()) {
         overlay?.setInRun(view.active !== null || view.finished !== null)
       }
     })
+
+    // Only an installed copy can update itself; running from source has nothing to replace.
+    updater = new Updater({
+      current: app.getVersion(),
+      enabled: app.isPackaged,
+      source: app.isPackaged ? autoUpdater : null,
+      file: join(userData, 'update.json'),
+      onChange: (state) => send(UPDATE_IPC.state, state)
+    })
+    setTimeout(() => void updater?.check(), UPDATE_FIRST_CHECK_MS)
+    setInterval(() => void updater?.check(), UPDATE_INTERVAL_MS)
 
     registerIpc()
     createMainWindow()

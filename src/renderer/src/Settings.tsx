@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import type { AppConfig, SessionState } from '@shared/api'
+import type { UpdateState } from '@shared/update'
 import { LogStatus } from './LogStatus'
+import { UpdateStatus } from './UpdateBanner'
 
-export function Settings({ session }: { session: SessionState }) {
+export function Settings({ session, update }: { session: SessionState; update: UpdateState }) {
   const [saved, setSaved] = useState<AppConfig | null>(null)
   const [logPath, setLogPath] = useState('')
   const [hotkey, setHotkey] = useState('')
@@ -129,6 +131,8 @@ export function Settings({ session }: { session: SessionState }) {
           Сохранить
         </button>
       </div>
+
+      <UpdateStatus update={update} />
     </form>
   )
 }

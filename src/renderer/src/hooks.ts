@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { SessionState } from '@shared/api'
 import type { PlanView } from '@shared/plan'
 import type { SanctumView } from '@shared/sanctum'
+import type { UpdateState } from '@shared/update'
 
 /** The live session state pushed from the main process; null until the first snapshot arrives. */
 export function useSession(): SessionState | null {
@@ -62,4 +63,21 @@ export function useSanctum(): SanctumView | null {
     }
   }, [])
   return view
+}
+
+/** What the app knows about updates of itself; null until the first snapshot arrives. */
+export function useUpdate(): UpdateState | null {
+  const [state, setState] = useState<UpdateState | null>(null)
+  useEffect(() => {
+    let active = true
+    void window.poe.update.get().then((initial) => {
+      if (active) setState((current) => current ?? initial)
+    })
+    const unsubscribe = window.poe.update.onChange(setState)
+    return () => {
+      active = false
+      unsubscribe()
+    }
+  }, [])
+  return state
 }

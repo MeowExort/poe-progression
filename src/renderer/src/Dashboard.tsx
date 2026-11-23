@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Feed } from './Feed'
 import { formatDuration } from './format'
-import { useNow, usePlan, useSanctum, useSession } from './hooks'
+import { useNow, usePlan, useSanctum, useSession, useUpdate } from './hooks'
 import { PlanTab } from './PlanTab'
 import { SanctumTab } from './SanctumTab'
 import { Settings } from './Settings'
+import { UpdateBanner } from './UpdateBanner'
 
 type Tab = 'plan' | 'sanctum' | 'feed' | 'unknown' | 'settings'
 
@@ -13,8 +14,9 @@ export function Dashboard() {
   const now = useNow()
   const plan = usePlan()
   const sanctum = useSanctum()
+  const update = useUpdate()
   const [tab, setTab] = useState<Tab>('plan')
-  if (!session || !plan || !sanctum) return null
+  if (!session || !plan || !sanctum || !update) return null
 
   const { area, character, log } = session
   const tabs: { id: Tab; label: string }[] = [
@@ -37,6 +39,8 @@ export function Dashboard() {
           <kbd>{session.hotkey.accelerator}</kbd>
         </button>
       </header>
+
+      <UpdateBanner update={update} inRun={sanctum.active !== null} />
 
       <section className="cards">
         <article className="card">
@@ -107,7 +111,7 @@ export function Dashboard() {
             <Feed entries={session.unknown} empty="Пусто." />
           </>
         )}
-        {tab === 'settings' && <Settings session={session} />}
+        {tab === 'settings' && <Settings session={session} update={update} />}
       </main>
     </div>
   )

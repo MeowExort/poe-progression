@@ -1676,3 +1676,42 @@ button.step:hover:not(:disabled) {
 .sbar .main {
   justify-content: center;
 }
+
+/* ── Updates ───────────────────────────────────────────────── */
+
+.update-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  max-height: 40%;
+  overflow-y: auto;
+}
+
+.update-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.update-head strong {
+  margin-right: auto;
+  color: var(--accent);
+}
+
+.update-notes {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.update-notes .heading {
+  list-style: none;
+  margin: 4px 0 0 -18px;
+  font-weight: 600;
+}

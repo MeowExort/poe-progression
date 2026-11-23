@@ -1,0 +1,100 @@
+name: Build and release
+
+# Every push is checked. A release is published when package.json names a version that has
+# a section in CHANGELOG.md and no published release yet: raising the version is how a
+# release is decided on. The manual run builds the installer without publishing it, to
+# check that the build works.
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      release: ${{ steps.version.outputs.release }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npx electron-vite build
+      - id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(node -p "require('./package.json').version")
+          release=false
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            if gh release view "v$version" --repo "$GITHUB_REPOSITORY" --json isDraft --jq .isDraft 2>/dev/null | grep -qx false; then
+              echo "Release v$version is already published."
+            elif node scripts/release-notes.mjs "$version" >/dev/null 2>&1; then
+              release=true
+            else
+              echo "::notice::CHANGELOG.md has no section for $version, so nothing is released."
+            fi
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "release=$release" >> "$GITHUB_OUTPUT"
+          echo "Version $version, release: $release"
+
+  installer:
+    needs: check
+    if: needs.check.outputs.release == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: installer-${{ needs.check.outputs.version }}
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      VERSION: ${{ needs.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx electron-vite build
+
+      - name: Build the installer without publishing
+        if: needs.check.outputs.release != 'true'
+        run: npx electron-builder --win nsis --publish never
+      - uses: actions/upload-artifact@v4
+        if: needs.check.outputs.release != 'true'
+        with:
+          name: installer
+          path: |
+            release/*.exe
+            release/latest.yml
+          retention-days: 3
+
+      # The release stays a draft until the installer is in it, so the app never finds a
+      # release it cannot download. The tag is put on this very commit.
+      - name: Prepare the draft release
+        if: needs.check.outputs.release == 'true'
+        shell: bash
+        run: |
+          node scripts/release-notes.mjs "$VERSION" > notes.md
+          if gh release view "v$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit "v$VERSION" --repo "$GITHUB_REPOSITORY" --title "$VERSION" --notes-file notes.md --target "$GITHUB_SHA"
+          else
+            gh release create "v$VERSION" --repo "$GITHUB_REPOSITORY" --draft --title "$VERSION" --notes-file notes.md --target "$GITHUB_SHA"
+          fi
+      - name: Build the installer and upload it to the release
+        if: needs.check.outputs.release == 'true'
+        run: npx electron-builder --win nsis --publish always
+      - name: Publish the release
+        if: needs.check.outputs.release == 'true'
+        shell: bash
+        run: gh release edit "v$VERSION" --repo "$GITHUB_REPOSITORY" --draft=false --latest

@@ -2,6 +2,7 @@ import { contextBridge, ipcRenderer, type IpcRendererEvent } from 'electron'
 import { IPC, type PoeApi, type SessionState } from '@shared/api'
 import { PLAN_IPC, type PlanView } from '@shared/plan'
 import { SANCTUM_IPC, type SanctumView } from '@shared/sanctum'
+import { UPDATE_IPC, type UpdateState } from '@shared/update'
 
 const api: PoeApi = {
   getState: () => ipcRenderer.invoke(IPC.getState),
@@ -56,6 +57,19 @@ const api: PoeApi = {
     failActive: () => ipcRenderer.invoke(SANCTUM_IPC.failActive),
     dumpSiteAnswer: () => ipcRenderer.invoke(SANCTUM_IPC.dumpSiteAnswer),
     setOutcome: (runId, outcome) => ipcRenderer.invoke(SANCTUM_IPC.setOutcome, runId, outcome)
+  },
+  update: {
+    get: () => ipcRenderer.invoke(UPDATE_IPC.get),
+    onChange: (listener) => {
+      const handler = (_event: IpcRendererEvent, state: UpdateState): void => listener(state)
+      ipcRenderer.on(UPDATE_IPC.state, handler)
+      return () => {
+        ipcRenderer.removeListener(UPDATE_IPC.state, handler)
+      }
+    },
+    check: () => ipcRenderer.invoke(UPDATE_IPC.check),
+    install: () => ipcRenderer.invoke(UPDATE_IPC.install),
+    dismissWhatsNew: () => ipcRenderer.invoke(UPDATE_IPC.dismissWhatsNew)
   }
 }
 
