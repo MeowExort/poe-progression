@@ -1,3 +1,4 @@
+import valuableJson from '@data/valuable-relic-mods.json'
 import statsJson from '@data/vendor/apt/sanctum-stats.json'
 
 /** What is needed to look a relic up on the trade site. */
@@ -123,4 +124,16 @@ export function estimatePrice(
   const middle = Math.floor(prices.length / 2)
   const median = prices.length % 2 ? prices[middle] : (prices[middle - 1] + prices[middle]) / 2
   return { chaos: median, offers: prices.length }
+}
+
+const VALUABLE = new Map((valuableJson as { id: string; min: number }[]).map((entry) => [entry.id, entry.min]))
+
+/**
+ * True for a modifier the player has marked as always worth money at this roll (see
+ * data/valuable-relic-mods.json). Such a relic is priced even when only one or two are on
+ * sale, where an unknown modifier would be left without a price.
+ */
+export function isValuable(stat: MatchedStat): boolean {
+  const min = VALUABLE.get(stat.id)
+  return min !== undefined && stat.value !== null && stat.value >= min
 }

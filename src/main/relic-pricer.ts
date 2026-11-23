@@ -1,5 +1,6 @@
 import {
   estimatePrice,
+  isValuable,
   matchRelicMods,
   relicQuery,
   relicSignature,
@@ -48,6 +49,8 @@ interface Verdict {
   basis: string
   /** True when the rolls had to be loosened to find enough offers. */
   relaxed: boolean
+  /** True when a known valuable modifier was priced by its cheapest offer, there being too few for a median. */
+  thin?: boolean
   /** Offers found for the exact rolls before loosening. */
   exactTotal: number
 }
@@ -60,6 +63,9 @@ interface Verdict {
  * first for the same modifiers at the same rolls or better, then at slightly lower rolls, then
  * for each modifier on its own (a relic is usually worth its best modifier). When no search
  * finds enough offers the relic gets no price, with what little was found said in the note.
+ *
+ * The exception is the short list of modifiers the player knows to be valuable: those are
+ * priced by the cheapest offer even when only one or two are on sale, and are never loosened.
  */
 export class RelicPricer {
   private queue: Promise<unknown> = Promise.resolve()
@@ -129,10 +135,18 @@ export class RelicPricer {
       for (const stat of matched) {
         const single = await this.market(relic, [stat], `с модом «${stat.text}»`, league)
         thin.push(single.exact)
-        if (single.verdict && (!best || single.verdict.probe.chaos! > best.probe.chaos!)) best = single.verdict
+        if (single.verdict && (!best || worth(single.verdict) > worth(best))) best = single.verdict
       }
     }
 
+    if (best?.thin) {
+      return {
+        pricing: 'priced',
+        chaos: best.probe.cheapest,
+        url: best.probe.url,
+        note: `Ценный мод, лотов мало (${best.probe.total}): взят самый дешёвый ${best.basis}.`
+      }
+    }
     if (best) {
       const { probe, basis, relaxed, exactTotal } = best
       const sample = `медиана ${probe.sampled} самых дешёвых из ${probe.total} лотов ${basis}`
@@ -173,7 +187,13 @@ export class RelicPricer {
     const exact = await this.probe(relic, stats, league)
     if (isMarket(exact)) return { exact, verdict: { probe: exact, basis, relaxed: false, exactTotal: exact.total } }
 
-    const loosened = stats.map((stat) => ({ ...stat, value: relax(stat.value) }))
+    // A modifier known to be valuable, on its own: the few offers there are do show its price.
+    if (stats.length === 1 && isValuable(stats[0]) && exact.cheapest !== null) {
+      return { exact, verdict: { probe: exact, basis, relaxed: false, exactTotal: exact.total, thin: true } }
+    }
+
+    // A valuable roll keeps its value: a little lower and it is a different, cheap relic.
+    const loosened = stats.map((stat) => (isValuable(stat) ? stat : { ...stat, value: relax(stat.value) }))
     // Small whole numbers ("2 additional Rooms") cannot be loosened without becoming another tier.
     if (loosened.every((stat, i) => stat.value === stats[i].value)) return { exact, verdict: null }
     const relaxed = await this.probe(relic, loosened, league)
@@ -206,6 +226,11 @@ export class RelicPricer {
     this.probeCache.set(key, { at: this.now(), probe })
     return probe
   }
+}
+
+/** What a verdict says the relic is worth, in Chaos Orbs. */
+function worth(verdict: Verdict): number {
+  return (verdict.thin ? verdict.probe.cheapest : verdict.probe.chaos) ?? 0
 }
 
 function isMarket(probe: Probe): boolean {

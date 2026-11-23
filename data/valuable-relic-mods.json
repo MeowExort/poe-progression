@@ -1,0 +1,17 @@
+[
+  {
+    "id": "sanctum.stat_1680962389",
+    "text": "#% increased Quantity of Relics Dropped by Monsters",
+    "min": 24
+  },
+  {
+    "id": "sanctum.stat_386901949",
+    "text": "# additional Rooms are revealed on the Sanctum Map",
+    "min": 2
+  },
+  {
+    "id": "sanctum.stat_290775436",
+    "text": "The Merchant has # additional Choices",
+    "min": 2
+  }
+]

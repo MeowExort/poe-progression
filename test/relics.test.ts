@@ -291,11 +291,63 @@ describe('RelicPricer', () => {
   })
 
   it('does not loosen a small whole number into another tier', async () => {
-    // Two offers for "2 rooms" are not a market, and "1 room" relics would say nothing about them.
+    // Two offers are not a market, and relics with a lower whole number would say nothing about these.
+    const tomes = relic(['The Herald of the Scourge drops 2 additional Forbidden Tomes'])
     const { trade, pricer } = pricerFor(() => divines(6, 7))
-    const price = await pricer.price(reveal2, 'Covens')
+    const price = await pricer.price(tomes, 'Covens')
     expect(price).toMatchObject({ pricing: 'none', note: expect.stringContaining('2, самый дешёвый — 1200 c') })
-    expect(searches(trade.calls)).toEqual([`search ${REVEAL}>=2`])
+    expect(searches(trade.calls)).toHaveLength(1)
+  })
+
+  describe('modifiers the player marked as valuable', () => {
+    const MERCHANT = 'sanctum.stat_290775436'
+
+    it.each([
+      ['2 additional Rooms are revealed on the Sanctum Map', `${REVEAL}>=2`],
+      ['The Merchant has 2 additional Choices', `${MERCHANT}>=2`],
+      ['25% increased Quantity of Relics Dropped by Monsters', `${QUANTITY}>=25`]
+    ])('prices "%s" by its cheapest offer even when only two are on sale', async (mod, search) => {
+      const { trade, pricer } = pricerFor(() => divines(6, 9))
+      expect(await pricer.price(relic([mod]), 'Covens')).toEqual({
+        pricing: 'priced',
+        chaos: 1200,
+        note: 'Ценный мод, лотов мало (2): взят самый дешёвый с теми же модами.',
+        url: 'https://www.pathofexile.com/trade/search/Covens/q0'
+      })
+      expect(searches(trade.calls)).toEqual([`search ${search}`])
+    })
+
+    it('still uses the median when there is a real market', async () => {
+      const { pricer } = pricerFor(() => divines(5, 6, 6, 7, 9))
+      expect(await pricer.price(reveal2, 'Covens')).toMatchObject({ chaos: 1200, note: expect.stringContaining('Медиана 5') })
+    })
+
+    it('does not extend the trust to a roll below the valuable threshold', async () => {
+      const { pricer } = pricerFor(() => chaos(40))
+      for (const mod of ['An additional Room is revealed on the Sanctum Map', '23% increased Quantity of Relics Dropped by Monsters']) {
+        expect(await pricer.price(relic([mod]), 'Covens')).toMatchObject({ pricing: 'none' })
+      }
+    })
+
+    it('finds the valuable modifier on a relic with junk next to it, without loosening it', async () => {
+      const mixed = relic(['25% increased Quantity of Relics Dropped by Monsters', 'Chests have 10% chance to drop Double Aureus Coins'])
+      const { trade, pricer } = pricerFor((filters) =>
+        filters.length === 2
+          ? []
+          : filters[0].startsWith(QUANTITY)
+            ? divines(4)
+            : chaos(1, 2, 3, 4)
+      )
+      const price = await pricer.price(mixed, 'Covens')
+      expect(price).toMatchObject({
+        pricing: 'priced',
+        chaos: 800,
+        note: 'Ценный мод, лотов мало (1): взят самый дешёвый с модом «25% increased Quantity of Relics Dropped by Monsters».'
+      })
+      // When the pair is loosened, only the junk roll drops (10 → 8); the quantity stays at 25.
+      expect(searches(trade.calls)).toContain(`search ${QUANTITY}>=25 + ${CHEST_AUREUS}>=8`)
+      expect(searches(trade.calls).some((call) => call.includes(`${QUANTITY}>=20`))).toBe(false)
+    })
   })
 
   it('keeps the price of a valuable modifier that has a real market at its roll', async () => {
