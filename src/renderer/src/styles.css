@@ -1671,3 +1671,8 @@ button.step:hover:not(:disabled) {
   font-style: normal;
   color: var(--accent);
 }
+
+/* The orbs and the rooms sit in the middle of the bar's height, whatever is hidden on a narrow bar. */
+.sbar .main {
+  justify-content: center;
+}
