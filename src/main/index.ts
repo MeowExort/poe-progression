@@ -1,3 +1,4 @@
+import { readFileSync, writeFileSync } from 'node:fs'
 import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { app, BrowserWindow, dialog, ipcMain, safeStorage, session as electronSession, shell } from 'electron'
@@ -33,6 +34,9 @@ let tailer: LogTailer | null = null
 let plan: PlanStore | null = null
 let sanctum: SanctumService | null = null
 let boundsSaveTimer: NodeJS.Timeout | null = null
+/** Where reading of the game log stopped, saved so the next launch can pick up from there. */
+let positionFile: string
+let positionSavedAt = 0
 
 const session = new Session({
   onChange: broadcast,
@@ -98,6 +102,25 @@ function parseLines(lines: string[]): LogEvent[] {
   return events
 }
 
+function savedLogPosition(path: string): number | undefined {
+  try {
+    const saved = JSON.parse(readFileSync(positionFile, 'utf8')) as { path?: unknown; position?: unknown }
+    return saved.path === path && typeof saved.position === 'number' ? saved.position : undefined
+  } catch {
+    return undefined
+  }
+}
+
+function saveLogPosition(): void {
+  if (!tailer) return
+  positionSavedAt = Date.now()
+  try {
+    writeFileSync(positionFile, JSON.stringify({ path: tailer.path, position: tailer.processedPosition }))
+  } catch {
+    // Without it the next launch simply starts from the end of the log.
+  }
+}
+
 function followLog(path: string): void {
   tailer?.stop()
   tailer = null
@@ -105,27 +128,43 @@ function followLog(path: string): void {
   session.patch({ log: { path, found: false, size: null, modifiedAt: null, liveLines: 0, lastLineAt: null } })
   if (!path) return
 
-  const current = new LogTailer(path)
+  const current = new LogTailer(path, { resumeFrom: savedLogPosition(path) })
   const patchLog = (patch: Partial<SessionState['log']>): void =>
     session.patch({ log: { ...session.getState().log, ...patch } })
   current.on('found', (found) => patchLog({ found }))
   current.on('stats', (stats) => patchLog(stats))
   current.on('backfill', (lines) => session.apply(parseLines(lines), false))
+  current.on('resume', (lines) => {
+    // What the game wrote while the app was closed: the plan and an interrupted Sanctum run
+    // catch up on it, so a restart mid-run loses nothing.
+    const events = lines ? parseLines(lines) : null
+    for (const event of events ?? []) {
+      if (event.type === 'area_generated') plan?.enterArea(event.areaId)
+    }
+    sanctum?.resume(events)
+    saveLogPosition()
+  })
   current.on('lines', (lines) => {
     patchLog({ lastLineAt: Date.now() })
     const events = parseLines(lines)
     session.apply(events, true)
+    let tracked = false
     for (const event of events) {
       if (event.type === 'area_generated') {
         plan?.enterArea(event.areaId)
         sanctum?.onArea(event.ts, event.areaId, event.seed)
+        tracked = true
       } else if (event.type === 'dialogue') {
         sanctum?.onDialogue(event.ts, event.speaker, event.text)
+        tracked = true
       }
     }
+    // The position is saved together with what the trackers just learned, and otherwise now
+    // and then: after a crash the next launch re-reads at most a couple of seconds of log.
+    if (tracked || Date.now() - positionSavedAt > 2000) saveLogPosition()
   })
-  current.start()
   tailer = current
+  current.start()
 }
 
 function applyHotkey(): void {
@@ -232,6 +271,7 @@ if (!app.requestSingleInstanceLock()) {
     const userData = app.getPath('userData')
     configFile = join(userData, 'config.json')
     historyFile = join(userData, 'history', 'events.jsonl')
+    positionFile = join(userData, 'log-position.json')
     await mkdir(join(userData, 'history'), { recursive: true })
 
     config = loadConfig(configFile)
@@ -265,6 +305,7 @@ if (!app.requestSingleInstanceLock()) {
     sanctum = new SanctumService({
       file: join(userData, 'account.json'),
       runsFile: join(userData, 'sanctum-runs.json'),
+      stateFile: join(userData, 'sanctum-state.json'),
       debugDir: join(userData, 'debug'),
       site: new PoeSite(),
       secrets,
@@ -298,6 +339,7 @@ if (!app.requestSingleInstanceLock()) {
   })
 
   app.on('will-quit', () => {
+    saveLogPosition()
     tailer?.stop()
     overlay?.destroy()
   })

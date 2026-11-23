@@ -210,6 +210,25 @@ describe('SanctumTracker', () => {
     expect(seen).toEqual([null, 0, 1, 2])
   })
 
+  it('carries a run over a restart: a restored tracker continues exactly where the first stopped', () => {
+    const { tracker } = track()
+    floorOne(tracker, 3)
+    const saved = JSON.parse(JSON.stringify(tracker.state()))
+
+    const second = track()
+    second.tracker.restore(saved)
+    for (const each of [tracker, second.tracker]) {
+      enter(each, '10:00:45', 'SanctumCellar', 'run-a-room-3')
+      enter(each, '10:01:00', 'SanctumFoyer_Fellshrine')
+    }
+    expect(second.tracker.state()).toEqual(tracker.state())
+    expect(second.tracker.active?.run.floors[0]).toMatchObject({ rooms: 4, ms: 60_000, roomMs: [10_000, 10_000, 15_000, 15_000] })
+    // Changing the saved copy afterwards does not reach into the tracker.
+    saved.run.floors[0].rooms = 99
+    expect(second.tracker.active?.run.floors[0].rooms).toBe(4)
+    expect(track().tracker.state()).toBeNull()
+  })
+
   it('reports where the clock is running for live timers', () => {
     const { tracker } = track()
     floorOne(tracker, 2)

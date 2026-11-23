@@ -7,6 +7,7 @@ import { combinePrices, parseExchangeOverview, valueLoot } from '../src/core/san
 import { normalizeCookie, PoeSite, SiteError } from '../src/main/poe-site'
 import { PriceBook } from '../src/main/prices'
 import { SanctumService, type SanctumDeps } from '../src/main/sanctum'
+import type { LogEvent } from '../src/shared/events'
 import { SecretStore, type Cipher } from '../src/main/secrets'
 
 const COOKIE = '0123456789abcdef0123456789abcdef'
@@ -379,6 +380,7 @@ describe('SanctumService', () => {
     const service = new SanctumService({
       file: join(dir, 'account.json'),
       runsFile: join(dir, 'runs.json'),
+      stateFile: join(dir, 'state.json'),
       sleep: async () => {},
       site,
       secrets: new SecretStore(join(dir, 'secrets.json'), cipher(options.encryption ?? true)),
@@ -639,12 +641,122 @@ describe('SanctumService', () => {
     expect(service.view().runs[0].floors[0].done).toBe(false)
   })
 
-  it('closes a run left in progress by the previous launch as failed', async () => {
+  // ── Restarting the app in the middle of a run ──
+
+  const area = (seconds: number, areaId: string, seed: string): LogEvent => ({
+    type: 'area_generated',
+    ts: sec(seconds),
+    level: 83,
+    areaId,
+    seed
+  })
+
+  it('closes an interrupted run as failed when the log cannot say what happened since', async () => {
     const first = setup([])
     playFloor(first.service, 1, 0)
-    const reopened = setup([]).service.view()
-    expect(reopened.active).toBeNull()
-    expect(reopened.runs[0]).toMatchObject({ outcome: 'failed', durationMs: 80_000 })
+    const { service } = setup([])
+    // Until the log has been looked at, the run is still there.
+    expect(service.view().active?.run.floors[0].rooms).toBe(8)
+    service.resume(null)
+    expect(service.view().active).toBeNull()
+    expect(service.view().runs[0]).toMatchObject({ outcome: 'failed', durationMs: 80_000 })
+  })
+
+  it('continues an interrupted run from the log: rooms, times and the loot gained meanwhile', async () => {
+    const first = setup([siteAnswer([]), siteAnswer([stack('Chaos Orb', 5)], 100), siteAnswer([stack('Chaos Orb', 8)], 100)])
+    await first.service.saveAccess(access)
+    first.service.onArea(sec(0), 'SanctumFoyer_1_1', 'entrance')
+    first.service.onArea(sec(10), 'SanctumCellar', 'room-0')
+    await first.service.settled()
+    first.service.onArea(sec(30), 'SanctumCellar', 'room-1')
+    await first.service.settled()
+    expect(first.service.view().active?.run.loot.chaos).toBe(3)
+
+    // The app dies here. The player goes through two more rooms and picks up a divine.
+    const second = setup([siteAnswer([stack('Chaos Orb', 8), stack('Divine Orb', 1)], 250)])
+    second.service.resume([area(50, 'SanctumCellar', 'room-2'), area(75, 'SanctumCellar', 'room-3')])
+    await second.service.settled()
+
+    const { active } = second.service.view()
+    expect(active).toMatchObject({ floor: 1, room: 3, since: sec(75) })
+    expect(active?.run.floors[0]).toMatchObject({ rooms: 4, roomMs: [20_000, 20_000, 25_000, 0], ms: 75_000 })
+    expect(active?.run.loot).toMatchObject({ chaos: 123, gold: 150 })
+    // One reading for the whole gap, not one per missed room.
+    expect(second.asked).toEqual(['get-items Tester'])
+
+    // And the run goes on as usual afterwards.
+    second.service.onArea(sec(90), 'SanctumCellar', 'room-4')
+    expect(second.service.view().active?.run.floors[0].rooms).toBe(5)
+  })
+
+  it('finishes a run that was won while the app was closed, and counts the loot if the player is still there', async () => {
+    const first = setup([siteAnswer([]), siteAnswer([], 0)])
+    await first.service.saveAccess(access)
+    let t = 0
+    for (const floor of [1, 2, 3]) {
+      t = playFloor(first.service, floor, t)
+      first.service.onArea(sec(t), 'SanctumFoyer_Fellshrine', 'lobby')
+      t += 5
+    }
+    first.service.onArea(sec(t), 'SanctumFoyer_4_1', 'entrance-4')
+    await first.service.settled()
+
+    const missed: LogEvent[] = [
+      ...Array.from({ length: 8 }, (_, i) => area(t + 10 + i * 10, 'SanctumCrypt', `crypt-${i}`)),
+      { type: 'dialogue', ts: sec(t + 85), speaker: 'Lycia, Herald of the Scourge', text: '*laughter*' },
+      area(t + 90, 'SanctumFoyer_Fellshrine', 'lobby')
+    ]
+    const second = setup([siteAnswer([stack('Divine Orb', 3)], 0)])
+    second.service.resume(missed)
+    await second.service.settled()
+
+    const view = second.service.view()
+    expect(view.active).toBeNull()
+    expect(view.finished).toMatchObject({ outcome: 'completed' })
+    expect(view.runs[0].floors.map((floor) => [floor.rooms, floor.done])).toEqual([[8, true], [8, true], [8, true], [8, true]])
+    expect(view.runs[0].floors[3].loot).toMatchObject({ chaos: 360 })
+  })
+
+  it('does not guess the loot of a run that ended and was walked away from while the app was closed', async () => {
+    const first = setup([siteAnswer([]), siteAnswer([], 0)])
+    await first.service.saveAccess(access)
+    playFloor(first.service, 1, 0)
+    await first.service.settled()
+
+    // Meanwhile: the run was abandoned, another one was started and is going on now.
+    const second = setup([siteAnswer([stack('Divine Orb', 9)], 0)])
+    second.service.resume([area(200, 'HideoutSpace', '1'), area(300, 'SanctumFoyer_1_3', 'another'), area(310, 'SanctumCellar', 'x')])
+    await second.service.settled()
+
+    const view = second.service.view()
+    expect(second.asked).toEqual([])
+    expect(view.runs).toHaveLength(1)
+    expect(view.runs[0]).toMatchObject({ outcome: 'failed', lootNote: expect.stringContaining('пока приложение было закрыто') })
+    // The run started while the app was closed is not picked up halfway.
+    expect(view.active).toBeNull()
+  })
+
+  it('reads the inventory once even when nothing happened in between', async () => {
+    const first = setup([siteAnswer([]), siteAnswer([], 0)])
+    await first.service.saveAccess(access)
+    first.service.onArea(sec(0), 'SanctumFoyer_1_1', 'entrance')
+    first.service.onArea(sec(10), 'SanctumCellar', 'room-0')
+    await first.service.settled()
+
+    // Picked something up in this room, then the app was restarted before the next room.
+    const second = setup([siteAnswer([stack('Chaos Orb', 7)], 0)])
+    second.service.resume([])
+    await second.service.settled()
+    expect(second.service.view().active).toMatchObject({ floor: 1, room: 0, run: { loot: { chaos: 7 } } })
+  })
+
+  it('only resumes once', async () => {
+    const first = setup([])
+    playFloor(first.service, 1, 0)
+    const { service } = setup([])
+    service.resume([])
+    service.resume(null)
+    expect(service.view().active).not.toBeNull()
   })
 
   it('starts session statistics over on request', async () => {

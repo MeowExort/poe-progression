@@ -52,6 +52,17 @@ export interface Boundary {
   required: boolean
 }
 
+/** Everything the tracker knows about a run in progress, to carry it over a restart. */
+export interface TrackerState {
+  run: TrackedRun
+  where: Where
+  since: number
+  entranceSeed: string | null
+  lastRoomSeed: string | null
+  wonAt: number | null
+  away: boolean
+}
+
 export interface TrackerOptions {
   onRun?: (run: TrackedRun) => void
   onBoundary?: (boundary: Boundary) => void
@@ -98,6 +109,40 @@ export class SanctumTracker {
   /** The run in progress and where its clock is running, for live timers. */
   get active(): { run: TrackedRun; where: Where; since: number } | null {
     return this.run ? { run: this.run, where: this.where, since: this.since } : null
+  }
+
+  /** The run in progress as plain data, or null between runs. */
+  state(): TrackerState | null {
+    if (!this.run) return null
+    return structuredClone({
+      run: this.run,
+      where: this.where,
+      since: this.since,
+      entranceSeed: this.entranceSeed,
+      lastRoomSeed: this.lastRoomSeed,
+      wonAt: this.wonAt,
+      away: this.away
+    })
+  }
+
+  /** Continues a run saved by `state()`, as if the tracker had never stopped. */
+  restore(state: TrackerState): void {
+    const copy = structuredClone(state)
+    this.run = copy.run
+    this.where = copy.where
+    this.since = copy.since
+    this.entranceSeed = copy.entranceSeed
+    this.lastRoomSeed = copy.lastRoomSeed
+    this.wonAt = copy.wonAt
+    this.away = copy.away
+  }
+
+  /** Forgets the run in progress without reporting it as finished. */
+  drop(): void {
+    this.run = null
+    this.wonAt = null
+    this.away = false
+    this.where = { kind: 'outside' }
   }
 
   /** Feed every area the player enters, in order. */

@@ -14,7 +14,8 @@ beforeEach(() => {
 afterEach(() => rmSync(dir, { recursive: true, force: true }))
 
 function collect(tailer: LogTailer) {
-  const seen = { backfill: [] as string[], lines: [] as string[], found: [] as boolean[] }
+  const seen = { backfill: [] as string[], lines: [] as string[], found: [] as boolean[], resume: [] as (string[] | null)[] }
+  tailer.on('resume', (lines) => seen.resume.push(lines))
   tailer.on('backfill', (lines) => seen.backfill.push(...lines))
   tailer.on('lines', (lines) => seen.lines.push(...lines))
   tailer.on('found', (found) => seen.found.push(found))
@@ -121,5 +122,78 @@ describe('LogTailer', () => {
     await tailer.poll()
     expect(seen.found).toEqual([false, true])
     expect(seen.backfill).toEqual(['hello'])
+  })
+
+  describe('resuming after a restart', () => {
+    it('reports its position at the end of the last whole line', async () => {
+      writeFileSync(file, 'one\ntwo\npart')
+      const tailer = new LogTailer(file)
+      await tailer.poll()
+      expect(tailer.processedPosition).toBe('one\ntwo\n'.length)
+    })
+
+    it('delivers what was written since the saved position, once, then carries on', async () => {
+      writeFileSync(file, 'one\ntwo\n')
+      const first = new LogTailer(file)
+      await first.poll()
+      const saved = first.processedPosition
+
+      appendFileSync(file, 'three\r\nfour\r\nfi')
+      const second = new LogTailer(file, { resumeFrom: saved })
+      const seen = collect(second)
+      await second.poll()
+      expect(seen.resume).toEqual([['three', 'four']])
+      expect(seen.backfill).toEqual(['one', 'two', 'three', 'four'])
+
+      appendFileSync(file, 've\n')
+      await second.poll()
+      expect(seen.lines).toEqual(['five'])
+      expect(seen.resume).toHaveLength(1)
+    })
+
+    it('finishes a line that was cut in half when the position was saved', async () => {
+      writeFileSync(file, 'one\nhal')
+      const first = new LogTailer(file)
+      await first.poll()
+      appendFileSync(file, 'f\nnext\n')
+      const seen = collect(new LogTailer(file, { resumeFrom: first.processedPosition }))
+      const second = new LogTailer(file, { resumeFrom: first.processedPosition })
+      const again = collect(second)
+      await second.poll()
+      expect(again.resume).toEqual([['half', 'next']])
+      expect(seen.resume).toEqual([])
+    })
+
+    it('says nothing was missed when the file did not grow', async () => {
+      writeFileSync(file, 'one\n')
+      const seen = collect(new LogTailer(file, { resumeFrom: 4 }))
+      const tailer = new LogTailer(file, { resumeFrom: 4 })
+      const live = collect(tailer)
+      await tailer.poll()
+      expect(live.resume).toEqual([[]])
+      expect(seen.resume).toEqual([])
+    })
+
+    it.each([
+      ['there is no saved position', {}],
+      ['the file is shorter than the saved position (another file now)', { resumeFrom: 9999 }],
+      ['too much was written in the meantime', { resumeFrom: 0, maxResumeBytes: 3 }]
+    ])('cannot resume when %s', async (_name, options) => {
+      writeFileSync(file, 'one\ntwo\n')
+      const tailer = new LogTailer(file, options)
+      const seen = collect(tailer)
+      await tailer.poll()
+      expect(seen.resume).toEqual([null])
+    })
+
+    it('tries to resume when the file only appears later', async () => {
+      const tailer = new LogTailer(file, { resumeFrom: 0 })
+      const seen = collect(tailer)
+      await tailer.poll()
+      expect(seen.resume).toEqual([])
+      writeFileSync(file, 'hello\n')
+      await tailer.poll()
+      expect(seen.resume).toEqual([['hello']])
+    })
   })
 })

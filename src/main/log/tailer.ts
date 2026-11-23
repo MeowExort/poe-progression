@@ -6,6 +6,10 @@ export interface TailerOptions {
   pollMs?: number
   /** How much of the existing file to replay on start, to restore the current state. */
   backfillBytes?: number
+  /** Where the previous launch stopped reading this file, to pick up what was written since. */
+  resumeFrom?: number
+  /** Gives up resuming when more than this was written in the meantime. */
+  maxResumeBytes?: number
 }
 
 interface TailerEvents {
@@ -13,6 +17,12 @@ interface TailerEvents {
   backfill: [lines: string[]]
   /** Lines appended while tailing. */
   lines: [lines: string[]]
+  /**
+   * Emitted once, right after the backfill: the lines written since the previous launch
+   * stopped reading, or null when that could not be worked out (no saved position, the file
+   * was replaced, or too much was written).
+   */
+  resume: [lines: string[] | null]
   /** Emitted when the file appears or disappears. */
   found: [found: boolean]
   /** Emitted when the file's size or modification time changes, or new lines were read. */
@@ -37,6 +47,8 @@ const READ_CHUNK = 64 * 1024
 export class LogTailer extends EventEmitter<TailerEvents> {
   private readonly pollMs: number
   private readonly backfillBytes: number
+  private readonly resumeFrom: number | null
+  private readonly maxResumeBytes: number
   private timer: NodeJS.Timeout | null = null
   private position = 0
   private remainder: Buffer = Buffer.alloc(0)
@@ -53,6 +65,16 @@ export class LogTailer extends EventEmitter<TailerEvents> {
     super()
     this.pollMs = options.pollMs ?? 500
     this.backfillBytes = options.backfillBytes ?? 512 * 1024
+    this.resumeFrom = options.resumeFrom ?? null
+    this.maxResumeBytes = options.maxResumeBytes ?? 8 * 1024 * 1024
+  }
+
+  /**
+   * How far the file has been fully processed: everything before this was delivered as whole
+   * lines. Save it to resume from here after a restart.
+   */
+  get processedPosition(): number {
+    return this.position - this.remainder.length
   }
 
   start(): void {
@@ -98,6 +120,7 @@ export class LogTailer extends EventEmitter<TailerEvents> {
         // The backfill window usually starts mid-line: drop that first fragment.
         if (from > 0) lines.shift()
         if (lines.length) this.emit('backfill', lines)
+        this.emit('resume', await this.readMissed(handle, from + chunk.length))
         this.reportStats(this.position, stats.mtimeMs)
         return
       }
@@ -117,6 +140,23 @@ export class LogTailer extends EventEmitter<TailerEvents> {
     } finally {
       await handle.close()
     }
+  }
+
+  /** The whole lines between the saved position and `end`, or null when resuming is not possible. */
+  private async readMissed(handle: FileHandle, end: number): Promise<string[] | null> {
+    const from = this.resumeFrom
+    // A position past the end means another file sits at this path now.
+    if (from === null || from < 0 || from > end || end - from > this.maxResumeBytes) return null
+    if (from === end) return []
+    const chunk = (await this.readToEnd(handle, from)).subarray(0, end - from)
+    const lastNewline = chunk.lastIndexOf(0x0a)
+    if (lastNewline === -1) return []
+    return chunk
+      .subarray(0, lastNewline)
+      .toString('utf8')
+      .split('\n')
+      .map((line) => line.replace(/\r$/, ''))
+      .filter((line) => line.length > 0)
   }
 
   private async readToEnd(handle: FileHandle, from: number): Promise<Buffer> {

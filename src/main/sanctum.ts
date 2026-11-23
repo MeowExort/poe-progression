@@ -2,8 +2,15 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { diffSnapshots, entryCount, lastPlayedCharacter, toSnapshot, type InventorySnapshot } from '@core/sanctum/inventory'
 import { valueLoot, type Prices } from '@core/sanctum/prices'
-import { classifyArea, SanctumTracker, type Boundary, type TrackedRun } from '@core/sanctum/runs'
+import {
+  classifyArea,
+  SanctumTracker,
+  type Boundary,
+  type TrackedRun,
+  type TrackerState
+} from '@core/sanctum/runs'
 import { computeTotals, EMPTY_LOOT, mergeLoot, retotal } from '@core/sanctum/stats'
+import type { LogEvent } from '@shared/events'
 import type { LootValue, RunView, SanctumAccess, SanctumView, TrackedItem } from '@shared/sanctum'
 import { normalizeCookie, SiteError, type PoeSite } from './poe-site'
 import type { PriceBook } from './prices'
@@ -38,6 +45,8 @@ export interface SanctumDeps {
   file: string | null
   /** Where the history of runs is kept. */
   runsFile?: string | null
+  /** Where the run in progress is kept, so it survives a restart of the app. */
+  stateFile?: string | null
   /** Where raw site answers are saved on request, for working out what the site exposes. */
   debugDir?: string | null
   sleep?: (ms: number) => Promise<void>
@@ -77,10 +86,13 @@ export class SanctumService {
   private readonly tracker = new SanctumTracker({
     onRun: (run) => this.recordRun(run),
     onBoundary: (boundary) => {
-      const seq = ++this.boundarySeq
-      this.pending = this.pending.then(() => this.readBoundary(boundary, seq)).catch(() => {})
+      // While catching up on a stretch of log there is no inventory to read for each past moment.
+      if (!this.replaying) this.queueBoundary(boundary)
     }
   })
+  /** True from startup until `resume` is called, when a run was in progress at the last shutdown. */
+  private awaitingResume = false
+  private replaying = false
   private tracked: string[] = [...DEFAULT_TRACKED]
   private trackAll = false
   /** The run that just ended, kept on screen while the player is still in the Sanctum lobby. */
@@ -97,13 +109,16 @@ export class SanctumService {
       } catch {
         // No history yet.
       }
-      // A run that was in progress when the app closed can no longer be followed: it did not finish.
-      for (const run of this.runs) {
-        if (run.outcome === 'active') {
-          run.outcome = 'failed'
-          run.endedAt = run.startedAt + durationOf(run)
-        }
+      // A run that was in progress when the app closed is picked up again if its state was
+      // saved; `resume` then catches up on what the game log says happened meanwhile.
+      const saved = this.loadState()
+      const interrupted = this.runs.find((run) => run.outcome === 'active')
+      if (saved?.tracker && interrupted && saved.tracker.run.id === interrupted.id) {
+        this.tracker.restore(saved.tracker)
+        this.runSnapshot = saved.runSnapshot ?? null
+        this.awaitingResume = true
       }
+      this.closeStaleRuns()
     }
     if (deps.file) {
       try {
@@ -210,6 +225,69 @@ export class SanctumService {
     this.tracker.dialogue(ts, speaker, text)
   }
 
+  /**
+   * Call once after startup with what the game log recorded since the app last ran, or null
+   * when that is unknown. A run interrupted by the shutdown is continued through those events:
+   * rooms passed meanwhile get their real times from the log. Then the inventory is read once,
+   * and whatever was gained since the last reading before the shutdown is booked to the run.
+   *
+   * Only the interrupted run is followed. Runs played entirely while the app was closed are
+   * not recorded: there would be no loot to go with them.
+   */
+  resume(events: LogEvent[] | null): void {
+    if (!this.awaitingResume) return
+    this.awaitingResume = false
+    const live = this.tracker.active
+    if (!live) return
+    const runId = live.run.id
+
+    if (events === null) {
+      // Nothing is known about the time in between: the run cannot be continued.
+      this.replaying = true
+      this.tracker.fail(live.since)
+      this.replaying = false
+      return
+    }
+
+    const areas = events.filter((event) => event.type === 'area_generated')
+    let lastSeen: LogEvent | null = null
+    this.replaying = true
+    for (const event of events) {
+      if (event.type === 'area_generated') this.tracker.area(event.ts, event.areaId, event.seed)
+      else if (event.type === 'dialogue') this.tracker.dialogue(event.ts, event.speaker, event.text)
+      else continue
+      lastSeen = event
+      if (this.tracker.active?.run.id !== runId) break
+    }
+    this.replaying = false
+
+    // The event that ended the interrupted run may have started the next one. That run began
+    // while the app was closed, so it is not followed.
+    const started = this.tracker.active
+    if (started && started.run.id !== runId) {
+      this.tracker.drop()
+      this.runs = this.runs.filter((entry) => entry.id !== started.run.id)
+      this.saveRuns()
+      this.saveState()
+    }
+
+    const run = this.runs.find((entry) => entry.id === runId)
+    if (!run) return
+    const stillOn = this.tracker.active?.run.id === runId
+    // The run ended on the very last area change: the player is still where it ended, loot in hand.
+    const endedJustNow = !stillOn && lastSeen !== null && lastSeen === areas[areas.length - 1]
+    if (stillOn || endedJustNow) {
+      const where = this.tracker.active?.where
+      const floor = where?.kind === 'floor' ? where.floor : Math.max(1, ...run.floors.map((entry) => entry.floor))
+      this.queueBoundary({ runId, floor, kind: 'collect', required: true })
+      if (endedJustNow && classifyArea(areas[areas.length - 1].areaId).kind === 'lobby') this.finishedRunId = runId
+    } else {
+      run.lootNote = 'Забег закончился, пока приложение было закрыто: лут за это время не посчитан.'
+      this.saveRuns()
+    }
+    this.emit()
+  }
+
   newSession(): void {
     this.sessionId = this.now()
     this.emit()
@@ -267,6 +345,42 @@ export class SanctumService {
     }
   }
 
+  private queueBoundary(boundary: Boundary): void {
+    const seq = ++this.boundarySeq
+    this.pending = this.pending.then(() => this.readBoundary(boundary, seq)).catch(() => {})
+  }
+
+  /** Runs still marked as in progress that the tracker is not following did not finish. */
+  private closeStaleRuns(): void {
+    const following = this.tracker.active?.run.id
+    for (const run of this.runs) {
+      if (run.outcome === 'active' && run.id !== following) {
+        run.outcome = 'failed'
+        run.endedAt = run.startedAt + durationOf(run)
+      }
+    }
+  }
+
+  private loadState(): { tracker: TrackerState | null; runSnapshot: InventorySnapshot | null } | null {
+    if (!this.deps.stateFile) return null
+    try {
+      return JSON.parse(readFileSync(this.deps.stateFile, 'utf8')) as ReturnType<SanctumService['loadState']>
+    } catch {
+      return null
+    }
+  }
+
+  /** Writes down the run in progress and the last inventory reading, for the next launch. */
+  private saveState(): void {
+    if (!this.deps.stateFile) return
+    try {
+      mkdirSync(dirname(this.deps.stateFile), { recursive: true })
+      writeFileSync(this.deps.stateFile, JSON.stringify({ tracker: this.tracker.state(), runSnapshot: this.runSnapshot }))
+    } catch {
+      // Losing this only costs the ability to continue the run after a crash.
+    }
+  }
+
   /** Stores what the tracker reports about a run, keeping the loot already counted for it. */
   private recordRun(run: TrackedRun): void {
     const copy = structuredClone(run)
@@ -277,6 +391,7 @@ export class SanctumService {
       this.runs[index] = { ...this.runs[index], ...copy }
     }
     this.saveRuns()
+    this.saveState()
     this.emit()
   }
 
@@ -314,6 +429,7 @@ export class SanctumService {
 
     const previous = this.runSnapshot
     this.runSnapshot = snapshot
+    this.saveState()
     if (boundary.kind === 'collect' && previous && stored) {
       const prices = await this.pricesFor(snapshot.league)
       const gained = valueLoot(diffSnapshots(previous, snapshot), prices)
