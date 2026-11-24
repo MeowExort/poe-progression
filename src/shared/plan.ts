@@ -208,8 +208,20 @@ export interface PobItem {
   influences: string[]
   /** Mods Path of Building marks as crafted: bench crafts, enchantments and anointments. */
   craftedMods: string[]
+  /** The item level written in the build; null when it is not. */
+  itemLevel: number | null
+  /** The explicit modifiers, as written in the build. */
+  mods: PobMod[]
   fractured: boolean
   corrupted: boolean
+}
+
+/** One explicit modifier line of an item. */
+export interface PobMod {
+  /** The text without Path of Building's marks: "+(100-114) to maximum Life" or "+92 to maximum Life". */
+  text: string
+  crafted: boolean
+  fractured: boolean
 }
 
 export interface PobItemSet {
@@ -246,7 +258,47 @@ export interface SourceNote {
   ref?: { label: string; url: string }
 }
 
+/** One way of getting an item or one of its modifiers. */
+export interface Way {
+  /** Unique among the ways of its item or modifier; what the player's choice is stored as. */
+  id: string
+  kind: 'drop' | 'card' | 'chance' | 'genesis' | 'roll' | 'essence' | 'bench' | 'fossil' | 'harvest' | 'veiled' | 'delve' | 'influence'
+  title: string
+  /** What it takes, line by line. */
+  details: string[]
+  tone: 'info' | 'good' | 'bad'
+  ref?: { label: string; url: string }
+}
+
+/** One modifier of a rare item and the ways to get it. */
+export interface ModSourcing {
+  /** Identifies the modifier within its item; what the player's choice is stored under. */
+  key: string
+  text: string
+  crafted: boolean
+  fractured: boolean
+  /** Null when the modifier was not found in the game data. */
+  affix: 'Prefix' | 'Suffix' | null
+  /** Its tier among the modifiers of its kind this base can roll (1 is the best), and how many there are. */
+  tier: number | null
+  tiers: number | null
+  /** The item level the modifier needs. */
+  level: number | null
+  ways: Way[]
+  /** The id of the way the player picked; null if none. */
+  chosen: string | null
+}
+
 export interface ItemSourcing {
+  /** Identifies the item within the build; what the player's choice is stored under. */
+  key: string
+  /** Ways of getting the item as a whole. */
+  ways: Way[]
+  chosen: string | null
+  /** The modifiers of a non-unique item; empty for uniques. */
+  mods: ModSourcing[]
+  /** The item level the modifiers need together; null when unknown or irrelevant. */
+  needsItemLevel: number | null
   name: string
   base: string | null
   rarity: string
@@ -317,6 +369,8 @@ export interface PlanApi {
   chooseBuild(buildId: string | null): Promise<void>
   /** Imports a Path of Building code. Resolves to an error message, or null on success. */
   importPob(code: string): Promise<string | null>
+  /** Picks a way of getting an item (`key` of the item) or a modifier (`key` of the modifier); null unpicks. */
+  chooseWay(key: string, wayId: string | null): Promise<void>
   /** Reads the character's passive tree from the site again. */
   refreshTree(): Promise<void>
   /** Follows the given tree of the build; null goes back to picking the first unfinished one. */
@@ -336,6 +390,7 @@ export const PLAN_IPC = {
   setAnswers: 'plan:set-answers',
   chooseBuild: 'plan:choose-build',
   importPob: 'plan:import-pob',
+  chooseWay: 'plan:choose-way',
   refreshTree: 'plan:refresh-tree',
   setTreeTarget: 'plan:set-tree-target',
   clearPob: 'plan:clear-pob',

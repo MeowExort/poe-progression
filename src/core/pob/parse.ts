@@ -11,6 +11,7 @@ import {
   type PobItemSet,
   type PobSkillGroup,
   type PobSkillSet,
+  type PobMod,
   type PobTreeSpec
 } from '@shared/plan'
 
@@ -177,6 +178,9 @@ function parseSpec(spec: Node, i: number): PobTreeSpec {
   }
 }
 
+/** Lines that describe the item itself rather than a modifier of it. */
+const ITEM_STATE_LINE = /^(Corrupted|Mirrored|Split|Unidentified|Synthesised Item|Fractured Item|Relic Unique|Veiled (Prefix|Suffix))$/
+
 const INFLUENCE_LINE = /^(Shaper|Elder|Crusader|Redeemer|Hunter|Warlord|Searing Exarch|Eater of Worlds) Item$/
 
 function parseItems(items: Node): PobItemSet[] {
@@ -221,7 +225,14 @@ function parseItemText(raw: string): Omit<PobItem, 'slot'> | null {
   const craftedMods: string[] = []
   let fractured = false
   let corrupted = false
-  for (const line of lines) {
+  let itemLevel: number | null = null
+  // The explicit modifiers follow the "Implicits: N" line and its N implicit lines.
+  const implicitsAt = lines.findIndex((line) => /^Implicits:\s*\d+/.test(line))
+  const implicits = implicitsAt === -1 ? 0 : +/\d+/.exec(lines[implicitsAt])![0]
+  const mods: PobMod[] = []
+  for (const [index, line] of lines.entries()) {
+    const level = /^Item Level:\s*(\d+)/.exec(line)
+    if (level) itemLevel = +level[1]
     const sockets = /^Sockets:\s*(.+)$/.exec(line)
     if (sockets) {
       // "R-G-B B-B": dashes link sockets, spaces separate the linked groups.
@@ -235,6 +246,13 @@ function parseItemText(raw: string): Omit<PobItem, 'slot'> | null {
     const tags = /^(?:\{[^}]*\})+/.exec(line)?.[0] ?? ''
     if (tags.includes('{fractured}')) fractured = true
     if (tags.includes('{crafted}')) craftedMods.push(line.slice(tags.length).trim())
+    const body = line.slice(tags.length).trim()
+    const explicit = implicitsAt !== -1 && index > implicitsAt + implicits
+    // Eldritch implicits, enchantments and the like are marked; the item's own state is one of a few words.
+    const special = /\{(exarch|eater|enchant|scourge|crucible|mutated|implicit)\}/.test(tags)
+    if (explicit && body && !special && !ITEM_STATE_LINE.test(body) && !INFLUENCE_LINE.test(body)) {
+      mods.push({ text: body, crafted: tags.includes('{crafted}'), fractured: tags.includes('{fractured}') })
+    }
   }
 
   return {
@@ -245,7 +263,9 @@ function parseItemText(raw: string): Omit<PobItem, 'slot'> | null {
     influences,
     craftedMods,
     fractured,
-    corrupted
+    corrupted,
+    itemLevel,
+    mods
   }
 }
 

@@ -1,8 +1,9 @@
 import methodsJson from '@data/methods.json'
-import basesJson from '@data/vendor/pob/bases.json'
 import uniquesJson from '@data/vendor/pob/uniques.json'
 import cardsJson from '@data/vendor/poedb/divination-cards.json'
-import type { ItemSourcing, PobBuild, PobItem, SourceNote, Sourcing, SourcingMethod } from '@shared/plan'
+import type { ItemSourcing, PobBuild, PobItem, SourceNote, Sourcing, SourcingMethod, Way } from '@shared/plan'
+import { BASES } from './crafting/data'
+import { describeRare, genesisUniqueWay } from './crafting/ways'
 
 interface UniqueData {
   name: string
@@ -22,7 +23,6 @@ interface CardData {
 }
 
 const UNIQUES = new Map((uniquesJson as UniqueData[]).map((unique) => [unique.name, unique]))
-const BASES = basesJson as Record<string, { type: string; level: number }>
 const CARDS = cardsJson as CardData[]
 const METHODS: SourcingMethod[] = methodsJson.methods.map((method) => ({ ...method, ref: methodsJson.source }))
 
@@ -48,10 +48,10 @@ export function buildSourcing(pob: PobBuild): Sourcing {
 
   const uniques: ItemSourcing[] = []
   const special: ItemSourcing[] = []
-  for (const { item, usedIn } of seen.values()) {
-    if (isUnique(item)) uniques.push(describeUnique(item, usedIn))
+  for (const [key, { item, usedIn }] of seen) {
+    if (isUnique(item)) uniques.push(describeUnique(item, usedIn, key))
     else {
-      const described = describeCrafted(item, usedIn)
+      const described = describeCrafted(item, usedIn, key)
       if (described) special.push(described)
     }
   }
@@ -62,9 +62,10 @@ export function buildSourcing(pob: PobBuild): Sourcing {
   return { uniques, special, methods: METHODS.filter((method) => used.has(method.id)) }
 }
 
-function describeUnique(item: PobItem, usedIn: string[]): ItemSourcing {
+function describeUnique(item: PobItem, usedIn: string[], key: string): ItemSourcing {
   const notes: SourceNote[] = []
   const methods: string[] = []
+  const ways: Way[] = []
   // A Foulborn unique is a mutated version of a regular one: its source is the regular unique's.
   const foulborn = item.name.startsWith('Foulborn ')
   const lookupName = foulborn ? item.name.slice('Foulborn '.length) : item.name
@@ -73,8 +74,8 @@ function describeUnique(item: PobItem, usedIn: string[]): ItemSourcing {
 
   if (foulborn) {
     notes.push({
-      text: 'Это Foulborn-версия уника. Как превращать обычный уник в Foulborn, в моих данных нет — смотри гайд.',
-      tone: 'bad'
+      text: 'Это Foulborn-версия уника: такие рождаются на Genesis Tree. Обычная версия добывается как всегда, но Foulborn-моды на неё не перенести.',
+      tone: 'info'
     })
   }
 
@@ -87,21 +88,38 @@ function describeUnique(item: PobItem, usedIn: string[]): ItemSourcing {
     notes.push({ text: 'Больше не добывается в игре: в SSF его получить нельзя.', tone: 'bad', ref: POB_REF })
   } else {
     if (data.source) {
-      notes.push({ text: `Источник: ${data.source}`, tone: 'info', ref: POB_REF })
+      ways.push({ id: 'drop', kind: 'drop', title: `Дроп: ${data.source}`, details: ['Выпадает только из этого источника.'], tone: 'info', ref: POB_REF })
     } else if (data.league) {
-      notes.push({
-        text: `Помечен как уник лиги ${data.league}, точного источника в данных нет: у таких он обычно свой — проверь на вики.`,
+      ways.push({
+        id: 'drop',
+        kind: 'drop',
+        title: `Уник лиги ${data.league}`,
+        details: ['Точного источника в данных нет: у таких уников он обычно свой — проверь на вики.'],
         tone: 'info',
         ref: POB_REF
       })
     }
     if (!data.source && !data.league) {
-      notes.push({ text: 'Особого источника в данных нет: это обычный дроп, может выпасть где угодно.', tone: 'info', ref: POB_REF })
+      ways.push({
+        id: 'drop',
+        kind: 'drop',
+        title: 'Обычный дроп',
+        details: ['Особого источника в данных нет: может выпасть где угодно.'],
+        tone: 'info',
+        ref: POB_REF
+      })
       if (base) {
         const level = BASES[base]?.level
-        notes.push({
-          text: `Целевой способ: Orb of Chance на белую ${base}${level ? ` (база с ${level} уровня)` : ''}.`,
-          tone: 'good'
+        ways.push({
+          id: 'chance',
+          kind: 'chance',
+          title: `Orb of Chance на белую ${base}`,
+          details: [
+            `Нужна обычная (белая) ${base}${level ? ` — база с ${level} уровня` : ''}.`,
+            'В 3.30 шанс значительно повышен, но сами сферы стали намного реже.'
+          ],
+          tone: 'good',
+          ref: METHODS.find((method) => method.id === 'chance-orb')?.ref
         })
         methods.push('chance-orb')
       }
@@ -110,7 +128,20 @@ function describeUnique(item: PobItem, usedIn: string[]): ItemSourcing {
   }
 
   for (const card of CARDS.filter((card) => card.kind === 'unique' && card.reward === lookupName)) {
-    notes.push(cardNote(card))
+    const note = cardNote(card)
+    ways.push({
+      id: `card:${card.name}`,
+      kind: 'card',
+      title: `Карты предсказаний: ${card.name}`,
+      details: [`Набор из ${card.stack} шт. даёт ${card.reward}. Где падает — по ссылке.`],
+      tone: 'good',
+      ref: note.ref
+    })
+  }
+
+  if (data && !(data.source && /no longer obtainable/i.test(data.source))) {
+    ways.push(genesisUniqueWay(base ? BASES[base] : undefined, foulborn, /breach/i.test(data.league ?? '')))
+    methods.push('genesis-tree')
   }
 
   if (item.links >= 5) {
@@ -121,6 +152,11 @@ function describeUnique(item: PobItem, usedIn: string[]): ItemSourcing {
   }
 
   return {
+    key,
+    ways,
+    chosen: null,
+    mods: [],
+    needsItemLevel: null,
     name: item.name,
     base,
     rarity: item.rarity,
@@ -132,11 +168,13 @@ function describeUnique(item: PobItem, usedIn: string[]): ItemSourcing {
 }
 
 /** Describes a non-unique item, or returns null when nothing about it takes special effort. */
-function describeCrafted(item: PobItem, usedIn: string[]): ItemSourcing | null {
+function describeCrafted(item: PobItem, usedIn: string[], key: string): ItemSourcing | null {
   const notes: SourceNote[] = []
   const methods: string[] = []
   const baseName = item.base ?? item.name
   const base = BASES[baseName]
+  const rare = describeRare(item, base)
+  if (rare.ways.some((way) => way.kind === 'genesis')) methods.push('genesis-tree')
 
   if (item.links >= 5) {
     notes.push({ text: `Нужно ${item.links} связей.`, tone: 'info' })
@@ -164,11 +202,25 @@ function describeCrafted(item: PobItem, usedIn: string[]): ItemSourcing | null {
   if (crafts.length) notes.push({ text: `Крафт или зачарование: ${crafts.join('; ')}`, tone: 'info' })
   if (item.corrupted) notes.push({ text: 'Предмет осквернён (Corrupted).', tone: 'info' })
 
-  if (!notes.length) return null
+  // An item without modifiers and without anything else of note needs no plan: a flask, a white base.
+  if (!notes.length && !rare.mods.length) return null
   if (base) {
     notes.unshift({ text: `База: ${baseName} (${base.type}), с ${base.level} уровня.`, tone: 'info', ref: POB_REF })
   }
-  return { name: item.name, base: item.base, rarity: item.rarity, usedIn, notes, methods, wikiUrl: null }
+  return {
+    key,
+    ways: rare.ways,
+    chosen: null,
+    mods: rare.mods,
+    needsItemLevel: rare.needsItemLevel,
+    name: item.name,
+    base: item.base,
+    rarity: item.rarity,
+    usedIn,
+    notes,
+    methods,
+    wikiUrl: null
+  }
 }
 
 /** Divination cards whose reward is a six-linked item of this base or of this item class. */

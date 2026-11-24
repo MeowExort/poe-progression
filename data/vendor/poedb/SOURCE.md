@@ -7,3 +7,8 @@ PoEDB content is licensed CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/
 and that licence — attribution, non-commercial use, share-alike — applies to this file.
 
 To refresh: save the page and run `node scripts/extract-poedb-cards.mjs <saved html file>`.
+
+`genesis-tree.json` is derived from https://poedb.tw/us/The_Genesis_Tree by
+`scripts/extract-poedb-genesis.mjs`: the passives of the Genesis Tree with their subtree, kind
+and stats. Fetched 2026-11-24. To refresh: save the page and run
+`node scripts/extract-poedb-genesis.mjs <saved html file>`.

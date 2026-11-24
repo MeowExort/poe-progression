@@ -35,6 +35,7 @@ const api: PoeApi = {
     setAnswers: (answers) => ipcRenderer.invoke(PLAN_IPC.setAnswers, answers),
     chooseBuild: (buildId) => ipcRenderer.invoke(PLAN_IPC.chooseBuild, buildId),
     importPob: (code) => ipcRenderer.invoke(PLAN_IPC.importPob, code),
+    chooseWay: (key, wayId) => ipcRenderer.invoke(PLAN_IPC.chooseWay, key, wayId),
     refreshTree: () => ipcRenderer.invoke(PLAN_IPC.refreshTree),
     setTreeTarget: (index) => ipcRenderer.invoke(PLAN_IPC.setTreeTarget, index),
     clearPob: () => ipcRenderer.invoke(PLAN_IPC.clearPob),

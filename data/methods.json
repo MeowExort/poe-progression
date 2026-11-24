@@ -34,12 +34,14 @@
       ]
     },
     {
-      "id": "genesis-equipment",
-      "title": "Экипировка из дерева Бреча (Genesis Tree)",
-      "text": "У Genesis Tree есть поддерево Equipment: его ноды повышают шанс нужного типа модов и рейтинг тира модов у «рождённой» экипировки. Как именно выращивать предметы и что для этого нужно, в патчноутах 3.30 не описано — это я не проверял.",
+      "id": "genesis-tree",
+      "title": "Genesis Tree — дерево Бреча",
+      "text": "У Genesis Tree четыре поддерева, у каждого своё гнездо (womb) и свой Wombgift: Equipment — Provisioning Wombgift, рождает редкую броню или бижутерию; Unique Items — Ancient Wombgift, рождает уник; Currency — Lavish Wombgift, валюту; Miscellany — Mysterious Wombgift, случайный предмет. Как это работает (по описанию игрока, в патчноутах этого нет): Wombgift кладётся в первое гнездо своего поддерева, в него вливается Hiveblood, и из него вырастает предмет; у Wombgift есть уровень предмета. Чем больше выращено, тем больше очков на пассивки этого поддерева — они повышают шанс нужного слота, атрибутов и типа модов. Hiveblood падает с монстров Breach.",
       "quotes": [
+        "Ancient Wombgift: Can grow into a Unique item on the Genesis Tree. Place this item into an allocated unique item womb on the Genesis Tree.",
+        "Provisioning Wombgift: Can grow into an Armour or Jewellery item on the Genesis Tree.",
         "On the Genesis Equipment Tree, Notables now grant Birthed Equipment has 200% increased chance for a specific type of Modifier (previously 300), or Birthed Equipment has 50% reduced chance for a specific type of Modifier (previously 60).",
-        "On the Genesis Equipment Tree, small nodes now grant Birthed Equipment has +10 to Modifier Tier Rating (previously +20)."
+        "It also affects the quantity of League-specific resources found, such as Hiveblood from Breach monsters or Lifeforce from Harvest monsters."
       ]
     }
   ]

@@ -36,6 +36,8 @@ interface StoredPlan {
   position: number
   /** The tree of the build to follow; null picks the first unfinished one. */
   treeTarget: number | null
+  /** The way the player picked for an item or a modifier, by the key of that item or modifier. */
+  choices: Record<string, string>
   /** The character's passive tree as last read from the site. */
   allocated: { character: string; hashes: number[]; readAt: number } | null
 }
@@ -81,7 +83,7 @@ export class PlanStore {
       pobSets: this.selectedSets(),
       gemSources: this.gemSources,
       libraryOnlyGems: this.libraryOnlyGems,
-      sourcing: this.sourcing,
+      sourcing: this.sourcing ? withChoices(this.sourcing, this.stored.choices) : null,
       characterClass: this.characterClass(),
       options,
       steps: this.steps,
@@ -106,6 +108,16 @@ export class PlanStore {
   /** True when there is a build whose tree the character's own could be compared with. */
   get followsTree(): boolean {
     return (this.pob?.treeSpecs.length ?? 0) > 0
+  }
+
+  /** Remembers which way of getting an item (or one of its modifiers) the player goes for. */
+  chooseWay(key: string, wayId: string | null): void {
+    if (typeof key !== 'string' || !key) return
+    const choices = { ...this.stored.choices }
+    if (typeof wayId === 'string' && wayId) choices[key] = wayId
+    else delete choices[key]
+    this.stored.choices = choices
+    this.commit()
   }
 
   /** The character's level, from the game log. */
@@ -155,7 +167,10 @@ export class PlanStore {
     this.stored.pobCode = code.replace(/\s+/g, '')
     this.stored.pobSets = null
     this.stored.treeTarget = null
-    if (!sameCharacter) this.stored.allocated = null
+    if (!sameCharacter) {
+      this.stored.allocated = null
+      this.stored.choices = {}
+    }
     this.stored.options = { ...this.stored.options, bandit: pob.bandit }
     this.relocate(() => this.rebuild(), sameCharacter)
     this.commit()
@@ -312,6 +327,7 @@ function emptyPlan(): StoredPlan {
     options: { ...DEFAULT_OPTIONS },
     position: 0,
     treeTarget: null,
+    choices: {},
     allocated: null
   }
 }
@@ -331,11 +347,31 @@ function load(file: string): StoredPlan {
       options: { ...DEFAULT_OPTIONS, ...raw.options },
       position: typeof raw.position === 'number' ? raw.position : 0,
       treeTarget: Number.isInteger(raw.treeTarget) ? (raw.treeTarget as number) : null,
+      choices: readChoices(raw.choices),
       allocated: readAllocated(raw.allocated)
     }
   } catch {
     return emptyPlan()
   }
+}
+
+function readChoices(raw: unknown): Record<string, string> {
+  const choices: Record<string, string> = {}
+  if (!raw || typeof raw !== 'object') return choices
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) if (typeof value === 'string') choices[key] = value
+  return choices
+}
+
+/** Marks the ways the player picked; a choice that no longer exists (another build, new data) is dropped. */
+function withChoices(sourcing: Sourcing, choices: Record<string, string>): Sourcing {
+  const pick = (key: string, ways: { id: string }[]): string | null =>
+    ways.some((way) => way.id === choices[key]) ? choices[key] : null
+  const mark = (item: Sourcing['uniques'][number]): Sourcing['uniques'][number] => ({
+    ...item,
+    chosen: pick(item.key, item.ways),
+    mods: item.mods.map((mod) => ({ ...mod, chosen: pick(`${item.key}#${mod.key}`, mod.ways) }))
+  })
+  return { ...sourcing, uniques: sourcing.uniques.map(mark), special: sourcing.special.map(mark) }
 }
 
 function readAllocated(raw: unknown): StoredPlan['allocated'] {

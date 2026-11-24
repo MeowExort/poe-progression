@@ -49,7 +49,20 @@ for (const file of luaFiles(basesDir)) {
     const level = /\breq = \{[^}]*\blevel = (\d+)/.exec(body)?.[1]
     // For armour pieces: which defences the base has, e.g. "Armour/Evasion".
     const sub = /\bsubType = "([^"]+)"/.exec(body)?.[1]
-    bases[name] = { type, level: level ? +level : 1, ...(sub ? { sub } : {}) }
+    // Tags decide which modifiers can roll on the base and how often.
+    const tags = [.../\btags = \{([^}]*)\}/.exec(body)?.[1].matchAll(/(\w+) = true/g) ?? []].map((match) => match[1]).sort()
+    // Influenced items add one more tag: "<this>_shaper", "<this>_elder" and so on.
+    const influence = /\binfluenceTags = \{[^}]*\bshaper = "(\w+)_shaper"/.exec(body)?.[1]
+    const req = /\breq = \{([^}]*)\}/.exec(body)?.[1] ?? ''
+    const attributes = ['str', 'dex', 'int'].filter((name) => new RegExp(`\\b${name} = [1-9]`).test(req))
+    bases[name] = {
+      type,
+      level: level ? +level : 1,
+      ...(sub ? { sub } : {}),
+      ...(tags.length ? { tags } : {}),
+      ...(influence ? { influence } : {}),
+      ...(attributes.length ? { attributes } : {})
+    }
   }
 }
 

@@ -25,7 +25,9 @@ const item = (slot: string, name: string, base: string, rarity = 'RARE'): PobIte
   influences: [],
   craftedMods: [],
   fractured: false,
-  corrupted: false
+  corrupted: false,
+  itemLevel: null,
+  mods: []
 })
 
 const pob: PobBuild = {

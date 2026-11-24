@@ -300,6 +300,7 @@ function registerIpc(): void {
   ipcMain.handle(IPC.copyText, (_event, text: string) => {
     if (typeof text === 'string') clipboard.writeText(text.slice(0, 2000))
   })
+  ipcMain.handle(PLAN_IPC.chooseWay, (_event, key: string, wayId: string | null) => plan?.chooseWay(key, wayId))
   ipcMain.handle(PLAN_IPC.refreshTree, () => readTree(true))
   ipcMain.handle(PLAN_IPC.setTreeTarget, (_event, index: number | null) => plan?.setTreeTarget(index))
 

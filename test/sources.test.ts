@@ -11,6 +11,8 @@ const item = (patch: Partial<PobItem> & Pick<PobItem, 'name'>): PobItem => ({
   craftedMods: [],
   fractured: false,
   corrupted: false,
+  itemLevel: null,
+  mods: [],
   ...patch
 })
 
@@ -29,36 +31,59 @@ const unique = (name: string, base: string, patch: Partial<PobItem> = {}): PobIt
   item({ name, base, rarity: 'UNIQUE', ...patch })
 
 const texts = (sourcing: { notes: { text: string }[] }): string => sourcing.notes.map((note) => note.text).join('\n')
+/** Everything a way says, on one line per way: "id | title | details". */
+const ways = (sourcing: { ways: { id: string; title: string; details: string[] }[] }): string =>
+  sourcing.ways.map((way) => `${way.id} | ${way.title} | ${way.details.join(' ')}`).join('\n')
 
 describe('buildSourcing: uniques', () => {
   it('suggests an Orb of Chance on the base for an ordinary drop and lists its divination cards', () => {
     const { uniques, methods } = buildSourcing(build({ Maps: [unique("Kaom's Heart", 'Glorious Plate')] }))
     expect(uniques).toHaveLength(1)
     const [kaom] = uniques
-    expect(texts(kaom)).toMatch(/обычный дроп/)
-    expect(texts(kaom)).toMatch(/Orb of Chance на белую Glorious Plate \(база с \d+ уровня\)/)
-    expect(texts(kaom)).toMatch(/Карта The King's Heart: набор из 8 шт\. даёт Kaom's Heart/)
-    expect(kaom.methods).toEqual(['chance-orb'])
+    // Every way is listed side by side, for the player to pick from.
+    expect(kaom.ways.map((way) => way.id)).toEqual(['drop', 'chance', 'card:Pride Before the Fall', "card:The King's Heart", 'genesis'])
+    expect(ways(kaom)).toMatch(/drop \| Обычный дроп/)
+    expect(ways(kaom)).toMatch(/Orb of Chance на белую Glorious Plate \| Нужна обычная \(белая\) Glorious Plate — база с \d+ уровня/)
+    expect(ways(kaom)).toMatch(/Карты предсказаний: The King's Heart \| Набор из 8 шт\. даёт Kaom's Heart/)
+    expect(kaom).toMatchObject({ chosen: null, mods: [], key: expect.stringContaining("Kaom's Heart") })
+    expect(kaom.methods).toEqual(['chance-orb', 'genesis-tree'])
     expect(kaom.wikiUrl).toBe("https://www.poewiki.net/wiki/Kaom's_Heart")
-    expect(methods.map((method) => method.id)).toEqual(['chance-orb', 'item-tiers'])
+    expect(methods.map((method) => method.id)).toEqual(['chance-orb', 'item-tiers', 'genesis-tree'])
+  })
+
+  it('names the Genesis Tree passives that steer towards the slot of the unique', () => {
+    const [kaom] = buildSourcing(build({ Maps: [unique("Kaom's Heart", 'Glorious Plate')] })).uniques
+    const genesis = kaom.ways.find((way) => way.id === 'genesis')!
+    expect(genesis.title).toMatch(/Ancient Wombgift/)
+    expect(genesis.details[1]).toBe(
+      'Пассивки поддерева Unique Items под этот уник: Increased Body Armour Chance, Guardian Lineage, More Strength Items, Cleansed of Impurity, Recessive Genes.'
+    )
+    expect(genesis.details.join(' ')).toMatch(/в моих данных нет/)
+    // A weapon goes by its kind; a Foulborn version wants the passives that make uniques Foulborn.
+    const [bow] = buildSourcing(build({ Maps: [unique("Foulborn Death's Harp", 'Death Bow', { slot: 'Weapon 1' })] })).uniques
+    expect(bow.ways.find((way) => way.id === 'genesis')!.details[1]).toMatch(
+      /Increased Ranged Weapons Chance, Martial Lineage, More Dexterity Items, Foulborn Ancestry, Corrupted Flesh, Recessive Genes/
+    )
   })
 
   it('reports a boss drop as the source and does not suggest chancing it', () => {
     const [starforge] = buildSourcing(build({ Maps: [unique('Starforge', 'Infernal Sword')] })).uniques
-    expect(texts(starforge)).toMatch(/Источник: Drops from The Shaper/)
-    expect(texts(starforge)).not.toMatch(/Orb of Chance/)
-    expect(starforge.methods).toEqual([])
+    expect(ways(starforge)).toMatch(/drop \| Дроп: Drops from The Shaper/)
+    expect(starforge.ways.map((way) => way.kind)).not.toContain('chance')
+    expect(starforge.methods).toEqual(['genesis-tree'])
   })
 
   it('flags league uniques instead of calling them an ordinary drop', () => {
     const [soulwrest] = buildSourcing(build({ Maps: [unique('Soulwrest', 'Ezomyte Staff')] })).uniques
-    expect(texts(soulwrest)).toMatch(/уник лиги Delve/)
-    expect(texts(soulwrest)).not.toMatch(/обычный дроп/)
+    expect(ways(soulwrest)).toMatch(/Уник лиги Delve/)
+    expect(ways(soulwrest)).not.toMatch(/Обычный дроп/)
+    expect(soulwrest.ways.map((way) => way.kind)).not.toContain('chance')
   })
 
   it('says so when a unique can no longer be obtained', () => {
     const [wall] = buildSourcing(build({ Maps: [unique('Wall of Brambles', 'Plate Vest')] })).uniques
     expect(wall.notes).toEqual([expect.objectContaining({ tone: 'bad', text: expect.stringMatching(/получить нельзя/) })])
+    expect(wall.ways).toEqual([])
   })
 
   it('admits when it knows nothing about a unique', () => {
@@ -70,7 +95,7 @@ describe('buildSourcing: uniques', () => {
   it('looks up a Foulborn unique under its regular name', () => {
     const [foulborn] = buildSourcing(build({ Maps: [unique("Foulborn Kaom's Heart", 'Glorious Plate')] })).uniques
     expect(texts(foulborn)).toMatch(/Foulborn-версия/)
-    expect(texts(foulborn)).toMatch(/Карта The King's Heart/)
+    expect(ways(foulborn)).toMatch(/Карты предсказаний: The King's Heart/)
   })
 
   it('describes an item once and lists every set that uses it', () => {
@@ -127,7 +152,7 @@ describe('buildSourcing: other items', () => {
   it('backs every method with quotes and a link to the patch notes', () => {
     const bow = item({ name: 'Doom Thirst', base: 'Spine Bow', fractured: true })
     const { methods } = buildSourcing(build({ Maps: [bow, unique("Kaom's Heart", 'Glorious Plate')] }))
-    expect(methods.length).toBe(3)
+    expect(methods.map((method) => method.id).sort()).toEqual(['chance-orb', 'fractured', 'genesis-tree', 'item-tiers'])
     for (const method of methods) {
       expect(method.quotes.length).toBeGreaterThan(0)
       expect(method.ref.url).toMatch(/^https:\/\/www\.pathofexile\.com\/forum\/view-thread\//)

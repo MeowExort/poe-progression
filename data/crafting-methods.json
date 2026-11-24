@@ -1,0 +1,60 @@
+{
+  "source": { "label": "PoEDB: Horticrafting", "url": "https://poedb.tw/us/Horticrafting" },
+  "fossils": [
+    { "name": "Scorched Fossil", "more": ["fire"], "none": ["cold"] },
+    { "name": "Frigid Fossil", "more": ["cold"], "none": ["fire"] },
+    { "name": "Metallic Fossil", "more": ["lightning"], "none": ["physical"] },
+    { "name": "Jagged Fossil", "more": ["physical"], "none": ["chaos"] },
+    { "name": "Aberrant Fossil", "more": ["chaos"], "none": ["lightning"] },
+    { "name": "Pristine Fossil", "more": ["life"], "none": ["defences"] },
+    { "name": "Dense Fossil", "more": ["defences"], "none": ["life"] },
+    { "name": "Corroded Fossil", "more": ["bleed", "poison"], "none": ["elemental"] },
+    { "name": "Prismatic Fossil", "more": ["elemental"], "moreFactor": 6, "none": ["bleed", "poison"] },
+    { "name": "Aetheric Fossil", "more": ["caster"], "fewer": ["attack"] },
+    { "name": "Serrated Fossil", "more": ["attack"], "fewer": ["caster"] },
+    { "name": "Lucent Fossil", "more": ["mana"], "none": ["speed"] },
+    { "name": "Shuddering Fossil", "more": ["speed"], "none": ["mana"] },
+    { "name": "Bound Fossil", "more": ["minion", "aura", "curse"] },
+    { "name": "Deft Fossil", "more": ["critical"], "none": ["attribute"] },
+    { "name": "Fundamental Fossil", "more": ["attribute"], "none": ["critical"] },
+    { "name": "Faceted Fossil", "more": ["gem"] }
+  ],
+  "fossilFactor": { "more": 10, "fewer": 0.15, "none": 0 },
+  "harvest": [
+    { "tag": "fire", "label": "Fire", "cost": "50 Wild Crystallised Lifeforce" },
+    { "tag": "cold", "label": "Cold", "cost": "50 Vivid Crystallised Lifeforce" },
+    { "tag": "lightning", "label": "Lightning", "cost": "50 Primal Crystallised Lifeforce" },
+    { "tag": "physical", "label": "Physical", "cost": "50 Vivid Crystallised Lifeforce" },
+    { "tag": "life", "label": "Life", "cost": "75 Wild Crystallised Lifeforce" },
+    { "tag": "defences", "label": "Defence", "cost": "75 Primal Crystallised Lifeforce" },
+    { "tag": "chaos", "label": "Chaos", "cost": "100 Vivid Crystallised Lifeforce" },
+    { "tag": "attack", "label": "Attack", "cost": "75 Wild Crystallised Lifeforce" },
+    { "tag": "caster", "label": "Caster", "cost": "75 Primal Crystallised Lifeforce" },
+    { "tag": "speed", "label": "Speed", "cost": "150 Vivid Crystallised Lifeforce" },
+    { "tag": "critical", "label": "Critical", "cost": "150 Primal Crystallised Lifeforce" },
+    { "tag": "minion", "label": "Minion", "cost": "200 Primal Crystallised Lifeforce + 3 Crystallised Rancour" },
+    { "tag": "elemental", "label": "Elemental", "cost": "200 Wild Crystallised Lifeforce + 1 Crystallised Rancour" },
+    { "tag": "attribute", "label": "Attribute", "cost": "200 Vivid Crystallised Lifeforce + 2 Crystallised Rancour" },
+    { "tag": "mana", "label": "Mana", "cost": "200 Primal Crystallised Lifeforce + 2 Crystallised Rancour" }
+  ],
+  "genesis": {
+    "source": { "label": "PoEDB: The Genesis Tree", "url": "https://poedb.tw/us/The_Genesis_Tree" },
+    "modifierNodes": {
+      "physical": "Physical", "fire": "Fire", "cold": "Cold", "lightning": "Lightning", "chaos": "Chaos",
+      "life": "Life", "mana": "Mana", "defences": "Defences", "attribute": "Attributes", "resistance": "Resistance",
+      "attack": "Attack", "caster": "Caster", "critical": "Critical", "speed": "Speed"
+    },
+    "equipmentSlots": {
+      "Shield": "Shields", "Helmet": "Helmets", "Body Armour": "Body Armour", "Boots": "Boots", "Gloves": "Gloves",
+      "Belt": "Belts", "Ring": "Rings", "Amulet": "Amulets", "Jewel": "Jewels"
+    },
+    "uniqueSlots": {
+      "One Handed Axe": "One-Handed Melee Weapons", "One Handed Mace": "One-Handed Melee Weapons", "One Handed Sword": "One-Handed Melee Weapons",
+      "Claw": "One-Handed Melee Weapons", "Dagger": "One-Handed Melee Weapons", "Sceptre": "One-Handed Melee Weapons",
+      "Two Handed Axe": "Two-Handed Melee Weapons", "Two Handed Mace": "Two-Handed Melee Weapons", "Two Handed Sword": "Two-Handed Melee Weapons",
+      "Staff": "Two-Handed Melee Weapons", "Bow": "Ranged Weapons", "Wand": "Ranged Weapons",
+      "Shield": "Shields", "Quiver": "Quivers", "Helmet": "Helmets", "Body Armour": "Body Armour", "Boots": "Boots", "Gloves": "Gloves",
+      "Belt": "Belts", "Ring": "Rings", "Amulet": "Amulets", "Jewel": "Jewels", "Flask": "Flasks"
+    }
+  }
+}

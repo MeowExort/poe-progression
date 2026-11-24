@@ -1,0 +1,878 @@
+[
+ {
+  "name": "Equipment Item Womb",
+  "tree": "Equipment",
+  "kind": "keystone",
+  "stats": []
+ },
+ {
+  "name": "Currency Item Womb",
+  "tree": "Currency",
+  "kind": "keystone",
+  "stats": []
+ },
+ {
+  "name": "Unique Item Womb",
+  "tree": "Unique Items",
+  "kind": "keystone",
+  "stats": []
+ },
+ {
+  "name": "Mysterious Item Womb",
+  "tree": "Miscellany",
+  "kind": "keystone",
+  "stats": []
+ },
+ {
+  "name": "Item Level",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 25% chance for +1 to Item Level"
+  ]
+ },
+ {
+  "name": "Modifier Tier Rating",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has +10 to Modifier Tier Rating",
+   "(Raising Modifier Tier Rating excludes lower tier Modifiers from rolling, distributing their roll chance among higher tier Modifiers of the same Modifier type)"
+  ]
+ },
+ {
+  "name": "Additional Item Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "25% chance for Wombgifts to Birth an additional Equipment Item"
+  ]
+ },
+ {
+  "name": "Divine Rolls",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Values of the random modifiers on Birthed Equipment are rolled 1 additional times keeping the best outcome"
+  ]
+ },
+ {
+  "name": "Socket and Link Count",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Armour rolls Sockets and Links +10 times, keeping the best outcome"
+  ]
+ },
+ {
+  "name": "Devoted Technique",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": []
+ },
+ {
+  "name": "Forsaken Technique",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": []
+ },
+ {
+  "name": "Devoted Soul",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": []
+ },
+ {
+  "name": "Forsaken Soul",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": []
+ },
+ {
+  "name": "Devoted Zeal",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": []
+ },
+ {
+  "name": "Forsaken Zeal",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": []
+ },
+ {
+  "name": "Increased Physical Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Physical Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Fire Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Fire Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Cold Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Cold Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Lightning Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Lightning Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Chaos Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Chaos Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Life Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Life Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Mana Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Mana Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Defences Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Defence Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Attributes Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Attribute Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Resistance Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Resistance Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Attack Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Attack Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Caster Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Caster Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Critical Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Critical Modifiers"
+  ]
+ },
+ {
+  "name": "Increased Speed Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 200% increased chance for Speed Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Physical Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Physical Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Fire Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Fire Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Cold Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Cold Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Lightning Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Lightning Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Chaos Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Chaos Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Life Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Life Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Mana Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Mana Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Defences Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Defence Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Attributes Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Attribute Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Resistance Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Resistance Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Attack Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Attack Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Caster Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Caster Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Critical Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Critical Modifiers"
+  ]
+ },
+ {
+  "name": "Reduced Speed Modifier Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "Birthed Equipment has 50% reduced chance for Speed Modifiers"
+  ]
+ },
+ {
+  "name": "Severing",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": [
+   "Birthed Equipment has the lowest Level Modifier removed"
+  ]
+ },
+ {
+  "name": "Arterial Mesh",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": [
+   "Birthed Armour rolls Sockets and Links +50 times, keeping the best outcome"
+  ]
+ },
+ {
+  "name": "Basic Nurturing",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": [
+   "Birthed Armour has a random amount of Quality"
+  ]
+ },
+ {
+  "name": "Guardian Flesh",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": [
+   "500% increased chance for Birthed Equipment to be Armour"
+  ]
+ },
+ {
+  "name": "Glittering Flesh",
+  "tree": "Equipment",
+  "kind": "notable",
+  "stats": [
+   "500% increased chance for Birthed Equipment to be Jewellery"
+  ]
+ },
+ {
+  "name": "Increased Shields Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Shields"
+  ]
+ },
+ {
+  "name": "Increased Helmets Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Helmets"
+  ]
+ },
+ {
+  "name": "Increased Body Armour Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Body Armour"
+  ]
+ },
+ {
+  "name": "Increased Boots Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Boots"
+  ]
+ },
+ {
+  "name": "Increased Gloves Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Gloves"
+  ]
+ },
+ {
+  "name": "Increased Belts Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Belts"
+  ]
+ },
+ {
+  "name": "Increased Rings Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Rings"
+  ]
+ },
+ {
+  "name": "Increased Amulets Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Amulets"
+  ]
+ },
+ {
+  "name": "Increased Jewels Chance",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "5000% increased chance for Birthed Equipment to be Jewels",
+   "Provisioning Wombgifts may instead Birth Jewels"
+  ]
+ },
+ {
+  "name": "More Dexterity Items",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "300% more chance for Birthed Equipment to have Dexterity Requirements"
+  ]
+ },
+ {
+  "name": "More Strength Items",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "300% more chance for Birthed Equipment to have Strength Requirements"
+  ]
+ },
+ {
+  "name": "More Intelligence Items",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "300% more chance for Birthed Equipment to have Intelligence Requirements"
+  ]
+ },
+ {
+  "name": "Less Dexterity Items",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "85% less chance for Birthed Equipment to have Dexterity Requirements"
+  ]
+ },
+ {
+  "name": "Less Strength Items",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "85% less chance for Birthed Equipment to have Strength Requirements"
+  ]
+ },
+ {
+  "name": "Less Intelligence Items",
+  "tree": "Equipment",
+  "kind": "basic",
+  "stats": [
+   "85% less chance for Birthed Equipment to have Intelligence Requirements"
+  ]
+ },
+ {
+  "name": "Additional Currency Chance",
+  "tree": "Currency",
+  "kind": "basic",
+  "stats": [
+   "25% chance for Wombgifts to Birth an additional Currency Item"
+  ]
+ },
+ {
+  "name": "Prodigal Offspring",
+  "tree": "Currency",
+  "kind": "notable",
+  "stats": [
+   "20% chance for Wombgifts to Birth 3 additional Currency Items",
+   "2% chance for Wombgifts to Birth 10 additional Currency Items"
+  ]
+ },
+ {
+  "name": "Mutation Cultivation",
+  "tree": "Currency",
+  "kind": "notable",
+  "stats": [
+   "6% chance to Birth an additional Foulborn Currency (level 75+)"
+  ]
+ },
+ {
+  "name": "Fertile Genesis",
+  "tree": "Currency",
+  "kind": "notable",
+  "stats": [
+   "Birthed Currency Items are rolled 1 additional times keeping the rarest outcome"
+  ]
+ },
+ {
+  "name": "Wild Growth",
+  "tree": "Currency",
+  "kind": "notable",
+  "stats": [
+   "2% chance for Birthed Currency to drop as a full stack"
+  ]
+ },
+ {
+  "name": "Encrusted Fruit",
+  "tree": "Currency",
+  "kind": "notable",
+  "stats": [
+   "25% chance for Birthed Currency to drop as Gold instead"
+  ]
+ },
+ {
+  "name": "Unstable Growth",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "Birthed Unique Weapons and Armour have a random amount of Quality"
+  ]
+ },
+ {
+  "name": "Recessive Genes",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "Birthed Uniques are rolled 1 additional times keeping the rarest outcome"
+  ]
+ },
+ {
+  "name": "Additional Item Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "10% chance for Ancient Wombgifts to Birth an additional Item"
+  ]
+ },
+ {
+  "name": "Foulborn Ancestry",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "50% increased chance for Birthed Uniques to be Breach Specific",
+   "Birthed Uniques have 50% increased chance to be Foulborn"
+  ]
+ },
+ {
+  "name": "Foulborn Gluttony",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "30% chance for Ancient Wombgifts to Birth an additional Item",
+   "Birthed Uniques have 30% increased chance to be Foulborn"
+  ]
+ },
+ {
+  "name": "Lucky Sockets",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "Birthed Unique Weapons and Armour roll Sockets and Links +10 times keeping the best outcome"
+  ]
+ },
+ {
+  "name": "Corrupted Flesh",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "Birthed Uniques have 100% increased chance to be Foulborn",
+   "Birthed Non-Foulborn Unique Items are Corrupted"
+  ]
+ },
+ {
+  "name": "Guardian Lineage",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "100% increased chance for Birthed Unique Items to be Armour"
+  ]
+ },
+ {
+  "name": "Martial Lineage",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "100% increased chance for Birthed Unique Items to be Weapons"
+  ]
+ },
+ {
+  "name": "Glittering Lineage",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "100% increased chance for Birthed Unique Items to be Jewellery"
+  ]
+ },
+ {
+  "name": "Increased One-Handed Melee Weapons Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be One-Handed Melee Weapons"
+  ]
+ },
+ {
+  "name": "Increased Two-Handed Melee Weapons Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Two-Handed Melee Weapons"
+  ]
+ },
+ {
+  "name": "Increased Ranged Weapons Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Ranged Weapons"
+  ]
+ },
+ {
+  "name": "Increased Shields Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Shields"
+  ]
+ },
+ {
+  "name": "Increased Quivers Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "500% increased chance for Birthed Unique Items to be Quivers"
+  ]
+ },
+ {
+  "name": "Increased Helmets Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Helmets"
+  ]
+ },
+ {
+  "name": "Increased Body Armour Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Body Armour"
+  ]
+ },
+ {
+  "name": "Increased Boots Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Boots"
+  ]
+ },
+ {
+  "name": "Increased Gloves Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Gloves"
+  ]
+ },
+ {
+  "name": "Increased Belts Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Belts"
+  ]
+ },
+ {
+  "name": "Increased Rings Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Rings"
+  ]
+ },
+ {
+  "name": "Increased Amulets Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "1000% increased chance for Birthed Unique Items to be Amulets"
+  ]
+ },
+ {
+  "name": "Increased Jewels Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "500% increased chance for Birthed Unique Items to be Jewels"
+  ]
+ },
+ {
+  "name": "Increased Flasks Chance",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "500% increased chance for Birthed Unique Items to be Flasks"
+  ]
+ },
+ {
+  "name": "More Dexterity Items",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "300% more chance for Birthed Unique Items to have Dexterity Requirements"
+  ]
+ },
+ {
+  "name": "More Strength Items",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "300% more chance for Birthed Unique Items to have Strength Requirements"
+  ]
+ },
+ {
+  "name": "More Intelligence Items",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "300% more chance for Birthed Unique Items to have Intelligence Requirements"
+  ]
+ },
+ {
+  "name": "Less Dexterity Items",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "85% less chance for Birthed Unique Items to have Dexterity Requirements"
+  ]
+ },
+ {
+  "name": "Less Strength Items",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "85% less chance for Birthed Unique Items to have Strength Requirements"
+  ]
+ },
+ {
+  "name": "Less Intelligence Items",
+  "tree": "Unique Items",
+  "kind": "basic",
+  "stats": [
+   "85% less chance for Birthed Unique Items to have Intelligence Requirements"
+  ]
+ },
+ {
+  "name": "Throbbing Veins",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "Birthed Unique Weapons and Armour roll Sockets and Links +50 times keeping the best outcome"
+  ]
+ },
+ {
+  "name": "Extremely Foul",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "Birthed Foulborn Uniques have a 20% chance of multiple Foulborn Modifiers"
+  ]
+ },
+ {
+  "name": "Lord's Descent",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "150% increased chance for Birthed Uniques to be Breach Specific"
+  ]
+ },
+ {
+  "name": "Remembered Origins",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "300% increased chance for Birthed Uniques to be Breach Specific",
+   "Birthed Uniques have 100% reduced chance to be Foulborn"
+  ]
+ },
+ {
+  "name": "Cleansed of Impurity",
+  "tree": "Unique Items",
+  "kind": "notable",
+  "stats": [
+   "Birthed Uniques have 100% reduced chance to be Foulborn"
+  ]
+ },
+ {
+  "name": "Additional Item Chance",
+  "tree": "Miscellany",
+  "kind": "basic",
+  "stats": [
+   "25% chance for Mysterious Wombgifts to Birth an additional Item"
+  ]
+ },
+ {
+  "name": "Artificial Selection",
+  "tree": "Miscellany",
+  "kind": "notable",
+  "stats": [
+   "50% increased chance for Mysterious Wombgifts to Birth infrequently found Items"
+  ]
+ },
+ {
+  "name": "Parthenogenesis",
+  "tree": "Miscellany",
+  "kind": "notable",
+  "stats": [
+   "Mysterious Wombgifts may Birth other Wombgifts"
+  ]
+ },
+ {
+  "name": "Provisioning Wombgift Chance",
+  "tree": "Miscellany",
+  "kind": "basic",
+  "stats": [
+   "800% increased chance for Mysterious Wombgifts to Birth Provisioning Wombgifts"
+  ]
+ },
+ {
+  "name": "Lavish Wombgift Chance",
+  "tree": "Miscellany",
+  "kind": "basic",
+  "stats": [
+   "800% increased chance for Mysterious Wombgifts to Birth Lavish Wombgifts"
+  ]
+ },
+ {
+  "name": "Ancient Wombgift Chance",
+  "tree": "Miscellany",
+  "kind": "basic",
+  "stats": [
+   "800% increased chance for Mysterious Wombgifts to Birth Ancient Wombgifts"
+  ]
+ },
+ {
+  "name": "Natural Selection",
+  "tree": "Miscellany",
+  "kind": "notable",
+  "stats": [
+   "100% chance for Mysterious Wombgifts to Birth an additional Item",
+   "25% increased chance for Mysterious Wombgifts to Birth commonly found Items"
+  ]
+ }
+]

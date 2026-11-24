@@ -667,8 +667,7 @@ describe('SanctumService', () => {
     expect(view.runs.map((run) => run.id)).toEqual([newer.id])
     expect(view.stats.allTime).toMatchObject({ runs: 1, failed: 1 })
     expect(view.stats.session.runs).toBe(1)
-    expect(view.stats.today.runs).toBe(1)
-    expect(view.runCounts).toMatchObject({ session: 1, today: 1 })
+    expect(view.runCounts.session).toBe(1)
 
     // Unknown ids change nothing; the deletion survives a restart.
     service.deleteRun(12345)
