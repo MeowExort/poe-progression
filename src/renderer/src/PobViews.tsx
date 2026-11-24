@@ -1,5 +1,5 @@
 import type { GemSource, PlanView, PobGem } from '@shared/plan'
-import { GemCheckView } from './GemCheck'
+import { GearCheckView, GemCheckView } from './GemCheck'
 import { SourcingView } from './SourcingView'
 import { TreeAdviceView } from './TreeAdvice'
 
@@ -126,6 +126,7 @@ export function ItemsView({ plan }: { plan: PlanView }) {
 
   return (
     <div className="pob-view">
+      <GearCheckView plan={plan} />
       <SourcingView plan={plan} />
       <section>
         <h4>Наборы предметов из билда</h4>

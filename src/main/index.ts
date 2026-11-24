@@ -9,6 +9,7 @@ import type { LogEvent } from '@shared/events'
 import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
 import { UPDATE_IPC } from '@shared/update'
 import { autoUpdater } from 'electron-updater'
+import { readCharacterGear } from '@core/gear/check'
 import { readCharacterGems } from '@core/gems/check'
 import { AREAS } from '@core/route/data'
 import { detectLogPath, loadConfig, readBounds, saveConfig } from './config'
@@ -227,7 +228,11 @@ async function readTree(): Promise<void> {
     const gems = 'error' in equipment ? null : readCharacterGems(equipment.body)
     if ('error' in equipment) problem = equipment.error
     else if (!gems) problem = 'Сайт не вернул предметы персонажа.'
-    else plan.setCharacterGems(equipment.character, gems, Date.now())
+    else {
+      plan.setCharacterGems(equipment.character, gems, Date.now())
+      const gear = readCharacterGear(equipment.body)
+      if (gear) plan.setCharacterGear(equipment.character, gear, Date.now())
+    }
   }
   plan.setTreeReading({ busy: false, error: problem })
 }

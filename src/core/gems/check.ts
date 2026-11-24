@@ -6,6 +6,10 @@ const GEM_FRAME = 4
 /** Items can have four sockets from item level 25 on: before that three linked gems is all there is. */
 const FOUR_SOCKETS_FROM = 25
 const PROBLEMS_SHOWN = 6
+/** What a gem reaches by itself: a build that has it lower holds it there deliberately. */
+const MAX_GEM_LEVEL = 20
+/** A build with at least one gem this high has real levels in it, not placeholders. */
+const MEANT_FROM_LEVEL = 18
 
 const text = (value: unknown): string => (typeof value === 'string' ? value : '')
 
@@ -103,8 +107,18 @@ export function checkGems(pob: PobBuild, gems: CharacterGems, context: GemCheckC
   const setIndex = sets.reduce((best, index) => (score(index) > score(best) ? index : best), sets[0])
   const set = pob.skillSets[setIndex]
   const linkSize = context.level >= FOUR_SOCKETS_FROM ? 4 : 3
+  // The highest level any set of the build takes a gem to: below 20 means it is kept low on
+  // purpose (a trigger setup), and levelling it past that breaks the setup.
+  const ceiling = new Map<string, number>()
+  for (const gem of pob.skillSets.flatMap((entry) => entry.groups).flatMap((group) => group.gems)) {
+    for (const name of namesOf(gem)) ceiling.set(name, Math.max(ceiling.get(name) ?? 0, gem.level))
+  }
+  const capOf = (gem: PobGem): number => Math.max(...[...namesOf(gem)].map((name) => ceiling.get(name) ?? gem.level))
+  // A build whose gems are all low is a levelling sketch: its levels are not targets to hold to.
+  const levelsAreMeant = Math.max(0, ...ceiling.values()) >= MEANT_FROM_LEVEL
 
   const missing: string[] = []
+  const overLevelled: string[] = []
   const loose: string[] = []
   const unlinked: string[] = []
   const groups: GemGroupCheck[] = []
@@ -131,7 +145,7 @@ export function checkGems(pob: PobBuild, gems: CharacterGems, context: GemCheckC
       const source = gem.id ? context.gemSources[gem.id] : undefined
       const obtainable = context.finished || (source !== undefined && (source.stepIndex ?? 0) < context.position)
       const usable = (data?.required_level ?? 1) <= context.level
-      const state: GemState = { name, support: gem.support, state: 'later', hint: null }
+      const state: GemState = { name, support: gem.support, state: 'later', hint: null, level: null, wanted: gem.level, overLevelled: false }
       states.set(gem, state)
 
       const wantLink = main !== null && gem !== main && gem.support && anchor !== undefined
@@ -140,6 +154,12 @@ export function checkGems(pob: PobBuild, gems: CharacterGems, context: GemCheckC
       if (gem === main) anchor = anywhere
 
       if (anywhere) {
+        state.level = anywhere.level
+        const cap = capOf(gem)
+        if (levelsAreMeant && anywhere.level !== null && cap < MAX_GEM_LEVEL && anywhere.level > cap) {
+          state.overLevelled = true
+          overLevelled.push(`${name}: уровень ${anywhere.level}, в билде не выше ${cap}`)
+        }
         const mustLink = wantLink && linked < linkSize - 1
         if (!wantLink || here) {
           state.state = 'linked'
@@ -172,6 +192,7 @@ export function checkGems(pob: PobBuild, gems: CharacterGems, context: GemCheckC
     setTitle: set.title,
     groups,
     problems: [...unlinked, ...loose, ...missing].slice(0, PROBLEMS_SHOWN),
+    levelRemarks: overLevelled,
     character: context.character,
     readAt: context.readAt
   }

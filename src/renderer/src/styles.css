@@ -2097,3 +2097,47 @@ button.danger {
   line-height: 1.45;
   color: var(--bad);
 }
+
+/* ── Worn items against the build ──────────────────────────── */
+
+.gear-slot summary {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.gear-slot summary i,
+.gear-mod i {
+  display: inline-block;
+  width: 16px;
+  font-style: normal;
+}
+
+.gear-slot p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.gear-slot.g-match summary i,
+.gear-mod.m-have i {
+  color: var(--ok);
+}
+
+.gear-slot.g-partial summary i,
+.gear-mod.m-lower i {
+  color: var(--accent);
+}
+
+.gear-slot.g-different summary i,
+.gear-slot.g-empty summary i,
+.gear-mod.m-absent {
+  color: var(--bad);
+}
+
+.gear-slot ul {
+  margin-top: 4px;
+}
+
+small.bad,
+p.bad {
+  color: var(--bad);
+}

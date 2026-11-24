@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname } from 'node:path'
 import { findBuild, rankBuilds } from '@core/builds'
+import { checkGear } from '@core/gear/check'
 import { checkGems } from '@core/gems/check'
 import { parsePobCode, PobError } from '@core/pob/parse'
 import { buildPlanRoute } from '@core/route/build'
@@ -16,7 +17,9 @@ import {
   STYLES,
   type Answers,
   type CharacterClass,
+  type CharacterGear,
   type CharacterGems,
+  type GearCheck,
   type GemCheck,
   type GemSource,
   type LabAdvice,
@@ -43,6 +46,8 @@ interface StoredPlan {
   choices: Record<string, string>
   /** The character's gems as last read from the site. */
   gems: { character: string; data: CharacterGems; readAt: number } | null
+  /** What the character wore when last read from the site. */
+  gear: { character: string; data: CharacterGear; readAt: number } | null
   /** The character's passive tree as last read from the site. */
   allocated: { character: string; hashes: number[]; readAt: number } | null
 }
@@ -101,6 +106,7 @@ export class PlanStore {
         ...this.reading
       },
       gemCheck: this.gemCheck(),
+      gearCheck: this.gearCheck(),
       labs: this.labs,
       vendorSearches: this.pob ? vendorSearches(this.pob, this.selectedSets(), this.currentLevel()) : []
     }
@@ -151,9 +157,21 @@ export class PlanStore {
     this.commit()
   }
 
-  /** True when the build has gems the character's own could be compared with. */
+  /** What the character wears, freshly read from the site. */
+  setCharacterGear(character: string, data: CharacterGear, readAt: number): void {
+    this.stored.gear = { character, data, readAt }
+    this.commit()
+  }
+
+  /** True when the build has gems or items the character's own could be compared with. */
   get followsGems(): boolean {
-    return this.pob !== null && this.selectedSets().length > 0
+    return this.pob !== null && (this.selectedSets().length > 0 || this.pob.itemSets.length > 0)
+  }
+
+  private gearCheck(): GearCheck | null {
+    const gear = this.stored.gear
+    if (!this.pob || !gear) return null
+    return checkGear(this.pob, gear.data, gear.character, gear.readAt)
   }
 
   private gemCheck(): GemCheck | null {
@@ -201,6 +219,7 @@ export class PlanStore {
     if (!sameCharacter) {
       this.stored.allocated = null
       this.stored.gems = null
+      this.stored.gear = null
       this.stored.choices = {}
     }
     this.stored.options = { ...this.stored.options, bandit: pob.bandit }
@@ -244,6 +263,7 @@ export class PlanStore {
     this.stored.treeTarget = null
     this.stored.allocated = null
     this.stored.gems = null
+    this.stored.gear = null
     this.stored.position = 0
     this.rebuild()
     this.commit()
@@ -362,6 +382,7 @@ function emptyPlan(): StoredPlan {
     treeTarget: null,
     choices: {},
     gems: null,
+    gear: null,
     allocated: null
   }
 }
@@ -383,6 +404,7 @@ function load(file: string): StoredPlan {
       treeTarget: Number.isInteger(raw.treeTarget) ? (raw.treeTarget as number) : null,
       choices: readChoices(raw.choices),
       gems: readGems(raw.gems),
+      gear: readGear(raw.gear),
       allocated: readAllocated(raw.allocated)
     }
   } catch {
@@ -394,6 +416,12 @@ function readGems(raw: unknown): StoredPlan['gems'] {
   const value = raw as { character?: unknown; data?: { socketed?: unknown; loose?: unknown }; readAt?: unknown } | null | undefined
   if (!value || typeof value.character !== 'string' || !Array.isArray(value.data?.socketed) || !Array.isArray(value.data?.loose)) return null
   return { character: value.character, data: value.data as CharacterGems, readAt: typeof value.readAt === 'number' ? value.readAt : 0 }
+}
+
+function readGear(raw: unknown): StoredPlan['gear'] {
+  const value = raw as { character?: unknown; data?: { worn?: unknown; carriedUniques?: unknown }; readAt?: unknown } | null | undefined
+  if (!value || typeof value.character !== 'string' || !Array.isArray(value.data?.worn) || !Array.isArray(value.data?.carriedUniques)) return null
+  return { character: value.character, data: value.data as CharacterGear, readAt: typeof value.readAt === 'number' ? value.readAt : 0 }
 }
 
 function readChoices(raw: unknown): Record<string, string> {

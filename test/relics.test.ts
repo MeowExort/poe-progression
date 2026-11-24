@@ -49,6 +49,9 @@ describe('relicQuery', () => {
     expect(body.sort).toEqual({ price: 'asc' })
     expect(body.query.status).toEqual({ option: 'available' })
     expect(body.query.filters.type_filters.filters.category).toEqual({ option: 'sanctum.relic' })
+    // The name of the relic counts: the same modifier on another base is another search.
+    expect(body.query.type).toBe('Urn Relic')
+    expect(body.query.name).toBeUndefined()
     const [group] = body.query.stats
     expect(group.type).toBe('and')
     expect(group.filters[0]).toEqual({ id: REVEAL, value: { min: 2 } })
@@ -61,7 +64,19 @@ describe('relicQuery', () => {
     const body = relicQuery(unique, []) as { query: Record<string, any> }
     expect(body.query).toMatchObject({ name: 'The Night Lamp', type: 'Urn Relic' })
     expect(body.query.stats[0].filters).toEqual([])
-    expect(relicSignature(unique, [])).toBe('unique:The Night Lamp')
+    expect(relicSignature(unique, [])).toBe('unique:The Night Lamp|Urn Relic')
+  })
+
+  it('searches a unique piece of gear by name and base, outside the relic category', () => {
+    const belt = relic([], { unique: 'Unholy Accomplice', baseType: 'Cloth Belt' })
+    const body = relicQuery(belt, []) as { query: Record<string, any> }
+    expect(body.query).toMatchObject({ name: 'Unholy Accomplice', type: 'Cloth Belt', status: { option: 'available' } })
+    expect(body.query.filters).toBeUndefined()
+  })
+
+  it('tells relics of different base types apart', () => {
+    const stats = matchRelicMods(['2 additional Rooms are revealed on the Sanctum Map']).matched
+    expect(relicSignature(relic([]), stats)).not.toBe(relicSignature(relic([], { baseType: 'Papyrus Relic' }), stats))
   })
 
   it('gives identical relics one signature regardless of modifier order', () => {
@@ -136,6 +151,19 @@ describe('relics in the loot', () => {
       0
     )!
     expect(snapshot.relics).toEqual({ a: { baseType: 'Urn Relic', unique: null, mods: ['Gain 20 Resolve when you use a Fountain'] } })
+  })
+
+  it('keeps identified uniques of any kind for pricing, and nothing else that is not a relic', () => {
+    const snapshot = toSnapshot(
+      site([
+        { id: 'belt', inventoryId: 'MainInventory', name: 'Unholy Accomplice', typeLine: 'Cloth Belt', baseType: 'Cloth Belt', frameType: 3, identified: true },
+        { id: 'unid', inventoryId: 'MainInventory', name: '', typeLine: 'Cloth Belt', baseType: 'Cloth Belt', frameType: 3, identified: false },
+        { id: 'rare', inventoryId: 'MainInventory', name: 'Doom Loop', typeLine: 'Iron Ring', baseType: 'Iron Ring', frameType: 2, identified: true }
+      ]),
+      0
+    )!
+    expect(snapshot.relics).toEqual({ belt: { baseType: 'Cloth Belt', unique: 'Unholy Accomplice', mods: [] } })
+    expect(snapshot.singles).toMatchObject({ belt: 'Unholy Accomplice Cloth Belt', rare: 'Doom Loop Iron Ring' })
   })
 
   it('adds a relic price into the totals when it arrives', () => {
@@ -374,11 +402,19 @@ describe('RelicPricer', () => {
     expect(searches(trade.calls)).toHaveLength(4)
   })
 
-  it('asks once for identical relics and reuses a search shared by different relics', async () => {
+  it('asks once for identical relics, and again for the same modifiers on another base', async () => {
     const { trade, pricer } = pricerFor(() => divines(6, 6, 6))
     await pricer.price(reveal2, 'Covens')
-    await pricer.price({ ...reveal2, baseType: 'Papyrus Relic' }, 'Covens')
+    await pricer.price({ ...reveal2 }, 'Covens')
     expect(searches(trade.calls)).toHaveLength(1)
+    await pricer.price({ ...reveal2, baseType: 'Papyrus Relic' }, 'Covens')
+    expect(searches(trade.calls)).toHaveLength(2)
+  })
+
+  it('prices a unique found on the way by its name', async () => {
+    const { pricer } = pricerFor((_filters, query) => (query.name === 'Unholy Accomplice' && query.type === 'Cloth Belt' ? divines(2, 3, 4) : []))
+    const belt = relic([], { unique: 'Unholy Accomplice', baseType: 'Cloth Belt' })
+    expect(await pricer.price(belt, 'Covens')).toMatchObject({ pricing: 'priced', chaos: 600 })
   })
 
   it('prices a unique by name from whatever offers there are', async () => {

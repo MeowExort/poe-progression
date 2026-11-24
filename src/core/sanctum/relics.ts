@@ -1,13 +1,20 @@
 import valuableJson from '@data/valuable-relic-mods.json'
 import statsJson from '@data/vendor/apt/sanctum-stats.json'
 
-/** What is needed to look a relic up on the trade site. */
+/**
+ * What is needed to look an item up on the trade site: a Sanctum relic, or a unique item of
+ * any kind picked up along the way.
+ */
 export interface RelicInfo {
+  /** "Urn Relic", "Cloth Belt": relics of different base types are different goods. */
   baseType: string
   /** The unique's name, or null for magic and rare relics. */
   unique: string | null
   mods: string[]
 }
+
+/** True for a Sanctum relic, as opposed to a unique piece of gear. */
+export const isRelic = (item: Pick<RelicInfo, 'baseType'>): boolean => item.baseType.endsWith(' Relic')
 
 export interface MatchedStat {
   /** The trade site's id of the modifier. */
@@ -63,8 +70,9 @@ export function matchRelicMods(mods: string[]): { matched: MatchedStat[]; unmatc
 }
 
 /**
- * The search to send to the trade site: relics with these modifiers rolled at least as well,
- * cheapest first. A unique is searched by name instead — its modifiers are always the same.
+ * The search to send to the trade site: relics of the same base type with these modifiers
+ * rolled at least as well, cheapest first. A unique is searched by name instead — its
+ * modifiers are always the same.
  */
 export function relicQuery(relic: RelicInfo, stats: MatchedStat[]): Record<string, unknown> {
   const query: Record<string, unknown> = {
@@ -85,22 +93,22 @@ export function relicQuery(relic: RelicInfo, stats: MatchedStat[]): Record<strin
             }))
       }
     ],
-    filters: { type_filters: { filters: { category: { option: 'sanctum.relic' } } } }
+    // The base type is part of what a relic is: a small "Urn Relic" and a large "Coffer Relic"
+    // with the same modifier do not cost the same.
+    type: relic.baseType
   }
-  if (relic.unique) {
-    query.name = relic.unique
-    query.type = relic.baseType
-  }
+  if (isRelic(relic)) query.filters = { type_filters: { filters: { category: { option: 'sanctum.relic' } } } }
+  if (relic.unique) query.name = relic.unique
   return { query, sort: { price: 'asc' } }
 }
 
 /** Identical relics cost the same: this is what a price is cached under. */
 export function relicSignature(relic: RelicInfo, stats: MatchedStat[]): string {
-  if (relic.unique) return `unique:${relic.unique}`
-  return stats
+  if (relic.unique) return `unique:${relic.unique}|${relic.baseType}`
+  return `${relic.baseType}|${stats
     .map((stat) => `${stat.id}=${stat.value ?? ''}`)
     .sort()
-    .join('&')
+    .join('&')}`
 }
 
 /** How many of the cheapest offers the estimate is taken from. */

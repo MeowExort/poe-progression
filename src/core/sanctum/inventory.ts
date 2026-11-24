@@ -30,6 +30,8 @@ export interface RawLoot {
 
 /** The site's "frame type" of currency items. */
 const CURRENCY_FRAME = 5
+/** The site's "frame type" of unique items. */
+const UNIQUE_FRAME = 3
 
 interface SiteItem {
   id?: unknown
@@ -86,12 +88,13 @@ export function toSnapshot(body: unknown, takenAt: number): InventorySnapshot | 
     } else if (typeof item.id === 'string') {
       singles[item.id] = name
       const baseType = text(item.baseType) || text(item.typeLine)
-      if (baseType.endsWith(' Relic') && item.identified !== false) {
-        relics[item.id] = {
-          baseType,
-          unique: item.rarity === 'Unique' ? text(item.name) || null : null,
-          mods: modLines(item.explicitMods)
-        }
+      const unique = item.rarity === 'Unique' || item.frameType === UNIQUE_FRAME ? text(item.name) || null : null
+      if (item.identified === false) continue
+      if (baseType.endsWith(' Relic')) {
+        relics[item.id] = { baseType, unique, mods: modLines(item.explicitMods) }
+      } else if (unique && baseType) {
+        // A unique found on the way is priced like a unique relic: by its name on the trade site.
+        relics[item.id] = { baseType, unique, mods: [] }
       }
     }
   }

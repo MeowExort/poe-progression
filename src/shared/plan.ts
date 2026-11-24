@@ -208,6 +208,12 @@ export interface GemState {
   state: 'linked' | 'unlinked' | 'loose' | 'missing' | 'later'
   /** Where to get a missing gem, or what "later" waits for; ready to show. */
   hint: string | null
+  /** The level of the gem on the character; null when it is not socketed or the site did not say. */
+  level: number | null
+  /** The level the build has it at, in the set compared. */
+  wanted: number
+  /** True when the build keeps this gem low on purpose and the character's is above that. */
+  overLevelled: boolean
 }
 
 export interface GemGroupCheck {
@@ -223,6 +229,67 @@ export interface GemCheck {
   groups: GemGroupCheck[]
   /** What is wrong, one line each, most important first; empty when all is as the build has it. */
   problems: string[]
+  /**
+   * Gems above the level the build keeps them at. Kept apart from the problems: it matters for
+   * a trigger setup, and means nothing when the build's author just left the level at 1.
+   */
+  levelRemarks: string[]
+  character: string
+  readAt: number
+}
+
+/** An item the character wears, as the site shows it. */
+export interface WornItem {
+  /** The site's name of the slot: "BodyArmour", "Weapon", "Ring2"… */
+  slot: string
+  /** The name of a rare or unique; empty for normal and magic items. */
+  name: string
+  base: string
+  rarity: 'Normal' | 'Magic' | 'Rare' | 'Unique'
+  /** Size of the largest group of linked sockets. */
+  links: number
+  itemLevel: number | null
+  /** Explicit, crafted and fractured modifier lines. */
+  mods: string[]
+}
+
+/** What the character wears, and the uniques it carries in the inventory. */
+export interface CharacterGear {
+  worn: WornItem[]
+  carriedUniques: string[]
+}
+
+/** One modifier of the build's item against the item worn in that slot. */
+export interface GearModCheck {
+  /** The modifier as the build has it. */
+  text: string
+  /** "have": the worn item has it at least as high. "lower": it has it, lower. "absent": it does not. */
+  state: 'have' | 'lower' | 'absent'
+  /** The line of the worn item, when it has the modifier. */
+  worn: string | null
+}
+
+export interface GearSlotCheck {
+  /** The slot as Path of Building names it: "Body Armour", "Ring 1"… */
+  slot: string
+  wanted: { name: string; base: string | null; unique: boolean; links: number }
+  worn: { name: string; base: string; unique: boolean; links: number } | null
+  /**
+   * "match": the build's unique is worn, or a rare with all of the build's modifiers.
+   * "partial": a rare with some of them. "different": nothing in common. "empty": nothing worn.
+   */
+  state: 'match' | 'partial' | 'different' | 'empty'
+  mods: GearModCheck[]
+  /** What else to know: links short of the build's, the unique lying in the inventory. */
+  notes: string[]
+}
+
+/** The build's items compared with what the character wears, slot by slot. */
+export interface GearCheck {
+  /** The item set compared: the one the worn items match best. */
+  setIndex: number
+  setTitle: string
+  slots: GearSlotCheck[]
   character: string
   readAt: number
 }
@@ -405,6 +472,8 @@ export interface PlanView {
   treeReading: TreeReading
   /** The build's gems against what the character has socketed; null until the character was read. */
   gemCheck: GemCheck | null
+  /** The build's items against what the character wears; null until the character was read. */
+  gearCheck: GearCheck | null
   /** Which ascendancy points each Labyrinth is for. */
   labs: LabAdvice[]
   /** Strings for a vendor's search box, for the character's level. */
