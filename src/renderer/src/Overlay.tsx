@@ -2,6 +2,7 @@ import { currentGroup } from '@core/route/groups'
 import type { SessionState } from '@shared/api'
 import type { PlanView } from '@shared/plan'
 import { Feed } from './Feed'
+import { GemLine } from './GemCheck'
 import { formatDuration } from './format'
 import { useNow, usePlan, useSanctum, useSession } from './hooks'
 import { OverlayEdit } from './OverlayEdit'
@@ -44,6 +45,7 @@ function PlanSteps({ plan, session }: { plan: PlanView; session: SessionState })
           </li>
         ))}
       </ol>
+      <GemLine plan={plan} />
       <TreeLine plan={plan} />
       {/* Vendors are in towns: that is where the search strings are of use. */}
       {actual?.areaId?.endsWith('_town') && <VendorSearches searches={plan.vendorSearches} compact />}

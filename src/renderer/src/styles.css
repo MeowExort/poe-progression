@@ -2036,3 +2036,64 @@ button.danger {
   border-color: transparent;
   color: var(--muted);
 }
+
+/* ── Gems of the character against the build ───────────────── */
+
+.gem-check {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gem-check-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px;
+}
+
+.gem-check-group {
+  padding: 8px 10px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.gem-check-group h5 {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.gem-check-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.gem-state i {
+  display: inline-block;
+  width: 16px;
+  font-style: normal;
+}
+
+.gem-state.s-linked i {
+  color: var(--ok);
+}
+
+.gem-state.s-unlinked,
+.gem-state.s-loose,
+.gem-state.s-missing {
+  color: var(--bad);
+}
+
+.gem-state.s-later {
+  color: var(--muted);
+}
+
+.overlay-gems ul {
+  margin: 0;
+  padding-left: 16px;
+  line-height: 1.45;
+  color: var(--bad);
+}

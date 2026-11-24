@@ -358,6 +358,22 @@ export class SanctumService {
     }
   }
 
+  /**
+   * The items of a character as the site sends them, read with the same access as the
+   * inventory. `character` is the one the game log shows; without it, the one the tracker follows.
+   */
+  async readEquipment(character: string | null): Promise<{ character: string; body: unknown } | { error: string }> {
+    const cookie = this.deps.secrets.get(COOKIE)
+    if (!this.account || !cookie) return { error: 'Нужен доступ к сайту: аккаунт и cookie во вкладке Sanctum.' }
+    const name = character || this.character
+    if (!name) return { error: 'Не знаю, какого персонажа читать: зайди им в игру или укажи его во вкладке Sanctum.' }
+    try {
+      return { character: name, body: await this.deps.site.getItems(this.account, name, cookie) }
+    } catch (error) {
+      return { error: error instanceof SiteError ? error.message : 'Запрос к сайту не удался.' }
+    }
+  }
+
   /** The league of the tracked character, once an inventory reading told it. */
   get currentLeague(): string | null {
     return this.league

@@ -1,4 +1,5 @@
 import type { GemSource, PlanView, PobGem } from '@shared/plan'
+import { GemCheckView } from './GemCheck'
 import { SourcingView } from './SourcingView'
 import { TreeAdviceView } from './TreeAdvice'
 
@@ -36,6 +37,8 @@ export function GemsView({ plan }: { plan: PlanView }) {
 
   return (
     <div className="pob-view">
+      <GemCheckView plan={plan} />
+      <h4>Наборы гемов из билда</h4>
       <p className="hint">
         Отметь наборы, гемы которых нужно собрать по ходу актов: шаги «возьми в награду» и «купи» появятся в маршруте
         у нужных квестов. Финальные наборы можно снять, чтобы не покупать лишнего раньше времени.

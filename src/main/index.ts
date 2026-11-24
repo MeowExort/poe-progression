@@ -9,6 +9,7 @@ import type { LogEvent } from '@shared/events'
 import { SANCTUM_IPC, type SanctumAccess } from '@shared/sanctum'
 import { UPDATE_IPC } from '@shared/update'
 import { autoUpdater } from 'electron-updater'
+import { readCharacterGems } from '@core/gems/check'
 import { AREAS } from '@core/route/data'
 import { detectLogPath, loadConfig, readBounds, saveConfig } from './config'
 import { FilterWriter } from './filter'
@@ -208,14 +209,27 @@ const TREE_READ_DELAY_MS = 4000
 const siteWatch = new SiteWatch(TREE_READ_GAP_MS)
 let treeReadTimer: NodeJS.Timeout | null = null
 
-/** Reads the character's passive tree from the site and hands it to the plan. */
+/** Reads the character from the site — its passive tree and its gems — and hands both to the plan. */
 async function readTree(): Promise<void> {
-  if (!plan?.followsTree || !sanctum) return
+  if (!plan || !sanctum || !(plan.followsTree || plan.followsGems)) return
   siteWatch.read(Date.now())
+  const character = session.getState().character?.name ?? null
   plan.setTreeReading({ busy: true, error: null })
-  const result = await sanctum.readPassives(session.getState().character?.name ?? null)
-  if ('error' in result) plan.setTreeReading({ busy: false, error: result.error })
-  else plan.setAllocated(result.character, result.hashes, Date.now())
+  let problem: string | null = null
+  if (plan.followsTree) {
+    const tree = await sanctum.readPassives(character)
+    if ('error' in tree) problem = tree.error
+    else plan.setAllocated(tree.character, tree.hashes, Date.now())
+  }
+  // One failure is enough to know the site will not answer: do not ask it twice.
+  if (!problem && plan.followsGems) {
+    const equipment = await sanctum.readEquipment(character)
+    const gems = 'error' in equipment ? null : readCharacterGems(equipment.body)
+    if ('error' in equipment) problem = equipment.error
+    else if (!gems) problem = 'Сайт не вернул предметы персонажа.'
+    else plan.setCharacterGems(equipment.character, gems, Date.now())
+  }
+  plan.setTreeReading({ busy: false, error: problem })
 }
 
 function scheduleTreeRead(): void {

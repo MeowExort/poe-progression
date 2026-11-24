@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname } from 'node:path'
 import { findBuild, rankBuilds } from '@core/builds'
+import { checkGems } from '@core/gems/check'
 import { parsePobCode, PobError } from '@core/pob/parse'
 import { buildPlanRoute } from '@core/route/build'
 import { requiredGems } from '@core/route/gems'
@@ -15,6 +16,8 @@ import {
   STYLES,
   type Answers,
   type CharacterClass,
+  type CharacterGems,
+  type GemCheck,
   type GemSource,
   type LabAdvice,
   type PlanView,
@@ -38,6 +41,8 @@ interface StoredPlan {
   treeTarget: number | null
   /** The way the player picked for an item or a modifier, by the key of that item or modifier. */
   choices: Record<string, string>
+  /** The character's gems as last read from the site. */
+  gems: { character: string; data: CharacterGems; readAt: number } | null
   /** The character's passive tree as last read from the site. */
   allocated: { character: string; hashes: number[]; readAt: number } | null
 }
@@ -95,6 +100,7 @@ export class PlanStore {
         readAt: this.stored.allocated?.readAt ?? null,
         ...this.reading
       },
+      gemCheck: this.gemCheck(),
       labs: this.labs,
       vendorSearches: this.pob ? vendorSearches(this.pob, this.selectedSets(), this.currentLevel()) : []
     }
@@ -139,6 +145,31 @@ export class PlanStore {
     this.commit()
   }
 
+  /** The character's gems, freshly read from the site. */
+  setCharacterGems(character: string, data: CharacterGems, readAt: number): void {
+    this.stored.gems = { character, data, readAt }
+    this.commit()
+  }
+
+  /** True when the build has gems the character's own could be compared with. */
+  get followsGems(): boolean {
+    return this.pob !== null && this.selectedSets().length > 0
+  }
+
+  private gemCheck(): GemCheck | null {
+    const gems = this.stored.gems
+    if (!this.pob || !gems) return null
+    return checkGems(this.pob, gems.data, {
+      setIndexes: this.selectedSets(),
+      gemSources: this.gemSources,
+      position: this.stored.position,
+      finished: this.steps.length > 0 && this.stored.position >= this.steps.length,
+      level: this.currentLevel(),
+      character: gems.character,
+      readAt: gems.readAt
+    })
+  }
+
   setTreeTarget(index: number | null): void {
     const valid = index !== null && Number.isInteger(index) && index >= 0 && index < (this.pob?.treeSpecs.length ?? 0)
     this.stored.treeTarget = valid ? index : null
@@ -169,6 +200,7 @@ export class PlanStore {
     this.stored.treeTarget = null
     if (!sameCharacter) {
       this.stored.allocated = null
+      this.stored.gems = null
       this.stored.choices = {}
     }
     this.stored.options = { ...this.stored.options, bandit: pob.bandit }
@@ -211,6 +243,7 @@ export class PlanStore {
     this.stored.pobSets = null
     this.stored.treeTarget = null
     this.stored.allocated = null
+    this.stored.gems = null
     this.stored.position = 0
     this.rebuild()
     this.commit()
@@ -328,6 +361,7 @@ function emptyPlan(): StoredPlan {
     position: 0,
     treeTarget: null,
     choices: {},
+    gems: null,
     allocated: null
   }
 }
@@ -348,11 +382,18 @@ function load(file: string): StoredPlan {
       position: typeof raw.position === 'number' ? raw.position : 0,
       treeTarget: Number.isInteger(raw.treeTarget) ? (raw.treeTarget as number) : null,
       choices: readChoices(raw.choices),
+      gems: readGems(raw.gems),
       allocated: readAllocated(raw.allocated)
     }
   } catch {
     return emptyPlan()
   }
+}
+
+function readGems(raw: unknown): StoredPlan['gems'] {
+  const value = raw as { character?: unknown; data?: { socketed?: unknown; loose?: unknown }; readAt?: unknown } | null | undefined
+  if (!value || typeof value.character !== 'string' || !Array.isArray(value.data?.socketed) || !Array.isArray(value.data?.loose)) return null
+  return { character: value.character, data: value.data as CharacterGems, readAt: typeof value.readAt === 'number' ? value.readAt : 0 }
 }
 
 function readChoices(raw: unknown): Record<string, string> {

@@ -180,6 +180,53 @@ export interface LabAdvice {
   nodes: TreePoint[]
 }
 
+/** A gem socketed in the character's gear, as the site shows it. */
+export interface SocketedGem {
+  name: string
+  support: boolean
+  level: number | null
+  /** The item it sits in ("BodyArmour", "Weapon"…) and the group of linked sockets within that item. */
+  slot: string
+  group: number
+}
+
+/** The gems a character has: socketed, and lying in the inventory. */
+export interface CharacterGems {
+  socketed: SocketedGem[]
+  loose: string[]
+}
+
+/** How one gem of the build stands on the character. */
+export interface GemState {
+  name: string
+  support: boolean
+  /**
+   * "linked": socketed and linked as the build wants. "unlinked": socketed, but apart from
+   * the skill it supports. "loose": in the inventory, not socketed. "missing": should be
+   * there by now and is not. "later": not obtainable yet, or the character's level is too low.
+   */
+  state: 'linked' | 'unlinked' | 'loose' | 'missing' | 'later'
+  /** Where to get a missing gem, or what "later" waits for; ready to show. */
+  hint: string | null
+}
+
+export interface GemGroupCheck {
+  label: string
+  gems: GemState[]
+}
+
+/** The build's gems compared with what the character has socketed. */
+export interface GemCheck {
+  /** The skill set compared: the one of the selected sets the character's gems match best. */
+  setIndex: number
+  setTitle: string
+  groups: GemGroupCheck[]
+  /** What is wrong, one line each, most important first; empty when all is as the build has it. */
+  problems: string[]
+  character: string
+  readAt: number
+}
+
 /** A string to paste into a vendor's search box. */
 export interface VendorSearch {
   label: string
@@ -356,6 +403,8 @@ export interface PlanView {
   /** The tree to follow, as an index into `pob.treeSpecs`; null picks the first unfinished one. */
   treeTarget: number | null
   treeReading: TreeReading
+  /** The build's gems against what the character has socketed; null until the character was read. */
+  gemCheck: GemCheck | null
   /** Which ascendancy points each Labyrinth is for. */
   labs: LabAdvice[]
   /** Strings for a vendor's search box, for the character's level. */

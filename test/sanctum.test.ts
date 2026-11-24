@@ -652,6 +652,15 @@ describe('SanctumService', () => {
     expect(asked.at(-1)).toBe('get-passive-skills Tester')
   })
 
+  it('reads the items of a character for the gem check', async () => {
+    const { service, asked } = setup([siteAnswer([]), siteAnswer([stack('Chaos Orb', 1)])])
+    expect(await service.readEquipment('Leveler')).toEqual({ error: expect.stringMatching(/Нужен доступ/) })
+    await service.saveAccess(access)
+    const result = await service.readEquipment('Leveler')
+    expect(result).toMatchObject({ character: 'Leveler', body: { items: expect.any(Array) } })
+    expect(asked.at(-1)).toBe('get-items Leveler')
+  })
+
   it('deletes a finished run from the history and the statistics, for good', async () => {
     const { service } = setup([])
     playFloor(service, 1, 0)
