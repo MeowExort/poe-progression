@@ -108,7 +108,7 @@ export function TreeAdviceView({ plan }: { plan: PlanView }) {
         {reading.error
           ? `Дерево персонажа не прочитано: ${reading.error} Пока порядок показан от старта класса.`
           : reading.readAt
-            ? `Дерево персонажа ${reading.character ?? ''} прочитано ${formatDateTime(reading.readAt)}. Обновляется само после левел-апа и при входе в город.`
+            ? `Дерево персонажа ${reading.character ?? ''} прочитано ${formatDateTime(reading.readAt)}. После левел-апа или города обновится при следующей смене зоны: раньше сайт изменений не видит.`
             : 'Дерево персонажа ещё не прочитано: порядок показан от старта класса.'}
       </p>
 

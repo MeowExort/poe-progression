@@ -22,6 +22,7 @@ import { RelicPricer } from './relic-pricer'
 import { SanctumService } from './sanctum'
 import { SecretStore } from './secrets'
 import { Session } from './session'
+import { SiteWatch } from './site-watch'
 import { TradeClient } from './trade'
 import { Updater } from './updater'
 
@@ -181,12 +182,12 @@ function followLog(path: string): void {
         plan?.enterArea(event.areaId)
         sanctum?.onArea(event.ts, event.areaId, event.seed)
         tracked = true
-        // Points are usually spent in town: a good moment to look at the tree again.
-        if (AREAS[event.areaId]?.is_town_area) scheduleTreeRead()
+        // The site only sees a level-up or a point spent in town once the area changes.
+        if (siteWatch.areaChanged(isTownArea(event.areaId), Date.now())) scheduleTreeRead()
       } else if (event.type === 'level_up') {
         const character = session.getState().character
         if (character) plan?.setLevel(character.level)
-        scheduleTreeRead()
+        siteWatch.levelUp()
       } else if (event.type === 'dialogue') {
         sanctum?.onDialogue(event.ts, event.speaker, event.text)
         tracked = true
@@ -202,16 +203,15 @@ function followLog(path: string): void {
 
 /** The character's passive tree is read again at most this often, unless the player asks. */
 const TREE_READ_GAP_MS = 60_000
-/** The site learns of a level-up or a spent point a moment after the game does. */
+/** The site takes a moment to catch up with an area change. */
 const TREE_READ_DELAY_MS = 4000
-let treeReadAt = 0
+const siteWatch = new SiteWatch(TREE_READ_GAP_MS)
 let treeReadTimer: NodeJS.Timeout | null = null
 
 /** Reads the character's passive tree from the site and hands it to the plan. */
-async function readTree(force: boolean): Promise<void> {
+async function readTree(): Promise<void> {
   if (!plan?.followsTree || !sanctum) return
-  if (!force && Date.now() - treeReadAt < TREE_READ_GAP_MS) return
-  treeReadAt = Date.now()
+  siteWatch.read(Date.now())
   plan.setTreeReading({ busy: true, error: null })
   const result = await sanctum.readPassives(session.getState().character?.name ?? null)
   if ('error' in result) plan.setTreeReading({ busy: false, error: result.error })
@@ -220,7 +220,12 @@ async function readTree(force: boolean): Promise<void> {
 
 function scheduleTreeRead(): void {
   if (treeReadTimer) clearTimeout(treeReadTimer)
-  treeReadTimer = setTimeout(() => void readTree(false), TREE_READ_DELAY_MS)
+  treeReadTimer = setTimeout(() => void readTree(), TREE_READ_DELAY_MS)
+}
+
+/** Towns and hideouts: where passive points are spent and gems are swapped. */
+function isTownArea(areaId: string): boolean {
+  return AREAS[areaId]?.is_town_area === true || /hideout/i.test(areaId)
 }
 
 function applyHotkey(): void {
@@ -288,7 +293,7 @@ function registerIpc(): void {
   ipcMain.handle(PLAN_IPC.importPob, (_event, code: string) => {
     if (typeof code !== 'string') return 'Пустой код.'
     const problem = plan?.importPob(code) ?? null
-    if (!problem) void readTree(true)
+    if (!problem) void readTree()
     return problem
   })
   ipcMain.handle(PLAN_IPC.clearPob, () => plan?.clearPob())
@@ -301,7 +306,7 @@ function registerIpc(): void {
     if (typeof text === 'string') clipboard.writeText(text.slice(0, 2000))
   })
   ipcMain.handle(PLAN_IPC.chooseWay, (_event, key: string, wayId: string | null) => plan?.chooseWay(key, wayId))
-  ipcMain.handle(PLAN_IPC.refreshTree, () => readTree(true))
+  ipcMain.handle(PLAN_IPC.refreshTree, () => readTree())
   ipcMain.handle(PLAN_IPC.setTreeTarget, (_event, index: number | null) => plan?.setTreeTarget(index))
 
   ipcMain.handle(FILTER_IPC.get, () => filter?.view())
@@ -451,7 +456,7 @@ if (!app.requestSingleInstanceLock()) {
     setTimeout(() => {
       const character = session.getState().character
       if (character) plan?.setLevel(character.level)
-      void readTree(true)
+      void readTree()
     }, TREE_READ_DELAY_MS)
   })
 
