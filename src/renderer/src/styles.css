@@ -2141,3 +2141,9 @@ small.bad,
 p.bad {
   color: var(--bad);
 }
+
+.overlay-tree .tree-mastery {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}

@@ -26,10 +26,18 @@ function PointName({ point }: { point: TreePoint }) {
   )
 }
 
+/** Which of a mastery's effects to pick: the one the build has, or a note that it has none. */
+function masteryEffect(point: TreePoint): string {
+  return point.stats.length ? point.stats.join('; ') : 'какой эффект брать, в билде не указано — смотри Path of Building'
+}
+
 /** The next passive points as one line: for the overlay, where room is short. */
 export function TreeLine({ plan, limit = 6 }: { plan: PlanView; limit?: number }) {
   const tree = plan.tree
   if (!tree || !tree.next.length) return null
+  const shown = tree.next.slice(0, limit)
+  // A mastery offers several effects: its name alone does not say which one the build takes.
+  const masteries = shown.filter((point) => point.kind === 'mastery')
   return (
     <section className="overlay-tree">
       <h5>
@@ -37,13 +45,18 @@ export function TreeLine({ plan, limit = 6 }: { plan: PlanView; limit?: number }
         {!tree.known && ' · дерево персонажа не прочитано'}
       </h5>
       <p>
-        {tree.next.slice(0, limit).map((point, i) => (
+        {shown.map((point, i) => (
           <span key={point.id}>
             {i > 0 && <span className="muted"> → </span>}
             <PointName point={point} />
           </span>
         ))}
       </p>
+      {masteries.map((point) => (
+        <p key={point.id} className="tree-mastery">
+          <PointName point={point} />: {masteryEffect(point)}
+        </p>
+      ))}
     </section>
   )
 }
@@ -118,7 +131,11 @@ export function TreeAdviceView({ plan }: { plan: PlanView }) {
             <li key={point.id}>
               <PointName point={point} />
               {KIND_LABEL[point.kind] && <span className="muted"> · {KIND_LABEL[point.kind]}</span>}
-              {point.stats.length > 0 && <small className="muted">{point.stats.join('; ')}</small>}
+              {point.kind === 'mastery' ? (
+                <small className="muted">Эффект: {masteryEffect(point)}</small>
+              ) : (
+                point.stats.length > 0 && <small className="muted">{point.stats.join('; ')}</small>
+              )}
             </li>
           ))}
         </ol>
