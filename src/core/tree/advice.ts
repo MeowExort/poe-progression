@@ -35,6 +35,9 @@ export function orderNodes(
     while (frontier.length) {
       const next: number[] = []
       for (const id of frontier) {
+        // A mastery is a dead end: it is taken from a notable of its cluster and leads nowhere.
+        // Walking on through it would "reach" the cluster's other notables without their paths.
+        if (tree.nodes[id].kind === 'mastery') continue
         for (const link of tree.nodes[id].links) {
           if (!allowed.has(link) || steps.has(link)) continue
           steps.set(link, steps.get(id)! + 1)

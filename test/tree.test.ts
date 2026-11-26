@@ -93,6 +93,28 @@ describe('orderNodes', () => {
     expect(result.unreachable).toEqual([9, 10])
   })
 
+  it('does not walk through a mastery to the other notables of its cluster', () => {
+    // Two notables share a mastery; the second one hangs off the first by two travel nodes.
+    const cluster = sample()
+    const add = (id: number, kind: TreeNode['kind'], name: string): void => {
+      cluster.nodes[id] = { name, kind, links: [] }
+    }
+    const link = (a: number, b: number): void => {
+      cluster.nodes[a].links.push(b)
+      cluster.nodes[b].links.push(a)
+    }
+    add(40, 'small', 'Burning Damage')
+    add(41, 'small', 'Burning Damage')
+    add(42, 'notable', 'Breath of Flames')
+    for (const [a, b] of [[4, 40], [40, 41], [41, 42], [5, 42]]) link(a, b)
+    // The character has the first notable and the mastery: the second notable is still two points away.
+    expect(orderNodes([1, 2, 3, 4, 5, 40, 41, 42], [1, 2, 3, 4, 5], cluster).sequence).toEqual([40, 41, 42])
+    // And a mastery not yet taken is no shortcut either.
+    expect(orderNodes([1, 2, 3, 4, 5, 40, 41, 42], [1, 2, 3, 4], cluster).sequence).toEqual([5, 40, 41, 42])
+    // Without its own path the notable cannot be reached at all.
+    expect(orderNodes([1, 2, 3, 4, 5, 42], [1, 2, 3, 4, 5], cluster)).toEqual({ sequence: [], unreachable: [42] })
+  })
+
   it('takes leftover travel nodes last and ignores ids the tree does not know', () => {
     expect(orderNodes([2, 3, 555], [1], tree)).toEqual({ sequence: [2, 3], unreachable: [] })
   })
