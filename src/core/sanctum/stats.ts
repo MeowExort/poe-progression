@@ -40,6 +40,9 @@ export function computeTotals(runs: RunView[]): SanctumTotals {
   const completed = ended.filter((run) => run.outcome === 'completed')
   const finishedFloors = ended.flatMap((run) => run.floors.filter((floor) => floor.done))
   const loot = ended.reduce<LootValue | null>((sum, run) => mergeLoot(sum, run.loot), null) ?? EMPTY_LOOT
+  // Of equals the earlier run keeps the record.
+  const richest = ended.reduce<RunView | null>((best, run) => (run.loot.chaos > (best?.loot.chaos ?? 0) ? run : best), null)
+  const fastest = completed.reduce<RunView | null>((best, run) => (!best || run.durationMs < best.durationMs ? run : best), null)
 
   return {
     runs: ended.length,
@@ -54,7 +57,9 @@ export function computeTotals(runs: RunView[]): SanctumTotals {
     chaos: loot.chaos,
     divine: loot.divine,
     gold: loot.gold,
-    currency: currencyCounts(loot)
+    currency: currencyCounts(loot),
+    richest: richest && { runId: richest.id, startedAt: richest.startedAt, chaos: richest.loot.chaos, divine: richest.loot.divine },
+    fastest: fastest && { runId: fastest.id, startedAt: fastest.startedAt, durationMs: fastest.durationMs }
   }
 }
 

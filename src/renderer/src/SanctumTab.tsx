@@ -343,6 +343,20 @@ function Stats({ view }: { view: SanctumView }) {
           />
         ))}
         <Tile label="Золото" value={number(totals.gold)} note={`в Sanctum: ${time(totals.sanctumMs)}`} />
+        <Tile
+          label="Самый лутовой забег"
+          value={totals.richest ? `${show(totals.richest.chaos)} c` : '—'}
+          note={
+            totals.richest
+              ? `${totals.richest.divine != null ? `${show(totals.richest.divine, 2)} div · ` : ''}${formatDateTime(totals.richest.startedAt)}`
+              : 'лута пока не было'
+          }
+        />
+        <Tile
+          label="Самый быстрый забег"
+          value={totals.fastest ? time(totals.fastest.durationMs) : '—'}
+          note={totals.fastest ? `${formatDateTime(totals.fastest.startedAt)} · из пройденных` : 'пройденных забегов пока нет'}
+        />
       </dl>
     </section>
   )
@@ -431,6 +445,57 @@ function Run({ run }: { run: RunView }) {
   )
 }
 
+type RunOrder = 'date' | 'time' | 'loot'
+const ORDER_LABEL: Record<RunOrder, string> = { date: 'По дате', time: 'По времени', loot: 'По луту' }
+/** The direction a column starts in: newest, fastest and richest first. */
+const STARTS_DESCENDING: Record<RunOrder, boolean> = { date: true, time: false, loot: true }
+const ORDER_VALUE: Record<RunOrder, (run: RunView) => number> = {
+  date: (run) => run.startedAt,
+  time: (run) => run.durationMs,
+  loot: (run) => run.loot.chaos
+}
+
+/** The finished runs, in the order the player picks; a second click on the same order reverses it. */
+function RunList({ runs }: { runs: RunView[] }) {
+  const [order, setOrder] = useState<RunOrder>('date')
+  const [descending, setDescending] = useState(true)
+  const pick = (next: RunOrder): void => {
+    if (next === order) setDescending(!descending)
+    else {
+      setOrder(next)
+      setDescending(STARTS_DESCENDING[next])
+    }
+  }
+  const value = ORDER_VALUE[order]
+  // Equal runs keep the newest first.
+  const sorted = [...runs].sort((a, b) => (descending ? value(b) - value(a) : value(a) - value(b)) || b.startedAt - a.startedAt)
+  return (
+    <>
+      <div className="list-head">
+        <h4>Забеги</h4>
+        {runs.length > 1 && (
+          <nav className="acts">
+            {(Object.keys(ORDER_LABEL) as RunOrder[]).map((key) => (
+              <button
+                key={key}
+                className={key === order ? 'active' : ''}
+                onClick={() => pick(key)}
+                title={key === order ? 'Нажми ещё раз, чтобы развернуть порядок' : undefined}
+              >
+                {ORDER_LABEL[key]}
+                {key === order && (descending ? ' ↓' : ' ↑')}
+              </button>
+            ))}
+          </nav>
+        )}
+      </div>
+      {sorted.map((run) => (
+        <Run key={run.id} run={run} />
+      ))}
+    </>
+  )
+}
+
 export function SanctumTab({ view, session }: { view: SanctumView; session: SessionState }) {
   return (
     <div className="plan">
@@ -474,10 +539,8 @@ export function SanctumTab({ view, session }: { view: SanctumView; session: Sess
         <Stats view={view} />
         <ActiveRun view={view} />
         <section>
-          <h4>Забеги</h4>
-          {view.runs.length ? (
-            view.runs.map((run) => <Run key={run.id} run={run} />)
-          ) : (
+          <RunList runs={view.runs} />
+          {view.runs.length ? null : (
             <p className="empty">
               Пока ни одного. Забег начнётся сам, когда ты войдёшь на первый этаж Sanctum при запущенном приложении.
             </p>

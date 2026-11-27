@@ -104,6 +104,10 @@ export interface SanctumTotals {
   gold: number
   /** How many of each currency item were picked up, by name. */
   currency: Record<string, number>
+  /** The run with the most valuable loot; null when no run brought any. */
+  richest: { runId: number; startedAt: number; chaos: number; divine: number | null } | null
+  /** The shortest completed run: a failed one is short for the wrong reason. */
+  fastest: { runId: number; startedAt: number; durationMs: number } | null
 }
 
 /** An item the player chose to keep an eye on. */
