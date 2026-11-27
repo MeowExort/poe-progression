@@ -1,6 +1,6 @@
 {
   "name": "poe-progression",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "SSF progression planner and tracker for Path of Exile with an in-game overlay",
   "private": true,
   "main": "./out/main/index.js",
